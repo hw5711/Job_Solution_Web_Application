@@ -7,7 +7,7 @@ mongoose.set('useFindAndModify', false);
 // const Textbook = require("./models/textbook");
 // const Activities = require("./models/activities");
 
-const userRoutes = require("./routes/user.server.routes");
+// const userRoutes = require("./routes/user.server.routes");
 // const activitiesRoutes = require("./routes/activities.server.routes");
 // const textbookRoutes = require("./routes/textbook.server.routes");
 // const accountRoutes = require("./routes/account.server.routes");
@@ -66,7 +66,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/user", userRoutes);
+// app.use("/user", userRoutes);
 // app.use("/activities", activitiesRoutes);
 // app.use("/textbook", textbookRoutes);
 // app.use("/account", accountRoutes);
