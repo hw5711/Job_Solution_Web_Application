@@ -1,4 +1,6 @@
 
+# This is a HR web project will use puppeteer for testing. 
+
 -> reference link: https://www.djamware.com/post/5a0673c880aca7739224ee21/mean-stack-angular-5-crud-web-application-example
 
 -> If you don't have Node.js and Node package management on your computer, command to check the node version: node -v . command to check the Node package management: npm -v. I use Node.js v10.15.3 and NPM 6.4.1 for this project.
