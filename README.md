@@ -7,6 +7,9 @@
 
 2. npm install --save express body-parser morgan body-parser serve-favicon
 
-3. install nodemon for monitor backend,if denied by your system, use sudo in the front, command: npm install -g nodemon
+3. npm install --save mongoose
+
+4. install nodemon for monitor backend,if denied by your system, use sudo in the front, command: npm install -g nodemon
+
 
 
