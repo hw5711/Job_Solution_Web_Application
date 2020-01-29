@@ -23,5 +23,15 @@
 
 6. The Mongo data is connected, check(username:huanwu5711@gmail.com, ask me for password) : https://cloud.mongodb.com/user?gclid=CjwKCAiA98TxBRBtEiwAVRLqu18HVh9EF8KHD2sN7hKSsXjUKHCAp6erVq4q5YHEZY5zQFjCdTFKaBoCnz4QAvD_BwE#/atlas/login?utm_source=google&utm_campaign=gs_footprint_row_search_brand-preregnopt-funnel_atlas_desktop&utm_term=mongodb%20atlas&utm_medium=cpc_paid_search&utm_ad=e&_bt=356246894377&_bn=g
 
+7. npm install --save jquery
+
+8. npm install --save popper.js
+
+9. npm install ngx-bootstrap --save
+
+10. npm install bootstrap
+
+
+
 
 
