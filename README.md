@@ -1,7 +1,11 @@
 
-# This is a HR web project will use puppeteer for testing. 
+# This is a HR web project by using MEAN stack and we will use puppeteer for testing. Frontend is Angular5, backend is Express which is one of the Node.js packages, database is mongodb cloud.
 
--> reference link: https://www.djamware.com/post/5a0673c880aca7739224ee21/mean-stack-angular-5-crud-web-application-example
+-> Reference of MEAN full-stack: https://www.djamware.com/post/5a0673c880aca7739224ee21/mean-stack-angular-5-crud-web-application-example
+
+-> Full course of Udemy: https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/learn/lecture/10536910?start=0#overview
+
+-> Will also use jqurey and bootstrap in the front end. https://www.youtube.com/watch?v=NaUs1lLcjWM
 
 -> If you don't have Node.js and Node package management on your computer, command to check the node version: node -v . command to check the Node package management: npm -v. I use Node.js v10.15.3 and NPM 6.4.1 for this project.
 
