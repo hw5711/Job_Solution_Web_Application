@@ -11,7 +11,7 @@
 
 -> Install Angular package : npm install -g @angular/cli
 
-1. Initial a new project called hrweb, web browser: http://localhost:4200
+1. Initial a new project called hrweb, web browser: http://localhost:4200 or http://localhost:4200/home
    To run the frontend: ng serve
 
 2. npm install --save express body-parser morgan body-parser serve-favicon
