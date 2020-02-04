@@ -51,39 +51,33 @@ hello
 
 
 <div id="container_demo">
-    <!-- <a class="hiddenanchor" id="toregister"></a>
-    <a class="hiddenanchor" id="tologin"></a> -->
     <div id="wrapper">
         <div id="register">
             <form class="form-signin">
                 <h1 class="h3 mb-3 font-weight-normal"> Sign up </h1>
-                <p>
-                    <label for="usernamesignup" class="sr-only" data-icon="u">Your username</label>
-                    <input class="form-control" id="usernamesignup" name="usernamesignup" required="required" type="text"
-                        placeholder="mysuperusername690" />
-                </p>
-                <p>
-                    <label for="emailsignup" class="sr-only" data-icon="e"> Your email</label>
+                    <p class="card-text" style="margin-left: -27em; margin-bottom: -0.1em;"> HR or Candidate ?</p>
+                    <select class="custom-select d-block w-100" id="state" required>
+                        <option value="">Choose...</option>
+                        <option>HR</option>
+                        <option>Candidate</option>
+                    </select>
+                    
+                    <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: -0.1em;">Email</p>
                     <input class="form-control" id="emailsignup" name="emailsignup" required="required" type="email"
                         placeholder="mysupermail@mail.com" />
-                </p>
-                <p>
-                    <label for="passwordsignup" class="sr-only" data-icon="p">Your password </label>
+                    <p class="card-text" style="margin-left: -31em; margin-top: 1em; margin-bottom: -0.1em;"> Password</p>
                     <input class="form-control" id="passwordsignup" name="passwordsignup" required="required" type="password"
                         placeholder="eg. X8df!90EO" />
-                </p>
-                <p>
-                    <label for="passwordsignup_confirm" class="sr-only" data-icon="p">Please confirm your password
-                    </label>
+                    <p class="card-text" style="margin-left: -27.5em; margin-top: 1em; margin-bottom: -0.1em;">Confirm Password</p>
                     <input class="form-control" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"
                         placeholder="eg. X8df!90EO" />
-                </p>
+                <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: -0.1em;"></p>
                 <p class="signin button">
                     <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign up" />
                 </p>
                 <p class="mt-5 mb-3 text-muted">
                     Already a member ?
-                    <a href="#tologin" class="to_register"> Go and log in </a>
+                    <a href="#" routerLink="/login" class="to_register"> Go and log in </a>
                 </p>
             </form>
         </div>
