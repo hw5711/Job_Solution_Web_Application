@@ -36,6 +36,8 @@
    
 11. npm install jsonwebtoken
 
+12. npm install nodemailer
+
 
 
 
