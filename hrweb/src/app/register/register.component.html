@@ -49,7 +49,6 @@ hello
 </head>
 <body class="text-center" style="width: 40%; margin-left: 25em; margin-top: 3em">
 
-
 <div id="container_demo">
     <div id="wrapper">
         <div id="register">
@@ -57,23 +56,23 @@ hello
                 <h1 class="h3 mb-3 font-weight-normal"> Sign up </h1>
                     <p class="card-text" style="margin-left: -27em; margin-bottom: -0.1em;"> HR or Candidate ?</p>
                     <select class="custom-select d-block w-100" id="state" required>
-                        <option value="">Choose...</option>
-                        <option>HR</option>
-                        <option>Candidate</option>
+                        <option *ngFor="let choice of choices"  [value]="choice" >
+                            {{choice}}
+                        </option>
                     </select>
                     
                     <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: -0.1em;">Email</p>
-                    <input class="form-control" id="emailsignup" name="emailsignup" required="required" type="email"
+                    <input   [(ngModel)]="email" class="form-control" id="emailsignup" name="emailsignup" required="required" type="email"
                         placeholder="mysupermail@mail.com" />
                     <p class="card-text" style="margin-left: -31em; margin-top: 1em; margin-bottom: -0.1em;"> Password</p>
-                    <input class="form-control" id="passwordsignup" name="passwordsignup" required="required" type="password"
+                    <input  [(ngModel)]="password1" class="form-control" id="passwordsignup" name="passwordsignup" required="required" type="password"
                         placeholder="eg. X8df!90EO" />
                     <p class="card-text" style="margin-left: -27.5em; margin-top: 1em; margin-bottom: -0.1em;">Confirm Password</p>
-                    <input class="form-control" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"
+                    <input  [(ngModel)]="password2" class="form-control" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"
                         placeholder="eg. X8df!90EO" />
                 <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: -0.1em;"></p>
                 <p class="signin button">
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign up" />
+                    <button class="btn btn-lg btn-primary btn-block"(click)="register()">Sign Up</button>
                 </p>
                 <p class="mt-5 mb-3 text-muted">
                     Already a member ?

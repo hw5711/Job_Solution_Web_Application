@@ -7,43 +7,21 @@ const nodemailer = require('nodemailer');
 
 const User = require("../models/user");
 //when create an account, post a new account with userID
-const Account = require("../models/account");
+// const Account = require("../models/account");
 
 const router = express.Router();
 
 router.post("/register", (req, res, next) => {
+    console.log(req.body.emial, req.body.password, req.body.role);
     bcrypt.hash(req.body.password, 10).then(hash => {
         const user = new User({
             email: req.body.email,
-            password: hash
+            password: hash,
+            role: req.body.role
         });
-
+        console.log("in the serverside");
         user.save()
             .then(result => {
-                //console.log("after create an account , server result is :", result._id);
-
-                // const account = new Account({
-                //     firstName: "",
-                //     lastName: "",
-                //     address: "",
-                //     city: "",
-                //     state: "",
-                //     zipcode: "",
-                //     email: "", //user can set another email
-                //     loginName: req.body.email, //suppose login name is email
-                //     password: "",
-                //     password2: "",
-                //     creator: result._id
-                // });
-                // // console.log("test: ", account);
-                // account.save()
-                //     .then(result => {
-                //         console.log("account created with new user");
-                //     })
-                //     .catch(err => {
-                //         console.log("account created faild");
-                //     });
-
                 res.status(201).json({
                     message: "User created!",
                     result: result,

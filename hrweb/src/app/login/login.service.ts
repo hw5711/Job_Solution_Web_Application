@@ -33,28 +33,29 @@ export class LoginService {
 
     createUser(email: string, password: string, role: string) {
         const authData: LoginData = { email: email, password: password , role: role};
+        console.log("got message from ");
         this.http
-            .post("http://localhost:3000/user/register", authData)
+            .post("http://localhost:3000/register", authData)
             .subscribe(response => {
                 console.log("show detail of response :", response);
                 this.router.navigate(["/login"]);
             });
     }
 
-    retrivePassword(email: string) {
-        let req = { email: email };
-        this.http
-            .post("http://localhost:3000/user/retrive", req)
-            .subscribe(response => {
-                console.log("show detail of response :", response);
-            });
-    }
+    // retrivePassword(email: string) {
+    //     let req = { email: email };
+    //     this.http
+    //         .post("http://localhost:3000/user/retrive", req)
+    //         .subscribe(response => {
+    //             console.log("show detail of response :", response);
+    //         });
+    // }
 
     login(email: string, password: string, role: string) {
         const authData: LoginData = { email: email, password: password, role: role };
         this.http
             .post<{ token: string; expiresIn: number, userId: string }>(
-                "http://localhost:3000/user/loginacc",
+                "http://localhost:3000/login",
                 authData
             )
             .subscribe(response => {
