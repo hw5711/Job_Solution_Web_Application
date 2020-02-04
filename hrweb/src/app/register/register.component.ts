@@ -11,6 +11,9 @@ export class RegisterComponent implements OnInit {
   password1 : string;
   password2: string;
   role : string;
+  choice: any;
+  same: boolean;
+  selectedChoice: string;
   choices = [
     'HR',
     'Candidate',
@@ -23,9 +26,11 @@ export class RegisterComponent implements OnInit {
     //   return;
     }
   register(){
+
     if(this.password1 == this.password2){
+      this.role = this.choice;
       this.authService.createUser(this.email, this.password1, this.role);
-      console.log("register!", this.password1, this.role);
+      // console.log("register!",this.email, this.password1, this.role);
     }
   }
 

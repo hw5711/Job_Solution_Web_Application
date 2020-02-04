@@ -55,8 +55,8 @@ hello
             <form class="form-signin">
                 <h1 class="h3 mb-3 font-weight-normal"> Sign up </h1>
                     <p class="card-text" style="margin-left: -27em; margin-bottom: -0.1em;"> HR or Candidate ?</p>
-                    <select class="custom-select d-block w-100" id="state" required>
-                        <option *ngFor="let choice of choices"  [value]="choice" >
+                    <select [(ngModel)]="choice" [ngModelOptions]="{standalone: true}" class="custom-select d-block w-100" id="state" required>
+                        <option *ngFor="let choice of choices"  [(value)]="choice" >
                             {{choice}}
                         </option>
                     </select>
@@ -71,8 +71,9 @@ hello
                     <input  [(ngModel)]="password2" class="form-control" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"
                         placeholder="eg. X8df!90EO" />
                 <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: -0.1em;"></p>
-                <p class="signin button">
-                    <button class="btn btn-lg btn-primary btn-block"(click)="register()">Sign Up</button>
+                <p class="signin button" *ngIf = "password1 != password2" >
+                    <!-- <ngb-alert (close)="close(alert)" (click)="same = false">{{ "password be same" }}</ngb-alert> -->
+                    <button *ngIf = "same == true" class="btn btn-lg btn-primary btn-block"(click)="register()">Sign Up</button>
                 </p>
                 <p class="mt-5 mb-3 text-muted">
                     Already a member ?

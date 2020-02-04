@@ -13,12 +13,13 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   role: string;
-
+  choice: any;
+  selectedChoice: string;
   choices = [
     'HR',
     'Candidate',
   ];
-  
+
   constructor(private http: HttpClient,
     private loginService: LoginService,
     public route: ActivatedRoute) { }
@@ -29,6 +30,9 @@ export class LoginComponent implements OnInit {
     }
     // this.isLoading = true;
     login(){
+    
+    this.role = this.choice;
+    // console.log("entered : ", this.email, this.password, this.role); 
     this.loginService.login(this.email, this.password, this.role);
   }
 

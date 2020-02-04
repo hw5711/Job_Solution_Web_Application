@@ -12,14 +12,13 @@ const User = require("../models/user");
 const router = express.Router();
 
 router.post("/register", (req, res, next) => {
-    console.log(req.body.emial, req.body.password, req.body.role);
+    console.log("register info: ",req.body.email, req.body.password, req.body.role);
     bcrypt.hash(req.body.password, 10).then(hash => {
         const user = new User({
             email: req.body.email,
             password: hash,
             role: req.body.role
         });
-        console.log("in the serverside");
         user.save()
             .then(result => {
                 res.status(201).json({

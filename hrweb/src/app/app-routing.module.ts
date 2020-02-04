@@ -9,7 +9,7 @@ import { FormComponent } from './form/form.component';
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "home", component: HomeComponent },
+  { path: "", component: HomeComponent },
   { path: "form", component: FormComponent }
 ];
 
