@@ -33,6 +33,9 @@
 
 10. To run the backend, open another terminal window and go the current file dir, 
    command: nodemon server
+   
+11. npm install jsonwebtoken
+
 
 
 
