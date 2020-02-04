@@ -17,7 +17,7 @@
  
 2. npm install --save express body-parser morgan body-parser serve-favicon
 
-3. npm install --save mongoose
+3. npm install --save mongoose mongoose-unique-validator
 
 4. Install nodemon for monitor backend,if denied by your system, use sudo in the front, command: npm install -g nodemon
 
@@ -34,7 +34,7 @@
 10. To run the backend, open another terminal window and go the current file dir, 
    command: nodemon server
    
-11. npm install jsonwebtoken bcrypt rxjs
+11. npm install jsonwebtoken bcrypt rxjs dotenv
 
 12. npm install nodemailer
 
