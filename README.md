@@ -38,7 +38,7 @@
 
 12. npm install nodemailer
 
-13. npm install http-status-codes --save
+13. npm install http-status-codes ng2-toastr --save
 
 
 
