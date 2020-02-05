@@ -1,11 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { Subject } from "rxjs";
-import { Observable } from 'rxjs';
+import { Subject, throwError } from "rxjs";
 import { LoginData } from "./login_data.model";
-
-const BASEURL = 'http://localhost:3000/retrive';
+import { Observable  } from 'rxjs/Observable';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({ providedIn: "root" })
 export class LoginService {
@@ -33,7 +31,7 @@ export class LoginService {
         return this.authStatusListener.asObservable();
     }
 
-    createUser(email: string, password: string, role: string) {
+    createUser(email: string, password: string, role: string){
         const authData: LoginData = { email: email, password: password , role: role};
         console.log("got message from ");
         this.http
@@ -43,15 +41,6 @@ export class LoginService {
                 this.router.navigate(["/login"]);
             });
     }
-
-    // retrivePassword(email: string) {
-    //     let req = { email: email };
-    //     this.http
-    //         .post("http://localhost:3000/user/retrive", req)
-    //         .subscribe(response => {
-    //             console.log("show detail of response :", response);
-    //         });
-    // }
 
     login(email: string, password: string, role: string) {
         const authData: LoginData = { email: email, password: password, role: role };
@@ -73,7 +62,7 @@ export class LoginService {
                     const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
                     console.log(expirationDate);
                     this.saveAuthData(token, expirationDate, this.userId);
-                    this.router.navigate(["/home"]);
+                    this.router.navigate(["/"]);
                 }
             });
     }
@@ -138,14 +127,14 @@ export class LoginService {
     }
 
     requestReset(body): Observable<any> {
-        return this.http.post(`${BASEURL}/req-reset-password`, body);
+        return this.http.post('http://localhost:3000/reset', body);
     }
 
     newPassword(body): Observable<any> {
-        return this.http.post(`${BASEURL}/new-password`, body);
+        return this.http.post('http://localhost:3000/new-password', body);
     }
 
     ValidPasswordToken(body): Observable<any> {
-        return this.http.post(`${BASEURL}/valid-password-token`, body);
+        return this.http.post('http://localhost:3000/valid-password-token', body);
     }
 }

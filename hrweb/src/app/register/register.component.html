@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-hello
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,11 +11,9 @@ hello
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 
-    <!-- Bootstrap core CSS -->
     <link href="/docs/4.4/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -44,8 +40,6 @@ hello
             }
         }
     </style>
-    <!-- Custom styles for this template -->
-    <!-- <link href="signin.css" rel="stylesheet"> -->
 </head>
 <body class="text-center" style="width: 40%; margin-left: 25em; margin-top: 3em">
 
@@ -71,18 +65,16 @@ hello
                     <input  [(ngModel)]="password2" class="form-control" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"
                         placeholder="eg. X8df!90EO" />
                 <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: -0.1em;"></p>
-                <p class="signin button" *ngIf = "password1 != password2" >
-                    <!-- <ngb-alert (close)="close(alert)" (click)="same = false">{{ "password be same" }}</ngb-alert> -->
-                    <button *ngIf = "same == true" class="btn btn-lg btn-primary btn-block"(click)="register()">Sign Up</button>
-                </p>
+                    
+                    <button class="btn btn-lg btn-primary btn-block" (click)="register()">Sign Up</button>
                 <p class="mt-5 mb-3 text-muted">
                     Already a member ?
-                    <a href="#" routerLink="/login" class="to_register"> Go and log in </a>
-                </p>
-                <p class="mt-5 mb-3 text-muted" style="margin-top: -2em;">
+                    <a href="#" routerLink="/login" class="to_register"> Login </a>
+                    <br>
                     <a href="#" routerLink="" class="to_register"> Go to home page </a>
                 </p>
             </form>
+            <div toastContainer></div>
         </div>
 
     </div>

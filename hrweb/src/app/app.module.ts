@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { RetriveComponent } from './retrive/retrive.component';
+import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -23,14 +26,17 @@ import { RetriveComponent } from './retrive/retrive.component';
     RegisterComponent,
     HomeComponent,
     FormComponent,
-    RetriveComponent
+    RetriveComponent,
+    ResetpasswordComponent
   ],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
-    BrowserModule,
     AppRoutingModule,
   ],
   providers: [],

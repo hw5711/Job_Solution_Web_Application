@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { LoginService } from "./login.service";
+import { ToastContainerDirective } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +11,8 @@ import { LoginService } from "./login.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @ViewChild(ToastContainerDirective, { static: true }) toastContainer: ToastContainerDirective;
+
 
   email: string;
   password: string;
@@ -22,15 +26,29 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private loginService: LoginService,
-    public route: ActivatedRoute) { }
+    public route: ActivatedRoute,
+    // private toastr: ToastrService,
+    private toastrService: ToastrService) { 
+    }
 
-  ngOnInit() {}
-    // this.isLoading = true;
-    login(){
-    
-    this.role = this.choice;
-    this.loginService.login(this.email, this.password, this.role);
+  ngOnInit() {
+    this.toastrService.overlayContainer = this.toastContainer;
   }
+    // this.isLoading = true;
+
+    login(){
+      this.role = this.choice;
+      this.loginService.login(this.email, this.password, this.role);
+  }
+
+  // showSuccess() {
+  //   this.toastr.error('Hello world!', 'Toastr fun!');
+  // }
+
+  onClick() {
+    this.toastrService.error('wrong password or role must match');
+  }
+
 
   // retrivePassword() {
   //   // console.log("entered email: ",this.email); 

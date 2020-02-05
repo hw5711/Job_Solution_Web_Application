@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { RetriveComponent } from './retrive/retrive.component';
+import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "", component: HomeComponent },
   { path: "form", component: FormComponent },
-  { path: "retrive", component: RetriveComponent }
+  { path: "retrive", component: RetriveComponent },
+  { path: "reset", component: ResetpasswordComponent }
 ];
 
 @NgModule({

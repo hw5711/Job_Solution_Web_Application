@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-// import { AuthService } from '../login/login.service';
 import { LoginService } from "../login/login.service";
 import { Router } from '@angular/router';
 
@@ -11,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./retrive.component.css']
 })
 export class RetriveComponent implements OnInit {
-  RequestResetForm =new FormGroup({
-    email: new FormControl()
-  });
-  // RequestResetForm :FormGroup;
+  // RequestResetForm =new FormGroup({
+  //   email: new FormControl()
+  // });
+  RequestResetForm :FormGroup;
   forbiddenEmails: any;
   errorMessage: string;
   successMessage: string;
@@ -25,7 +24,11 @@ export class RetriveComponent implements OnInit {
     private router: Router,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.RequestResetForm = new FormGroup({
+      'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
+    });
+  }
 
   RequestResetUser(form) {
     console.log(form)
