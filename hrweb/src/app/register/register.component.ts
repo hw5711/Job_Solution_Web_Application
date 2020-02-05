@@ -23,8 +23,11 @@ export class RegisterComponent implements OnInit {
     'Candidate',
   ];
 
-  constructor(public authService: LoginService, private toastrService: ToastrService
-  ) { this.toastrService.overlayContainer = this.toastContainer;}
+  constructor(
+    public authService: LoginService, 
+    private toastrService: ToastrService) { 
+      this.toastrService.overlayContainer = this.toastContainer;
+    }
 
   ngOnInit() {
     this.toastrService.overlayContainer = this.toastContainer;

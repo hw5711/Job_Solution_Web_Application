@@ -27,23 +27,19 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient,
     private loginService: LoginService,
     public route: ActivatedRoute,
-    // private toastr: ToastrService,
     private toastrService: ToastrService) { 
     }
 
   ngOnInit() {
     this.toastrService.overlayContainer = this.toastContainer;
   }
-    // this.isLoading = true;
+  
+  // this.isLoading = true;
 
-    login(){
+  login(){
       this.role = this.choice;
       this.loginService.login(this.email, this.password, this.role);
   }
-
-  // showSuccess() {
-  //   this.toastr.error('Hello world!', 'Toastr fun!');
-  // }
 
   onClick() {
     this.toastrService.error('wrong password or role must match');
