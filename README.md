@@ -42,7 +42,7 @@
 
 14. npm install ngx-toastr --save
 
-15. npm install @angular/animations --save
+15. npm install --save @angular/material @angular/cdk @angular/animations
 
 
 
