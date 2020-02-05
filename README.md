@@ -38,6 +38,8 @@
 
 12. npm install nodemailer
 
+13. npm install http-status-codes --save
+
 
 
 
