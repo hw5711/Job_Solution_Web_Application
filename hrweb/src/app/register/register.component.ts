@@ -21,16 +21,12 @@ export class RegisterComponent implements OnInit {
 
   constructor(public authService: LoginService) { }
 
-  ngOnInit() {
-    // if (form.invalid) {
-    //   return;
-    }
-  register(){
+  ngOnInit() {}
 
+  register(){
     if(this.password1 == this.password2){
       this.role = this.choice;
       this.authService.createUser(this.email, this.password1, this.role);
-      // console.log("register!",this.email, this.password1, this.role);
     }
   }
 

@@ -24,15 +24,11 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService,
     public route: ActivatedRoute) { }
 
-  ngOnInit() {
-    // if (form.invalid) {
-    //   return;
-    }
+  ngOnInit() {}
     // this.isLoading = true;
     login(){
     
     this.role = this.choice;
-    // console.log("entered : ", this.email, this.password, this.role); 
     this.loginService.login(this.email, this.password, this.role);
   }
 

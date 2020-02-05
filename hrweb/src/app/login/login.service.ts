@@ -2,8 +2,10 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
-
+import { Observable } from 'rxjs';
 import { LoginData } from "./login_data.model";
+
+const BASEURL = 'http://localhost:3000/retrive';
 
 @Injectable({ providedIn: "root" })
 export class LoginService {
@@ -133,5 +135,17 @@ export class LoginService {
             expirationDate: new Date(expirationDate),
             userId: userId
         }
+    }
+
+    requestReset(body): Observable<any> {
+        return this.http.post(`${BASEURL}/req-reset-password`, body);
+    }
+
+    newPassword(body): Observable<any> {
+        return this.http.post(`${BASEURL}/new-password`, body);
+    }
+
+    ValidPasswordToken(body): Observable<any> {
+        return this.http.post(`${BASEURL}/valid-password-token`, body);
     }
 }
