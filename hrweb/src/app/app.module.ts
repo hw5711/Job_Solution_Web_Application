@@ -5,9 +5,8 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
+import { MatDialogModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +31,7 @@ import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.co
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     FormsModule,
     ToastrModule.forRoot(),
     HttpClientModule,

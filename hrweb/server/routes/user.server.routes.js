@@ -24,7 +24,7 @@ router.post("/register", (req, res, next) => {
         const userEmailCheck = User.findOne({
             email: req.body.email
         });
-        if(userEmailCheck){
+        if(!userEmailCheck){
             return res.status(409).json({message: "Email already exist"});
         }
         else{
@@ -37,6 +37,7 @@ router.post("/register", (req, res, next) => {
                 })
                 .catch(err => {
                     res.status(500).json({
+                        message: "User create failed!",
                         error: err
                     });
                 });

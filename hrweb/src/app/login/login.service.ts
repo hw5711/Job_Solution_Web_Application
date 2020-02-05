@@ -31,17 +31,6 @@ export class LoginService {
         return this.authStatusListener.asObservable();
     }
 
-    createUser(email: string, password: string, role: string){
-        const authData: LoginData = { email: email, password: password , role: role};
-        console.log("got message from ");
-        this.http
-            .post("http://localhost:3000/register", authData)
-            .subscribe(response => {
-                console.log("show detail of response :", response);
-                this.router.navigate(["/login"]);
-            });
-    }
-
     login(email: string, password: string, role: string) {
         const authData: LoginData = { email: email, password: password, role: role };
         this.http
