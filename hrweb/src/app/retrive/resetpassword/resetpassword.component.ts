@@ -53,9 +53,11 @@ export class ResetpasswordComponent implements OnInit {
       }
     );
   }
+
   ResetPassword(form) {
     console.log(form.get('confirmPassword'));
     if (form.valid) {
+      console.log("front end test: ",form);
       this.IsResetFormValid = true;
       this.authService.newPassword(this.ResponseResetForm.value).subscribe(
         data => {

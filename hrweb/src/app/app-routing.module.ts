@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "form", component: FormComponent },
   { path: "retrive", component: RetriveComponent },
-  { path: "reset", component: ResetpasswordComponent }
+  { path: "valid/:token", component: ResetpasswordComponent }
 ];
 
 @NgModule({
