@@ -17,6 +17,8 @@ import { FormComponent } from './form/form.component';
 import { WorkformComponent } from './workform/workform.component';
 import { RetriveComponent } from './retrive/retrive.component';
 import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
+import { EducationComponent } from './education/education.component';
+import { SkillsComponent } from './skills/skills.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.co
     FormComponent,
     WorkformComponent,
     RetriveComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    EducationComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
