@@ -1,21 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-//const nodeMailer = require('nodemailer');
 mongoose.Promise = require('bluebird');
 mongoose.set('useFindAndModify', false);
 // const Textbook = require("./models/textbook");
 // const Activities = require("./models/activities");
 
-// const userRoutes = require("./routes/user.server.routes");
+const userRoutes = require("./routes/user.server.routes");
 // const activitiesRoutes = require("./routes/activities.server.routes");
-// const textbookRoutes = require("./routes/textbook.server.routes");
-// const accountRoutes = require("./routes/account.server.routes");
-// const mealRoutes = require("./routes/meal.server.route");
-// const busRoutes = require("./routes/bus.server.routes");
-// const electionRoutes = require("./routes/election.server.routes");
-// const searchpeopleRoutes = require("./routes/searchpeople.server.routes");
-// const findroommateRoutes = require("./routes/findrm.server.routes");
 
 const app = express();
 //app.set('view engine', 'ejs');
@@ -66,14 +58,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use("/user", userRoutes);
+app.use("/", userRoutes);
 // app.use("/activities", activitiesRoutes);
-// app.use("/textbook", textbookRoutes);
-// app.use("/account", accountRoutes);
-// app.use("/meal", mealRoutes);
-// app.use("/bus", busRoutes);
-// app.use("/election", electionRoutes);
-// app.use("/searchpeople", searchpeopleRoutes);
-// app.use("/findroommate", findroommateRoutes);
 
 module.exports = app;

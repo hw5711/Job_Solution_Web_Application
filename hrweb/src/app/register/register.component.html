@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-hello
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,11 +11,9 @@ hello
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 
-    <!-- Bootstrap core CSS -->
     <link href="/docs/4.4/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -44,48 +40,42 @@ hello
             }
         }
     </style>
-    <!-- Custom styles for this template -->
-    <!-- <link href="signin.css" rel="stylesheet"> -->
 </head>
 <body class="text-center" style="width: 40%; margin-left: 25em; margin-top: 3em">
 
-
 <div id="container_demo">
-    <!-- <a class="hiddenanchor" id="toregister"></a>
-    <a class="hiddenanchor" id="tologin"></a> -->
     <div id="wrapper">
         <div id="register">
             <form class="form-signin">
                 <h1 class="h3 mb-3 font-weight-normal"> Sign up </h1>
-                <p>
-                    <label for="usernamesignup" class="sr-only" data-icon="u">Your username</label>
-                    <input class="form-control" id="usernamesignup" name="usernamesignup" required="required" type="text"
-                        placeholder="mysuperusername690" />
-                </p>
-                <p>
-                    <label for="emailsignup" class="sr-only" data-icon="e"> Your email</label>
-                    <input class="form-control" id="emailsignup" name="emailsignup" required="required" type="email"
+                    <p class="card-text" style="margin-left: -27em; margin-bottom: -0.1em;"> HR or Candidate ?</p>
+                    <select [(ngModel)]="choice" [ngModelOptions]="{standalone: true}" class="custom-select d-block w-100" id="state" required>
+                        <option *ngFor="let choice of choices"  [(value)]="choice" >
+                            {{choice}}
+                        </option>
+                    </select>
+                    
+                    <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: -0.1em;">Email</p>
+                    <input   [(ngModel)]="email" class="form-control" id="emailsignup" name="emailsignup" required="required" type="email"
                         placeholder="mysupermail@mail.com" />
-                </p>
-                <p>
-                    <label for="passwordsignup" class="sr-only" data-icon="p">Your password </label>
-                    <input class="form-control" id="passwordsignup" name="passwordsignup" required="required" type="password"
+                    <p class="card-text" style="margin-left: -31em; margin-top: 1em; margin-bottom: -0.1em;"> Password</p>
+                    <input  [(ngModel)]="password1" class="form-control" id="passwordsignup" name="passwordsignup" required="required" type="password"
                         placeholder="eg. X8df!90EO" />
-                </p>
-                <p>
-                    <label for="passwordsignup_confirm" class="sr-only" data-icon="p">Please confirm your password
-                    </label>
-                    <input class="form-control" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"
+                    <p class="card-text" style="margin-left: -27.5em; margin-top: 1em; margin-bottom: -0.1em;">Confirm Password</p>
+                    <input  [(ngModel)]="password2" class="form-control" id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"
                         placeholder="eg. X8df!90EO" />
-                </p>
-                <p class="signin button">
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign up" />
-                </p>
+                <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: -0.1em;"></p>
+                    
+                    <button class="btn btn-lg btn-primary btn-block" (click)="register()">Sign Up</button>
                 <p class="mt-5 mb-3 text-muted">
                     Already a member ?
-                    <a href="#tologin" class="to_register"> Go and log in </a>
+                    <a href="#" routerLink="/login" class="to_register"> Login </a>
+                    <br>
+                    <a href="#" routerLink="" class="to_register"> Go to home page </a>
                 </p>
             </form>
+            <!-- <h1><a (click)="onClick()">Click</a></h1> -->
+            <div toastContainer></div>
         </div>
 
     </div>
