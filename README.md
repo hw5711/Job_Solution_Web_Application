@@ -15,7 +15,7 @@
 
 1. Initial a new project called hrweb, web browser: http://localhost:4200 or http://localhost:4200/home
  
-2. npm install --save express body-parser morgan body-parser serve-favicon
+2. npm install --save express body-parser morgan body-parser serve-favicon cookie-parser
 
 3. npm install --save mongoose mongoose-unique-validator
 
@@ -34,15 +34,19 @@
 10. To run the backend, open another terminal window and go the current file dir, 
    command: nodemon server
    
-11. npm install jsonwebtoken bcrypt rxjs dotenv
+11. npm install jsonwebtoken bcrypt rxjs dotenv crypto
 
 12. npm install nodemailer
+    To use this function, we need to Configuring a Gmail account.
+    Launch your client, then click on your profile in the top-right corner -> Google Account -> Security. You'll see the          
+    following setting: Enable access. While it might not seem like the most secure thing to do, it's required to let 
+    Nodemailer use your Gmail account for mailing purposes.
 
 13. npm install http-status-codes --save
 
 14. npm install ngx-toastr --save
 
-15. npm install @angular/animations --save
+15. npm install --save @angular/material @angular/cdk @angular/animations
 
 
 

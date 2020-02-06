@@ -15,15 +15,14 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
 <<<<<<< HEAD
-  { path: "home", component: HomeComponent },
-  { path: "form", component: FormComponent },
+  { path: "", component: HomeComponent },
   { path: "workform", component: WorkformComponent }
 =======
-  { path: "", component: HomeComponent },
   { path: "form", component: FormComponent },
   { path: "retrive", component: RetriveComponent },
-  { path: "reset", component: ResetpasswordComponent }
->>>>>>> 2e72500607feefde1e367fd2985c7ec0a19b1fe4
+=======
+  { path: "valid/:token", component: ResetpasswordComponent }
+>>>>>>> 4965bdd7536e4b055e37d5855cca82cc485e1917
 ];
 
 @NgModule({

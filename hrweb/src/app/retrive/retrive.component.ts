@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { LoginService } from "../login/login.service";
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-retrive',
@@ -10,18 +11,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./retrive.component.css']
 })
 export class RetriveComponent implements OnInit {
-  // RequestResetForm =new FormGroup({
-  //   email: new FormControl()
-  // });
+
   RequestResetForm :FormGroup;
   forbiddenEmails: any;
   errorMessage: string;
   successMessage: string;
   IsvalidForm = true;
+  inputEmail : string;
 
   constructor(
-    private authService: LoginService,
-    private router: Router,
+    private http: HttpClient, 
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,12 +31,16 @@ export class RetriveComponent implements OnInit {
   }
 
   RequestResetUser(form) {
-    console.log(form)
-    if (form.valid) {
-      this.IsvalidForm = true;
-      this.authService.requestReset(this.RequestResetForm.value).subscribe(
-        data => {
-          this.RequestResetForm.reset();
+    console.log(this.RequestResetForm.value.email)
+  }
+  request(){
+
+    // if (form.valid) {
+    //   this.IsvalidForm = true;
+      this.http
+        .post("http://localhost:3000/retrive", { email: this.RequestResetForm.value.email })
+      .subscribe(response => {
+          // this.RequestResetForm.reset();
           this.successMessage = "Reset password link send to email sucessfully.";
           setTimeout(() => {
             this.successMessage = null;
@@ -44,15 +48,14 @@ export class RetriveComponent implements OnInit {
           }, 3000);
         },
         err => {
-
           if (err.error.message) {
             this.errorMessage = err.error.message;
           }
         }
       );
-    } else {
-      this.IsvalidForm = false;
-    }
-  }
+    } 
+    // else {
+    //   this.IsvalidForm = false;
+    // }
 
 }
