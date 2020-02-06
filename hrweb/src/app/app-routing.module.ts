@@ -8,6 +8,8 @@ import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.co
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { WorkformComponent } from './workform/workform.component';
+import { EducationComponent } from './education/education.component';
+import { SkillsComponent } from './skills/skills.component';
 
 import { LoginGuard } from "./login/login.guard";
 
