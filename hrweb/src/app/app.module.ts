@@ -14,13 +14,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
-<<<<<<< HEAD
 import { WorkformComponent } from './workform/workform.component';
-=======
 import { RetriveComponent } from './retrive/retrive.component';
 import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
 
->>>>>>> 2e72500607feefde1e367fd2985c7ec0a19b1fe4
 
 @NgModule({
   declarations: [
@@ -29,12 +26,9 @@ import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.co
     RegisterComponent,
     HomeComponent,
     FormComponent,
-<<<<<<< HEAD
-    WorkformComponent
-=======
+    WorkformComponent,
     RetriveComponent,
     ResetpasswordComponent
->>>>>>> 2e72500607feefde1e367fd2985c7ec0a19b1fe4
   ],
   imports: [
     BrowserModule,

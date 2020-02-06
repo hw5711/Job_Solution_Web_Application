@@ -14,15 +14,11 @@ import { LoginGuard } from "./login/login.guard";
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-<<<<<<< HEAD
   { path: "", component: HomeComponent },
-  { path: "workform", component: WorkformComponent }
-=======
+  { path: "workform", component: WorkformComponent },
   { path: "form", component: FormComponent },
   { path: "retrive", component: RetriveComponent },
-=======
   { path: "valid/:token", component: ResetpasswordComponent }
->>>>>>> 4965bdd7536e4b055e37d5855cca82cc485e1917
 ];
 
 @NgModule({
