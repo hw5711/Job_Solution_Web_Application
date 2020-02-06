@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.4",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
+    "crypto": "^1.0.1",
     "express": "^4.17.1",
     "http-status-codes": "^1.4.0",
     "jquery": "^3.4.1",

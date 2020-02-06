@@ -115,12 +115,12 @@ export class LoginService {
         }
     }
 
-    requestReset(body): Observable<any> {
-        return this.http.post('http://localhost:3000/reset', body);
-    }
+    // requestReset(body): Observable<any> {
+    //     return this.http.post('http://localhost:3000/retrive', body);
+    // }
 
     newPassword(body): Observable<any> {
-        return this.http.post('http://localhost:3000/new-password', body);
+        return this.http.post('http://localhost:3000/reset', body);
     }
 
     ValidPasswordToken(body): Observable<any> {

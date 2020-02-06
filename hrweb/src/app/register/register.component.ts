@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from "@angular/forms";
 import { LoginService } from "../login/login.service";
 import { ToastContainerDirective } from 'ngx-toastr';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { LoginData } from "../login/login_data.model";
-import { map, catchError } from 'rxjs/operators';
-import { ErrorDialogService } from '../interceptor/errordialof.sercive';
 
 @Component({
   selector: 'app-register',
@@ -42,10 +41,11 @@ export class RegisterComponent implements OnInit {
     this.toastrService.overlayContainer = this.toastContainer;
   }
 
-  register(){
+  register(form: NgForm){
+
     if(this.password1 == this.password2){
       this.role = this.choice;
-      const authData: LoginData = { email: this.email, password: this.password1 , role: this.role};
+      const authData: LoginData = { email: form.value.email, password: form.value.password , role: this.choice};
 
       this.http
           .post("http://localhost:3000/register", authData)
@@ -53,8 +53,7 @@ export class RegisterComponent implements OnInit {
               this.meg = response["message"];
               console.log("show detail of response :", this.meg);
             this.router.navigate(["/login"]);
-          }
-          ,
+          },
           error=>{
             this.meg = error.message;
             console.log("error is", this.meg);
