@@ -15,7 +15,7 @@
 
 1. Initial a new project called hrweb, web browser: http://localhost:4200 or http://localhost:4200/home
  
-2. npm install --save express body-parser morgan body-parser serve-favicon
+2. npm install --save express body-parser morgan body-parser serve-favicon cookie-parser
 
 3. npm install --save mongoose mongoose-unique-validator
 
