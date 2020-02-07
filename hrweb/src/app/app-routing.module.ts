@@ -8,8 +8,7 @@ import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.co
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { WorkformComponent } from './workform/workform.component';
-import { EducationComponent } from './education/education.component';
-import { SkillsComponent } from './skills/skills.component';
+import { CandidateFormComponent } from './candidate-form/candidate-form.component';
 
 import { LoginGuard } from "./login/login.guard";
 
@@ -21,8 +20,7 @@ const routes: Routes = [
   { path: "form", component: FormComponent },
   { path: "retrive", component: RetriveComponent },
   { path: "valid/:token", component: ResetpasswordComponent },
-  { path: "education", component: EducationComponent },
-  { path: "skills", component: SkillsComponent }
+  { path: "candidate_form", component: CandidateFormComponent }
 ];
 
 @NgModule({
