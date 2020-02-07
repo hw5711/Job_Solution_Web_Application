@@ -19,6 +19,7 @@ import { RetriveComponent } from './retrive/retrive.component';
 import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
 import { EducationComponent } from './education/education.component';
 import { SkillsComponent } from './skills/skills.component';
+import { CandProfileComponent } from './cand-profile/cand-profile.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SkillsComponent } from './skills/skills.component';
     RetriveComponent,
     ResetpasswordComponent,
     EducationComponent,
-    SkillsComponent
+    SkillsComponent,
+    CandProfileComponent
   ],
   imports: [
     BrowserModule,
