@@ -19,6 +19,7 @@ import { RetriveComponent } from './retrive/retrive.component';
 import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
 import { CandProfileComponent } from './cand-profile/cand-profile.component';
 import { CandidateFormComponent } from './candidate-form/candidate-form.component';
+import { HrProfileComponent } from './hr-profile/hr-profile.component';
 
 
 
@@ -33,7 +34,8 @@ import { CandidateFormComponent } from './candidate-form/candidate-form.componen
     RetriveComponent,
     ResetpasswordComponent,
     CandProfileComponent,
-    CandidateFormComponent
+    CandidateFormComponent,
+    HrProfileComponent
   ],
   imports: [
     BrowserModule,

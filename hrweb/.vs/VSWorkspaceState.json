@@ -3,8 +3,9 @@
     "",
     "\\server",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\cand-profile"
   ],
-  "SelectedNode": "\\src\\app\\home",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
