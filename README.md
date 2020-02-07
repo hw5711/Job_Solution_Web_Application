@@ -37,7 +37,8 @@
 11. npm install jsonwebtoken bcrypt rxjs dotenv crypto
 
 12. npm install nodemailer
-    To use this function, we need to Configuring a Gmail account.
+    
+    ->To use this function, we need to Configuring a Gmail account.
     Launch your client, then click on your profile in the top-right corner -> Google Account -> Security. You'll see the          
     following setting: Enable access. While it might not seem like the most secure thing to do, it's required to let 
     Nodemailer use your Gmail account for mailing purposes.
