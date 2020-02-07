@@ -20,6 +20,8 @@ import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.co
 import { EducationComponent } from './education/education.component';
 import { SkillsComponent } from './skills/skills.component';
 import { CandProfileComponent } from './cand-profile/cand-profile.component';
+import { CandidateFormComponent } from './candidate-form/candidate-form.component';
+
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { CandProfileComponent } from './cand-profile/cand-profile.component';
     EducationComponent,
     SkillsComponent,
     CandProfileComponent
+    CandidateFormComponent
   ],
   imports: [
     BrowserModule,
