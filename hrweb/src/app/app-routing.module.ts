@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { WorkformComponent } from './workform/workform.component';
 import { CandidateFormComponent } from './candidate-form/candidate-form.component';
-
+import { CandProfileComponent } from './cand-profile/cand-profile.component';
+import { HrProfileComponent } from './hr-profile/hr-profile.component';
 import { LoginGuard } from "./login/login.guard";
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: "form", component: FormComponent },
   { path: "retrive", component: RetriveComponent },
   { path: "valid/:token", component: ResetpasswordComponent },
-  { path: "candidate_form", component: CandidateFormComponent }
+  { path: "candidate_form", component: CandidateFormComponent },
+  { path: "candidate_profile",component: CandProfileComponent },
+  { path: "hr_profile",component: HrProfileComponent }
 ];
 
 @NgModule({
