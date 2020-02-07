@@ -36,7 +36,7 @@ import { CandidateFormComponent } from './candidate-form/candidate-form.componen
     ResetpasswordComponent,
     EducationComponent,
     SkillsComponent,
-    CandProfileComponent
+    CandProfileComponent,
     CandidateFormComponent
   ],
   imports: [
