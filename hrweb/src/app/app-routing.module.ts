@@ -8,9 +8,9 @@ import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.co
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
 import { WorkformComponent } from './workform/workform.component';
-import { EducationComponent } from './education/education.component';
-import { SkillsComponent } from './skills/skills.component';
-
+import { CandidateFormComponent } from './candidate-form/candidate-form.component';
+import { CandProfileComponent } from './cand-profile/cand-profile.component';
+import { HrProfileComponent } from './hr-profile/hr-profile.component';
 import { LoginGuard } from "./login/login.guard";
 
 const routes: Routes = [

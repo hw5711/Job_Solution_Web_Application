@@ -16,8 +16,10 @@ import { FormComponent } from './form/form.component';
 import { WorkformComponent } from './workform/workform.component';
 import { RetriveComponent } from './retrive/retrive.component';
 import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
-import { EducationComponent } from './education/education.component';
-import { SkillsComponent } from './skills/skills.component';
+import { CandProfileComponent } from './cand-profile/cand-profile.component';
+import { CandidateFormComponent } from './candidate-form/candidate-form.component';
+import { HrProfileComponent } from './hr-profile/hr-profile.component';
+
 
 @NgModule({
   declarations: [
