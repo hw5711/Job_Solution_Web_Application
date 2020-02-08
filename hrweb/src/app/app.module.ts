@@ -7,6 +7,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { MatDialogModule } from '@angular/material';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -42,7 +48,11 @@ import { HrProfileComponent } from './hr-profile/hr-profile.component';
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
-  ],
+    MatStepperModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
