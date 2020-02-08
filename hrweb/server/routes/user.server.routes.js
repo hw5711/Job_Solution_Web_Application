@@ -111,10 +111,10 @@ router.post("/retrive", (req, res, next) => {
                 // secure: false,
                 // port: 25,
                 auth: {
-                    // user: process.env.EMAIL,
-                    // pass: process.env.PASSWOARD
-                    user: 'stuendtactivityweb@gmail.com',
-                    pass: '!stu1234'
+                    user: process.env.EMAIL,
+                    pass: process.env.PASSWOARD
+                    // user: 'stuendtactivityweb@gmail.com',
+                    // pass: '!stu1234'
                 }
             });
             var mailOptions = {
