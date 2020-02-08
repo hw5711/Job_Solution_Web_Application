@@ -53,7 +53,7 @@
       </tr></table>
     </mat-card>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
 
@@ -61,11 +61,43 @@
   <mat-step [stepControl]="secondFormGroup" errorMessage="Missing required fields.">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Work Experience</ng-template>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
-               required>
-      </mat-form-field>
+      <mat-card>
+      <table class="example-full-width" cellspacing="2"><tr>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Job Title</mat-label>
+          <input matInput>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Company</mat-label>
+          <input matInput>
+        </mat-form-field></td>
+      </tr></table>
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Location</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </p>
+
+      <table class="example-full-width" cellspacing="2"><tr>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>From Date</mat-label>
+          <input matInput>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>To Date</mat-label>
+          <input matInput>
+        </mat-form-field></td>
+      </tr></table>
+
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Role Description</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </p>
+
+    </mat-card>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
