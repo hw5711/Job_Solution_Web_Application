@@ -60,7 +60,7 @@
 
 18. npm install hexo-cli
 
-
+19. ǹpm install debug
 
 
 
