@@ -49,7 +49,7 @@
 
 15. npm install --save @angular/material @angular/cdk @angular/animations
 
-16. npm install concurrently -g
+16. npm install concurrently --save
 
 17. npm install bluebird
 
