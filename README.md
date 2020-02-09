@@ -49,6 +49,11 @@
 
 15. npm install --save @angular/material @angular/cdk @angular/animations
 
+16. npm install concurrently --save
+
+17. npm install bluebird
+
+18. npm install hexo-cli
 
 
 
