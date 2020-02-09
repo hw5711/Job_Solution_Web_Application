@@ -14,7 +14,6 @@ const app = express();
 app.use(cookieParser());
 //app.set('view engine', 'ejs');
 //app.use(express.static('public'));
-// mongodb + srv://huanwu:ABCD1234@webproject-qhq6u.mongodb.net/test?retryWrites=true&w=majority
 mongoose
     // .set('useCreateIndex', true)
     .connect(
