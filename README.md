@@ -1,6 +1,11 @@
 
 # This is a HR web project using MEAN stack.We will use puppeteer for testing. Frontend is Angular, backend is Express which is one of the Node.js packages, database is mongodb cloud.
 
+-> ng start
+   To run the project with one terminal opened
+   
+-> Deploy to https://aqueous-ridge-24601.herokuapp.com
+
 -> Reference of MEAN full-stack: https://www.djamware.com/post/5a0673c880aca7739224ee21/mean-stack-angular-5-crud-web-application-example
 
 -> Full course of Udemy: https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/learn/lecture/10536910?start=0#overview
@@ -13,7 +18,7 @@
 -> To run the frontend: ng serve
 -> To run the backend: nodemon server
 
-1. Initial a new project called hrweb, web browser: http://localhost:4200 or http://localhost:4200/home
+1. Initial a new project called hrweb, web browser: http://localhost:8080
  
 2. npm install --save express body-parser morgan body-parser serve-favicon cookie-parser
 
