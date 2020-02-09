@@ -53,6 +53,8 @@
 
 17. npm install bluebird
 
+18. npm install hexo-cli
+
 
 
 
