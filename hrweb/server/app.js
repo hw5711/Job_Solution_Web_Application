@@ -2,18 +2,26 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
-mongoose.Promise = require('bluebird');
+const path = require('path');
+
+mongoose.Promise= require('bluebird');
+
+mongoose.Promise.config({
+    longStackTraces: false,
+    warnings: false
+})
+
 mongoose.set('useFindAndModify', false);
-// const Textbook = require("./models/textbook");
-// const Activities = require("./models/activities");
 
 const userRoutes = require("./routes/user.server.routes");
-// const activitiesRoutes = require("./routes/activities.server.routes");
 
 const app = express();
 app.use(cookieParser());
 //app.set('view engine', 'ejs');
-//app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
 mongoose
     // .set('useCreateIndex', true)
     .connect(
@@ -28,8 +36,10 @@ mongoose
         console.log("Connection failed!");
     });
 
+const port = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
@@ -48,4 +58,7 @@ app.use((req, res, next) => {
 app.use("/", userRoutes);
 // app.use("/activities", activitiesRoutes);
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 module.exports = app;

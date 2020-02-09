@@ -36,7 +36,7 @@ export class LoginService {
         this.http
             .post<{ token: string; expiresIn: number, userId: string }>(
                 // "http://localhost:3000/login",
-                "/login",
+                "login",
                 authData
             )
             .subscribe(response => {
@@ -118,11 +118,11 @@ export class LoginService {
 
     newPassword(body): Observable<any> {
         // return this.http.post('http://localhost:3000/reset', body);
-        return this.http.post('/reset', body);
+        return this.http.post('reset', body);
     }
 
     ValidPasswordToken(body): Observable<any> {
         // return this.http.post('http://localhost:3000/valid', body);
-        return this.http.post('/valid', body);
+        return this.http.post('valid', body);
     }
 }

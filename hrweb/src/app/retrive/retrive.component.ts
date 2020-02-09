@@ -39,7 +39,7 @@ export class RetriveComponent implements OnInit {
     //   this.IsvalidForm = true;
       this.http
         // .post("http://localhost:3000/retrive", { email: this.RequestResetForm.value.email })
-        .post("/retrive", { email: this.RequestResetForm.value.email })
+        .post("retrive", { email: this.RequestResetForm.value.email })
       .subscribe(response => {
           // this.RequestResetForm.reset();
           this.successMessage = "Reset password link send to email sucessfully.";
