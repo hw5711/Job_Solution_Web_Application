@@ -1,8 +1,7 @@
 
 # This is a HR web project using MEAN stack.We will use puppeteer for testing. Frontend is Angular, backend is Express which is one of the Node.js packages, database is mongodb cloud.
 
--> ng start
-   To run the project with one terminal opened
+-> ng start //To run the project with one terminal opened
    
 -> Deploy to https://aqueous-ridge-24601.herokuapp.com
 
