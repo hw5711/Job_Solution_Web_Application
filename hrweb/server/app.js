@@ -18,9 +18,8 @@ const userRoutes = require("./routes/user.server.routes");
 const app = express();
 app.use(cookieParser());
 //app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'public')));
-
-
+//Use the below line when deploy
+// app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose
     // .set('useCreateIndex', true)
@@ -36,7 +35,7 @@ mongoose
         console.log("Connection failed!");
     });
 
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
@@ -57,8 +56,8 @@ app.use((req, res, next) => {
 
 app.use("/", userRoutes);
 // app.use("/activities", activitiesRoutes);
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-});
+//Use the below line when deploy
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/index.html'));
+// });
 module.exports = app;
