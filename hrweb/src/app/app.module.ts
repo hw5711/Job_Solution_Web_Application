@@ -36,7 +36,9 @@ import { HrProfileComponent } from './hr-profile/hr-profile.component';
     FormComponent,
     WorkformComponent,
     RetriveComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    CandProfileComponent,
+    HrProfileComponent
   ],
   imports: [
     BrowserModule,
