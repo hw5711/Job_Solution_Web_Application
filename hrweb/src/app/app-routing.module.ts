@@ -20,7 +20,9 @@ const routes: Routes = [
   { path: "workform", component: WorkformComponent },
   { path: "form", component: FormComponent },
   { path: "retrive", component: RetriveComponent },
-  { path: "valid/:token", component: ResetpasswordComponent }
+  { path: "valid/:token", component: ResetpasswordComponent },
+  { path: "cand-profile", component: CandProfileComponent},
+  { path: "hr-profile", component: HrProfileComponent}
 ];
 
 @NgModule({
