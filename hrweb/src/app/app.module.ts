@@ -7,12 +7,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { MatDialogModule } from '@angular/material';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material';
-import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { MatStepperModule} from '@angular/material/stepper';
+import { MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule, MatListModule, MatButtonModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +29,7 @@ import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.co
 import { CandProfileComponent } from './cand-profile/cand-profile.component';
 import { CandidateFormComponent } from './candidate-form/candidate-form.component';
 import { HrProfileComponent } from './hr-profile/hr-profile.component';
+import { JobspageComponent } from './jobspage/jobspage.component';
 
 
 @NgModule({
@@ -39,7 +43,8 @@ import { HrProfileComponent } from './hr-profile/hr-profile.component';
     RetriveComponent,
     ResetpasswordComponent,
     CandProfileComponent,
-    HrProfileComponent
+    HrProfileComponent,
+    JobspageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +60,14 @@ import { HrProfileComponent } from './hr-profile/hr-profile.component';
     MatInputModule,
     MatIconModule,
     MatCardModule,
-    MatToolbarModule
-    ],
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatExpansionModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

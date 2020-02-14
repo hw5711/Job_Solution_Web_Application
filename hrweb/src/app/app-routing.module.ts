@@ -12,6 +12,7 @@ import { CandidateFormComponent } from './candidate-form/candidate-form.componen
 import { CandProfileComponent } from './cand-profile/cand-profile.component';
 import { HrProfileComponent } from './hr-profile/hr-profile.component';
 import { LoginGuard } from "./login/login.guard";
+import { JobspageComponent } from './jobspage/jobspage.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: "retrive", component: RetriveComponent },
   { path: "valid/:token", component: ResetpasswordComponent },
   { path: "cand-profile", component: CandProfileComponent},
-  { path: "hr-profile", component: HrProfileComponent}
+  { path: "hr-profile", component: HrProfileComponent},
+  { path: "jobspage", component: JobspageComponent }
 ];
 
 @NgModule({
