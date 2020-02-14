@@ -48,8 +48,8 @@ export class RegisterComponent implements OnInit {
       const authData: LoginData = { email: form.value.email, password: form.value.password , role: this.choice};
 
       this.http
-          .post("register", authData)
-          // .post("/register", authData)
+        .post("http://localhost:3000/register", authData)
+          // .post("register", authData)
           .subscribe(response => {
               this.meg = response["message"];
               console.log("show detail of response :", this.meg);
