@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {ErrorStateMatcher} from '@angular/material/core';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-form',
@@ -11,6 +20,13 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
   }]
 })
 export class FormComponent implements OnInit {
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
+  matcher = new MyErrorStateMatcher();
+
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
@@ -26,3 +42,4 @@ export class FormComponent implements OnInit {
   }
 
 }
+
