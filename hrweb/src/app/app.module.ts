@@ -44,7 +44,8 @@ import { JobspageComponent } from './jobspage/jobspage.component';
     ResetpasswordComponent,
     CandProfileComponent,
     HrProfileComponent,
-    JobspageComponent
+    JobspageComponent,
+    CandidateFormComponent
   ],
   imports: [
     BrowserModule,
