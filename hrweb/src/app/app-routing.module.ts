@@ -24,7 +24,8 @@ const routes: Routes = [
   { path: "valid/:token", component: ResetpasswordComponent },
   { path: "cand-profile", component: CandProfileComponent},
   { path: "hr-profile", component: HrProfileComponent},
-  { path: "jobspage", component: JobspageComponent }
+  { path: "jobspage", component: JobspageComponent },
+  { path: "cand-form", component: CandidateFormComponent }
 ];
 
 @NgModule({
