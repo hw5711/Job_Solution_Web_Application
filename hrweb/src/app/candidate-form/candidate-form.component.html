@@ -1,35 +1,81 @@
-dadadsasd
+<mat-toolbar color="primary">Candidate Profile Information</mat-toolbar>
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-horizontal-stepper linear #stepper>
 
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
+
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
+
+      <mat-card>
+        <table class="example-full-width" cellspacing="2">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>First name</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Last Name</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+
+        ---
+        <mat-form-field class="example-full-width">
+          <mat-label>Telephone</mat-label>
+          <span matPrefix>+1 &nbsp;</span>
+          <input type="tel" matInput placeholder="555-555-1234">
+        </mat-form-field>
+
+        ---
+
+
+
+
+
+        ---
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Address" formControlName="firstCtrl" required>
+        </mat-form-field>
+
+
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="+1" formControlName="firstCtrl" required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Title at Work</mat-label>
+          <input matInput placeholder="Software Engineer" formControlName="firstCtrl" required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Company</mat-label>
+          <input matInput placeholder="Apple" formControlName="firstCtrl" required>
+        </mat-form-field>
+
+      </mat-card>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
+
   <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
+
+
   </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
+
 </mat-horizontal-stepper>
