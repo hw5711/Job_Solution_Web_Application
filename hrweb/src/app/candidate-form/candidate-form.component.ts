@@ -14,6 +14,7 @@ export class CandidateFormComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  forthFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {}
 
@@ -26,6 +27,9 @@ export class CandidateFormComponent implements OnInit {
     });
     this.thirdFormGroup = this._formBuilder.group({
       thirdCtrl: ['', Validators.required]
+    });
+    this.forthFormGroup = this._formBuilder.group({
+      forthCtrl: ['', Validators.required]
     });
   }
 
