@@ -30,6 +30,7 @@ import { CandProfileComponent } from './cand-profile/cand-profile.component';
 import { CandidateFormComponent } from './candidate-form/candidate-form.component';
 import { HrProfileComponent } from './hr-profile/hr-profile.component';
 import { JobspageComponent } from './jobspage/jobspage.component';
+import { HrFormComponent } from './hr-form/hr-form.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { JobspageComponent } from './jobspage/jobspage.component';
     CandProfileComponent,
     HrProfileComponent,
     JobspageComponent,
-    CandidateFormComponent
+    CandidateFormComponent,
+    HrFormComponent
   ],
   imports: [
     BrowserModule,
