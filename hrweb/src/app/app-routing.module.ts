@@ -14,6 +14,8 @@ import { HrProfileComponent } from './hr-profile/hr-profile.component';
 import { LoginGuard } from "./login/login.guard";
 import { JobspageComponent } from './jobspage/jobspage.component';
 
+import { HrFormComponent } from './hr-form/hr-form.component';
+
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
@@ -25,7 +27,8 @@ const routes: Routes = [
   { path: "cand-profile", component: CandProfileComponent},
   { path: "hr-profile", component: HrProfileComponent},
   { path: "jobspage", component: JobspageComponent },
-  { path: "cand-form", component: CandidateFormComponent }
+  { path: "cand-form", component: CandidateFormComponent },
+  { path: "hr-form", component: HrFormComponent }
 ];
 
 @NgModule({
