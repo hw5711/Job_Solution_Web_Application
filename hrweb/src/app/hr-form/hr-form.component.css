@@ -1,0 +1,41 @@
+.navbar {
+  min-height: 70px;
+}
+
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+.mat-form-field {
+  margin-top: 20px;
+  margin-left: 8px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 500px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+.mat-card {
+  width: 80%;
+  margin: auto;
+}
+
+textarea{
+    min-height:300px;
+}

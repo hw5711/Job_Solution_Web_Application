@@ -1,1 +1,157 @@
-<p>hr-form works!</p>
+<nav class="navbar  navbar-expand bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li style="    margin-right: 20px;
+    margin-left: 30px;
+">
+        <button type="button" class="btn btn-primary">Home</button>
+      </li>
+
+    </ul>
+    <div style="align-content:end;">
+      <button type="button" class="btn btn-primary" style="margin-right:10px">Edit Profile</button>
+      <button type="button" class="btn" style="background-color:#f7ae00">Sign Out</button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- NAVBAR ENDS HERE -->
+
+
+
+
+<mat-horizontal-stepper linear #stepper style="width:70%; align-items:center; display:inline">
+
+  <!-- put "required" in input-->
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Personal Information</ng-template>
+
+      <mat-card >
+        <table class="example-full-width" cellspacing="2">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>First name</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Last Name</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Telephone</mat-label>
+          <span matPrefix>+1 &nbsp;</span>
+          <input type="tel" matInput placeholder="555-555-1234">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Address" required>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="+1">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Title at Work</mat-label>
+          <input matInput placeholder="Software Engineer">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Company</mat-label>
+          <input matInput placeholder="Apple" formControlName="firstCtrl">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Since</mat-label>
+          <input matInput placeholder="May 2016 " formControlName="firstCtrl" type="date">
+        </mat-form-field>
+
+      </mat-card>
+      <div>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+
+
+
+
+
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Missing required fields.">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Notes</ng-template>
+      <mat-card>
+        <p>
+          <mat-form-field class="example-full-width" >
+            <mat-label>Put your notes here:</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+        </p>
+
+
+      </mat-card>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+
+  <mat-step [stepControl]="thirdFormGroup" errorMessage="Missing required fields.">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Contacts</ng-template>
+      <mat-card>
+
+        <p>
+          <mat-form-field class="example-full-width">
+            <mat-label>Add you contacts here:</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+        </p>
+
+
+      </mat-card>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+
+
+</mat-horizontal-stepper>

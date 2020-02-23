@@ -13,7 +13,6 @@ import { CandProfileComponent } from './cand-profile/cand-profile.component';
 import { HrProfileComponent } from './hr-profile/hr-profile.component';
 import { LoginGuard } from "./login/login.guard";
 import { JobspageComponent } from './jobspage/jobspage.component';
-
 import { HrFormComponent } from './hr-form/hr-form.component';
 
 const routes: Routes = [
