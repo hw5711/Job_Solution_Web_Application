@@ -11,6 +11,7 @@ export class LoginService {
     private token: string;
     private tokenTimer: any;
     private userId: string;
+    private userRole: string;
     private authStatusListener = new Subject<boolean>();
 
     constructor(private http: HttpClient, private router: Router) { }
@@ -34,7 +35,7 @@ export class LoginService {
     login(email: string, password: string, role: string) {
         const authData: LoginData = { email: email, password: password, role: role };
         this.http
-            .post<{ token: string; expiresIn: number, userId: string }>(
+            .post<{ token: string; expiresIn: number, userId: string, userRole: string}>(
                 "http://localhost:3000/login",
                 // "login",
                 authData
@@ -47,12 +48,22 @@ export class LoginService {
                     this.setAuthTimer(expiresInDuration);
                     this.isAuthenticated = true;
                     this.userId = response.userId;
+                    this.userRole = response.userRole;
                     this.authStatusListener.next(true);
                     const now = new Date();
                     const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
-                    console.log(expirationDate);
+                    console.log("role: " ,this.userRole);
+                    console.log("token: " ,token);
                     this.saveAuthData(token, expirationDate, this.userId);
-                    this.router.navigate(["/"]);
+                    if(this.userRole == 'HR'){
+                        this.router.navigate(["/hr-profile"]);
+                    }
+                    else if (this.userRole == 'Candidate'){
+                        this.router.navigate(["/cand-profile"]);
+                    }
+                    else{
+                        this.router.navigate(["/"]);
+                    }
                 }
             });
     }
