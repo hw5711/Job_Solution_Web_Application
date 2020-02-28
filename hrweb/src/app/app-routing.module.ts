@@ -11,9 +11,10 @@ import { WorkformComponent } from './workform/workform.component';
 import { CandidateFormComponent } from './candidate-form/candidate-form.component';
 import { CandProfileComponent } from './cand-profile/cand-profile.component';
 import { HrProfileComponent } from './hr-profile/hr-profile.component';
-import { LoginGuard } from "./login/login.guard";
+import { LoginGuard } from './login/login.guard';
 import { JobspageComponent } from './jobspage/jobspage.component';
 import { HrFormComponent } from './hr-form/hr-form.component';
+import { ApplicationsComponent } from './applications/applications.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: "hr-profile", component: HrProfileComponent},
   { path: "jobspage", component: JobspageComponent },
   { path: "cand-form", component: CandidateFormComponent },
-  { path: "hr-form", component: HrFormComponent }
+  { path: "hr-form", component: HrFormComponent },
+  { path: "applications", component: ApplicationsComponent}
 ];
 
 @NgModule({

@@ -16,6 +16,9 @@ import { MatSidenavModule, MatListModule, MatButtonModule } from '@angular/mater
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +34,7 @@ import { CandidateFormComponent } from './candidate-form/candidate-form.componen
 import { HrProfileComponent } from './hr-profile/hr-profile.component';
 import { JobspageComponent } from './jobspage/jobspage.component';
 import { HrFormComponent } from './hr-form/hr-form.component';
+import { ApplicationsComponent } from './applications/applications.component';
 
 
 @NgModule({
@@ -47,7 +51,8 @@ import { HrFormComponent } from './hr-form/hr-form.component';
     HrProfileComponent,
     JobspageComponent,
     CandidateFormComponent,
-    HrFormComponent
+    HrFormComponent,
+    ApplicationsComponent
   ],
   imports: [
     BrowserModule,
@@ -69,9 +74,15 @@ import { HrFormComponent } from './hr-form/hr-form.component';
     MatButtonModule,
     MatMenuModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRippleModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
