@@ -35,6 +35,7 @@ import { HrProfileComponent } from './hr-profile/hr-profile.component';
 import { JobspageComponent } from './jobspage/jobspage.component';
 import { HrFormComponent } from './hr-form/hr-form.component';
 import { ApplicationsComponent } from './applications/applications.component';
+import { MyfavjobComponent } from './myfavjob/myfavjob.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ApplicationsComponent } from './applications/applications.component';
     JobspageComponent,
     CandidateFormComponent,
     HrFormComponent,
-    ApplicationsComponent
+    ApplicationsComponent,
+    MyfavjobComponent
   ],
   imports: [
     BrowserModule,

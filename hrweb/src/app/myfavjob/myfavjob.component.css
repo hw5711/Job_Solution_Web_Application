@@ -1,0 +1,52 @@
+.example-margin {
+  margin: 0 10px;
+}
+
+.example-card {
+  max-width: 300px;
+  max-height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.container-fluid  {
+  min-width: 992px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+header{
+  position: fixed;
+  top: 0;
+   z-index: 11;
+  transition: all 250ms ease-in-out;
+}
+.main-header{
+  @extend header;
+  &.hidden{
+    opacity: 0;
+  }
+}
+.search-block{
+  width: 0%;
+  right: 0;
+  @extend header;
+  background: #fff;
+  &.active{
+    width: 100%;
+  }
+  .search-control{
+    flex: 1;
+    font-size: 1rem;
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+    width: 100%;
+  }
+}
