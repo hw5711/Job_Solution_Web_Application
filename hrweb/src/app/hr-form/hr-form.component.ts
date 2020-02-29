@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { NgForm } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute, ParamMap } from "@angular/router";
+// import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
+// import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+// import {ErrorStateMatcher} from '@angular/material/core';
 
 @Component({
   selector: 'app-hr-form',
@@ -11,21 +14,19 @@ import {ErrorStateMatcher} from '@angular/material/core';
 export class HrFormComponent implements OnInit {
 
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
+  // secondFormGroup: FormGroup;
+  // thirdFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private http: HttpClient,
+    public route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
+    // this.firstFormGroup = this._formBuilder.group({
+    //   firstCtrl: ['', Validators.required]
+    // });
+
+  }
+  update(form: NgForm){
+    console.log(form.value.name);
   }
 }
