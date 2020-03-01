@@ -1,8 +1,11 @@
-.mat-form-field {
-  margin-top: 20px;
-  margin-left: 8px;
-
+.mat-stepper-horizontal {
+  margin-top: 8px;
 }
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
 
 .example-form {
   min-width: 150px;
@@ -15,11 +18,17 @@
   width: 100%;
 }
 
+.example-spacer {
+  flex: 1 1 auto;
+}
+
 td {
   padding-right: 8px;
 }
 
 .mat-card{
-  width: 80%;
+  width: auto;
+  height: auto;
   margin: auto;
 }
+
