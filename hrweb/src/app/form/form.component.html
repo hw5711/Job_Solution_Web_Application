@@ -22,55 +22,66 @@
    </mat-toolbar-row>
  </mat-toolbar>
 
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
+<mat-horizontal-stepper labelPosition="bottom" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Personal Information</ng-template>
       <div class="example-container">
-      <mat-form-field>
+        <table class="table">
+
+          <tr>
+      <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
         <input matInput placeholder="First name" formControlName="firstCtrl" required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
         <input matInput placeholder="Last name" formControlName="firstCtrl" required>
         </mat-form-field>
-        <br>
-        <mat-form-field>
+      </tr>
+      <tr>
+        <mat-form-field appearance="outline">
         <mat-label>Telephone</mat-label>
         <input matInput placeholder="Telephone" formControlName="firstCtrl" required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" formControlName="firstCtrl" required>
         </mat-form-field>
-        <br>
-        <mat-form-field>
+      </tr>
+      <tr>
+        <mat-form-field appearance="outline">
         <mat-label>Address</mat-label>
         <input matInput placeholder="Address" formControlName="firstCtrl" required>
         </mat-form-field>
-        <br>
-        <mat-form-field>
+      </tr>
+
+      <tr>
+        <mat-form-field appearance="outline">
         <mat-label>Address 2</mat-label>
         <input matInput placeholder="Address 2" formControlName="firstCtrl" required>
         </mat-form-field>
-        <br>
-        <mat-form-field>
+      </tr>
+
+      <tr>
+        <mat-form-field appearance="outline">
         <mat-label>City</mat-label>
         <input matInput placeholder="city" formControlName="firstCtrl" required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
         <mat-label>State</mat-label>
         <input matInput placeholder="State" formControlName="firstCtrl" required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
         <mat-label>ZipCode</mat-label>
         <input matInput placeholder="ZipCode" formControlName="firstCtrl" required>
         </mat-form-field>
+      </tr>
+      </table>
 
         </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+      <div class = "example-button">
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -108,9 +119,9 @@
         </mat-form-field>
 
         </div>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <div class = "example-button">
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -159,9 +170,9 @@
         </mat-form-field>
 
         </div>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <div class = "example-button">
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -295,9 +306,9 @@
         </mat-form-field>
 
         </div>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <div class = "example-button">
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -305,9 +316,9 @@
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+    <div class = "example-button">
+      <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
