@@ -41,10 +41,17 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class FormComponent implements OnInit {
 
-  onSubmit()
-  {
-    alert('Congratulation!, you have submitted your application successfully.');
-  }
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
+  fourthFormGroup: FormGroup;
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
+  matcher = new MyErrorStateMatcher();
 
   genders: Gender[] = [
     {value: 'Male-0', viewValue: 'Male'},
@@ -80,17 +87,11 @@ export class FormComponent implements OnInit {
     {value: 'Associates', viewValue:'Associates'}
   ];
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  onSubmit()
+  {
+    alert('Congratulation!, you have submitted your application successfully.');
+  }
 
-  matcher = new MyErrorStateMatcher();
-
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  fourthFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) { }
 
@@ -99,7 +100,7 @@ export class FormComponent implements OnInit {
       firstCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: ''
     });
     this.thirdFormGroup = this._formBuilder.group({
       thirdCtrl: ['', Validators.required]
