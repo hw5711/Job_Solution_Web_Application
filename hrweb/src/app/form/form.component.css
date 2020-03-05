@@ -30,3 +30,8 @@
 td {
   padding-right: 8px;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}

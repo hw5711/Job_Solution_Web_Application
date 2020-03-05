@@ -21,11 +21,15 @@
      <span><h2>Job Application</h2></span>
    </mat-toolbar-row>
  </mat-toolbar>
+ <br>
+ <br>
 
-<mat-horizontal-stepper labelPosition="bottom" [linear]="isLinear" #stepper>
+<mat-horizontal-stepper labelPosition="bottom" linear #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Personal Information</ng-template>
+      <br>
+      <br>
       <div class="example-container">
         <table class="example-full-width" cellspacing="0">
 
@@ -90,6 +94,8 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Work Experience</ng-template>
+      <br>
+      <br>
       <div class="example-container">
         <table class="example-full-width" cellspacing="0">
 
@@ -141,9 +147,15 @@
         </table>
 
         </div>
-      <div class = "example-button">
-        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-        <button mat-raised-button color="primary" matStepperNext>Next</button>
+        <div class = "example-button">
+          <table style="margin-left:auto;margin-right:auto;">
+            <tr>
+              <td>
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
+        <td>
+        <button mat-raised-button color="primary" matStepperNext>Next</button></td>
+        </tr>
+        </table>
       </div>
     </form>
   </mat-step>
@@ -152,6 +164,8 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Education</ng-template>
+      <br>
+      <br>
       <div class="example-container">
         <table class="example-full-width" cellspacing="0">
           <tr>
@@ -216,16 +230,25 @@
       </table>
 
         </div>
+
       <div class = "example-button">
-        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-        <button mat-raised-button color="primary" matStepperNext>Next</button>
-      </div>
+        <table style="margin-left:auto;margin-right:auto;">
+          <tr>
+            <td>
+      <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
+      <td>
+      <button mat-raised-button color="primary" matStepperNext>Next</button></td>
+      </tr>
+      </table>
+    </div>
     </form>
   </mat-step>
 
   <mat-step [stepControl]="fourthFormGroup">
     <form [formGroup]="fourthFormGroup">
       <ng-template matStepLabel>Application Questions</ng-template>
+      <br>
+      <br>
       <div style = "height: 2000px" class="example-container">
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Do you now, or will you at any point in the future, require visa sponsorship in order to work in the U.S.? </mat-label>
@@ -362,22 +385,38 @@
           </mat-option>
         </mat-select>
         </mat-form-field>
-
         </div>
+
       <div class = "example-button">
-        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-        <button mat-raised-button color="primary" matStepperNext>Next</button>
-      </div>
+        <table style="margin-left:auto;margin-right:auto;">
+          <tr>
+            <td>
+      <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
+      <td>
+      <button mat-raised-button color="primary" matStepperNext>Next</button></td>
+      </tr>
+      </table>
+    </div>
     </form>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div class = "example-button">
-      <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-      <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
-    </div>
+    <br>
+    <br>
+    <div class="center"> <h2>You are now done!</h2></div>
+
+  <div class = "example-button">
+    <table style="margin-left:auto;margin-right:auto;">
+      <tr>
+        <td>
+  <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
+  <td>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button></td>
+  </tr>
+  </table>
+</div>
+
   </mat-step>
 </mat-horizontal-stepper>
 
