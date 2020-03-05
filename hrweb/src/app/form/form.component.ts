@@ -41,6 +41,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class FormComponent implements OnInit {
 
+  onSubmit()
+  {
+    alert('Congratulation!, you have submitted your application successfully.');
+  }
+
   genders: Gender[] = [
     {value: 'Male-0', viewValue: 'Male'},
     {value: 'Female-1', viewValue: 'Female'},
