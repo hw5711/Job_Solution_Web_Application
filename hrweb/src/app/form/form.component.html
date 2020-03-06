@@ -143,11 +143,129 @@
         <textarea matInput placeholder="Role Description" ></textarea>
         </mat-form-field>
       </tr>
-
-        </table>
-
+      </table>
         </div>
-        <div class = "example-button">
+
+        <div style="width: 1000px; margin: auto;" >
+          <mat-accordion>
+            <mat-expansion-panel style = "background: #e6f1fcca;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Add Work Experience
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <table class="example-full-width" cellspacing="0">
+
+                <tr>
+              <td>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Job Title</mat-label>
+              <input matInput placeholder="Job Title">
+              </mat-form-field> </td>
+              <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Company</mat-label>
+              <input matInput placeholder="Company">
+              </mat-form-field></td>
+              </tr>
+              <tr>
+              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Location</mat-label>
+              <input matInput placeholder="Location">
+              </mat-form-field>
+            </tr>
+
+              <tr>
+                <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>From Date</mat-label>
+              <input matInput [matDatepicker]="picker10">
+              <mat-datepicker-toggle matSuffix [for]="picker10"></mat-datepicker-toggle>
+              <mat-datepicker #picker10></mat-datepicker>
+              </mat-form-field></td>
+              <td>
+              <mat-checkbox >Currently, I work here</mat-checkbox>
+            </td>
+              <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>To Date</mat-label>
+              <input matInput [matDatepicker]="picker11">
+              <mat-datepicker-toggle matSuffix [for]="picker11"></mat-datepicker-toggle>
+              <mat-datepicker #picker11></mat-datepicker>
+              </mat-form-field></td>
+            </tr>
+            <tr>
+              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Role Description</mat-label>
+              <textarea matInput placeholder="Role Description" ></textarea>
+              </mat-form-field>
+            </tr>
+            </table>
+            <mat-accordion>
+              <mat-expansion-panel style = "background: #e6f1fcca;">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Add Work Experience
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <table class="example-full-width" cellspacing="0">
+
+                  <tr>
+                <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Job Title</mat-label>
+                <input matInput placeholder="Job Title">
+                </mat-form-field> </td>
+                <td>
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Company</mat-label>
+                <input matInput placeholder="Company">
+                </mat-form-field></td>
+                </tr>
+                <tr>
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Location</mat-label>
+                <input matInput placeholder="Location">
+                </mat-form-field>
+              </tr>
+
+                <tr>
+                  <td>
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>From Date</mat-label>
+                <input matInput [matDatepicker]="picker12">
+                <mat-datepicker-toggle matSuffix [for]="picker12"></mat-datepicker-toggle>
+                <mat-datepicker #picker12></mat-datepicker>
+                </mat-form-field></td>
+                <td>
+                <mat-checkbox >Currently, I work here</mat-checkbox>
+              </td>
+                <td>
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>To Date</mat-label>
+                <input matInput [matDatepicker]="picker13">
+                <mat-datepicker-toggle matSuffix [for]="picker13"></mat-datepicker-toggle>
+                <mat-datepicker #picker13></mat-datepicker>
+                </mat-form-field></td>
+              </tr>
+              <tr>
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Role Description</mat-label>
+                <textarea matInput placeholder="Role Description" ></textarea>
+                </mat-form-field>
+              </tr>
+              </table>
+              </mat-expansion-panel>
+
+            </mat-accordion>
+            </mat-expansion-panel>
+
+          </mat-accordion>
+        </div>
+
+     <div class = "example-button">
           <table style="margin-left:auto;margin-right:auto;">
             <tr>
               <td>
@@ -157,6 +275,7 @@
         </tr>
         </table>
       </div>
+
     </form>
   </mat-step>
 
@@ -230,6 +349,154 @@
       </table>
 
         </div>
+
+          <div style="width: 1000px; margin: auto;" >
+            <mat-accordion>
+              <mat-expansion-panel style = "background: #e6f1fcca;">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Add Education
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                 <table class="example-full-width" cellspacing="0">
+            <tr>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>School Name</mat-label>
+          <input matInput placeholder="School Name" formControlName="thirdCtrl" required>
+          </mat-form-field></tr>
+          <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Education level</mat-label>
+          <mat-select formControlName="thirdCtrl" required>
+            <mat-option *ngFor="let Education of Educations" [value]="Education.value">
+              {{Education.viewValue}}
+            </mat-option>
+          </mat-select>
+          </mat-form-field>
+        </tr>
+        <tr>
+          <td>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="picker20">
+          <mat-datepicker-toggle matSuffix [for]="picker20"></mat-datepicker-toggle>
+          <mat-datepicker #picker20></mat-datepicker>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>End Date (Actual or Expected)</mat-label>
+          <input matInput [matDatepicker]="picker21">
+          <mat-datepicker-toggle matSuffix [for]="picker21"></mat-datepicker-toggle>
+          <mat-datepicker #picker21></mat-datepicker>
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+          <td>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Major</mat-label>
+          <input matInput placeholder="Major" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Cumulative GPA</mat-label>
+          <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Skills</mat-label>
+          <textarea matInput placeholder="Skills"></textarea>
+          </mat-form-field>
+        </tr>
+        <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Accomplishments</mat-label>
+          <textarea matInput placeholder="Accomplishments"></textarea>
+          </mat-form-field>
+        </tr>
+        </table>
+              <mat-accordion>
+                <mat-expansion-panel style = "background: #e6f1fcca;">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Add Eduaction
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+
+                   <table class="example-full-width" cellspacing="0">
+            <tr>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>School Name</mat-label>
+          <input matInput placeholder="School Name" formControlName="thirdCtrl" required>
+          </mat-form-field></tr>
+          <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Education level</mat-label>
+          <mat-select formControlName="thirdCtrl" required>
+            <mat-option *ngFor="let Education of Educations" [value]="Education.value">
+              {{Education.viewValue}}
+            </mat-option>
+          </mat-select>
+          </mat-form-field>
+        </tr>
+        <tr>
+          <td>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="picker22">
+          <mat-datepicker-toggle matSuffix [for]="picker22"></mat-datepicker-toggle>
+          <mat-datepicker #picker22></mat-datepicker>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>End Date (Actual or Expected)</mat-label>
+          <input matInput [matDatepicker]="picker23">
+          <mat-datepicker-toggle matSuffix [for]="picker23"></mat-datepicker-toggle>
+          <mat-datepicker #picker23></mat-datepicker>
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+          <td>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Major</mat-label>
+          <input matInput placeholder="Major" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Cumulative GPA</mat-label>
+          <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" required>
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Skills</mat-label>
+          <textarea matInput placeholder="Skills"></textarea>
+          </mat-form-field>
+        </tr>
+        <tr>
+          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Accomplishments</mat-label>
+          <textarea matInput placeholder="Accomplishments"></textarea>
+          </mat-form-field>
+        </tr>
+        </table>
+                </mat-expansion-panel>
+
+              </mat-accordion>
+              </mat-expansion-panel>
+
+            </mat-accordion>
+          </div>
+
 
       <div class = "example-button">
         <table style="margin-left:auto;margin-right:auto;">
