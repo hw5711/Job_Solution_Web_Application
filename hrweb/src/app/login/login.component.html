@@ -54,10 +54,10 @@
         <label for="inputPassword" class="sr-only" >Password</label>
         <input name = "password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" id="inputPassword" class="form-control" placeholder="Password"  style="margin-top: 1em; margin-bottom: 1em" required>
         <p class="card-text select" style="margin-left: -27em; margin-bottom: -0.1em;"> HR or Candidate ?</p>
-        <select name="selector" [(ngModel)]="choice" [ngModelOptions]="{standalone: true}"  class="custom-select d-block w-100" id="state" style="margin-top: 1em; margin-bottom: 1em" required>
+        <select id="role" [(ngModel)]="choice" [ngModelOptions]="{standalone: true}"  class="custom-select d-block w-100" id="state" style="margin-top: 1em; margin-bottom: 1em" required>
             <option *ngFor="let choice of choices"  [(value)]="choice" >{{choice}}</option>
         </select>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()">Sign in</button>
+        <button name="login" class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()">Login</button>
     </form>
 
     <p class="mt-5 mb-3 text-muted" style="padding-top: -2em;">

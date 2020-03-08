@@ -15,13 +15,12 @@ const puppeteer = require('puppeteer');
     await page.type('input[name=password]', '1');
     
     await page.waitFor(1000);
+  
+    var selected = await page.evaluate(() => {
+        return document.querySelector(`select [value="HR"]`).selected = true
+    });
     
-    const result = await page.evaluateHandle(() => {
-        return document.querySelector(
-            '#select > option-2');
-    })
-    result.click();
-    // page.click(selector, "HR");
+    await page.waitFor(1000);
     await page.click('button[name="login"]');
     await page.waitFor(2000);
     await page.screenshot({ path: 'mainPage.png' });
