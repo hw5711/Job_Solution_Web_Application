@@ -49,13 +49,13 @@
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <p class="card-text" style="margin-left: -33em; margin-top: 1em; margin-bottom: 1em;">Email</p>
         <label for="inputEmail" class="sr-only" >Email address</label>
-        <input  [(ngModel)]="email" [ngModelOptions]="{standalone: true}"  type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input name = "email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}"  type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <p class="card-text" style="margin-left: -31em; margin-top: 1em; margin-bottom: -0.1em;"> Password</p>
         <label for="inputPassword" class="sr-only" >Password</label>
-        <input  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" id="inputPassword" class="form-control" placeholder="Password"  style="margin-top: 1em; margin-bottom: 1em" required>
-        <p class="card-text" style="margin-left: -27em; margin-bottom: -0.1em;"> HR or Candidate ?</p>
-        <select [(ngModel)]="choice" [ngModelOptions]="{standalone: true}"  class="custom-select d-block w-100" id="state" style="margin-top: 1em; margin-bottom: 1em" required>
-            <option  *ngFor="let choice of choices"  [(value)]="choice" >{{choice}}</option>
+        <input name = "password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" id="inputPassword" class="form-control" placeholder="Password"  style="margin-top: 1em; margin-bottom: 1em" required>
+        <p class="card-text select" style="margin-left: -27em; margin-bottom: -0.1em;"> HR or Candidate ?</p>
+        <select name="selector" [(ngModel)]="choice" [ngModelOptions]="{standalone: true}"  class="custom-select d-block w-100" id="state" style="margin-top: 1em; margin-bottom: 1em" required>
+            <option *ngFor="let choice of choices"  [(value)]="choice" >{{choice}}</option>
         </select>
         <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()">Sign in</button>
     </form>
