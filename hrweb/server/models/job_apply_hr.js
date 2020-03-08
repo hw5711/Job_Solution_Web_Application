@@ -7,4 +7,4 @@ var JobAppHR = new mongoose.Schema({
     can_id: String,
 });
 
-module.exports = mongoose.model('JobAppHR', JobHR);
+module.exports = mongoose.model('jobAppHR', JobHR);
