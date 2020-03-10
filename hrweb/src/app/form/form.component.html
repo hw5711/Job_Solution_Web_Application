@@ -4,16 +4,17 @@
      <span><h1>Job Solutions</h1></span>
      <span class="example-spacer"></span>
    <div>
-
        <a mat-button [routerLink]=""> Jobs </a>
        <a mat-button [routerLink]=""> Employers </a>
        <button mat-button [matMenuTriggerFor]="menu">My Profile</button>
+
        <mat-menu #menu="matMenu">
+
          <button mat-menu-item>Profile</button>
          <button mat-menu-item>Applications</button>
          <button mat-menu-item>MyFav Jobs</button>
-       </mat-menu>
 
+       </mat-menu>
      </div>
    </mat-toolbar-row>
 
@@ -33,7 +34,7 @@
       <div class="example-container">
         <table class="example-full-width" cellspacing="0">
 
-          <tr>
+          <tr >
         <td><mat-form-field class="example-full-width" appearance="outline">
         <mat-label>First Name</mat-label>
         <input matInput placeholder="First name" formControlName="firstCtrl" required>
