@@ -9,7 +9,7 @@ const puppeteer = require('puppeteer');
 
     await page.waitFor(1000);
     await page.click('a[name="login"]');
-    await page.screenshot({ path: 'login.png' });
+    // await page.screenshot({ path: 'login.png' });
     await page.waitFor(1000);
     await page.type('input[name=email]', 'hrtest@gmail.com');
     await page.type('input[name=password]', '1');
@@ -23,6 +23,9 @@ const puppeteer = require('puppeteer');
     await page.waitFor(1000);
     await page.click('button[name="login"]');
     await page.waitFor(2000);
-    await page.screenshot({ path: 'mainPage.png' });
+    // await page.screenshot({ path: 'mainPage.png' });
     await browser.close();
 })();
+
+
+// https://github.com/puppeteer/puppeteer/issues/1030
