@@ -29,3 +29,4 @@ const puppeteer = require('puppeteer');
 
 
 // https://github.com/puppeteer/puppeteer/issues/1030
+//https://www.scrapehero.com/how-to-build-a-web-scraper-using-puppeteer-and-node-js/
