@@ -27,7 +27,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
-import { WorkformComponent } from './workform/workform.component';
 import { RetriveComponent } from './retrive/retrive.component';
 import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
 import { CandProfileComponent } from './cand-profile/cand-profile.component';
@@ -46,7 +45,6 @@ import { MyfavjobComponent } from './myfavjob/myfavjob.component';
     RegisterComponent,
     HomeComponent,
     FormComponent,
-    WorkformComponent,
     RetriveComponent,
     ResetpasswordComponent,
     CandProfileComponent,
