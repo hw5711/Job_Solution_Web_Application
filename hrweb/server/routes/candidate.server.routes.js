@@ -14,31 +14,16 @@ app.post("/find_job", function (req, res, next) {
 
 //candidate update profile
 app.put("/update", function (req, res, next) {
-    const canprofile = new candidateprofile({
-        can_id: req.body.can_id,
-        fnamd: req.body.fnamd,
-        lname: req.body.lname,
-        phone: req.body.phone,
-        work_experience: [{
-            // company: ,
-            // title: ,
-            // start_date: ,
-            // end_date: ,
-            // description: ,
-        }],
-        education: [{
-            // school: ,
-            // dgree: ,
-            // major: ,
-            // start_year: ,
-            // end_year: ,
-        }]
-    });
 
-    canprofile.updateOne(
+    candidateprofile.updateOne(
         { can_id: req.body.can_id },
         {
-
+            can_id: req.body.can_id,
+            fnamd: req.body.fnamd,
+            lname: req.body.lname,
+            phone: req.body.phone,
+            work_experience: req.body.work_experience,
+            education: req.body.education,
         },
         function (err, result) {
             if (result.n > 0) {
@@ -47,7 +32,19 @@ app.put("/update", function (req, res, next) {
                 res.status(401).json({ message: "Not authorized!" });
             }
         });
+});
 
+//retrive candidate profile
+app.get("/:can_id", (req, res, next) => {
+    console.log(" server get can_id # is:", req.params.can_id);
+    candidateprofile.findOne({ can_id: req.params.can_id })
+        .then(candidate => {
+            if (candidate) {
+                res.status(200).json(candidate);
+            } else {
+                res.status(404).json({ message: "Account not found!" });
+            }
+        });
 });
 
 module.exports = app;
