@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
     if(this.password1 == this.password2){
       this.role = this.choice;
       const authData: LoginData = { email: form.value.email, password: form.value.password , role: this.choice};
+      
       this.http
         .post("http://localhost:3000/register", authData)
           // .post("register", authData)

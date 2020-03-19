@@ -80,7 +80,6 @@ export class JobspageComponent implements OnInit {
 
   //get candidate profile history
 getCandidateProfile(){
-
   this.http
     .get("http://localhost:3000/cand-profile/" + this.can_id)
     .subscribe(CanData => {
