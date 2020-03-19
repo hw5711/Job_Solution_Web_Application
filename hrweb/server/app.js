@@ -14,6 +14,7 @@ mongoose.Promise.config({
 mongoose.set('useFindAndModify', false);
 
 const userRoutes = require("./routes/user.server.routes");
+const canRoutes = require("./routes/candidate.server.routes");
 
 const app = express();
 app.use(cookieParser());
@@ -55,7 +56,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/", userRoutes);
-// app.use("/activities", activitiesRoutes);
+app.use("/cand-profile", canRoutes);
 //Use the below line when deploy
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'public/index.html'));

@@ -13,7 +13,7 @@ app.post("/find_job", function (req, res, next) {
 });
 
 //candidate update profile
-app.put("/update", function (req, res, next) {
+app.put("/:can_id", function (req, res, next) {
 
     candidateprofile.updateOne(
         { can_id: req.body.can_id },
