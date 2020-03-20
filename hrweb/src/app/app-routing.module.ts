@@ -7,6 +7,7 @@ import { RetriveComponent } from './retrive/retrive.component';
 import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
+import { WorkformComponent } from './workform/workform.component';
 import { CandidateFormComponent } from './candidate-form/candidate-form.component';
 import { CandProfileComponent } from './cand-profile/cand-profile.component';
 import { HrProfileComponent } from './hr-profile/hr-profile.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "", component: HomeComponent },
+  { path: "workform", component: WorkformComponent },
   { path: "form", component: FormComponent },
   { path: "retrive", component: RetriveComponent },
   { path: "valid/:token", component: ResetpasswordComponent },
