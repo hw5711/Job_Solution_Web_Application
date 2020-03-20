@@ -48,68 +48,68 @@ export class JobspageComponent implements OnInit {
     {value: 'Others-15', viewValue: 'Others'}
   ];
 
-  can_id: String;
-  fnamd: String;
-  lname: String;
-  phone: Number;
-  work_experience: [{
-    company: String,
-    title: String,
-    start_date: Date,
-    end_date: Date,
-    description: String,
-  }];
-  education: [{
-    school: String,
-    dgree: String,
-    major: String,
-    start_year: Number,
-    end_year: Number,
-  }];
-  updated: Boolean;
+  // can_id: String;
+  // fnamd: String;
+  // lname: String;
+  // phone: Number;
+  // work_experience: [{
+  //   company: String,
+  //   title: String,
+  //   start_date: Date,
+  //   end_date: Date,
+  //   description: String,
+  // }];
+  // education: [{
+  //   school: String,
+  //   dgree: String,
+  //   major: String,
+  //   start_year: Number,
+  //   end_year: Number,
+  // }];
+  // updated: Boolean;
 
   constructor(
-    private http: HttpClient,
-    private loginService: LoginService,
-    public route: ActivatedRoute
+    // private http: HttpClient,
+    // private loginService: LoginService,
+    // public route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.can_id = this.loginService.getUserId();
+   // this.can_id = this.loginService.getUserId();
   }
 
   //get candidate profile history
-getCandidateProfile(){
-  this.http
-    .get("http://localhost:3000/cand-profile/" + this.can_id)
-    .subscribe(CanData => {
-      this.fnamd = CanData["fname"];
-      this.lname = CanData["lname"];
-      this.phone = CanData["phone"];
-      this.work_experience = CanData["work_experience"];
-      this.education = CanData["education"];
-    })
-}
+// getCandidateProfile(){
+//   this.http
+//     .get("http://localhost:3000/cand-profile/" + this.can_id)
+//     .subscribe(CanData => {
+//       this.fnamd = CanData["fname"];
+//       this.lname = CanData["lname"];
+//       this.phone = CanData["phone"];
+//       this.work_experience = CanData["work_experience"];
+//       this.education = CanData["education"];
+//     })
+// }
 
   //Update account info
-  SaveUpdate() {
-    let candidateInfo = {
-      _id: this.can_id,
-      fnamd: this.fnamd,
-      lname: this.lname,
-      pnone: this.phone,
-      work_experience: this.work_experience,
-      eucation: this.education,
-    };
-    console.log("id is:", this.can_id);
+  // SaveUpdate() {
+  //   let candidateInfo = {
+  //     _id: this.can_id,
+  //     fnamd: this.fnamd,
+  //     lname: this.lname,
+  //     pnone: this.phone,
+  //     work_experience: this.work_experience,
+  //     eucation: this.education,
+  //   };
+  //   console.log("id is:", this.can_id);
 
-    this.http
-      .put("http://localhost:3000/cand-profile/" + this.can_id, candidateInfo)
-      .subscribe(response => {
-        console.log("res is :", response);
-      });
-    this.updated = true;
-  }
+  //   this.http
+  //     .put("http://localhost:3000/cand-profile/" + this.can_id, candidateInfo)
+  //     .subscribe(response => {
+  //       console.log("res is :", response);
+  //     });
+  //   this.updated = true;
+  // }
 
 }
 
