@@ -46,17 +46,17 @@ app.post("/check_candidate", function (req, res, next) {
 
 //hr update profile
 app.put("/update", function (req, res, next) {
-    const hrprofile = new hrprofile({
-        //_id: req.body._id,
-        hr_id: req.body.hr_id,
-        join_date: req.body.join_date,
-        fnamd: req.body.fname,
-        lname: req.body.lname,
-        phone: req.body.phone,
-        title_at_work: req.body.title_at_work,
-        company: req.body.company,
-        start_work_date: req.body.start_work_date,
-    });
+    // const hrprofile = new hrprofile({
+    //     //_id: req.body._id,
+    //     hr_id: req.body.hr_id,
+    //     join_date: req.body.join_date,
+    //     fnamd: req.body.fname,
+    //     lname: req.body.lname,
+    //     phone: req.body.phone,
+    //     title_at_work: req.body.title_at_work,
+    //     company: req.body.company,
+    //     start_work_date: req.body.start_work_date,
+    // });
 
     hrProfile.updateOne(
         { hr_id: req.body.hr_id },
