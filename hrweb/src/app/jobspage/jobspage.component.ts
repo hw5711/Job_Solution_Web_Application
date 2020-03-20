@@ -17,7 +17,7 @@ interface industry {
 export class JobspageComponent implements OnInit {
 
   panelOpenState = false;
-  // jobtype = new FormControl();
+  // jobtype = new FormControl('', [Validators.required]));
   // location = new FormControl();
 
   jobtypeList: string[] = ['Internship', 'Co-op', 'Full Time', 'Part Time'];
