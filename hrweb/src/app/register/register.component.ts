@@ -42,16 +42,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register(form: NgForm){
+
     if(this.password1 == this.password2){
       this.role = this.choice;
       const authData: LoginData = { email: form.value.email, password: form.value.password , role: this.choice};
-      
       this.http
         .post("http://localhost:3000/register", authData)
           // .post("register", authData)
           .subscribe(response => {
               this.meg = response["message"];
-              this.router.navigate(["login"]);
+              console.log("show detail of response :", this.meg);
+            this.router.navigate(["login"]);
           },
           error=>{
             this.meg = error.message;
