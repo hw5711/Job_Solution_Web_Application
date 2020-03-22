@@ -39,7 +39,6 @@ import { HrFormComponent } from './hr-form/hr-form.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { MyfavjobComponent } from './myfavjob/myfavjob.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
