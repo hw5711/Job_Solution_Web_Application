@@ -24,6 +24,7 @@ import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { PostJobComponent } from './post-job/post-job.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
@@ -43,6 +44,7 @@ import { MyfavjobComponent } from './myfavjob/myfavjob.component';
   declarations: [
     AppComponent,
     LoginComponent,
+    PostJobComponent,
     RegisterComponent,
     HomeComponent,
     FormComponent,
