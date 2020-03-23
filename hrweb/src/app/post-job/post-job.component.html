@@ -1,0 +1,35 @@
+<header>
+  <mat-toolbar color=primary>
+    <span>Post Job</span>
+  </mat-toolbar>
+</header>
+
+<body>
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Job Title</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <mat-select>
+        <mat-option value="Texas">Austin, TX</mat-option>
+        <mat-option value="California">Mountain View, CA</mat-option>
+        <mat-option value="NewYork">New York, NY</mat-option>
+        <mat-option value="Washington">Seattle, WA</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="Description">
+      <mat-label>Job Description</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit">Post Job</button>
+</body>
+
+
