@@ -144,6 +144,11 @@ export class FormCreateComponent implements OnInit {
     
   }
 
+  onSubmit()
+  {
+    alert('Congratulation!, you have submitted your application successfully.');
+  }
+
   
 
   constructor(private _formBuilder: FormBuilder) { }
