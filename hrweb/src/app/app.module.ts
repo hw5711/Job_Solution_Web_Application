@@ -40,6 +40,7 @@ import { ApplicationsComponent } from './applications/applications.component';
 import { MyfavjobComponent } from './myfavjob/myfavjob.component';
 import { FormReviewComponent } from './form/form-review/form-review.component';
 import { FormCreateComponent } from './form/form-create/form-create.component';
+import { ViewPostingComponent } from './view-posting/view-posting.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { FormCreateComponent } from './form/form-create/form-create.component';
     ApplicationsComponent,
     MyfavjobComponent,
     FormReviewComponent,
-    FormCreateComponent
+    FormCreateComponent,
+    ViewPostingComponent
   ],
   imports: [
     BrowserModule,
