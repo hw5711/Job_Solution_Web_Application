@@ -40,6 +40,7 @@ import { MyfavjobComponent } from './myfavjob/myfavjob.component';
 import { JobappFormComponent } from './jobapp-form/jobapp-form.component';
 import { JobappFormCreateComponent } from './jobapp-form/jobapp-form-create/jobapp-form-create.component';
 import { JobappFormReviewComponent } from './jobapp-form/jobapp-form-review/jobapp-form-review.component';
+import { ViewPostingComponent } from './view-posting/view-posting.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { JobappFormReviewComponent } from './jobapp-form/jobapp-form-review/joba
     MyfavjobComponent,
     JobappFormComponent,
     JobappFormCreateComponent,
-    JobappFormReviewComponent
+    JobappFormReviewComponent,
+    ViewPostingComponent
   ],
   imports: [
     BrowserModule,
