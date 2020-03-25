@@ -38,6 +38,8 @@ import { JobspageComponent } from './jobspage/jobspage.component';
 import { HrFormComponent } from './hr-form/hr-form.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { MyfavjobComponent } from './myfavjob/myfavjob.component';
+import { FormReviewComponent } from './form/form-review/form-review.component';
+import { FormCreateComponent } from './form/form-create/form-create.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { MyfavjobComponent } from './myfavjob/myfavjob.component';
     CandidateFormComponent,
     HrFormComponent,
     ApplicationsComponent,
-    MyfavjobComponent
+    MyfavjobComponent,
+    FormReviewComponent,
+    FormCreateComponent
   ],
   imports: [
     BrowserModule,

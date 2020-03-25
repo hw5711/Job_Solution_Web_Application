@@ -16,6 +16,8 @@ import { JobspageComponent } from './jobspage/jobspage.component';
 import { HrFormComponent } from './hr-form/hr-form.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { MyfavjobComponent } from './myfavjob/myfavjob.component';
+import { FormReviewComponent } from './form/form-review/form-review.component';
+import { FormCreateComponent } from './form/form-create/form-create.component';
 import { PostJobComponent } from './post-job/post-job.component';
 
 
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: "hr-form", component: HrFormComponent },
   { path: "applications", component: ApplicationsComponent},
   { path: "myfavjob", component: MyfavjobComponent},
+  { path: "form-create", component: FormCreateComponent },
+  { path: "form-review", component: FormReviewComponent },
   { path: "post_job", component: PostJobComponent },
 ];
 
