@@ -27,7 +27,6 @@ import { LoginComponent } from './login/login.component';
 import { PostJobComponent } from './post-job/post-job.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { FormComponent } from './form/form.component';
 import { WorkformComponent } from './workform/workform.component';
 import { RetriveComponent } from './retrive/retrive.component';
 import { ResetpasswordComponent } from './retrive/resetpassword/resetpassword.component';
@@ -38,8 +37,9 @@ import { JobspageComponent } from './jobspage/jobspage.component';
 import { HrFormComponent } from './hr-form/hr-form.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { MyfavjobComponent } from './myfavjob/myfavjob.component';
-import { FormReviewComponent } from './form/form-review/form-review.component';
-import { FormCreateComponent } from './form/form-create/form-create.component';
+import { JobappFormComponent } from './jobapp-form/jobapp-form.component';
+import { JobappFormCreateComponent } from './jobapp-form/jobapp-form-create/jobapp-form-create.component';
+import { JobappFormReviewComponent } from './jobapp-form/jobapp-form-review/jobapp-form-review.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,6 @@ import { FormCreateComponent } from './form/form-create/form-create.component';
     PostJobComponent,
     RegisterComponent,
     HomeComponent,
-    FormComponent,
     WorkformComponent,
     RetriveComponent,
     ResetpasswordComponent,
@@ -59,8 +58,9 @@ import { FormCreateComponent } from './form/form-create/form-create.component';
     HrFormComponent,
     ApplicationsComponent,
     MyfavjobComponent,
-    FormReviewComponent,
-    FormCreateComponent
+    JobappFormComponent,
+    JobappFormCreateComponent,
+    JobappFormReviewComponent
   ],
   imports: [
     BrowserModule,

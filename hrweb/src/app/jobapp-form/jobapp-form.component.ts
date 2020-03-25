@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css'],
+  selector: 'app-jobapp-form',
+  templateUrl: './jobapp-form.component.html',
+  styleUrls: ['./jobapp-form.component.css']
 })
-export class FormComponent implements OnInit {
+export class JobappFormComponent implements OnInit {
 
   storedReviews = [];
 
   onReviewAdded(review) {
     this.storedReviews.push(review);
   } 
-
-
+  
   constructor() { }
 
   ngOnInit() {
   }
 
 }
-

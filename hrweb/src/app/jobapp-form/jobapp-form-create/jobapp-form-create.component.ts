@@ -1,7 +1,9 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
+
+import { JobappFormService } from "../jobapp-form.service";
 
 interface Education {
   value: string;
@@ -31,15 +33,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
+
 @Component({
-  selector: 'app-form-create',
-  templateUrl: './form-create.component.html',
-  styleUrls: ['./form-create.component.css'],
+  selector: 'app-jobapp-form-create',
+  templateUrl: './jobapp-form-create.component.html',
+  styleUrls: ['./jobapp-form-create.component.css'],
   providers: [{
     provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
   }]
 })
-export class FormCreateComponent implements OnInit {
+export class JobappFormCreateComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -110,38 +113,41 @@ export class FormCreateComponent implements OnInit {
   enteredCumulativegpa = "";
   enteredSkills = "";
   enteredAccomplishments = "";
-  @Output() reviewCreated = new EventEmitter();
+ 
+  constructor(public jobappFormService: JobappFormService, private _formBuilder: FormBuilder) { }
 
-  onReview()
-  {
-    const review = {
-      firstName: this.enteredFirstName,
-      lastName: this.enteredLastName,
-      telephone: this.enteredTelephone,
-      email: this.enteredEmail,
-      address: this.enteredAddress,
-      address2: this.eneteredAddress2,
-      city: this.enteredCity,
-      state: this.enteredState,
-      zipcode: this.enteredZipcode,
-      job: this.enteredJob,
-      company: this.enteredCompany,
-      location: this.enteredLocation,
-      fromDate: this.enteredFromDate,
-      toDate: this.enteredToDate,
-      role: this.enteredRole,
-      school: this.enteredSchool,
-      level: this.enteredEducationlevel,
-      StartDate: this.enteredStartDate,
-      EndDate: this.enteredEndDate,
-      major: this.enteredMajor,
-      gpa: this.enteredCumulativegpa,
-      skills: this.enteredSkills,
-      accomplishments: this.enteredAccomplishments
-    
-    };
-    this.reviewCreated.emit(review);
-    
+  onAddJobapp(form: NgForm) {
+
+    this.jobappFormService.addJobapp(
+      form.value.firstName,
+      form.value.lastName,
+      form.value.telephone,
+      form.value.email,
+      form.value.address,
+      form.value.address2,
+      form.value.city,
+      form.value.state,
+      form.value.zipcode,
+      form.value.job,
+      form.value.company,
+      form.value.location,
+      form.value.fromDate,
+      form.value.toDate,
+      form.value.role,
+      form.value.school,
+      form.value.level,
+      form.value.StartDate,
+      form.value.EndDate,
+      form.value.major,
+      form.value.gpa,
+      form.value.skills,
+      form.value.accomplishments,
+      form.value.sponsership,
+      form.value.acknowledgment,
+      form.value.gender,
+      form.value.hispanic,
+      form.value.veteran,
+      form.value.disability);
   }
 
   onSubmit()
@@ -150,9 +156,6 @@ export class FormCreateComponent implements OnInit {
   }
 
   
-
-  constructor(private _formBuilder: FormBuilder) { }
-
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]

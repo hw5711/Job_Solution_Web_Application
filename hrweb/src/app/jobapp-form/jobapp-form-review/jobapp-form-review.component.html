@@ -1,0 +1,35 @@
+<mat-accordion> 
+    <mat-expansion-panel *ngFor = "let jobapp of jobapps"> 
+        <mat-expansion-panel-header>
+            Review
+        </mat-expansion-panel-header>
+        <p>{{ jobapp.firstName }}</p>
+        <p>{{ jobapp.lastName }}</p>
+        <p>{{ jobapp.telephone }}</p>
+        <p>{{ jobapp.email }}</p>
+        <p>{{ jobapp.address }}</p>
+        <p>{{ jobapp.address2 }}</p>
+        <p>{{ jobapp.city }}</p>
+        <p>{{ jobapp.state }}</p>
+        <p>{{ jobapp.zipcode }}</p>
+
+        <p>{{ jobapp.job }}</p>
+        <p>{{ jobapp.company }}</p>
+        <p>{{ jobapp.location }}</p>
+        <p>{{ jobapp.fromDate }}</p>
+        <p>{{ jobapp.toDate }}</p>
+        <p>{{ jobapp.role }}</p>
+
+        <p>{{ jobapp.school }}</p>
+        <p>{{ jobapp.level }}</p>
+        <p>{{ jobapp.StartDate }}</p>
+        <p>{{ jobapp.EndDate }}</p>
+        <p>{{ jobapp.major }}</p>
+        <p>{{ jobapp.gpa }}</p>
+        <p>{{ jobapp.skills }}</p>
+        <p>{{ jobapp.accomplishments }}</p> 
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+     

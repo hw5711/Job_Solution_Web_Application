@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormReviewComponent } from './form-review.component';
+import { JobappFormReviewComponent } from './jobapp-form-review.component';
 
-describe('FormReviewComponent', () => {
-  let component: FormReviewComponent;
-  let fixture: ComponentFixture<FormReviewComponent>;
+describe('JobappFormReviewComponent', () => {
+  let component: JobappFormReviewComponent;
+  let fixture: ComponentFixture<JobappFormReviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormReviewComponent ]
+      declarations: [ JobappFormReviewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormReviewComponent);
+    fixture = TestBed.createComponent(JobappFormReviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
