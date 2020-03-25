@@ -76,6 +76,7 @@ export class JobappFormService {
         hispanic: hispanic,
         veteran: veteran,
         disability: disability }; 
+    console.log("test: ", jobapp);
     this.jobapps.push(jobapp);
     this.jobappsUpdated.next([...this.jobapps]);
   }
