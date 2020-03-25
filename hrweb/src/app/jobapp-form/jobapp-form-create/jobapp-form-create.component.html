@@ -27,7 +27,7 @@
   
   <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
     <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup" (submit)="onAddJobapp(jobappForm)" #jobappForm="ngForm">  
+      <form [formGroup]="firstFormGroup">  
         <ng-template matStepLabel>Personal Information</ng-template>
         <br>
         <br>
@@ -37,27 +37,27 @@
             <tr >
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>First Name</mat-label>
-          <input matInput placeholder="First name" formControlName="firstCtrl" name = "firstname" ngModel> 
+          <input matInput placeholder="First name" formControlName="firstCtrl" [(ngModel)] = "enteredFirstName"> 
           </mat-form-field></td>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Last Name</mat-label>
-          <input matInput placeholder="Last name" formControlName="firstCtrl" name = "lastname" ngModel>
+          <input matInput placeholder="Last name" formControlName="firstCtrl"  [(ngModel)] = "enteredLastName">
           </mat-form-field></td>
         </tr>
         <tr>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Telephone</mat-label>
-          <input matInput placeholder="Telephone" formControlName="firstCtrl" name = "telephone" ngModel>
+          <input matInput placeholder="Telephone" formControlName="firstCtrl" [(ngModel)] = "enteredTelephone">
           </mat-form-field></td>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="Email" formControlName="firstCtrl" name = "email" ngModel>
+          <input matInput placeholder="Email" formControlName="firstCtrl" [(ngModel)] = "enteredEmail">
           </mat-form-field></td>
         </tr>
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Address</mat-label>
-          <input matInput placeholder="Address" formControlName="firstCtrl" name = "address" ngModel>
+          <input matInput placeholder="Address" formControlName="firstCtrl" [(ngModel)] = "enteredAddress">
           </mat-form-field>
         </tr>
   
@@ -71,16 +71,17 @@
         <tr>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>City</mat-label>
-          <input matInput placeholder="city" formControlName="firstCtrl" name = "city" ngModel>
+          <input matInput placeholder="city" formControlName="firstCtrl" [(ngModel)] = "enteredCity">  
+      
           </mat-form-field></td>
   
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>State</mat-label>
-          <input matInput placeholder="State" formControlName="firstCtrl" name = "state" ngModel>
+          <input matInput placeholder="State" formControlName="firstCtrl" [(ngModel)] = "enteredState">
           </mat-form-field></td>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>ZipCode</mat-label>
-          <input matInput placeholder="ZipCode" formControlName="firstCtrl" name = "zipcode" ngModel>
+          <input matInput placeholder="ZipCode" formControlName="firstCtrl" [(ngModel)] = "enteredZipcode">
           </mat-form-field></td>
         </tr>
         </table>
@@ -162,7 +163,7 @@
                 <td>
               <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Job Title</mat-label>
-                <input matInput placeholder="Job Title" >
+                <input matInput placeholder="Job Title">  
                 </mat-form-field> </td>
                 <td>
                 <mat-form-field class="example-full-width" appearance="outline">
@@ -291,12 +292,12 @@
             <tr>
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>School Name</mat-label>
-          <input matInput placeholder="School Name" formControlName="thirdCtrl" name = "school" ngModel>
+          <input matInput placeholder="School Name" formControlName="thirdCtrl" [(ngModel)] = "enteredSchool">
           </mat-form-field></tr>
           <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Education level</mat-label>
-          <mat-select formControlName="thirdCtrl" name = "level" ngModel>
+          <mat-select formControlName="thirdCtrl" [(ngModel)] = "enteredEducationlevel">
             <mat-option *ngFor="let Education of Educations" [value]="Education.value">
               {{Education.viewValue}}
             </mat-option>
@@ -325,13 +326,13 @@
           <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Major</mat-label>
-          <input matInput placeholder="Major" formControlName="thirdCtrl" name = "major" ngModel>
+          <input matInput placeholder="Major" formControlName="thirdCtrl" [(ngModel)] = "enteredMajor">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Cumulative GPA</mat-label>
-          <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" name = "gpa" ngModel>
+          <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" [(ngModel)] = "enteredCumulativegpa">
           </mat-form-field>
         </td>
         </tr>
@@ -679,10 +680,10 @@
         <tr>
           <td>
     <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
-    <td>
-      <button mat-raised-button color="primary" type="submit">Review</button></td>
+   <!-- <td>
+      <button mat-raised-button color="primary" type="submit">Review</button></td>-->
       <td>
-        <button mat-raised-button color="primary" (click)="onSubmit()" >Submit</button></td>
+        <button mat-raised-button color="primary" (click)="onAddJobapp()" >Submit</button></td>
     </tr>
     </table>
   </div>

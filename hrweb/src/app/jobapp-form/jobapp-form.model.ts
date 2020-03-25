@@ -1,4 +1,4 @@
-export interface Jobapp {
+/*export interface Jobapp {
     firstName: String;
     lastName: String;
     telephone: String;
@@ -28,4 +28,4 @@ export interface Jobapp {
     hispanic: string;
     veteran: string;
     disability: string;
-}
+} */

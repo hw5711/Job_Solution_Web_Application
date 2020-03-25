@@ -1,4 +1,6 @@
 <main>
-    <app-jobapp-form-create></app-jobapp-form-create>
-    <app-jobapp-form-review></app-jobapp-form-review>
-  </main>
+    <app-jobapp-form-create (jobappCreated)="onJobappAdded($event)"></app-jobapp-form-create>
+    <app-jobapp-form-review [jobapps]="storedJobapps"></app-jobapp-form-review>
+  </main> 
+
+  

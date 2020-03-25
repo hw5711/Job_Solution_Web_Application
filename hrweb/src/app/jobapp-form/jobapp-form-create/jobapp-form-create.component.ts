@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
-
-import { JobappFormService } from "../jobapp-form.service";
 
 interface Education {
   value: string;
@@ -95,7 +93,7 @@ export class JobappFormCreateComponent implements OnInit {
   enteredTelephone = "";
   enteredEmail = "";
   enteredAddress = "";
-  eneteredAddress2 = "";
+  enteredAddress2 = "";
   enteredCity = "";
   enteredState = "";
   enteredZipcode = "";
@@ -105,6 +103,7 @@ export class JobappFormCreateComponent implements OnInit {
   enteredFromDate = "";
   enteredToDate = "";
   enteredRole = "";
+  //enteredJob2 = "";
   enteredSchool = "";
   enteredEducationlevel = "";
   enteredStartDate = "";
@@ -113,41 +112,61 @@ export class JobappFormCreateComponent implements OnInit {
   enteredCumulativegpa = "";
   enteredSkills = "";
   enteredAccomplishments = "";
+  enteredSponserdhip = "";
+  enteredAcknowledgment = "";
+  enteredGender = "";
+  enteredHispanic = "";
+  enteredVeteran = "";
+  enteredDiability: "";
+  @Output() jobappCreated = new EventEmitter();
  
-  constructor(public jobappFormService: JobappFormService, private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder) { }
 
-  onAddJobapp(form: NgForm) {
-
-    this.jobappFormService.addJobapp(
-      form.value.firstName,
-      form.value.lastName,
-      form.value.telephone,
-      form.value.email,
-      form.value.address,
-      form.value.address2,
-      form.value.city,
-      form.value.state,
-      form.value.zipcode,
-      form.value.job,
-      form.value.company,
-      form.value.location,
-      form.value.fromDate,
-      form.value.toDate,
-      form.value.role,
-      form.value.school,
-      form.value.level,
-      form.value.StartDate,
-      form.value.EndDate,
-      form.value.major,
-      form.value.gpa,
-      form.value.skills,
-      form.value.accomplishments,
-      form.value.sponsership,
-      form.value.acknowledgment,
-      form.value.gender,
-      form.value.hispanic,
-      form.value.veteran,
-      form.value.disability);
+  onAddJobapp() {
+    const jobapp = {
+    firstName: this.enteredFirstName,
+      lastName: this.enteredLastName,
+      telephone: this.enteredTelephone,
+      email: this.enteredEmail,
+      address: this.enteredAddress,
+      address2: this.enteredAddress2,
+      city: this.enteredCity,
+      state: this.enteredState,
+      zipcode: this.enteredZipcode,
+      job: this.enteredJob,
+      company: this.enteredCompany,
+      location: this.enteredLocation,
+      fromDate: this.enteredFromDate,
+      toDate: this.enteredToDate,
+      role: this.enteredRole,
+      /*job2: this.enteredJob2,
+      company2: this.enteredCompany,
+      location2: this.enteredLocation,
+      fromDate2: this.enteredFromDate,
+      toDate2: this.enteredToDate,
+      role2: this.enteredRole,
+      job3: this.enteredJob,
+      company3: this.enteredCompany,
+      location3: this.enteredLocation,
+      fromDate3: this.enteredFromDate,
+      toDate3: this.enteredToDate,
+      role3: this.enteredRole, */
+      schoolname: this.enteredSchool,
+      educationlevel: this.enteredEducationlevel,
+      startdate: this.enteredStartDate,
+      enddate: this.enteredEndDate,
+      major: this.enteredMajor,
+      cumulativegpa: this.enteredCumulativegpa,
+      skills: this.enteredSkills,
+      accomplishments: this.enteredAccomplishments,
+      sponsership: this.enteredSponserdhip,
+      acknowledgment: this.enteredAcknowledgment,
+      gender: this.enteredGender,
+      hispanic: this.enteredHispanic,
+      veteran: this.enteredVeteran,
+      disability: this.enteredDiability
+    };
+      this.jobappCreated.emit(jobapp)
   }
 
   onSubmit()

@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobappFormComponent implements OnInit {
 
-  storedReviews = [];
+  storedJobapps = [];
 
-  onReviewAdded(review) {
-    this.storedReviews.push(review);
+  onJobappAdded(jobapp) {
+    this.storedJobapps.push(jobapp);
   } 
   
   constructor() { }

@@ -16,7 +16,8 @@ export class JobappFormService {
     return this.jobappsUpdated.asObservable();
   }
 
-  addJobapp(firstName: String,
+  addJobapp(
+    firstName: String,
     lastName: String,
     telephone: String,
     email: String,
@@ -45,7 +46,8 @@ export class JobappFormService {
     hispanic: string,
     veteran: string,
     disability: string) {
-    const jobapp: Jobapp = { firstName: firstName,
+    const jobapp: Jobapp = { 
+        firstName: firstName,
         lastName: lastName,
         telephone: telephone,
         email: email,
