@@ -117,7 +117,8 @@ export class JobappFormCreateComponent implements OnInit {
   constructor(public jobappFormService: JobappFormService, private _formBuilder: FormBuilder) { }
 
   onAddJobapp(form: NgForm) {
-
+    console.log("test1 :", form.value.firstname);
+    
     this.jobappFormService.addJobapp(
       form.value.firstName,
       form.value.lastName,

@@ -16,7 +16,8 @@ export class JobappFormService {
     return this.jobappsUpdated.asObservable();
   }
 
-  addJobapp(firstName: String,
+  addJobapp(
+    firstName: String,
     lastName: String,
     telephone: String,
     email: String,
@@ -74,6 +75,7 @@ export class JobappFormService {
         hispanic: hispanic,
         veteran: veteran,
         disability: disability }; 
+    console.log("test: ", jobapp);
     this.jobapps.push(jobapp);
     this.jobappsUpdated.next([...this.jobapps]);
   }
