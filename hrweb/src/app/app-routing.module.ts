@@ -19,6 +19,7 @@ import { MyfavjobComponent } from './myfavjob/myfavjob.component';
 import { FormReviewComponent } from './form/form-review/form-review.component';
 import { FormCreateComponent } from './form/form-create/form-create.component';
 import { PostJobComponent } from './post-job/post-job.component';
+import { ViewPostingComponent } from './view-posting/view-posting.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: "myfavjob", component: MyfavjobComponent},
   { path: "form-create", component: FormCreateComponent },
   { path: "form-review", component: FormReviewComponent },
-  { path: "post_job", component: PostJobComponent },
+  { path: "post-job", component: PostJobComponent },
+  { path: "view-posting", component: ViewPostingComponent },
 ];
 
 @NgModule({
