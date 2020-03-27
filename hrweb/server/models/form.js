@@ -37,19 +37,22 @@ var formSchema = new mongoose.Schema({
         type: String,
         required: 'Zipcode can\'t be empty'
     },
-    jobtitle: {
+    job: {
         type: String
     },
     company: {
         type: String
     },
-    fromdate: {
+    location: {
+        type: String
+    },
+    fromDate: {
         type: Date
     },
-    todate: {
+    toDate: {
         type: Date
     },
-    roledescription: {
+    role: {
         type: String
     },
     schoolname: {
@@ -60,11 +63,11 @@ var formSchema = new mongoose.Schema({
         type: String,
         required: 'Education Level can\'t be empty'
     },
-    fromdate: {
+    startdate: {
         type: Date,
         required: 'From Date can\'t be empty'
     },
-    todate: {
+    enddate: {
         type: Date,
         required: 'To Date Level can\'t be empty'
     },
