@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { HttpClient } from '@angular/common/http';
 
 interface Education {
   value: string;
@@ -120,11 +121,13 @@ export class JobappFormCreateComponent implements OnInit {
   enteredDiability: "";
   @Output() jobappCreated = new EventEmitter();
  
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private http: HttpClient) { }
 
   onAddJobapp() {
+
+    alert('Congratulation!, you have submitted your application successfully. View the submitted information below');
     const jobapp = {
-    firstName: this.enteredFirstName,
+      firstName: this.enteredFirstName,
       lastName: this.enteredLastName,
       telephone: this.enteredTelephone,
       email: this.enteredEmail,
@@ -166,15 +169,13 @@ export class JobappFormCreateComponent implements OnInit {
       veteran: this.enteredVeteran,
       disability: this.enteredDiability
     };
-      this.jobappCreated.emit(jobapp)
+      this.jobappCreated.emit(jobapp);
+      this.http /* */
+      .post<{ message: string }>("http://localhost:3000/api/posts", jobapp)
+      .subscribe(responseData => {
+      console.log(responseData.message); /* */
   }
-
-  onSubmit()
-  {
-    alert('Congratulation!, you have submitted your application successfully.');
-  }
-
-  
+ 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
@@ -188,6 +189,7 @@ export class JobappFormCreateComponent implements OnInit {
     this.fourthFormGroup = this._formBuilder.group({
       fourthCtrl: ['', Validators.required]
     });
+
   }
 
 }
