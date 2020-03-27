@@ -55,8 +55,6 @@ export class JobappFormCreateComponent implements OnInit {
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
 
-
-
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -68,7 +66,6 @@ export class JobappFormCreateComponent implements OnInit {
     {value: 'Yes-0', viewValue: 'Yes'},
     {value: 'No-1', viewValue: 'No'}
   ];
-
 
   genders: Gender[] = [
     {value: 'Male-0', viewValue: 'Male'},
