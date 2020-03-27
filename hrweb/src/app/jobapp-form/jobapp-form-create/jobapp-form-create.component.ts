@@ -10,6 +10,11 @@ interface Education {
   viewValue: string;
 }
 
+interface Choice {
+  value: string;
+  viewValue: string;
+}
+
 interface Gender {
   value: string;
   viewValue: string;
@@ -58,6 +63,12 @@ export class JobappFormCreateComponent implements OnInit {
   ]);
 
   matcher = new MyErrorStateMatcher();
+
+  sponsers: Choice[] = [
+    {value: 'Yes-0', viewValue: 'Yes'},
+    {value: 'No-1', viewValue: 'No'}
+  ];
+
 
   genders: Gender[] = [
     {value: 'Male-0', viewValue: 'Male'},
@@ -117,7 +128,7 @@ export class JobappFormCreateComponent implements OnInit {
   enteredCumulativegpa = "";
   enteredSkills = "";
   enteredAccomplishments = "";
-  enteredSponserdhip = "";
+  enteredSponsership = "";
   enteredAcknowledgment = "";
   enteredGender = "";
   enteredHispanic = "";
@@ -185,7 +196,7 @@ export class JobappFormCreateComponent implements OnInit {
       cumulativegpa: this.enteredCumulativegpa,
       skills: this.enteredSkills,
       accomplishments: this.enteredAccomplishments,
-      sponsership: this.enteredSponserdhip,
+      sponsership: this.enteredSponsership,
       acknowledgment: this.enteredAcknowledgment,
       gender: this.enteredGender,
       hispanic: this.enteredHispanic,

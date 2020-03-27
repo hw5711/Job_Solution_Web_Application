@@ -521,7 +521,12 @@
         <div style = "height: 2000px" class="example-container">
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Do you now, or will you at any point in the future, require visa sponsorship in order to work in the U.S.? </mat-label>
-          <input matInput placeholder="Yes/No" formControlName="fourthCtrl" [(ngModel)] = "enteredSponserdhip">
+          <!-- <input matInput placeholder="Yes/No" formControlName="fourthCtrl" [(ngModel)] = "enteredSponserdhip"> -->
+          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredSponsership">
+            <mat-option *ngFor="let choice of choices" [value]="choice.value">
+              {{choice.viewValue}}
+            </mat-option>
+          </mat-select>
           </mat-form-field>
   
           <h3 class="md-title">PLEASE READ BEFORE SUBMITTING</h3>
@@ -544,7 +549,12 @@
   
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>I have carefully read the above Information Acknowledgement and I understand and agree to all of the statements.</mat-label>
-          <input matInput placeholder="Yes/No" formControlName="fourthCtrl" required [(ngModel)] = "enteredAcknowledgment">
+          <!--<input matInput placeholder="Yes/No" formControlName="fourthCtrl" required [(ngModel)] = "enteredAcknowledgment"> -->
+          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredAcknowledgment">
+            <mat-option *ngFor="let choice of choices" [value]="choice.value">
+              {{choice.viewValue}}
+            </mat-option>
+          </mat-select>
           </mat-form-field>
           <br>
   
@@ -572,7 +582,12 @@
   
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Are you Hispanic/Latino?   </mat-label>
-          <input matInput placeholder="Yes/No" formControlName="fourthCtrl" required [(ngModel)] = "enteredHispanic">
+          <!--<input matInput placeholder="Yes/No" formControlName="fourthCtrl" required [(ngModel)] = "enteredHispanic"> -->
+          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredHispanic">
+            <mat-option *ngFor="let choice of choices" [value]="choice.value">
+              {{choice.viewValue}}
+            </mat-option>
+          </mat-select>
           </mat-form-field>
           <br>
   
