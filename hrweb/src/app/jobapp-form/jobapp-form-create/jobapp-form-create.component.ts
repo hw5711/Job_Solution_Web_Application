@@ -64,7 +64,7 @@ export class JobappFormCreateComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  sponsers: Choice[] = [
+  choices: Choice[] = [
     {value: 'Yes-0', viewValue: 'Yes'},
     {value: 'No-1', viewValue: 'No'}
   ];
@@ -204,15 +204,16 @@ export class JobappFormCreateComponent implements OnInit {
       disability: this.enteredDiability
     };
 
-      this.jobappCreated.emit(jobapp);
-  //     this.http /* */
-  //     .post<{ message: string }>("http://localhost:3000/api/posts", jobapp)
-  //     .subscribe(responseData => {
-  //     console.log(responseData.message); /* */
-  // }
-    console.log("test1 " + jobapp);
+    this.jobappCreated.emit(jobapp);
+
+    //console.log("test1 " + jobapp.firstName);
+
+    /*let req = {
+      firstname: jobapp.firstName,
+    }; */
+
     this.http
-      .post("http://localhost:3000/apply", jobapp)
+      .post("http://localhost:3000/jobappform/apply", jobapp)
       .subscribe(response => {
         console.log("res is :", response);
       });
