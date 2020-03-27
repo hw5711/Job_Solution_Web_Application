@@ -41,7 +41,7 @@ import { JobappFormComponent } from './jobapp-form/jobapp-form.component';
 import { JobappFormCreateComponent } from './jobapp-form/jobapp-form-create/jobapp-form-create.component';
 import { JobappFormReviewComponent } from './jobapp-form/jobapp-form-review/jobapp-form-review.component';
 import { ViewPostingComponent } from './view-posting/view-posting.component';
-// import { ViewApplicantsComponent } from './view-applicants/view-applicants.component';
+import { ViewApplicantsComponent } from './view-applicants/view-applicants.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +64,7 @@ import { ViewPostingComponent } from './view-posting/view-posting.component';
     JobappFormCreateComponent,
     JobappFormReviewComponent,
     ViewPostingComponent,
-    // ViewApplicantsComponent,
+    ViewApplicantsComponent,
   ],
   imports: [
     BrowserModule,
