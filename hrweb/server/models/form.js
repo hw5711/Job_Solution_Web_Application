@@ -110,4 +110,5 @@ var formSchema = new mongoose.Schema({
     },
 });
 
-mongoose.model('form', formSchema);
+// mongoose.model('form', formSchema);
+module.exports = mongoose.model('form', formSchema);
