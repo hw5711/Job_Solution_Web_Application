@@ -13,13 +13,9 @@ export class JobappFormComponent implements OnInit {
     this.storedJobapps.push(jobapp);
   } 
 
-
-  
   constructor() { }
 
   ngOnInit() {
   }
-
   
-
 }

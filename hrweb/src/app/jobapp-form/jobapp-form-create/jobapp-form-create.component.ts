@@ -64,7 +64,7 @@ export class JobappFormCreateComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  sponsers: Choice[] = [
+  choices: Choice[] = [
     {value: 'Yes-0', viewValue: 'Yes'},
     {value: 'No-1', viewValue: 'No'}
   ];
@@ -206,12 +206,11 @@ export class JobappFormCreateComponent implements OnInit {
 
     this.jobappCreated.emit(jobapp);
 
-    console.log("test1 " + jobapp.firstName);
+    //console.log("test1 " + jobapp.firstName);
 
-
-    let req = {
+    /*let req = {
       firstname: jobapp.firstName,
-    };
+    }; */
 
     this.http
       .post("http://localhost:3000/jobappform/apply", jobapp)
