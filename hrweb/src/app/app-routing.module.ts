@@ -42,6 +42,7 @@ const routes: Routes = [
   { path: "jobappform-review", component: JobappFormReviewComponent},
   { path: "post-job", component: PostJobComponent },
   { path: "view-posting", component: ViewPostingComponent },
+  { path: "view-applicants", component: ViewApplicantsComponent}
 ];
 
 @NgModule({
