@@ -214,7 +214,7 @@ export class JobappFormCreateComponent implements OnInit {
     };
 
     this.http
-      .post("http://localhost:3000/jobappform/apply", req)
+      .post("http://localhost:3000/jobappform/apply", jobapp)
       .subscribe(response => {
         console.log("res is :", response);
       });
