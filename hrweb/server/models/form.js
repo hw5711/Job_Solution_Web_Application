@@ -44,68 +44,68 @@ var formSchema = new mongoose.Schema({
         type: String
     },
     fromdate: {
-        type: date
+        type: Date
     },
     todate: {
-        type: date
+        type: Date
     },
     roledescription: {
-        type: string
+        type: String
     },
     schoolname: {
-        type: string,
+        type: String,
         required: 'School Name can\'t be empty'
     },
     educationlevel: {
-        type: string,
+        type: String,
         required: 'Education Level can\'t be empty'
     },
     fromdate: {
-        type: date,
+        type: Date,
         required: 'From Date can\'t be empty'
     },
     todate: {
-        type: date,
+        type: Date,
         required: 'To Date Level can\'t be empty'
     },
     major: {
-        type: string,
+        type: String,
         required: 'Major can\'t be empty'
     },
     cumulativegpa: {
-        type: string,
+        type: String,
         required: 'Cumulative GPA can\'t be empty'
     },
     skills: {
-        type: string,
+        type: String,
         required: 'Skills can\'t be empty'
     },
     accomplishments: {
-        type: string,
+        type: String,
         required: 'Accomplishments can\'t be empty'
     },
     sponsership: {
-        type: string,
+        type: String,
         required: 'Sponsership can\'t be empty'
     },
     acknowledgment: {
-        type: string,
+        type: String,
         required: 'Acknowledgment can\'t be empty'
     },
     gender: {
-        type: string,
+        type: String,
         required: 'Gender can\'t be empty'
     },
     hispanic: {
-        type: string,
+        type: String,
         required: 'Hispanic can\'t be empty'
     },
     veteran: {
-        type: string,
+        type: String,
         required: 'Veteran can\'t be empty'
     },
     disability: {
-        type: string,
+        type: String,
         required: 'Disability can\'t be empty'
     },
 });

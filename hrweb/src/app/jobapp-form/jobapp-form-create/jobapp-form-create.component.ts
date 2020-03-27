@@ -3,6 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validat
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from "@angular/router";
 
 interface Education {
   value: string;
@@ -43,10 +44,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class JobappFormCreateComponent implements OnInit {
 
+
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
+
+
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -121,7 +125,26 @@ export class JobappFormCreateComponent implements OnInit {
   enteredDiability: "";
   @Output() jobappCreated = new EventEmitter();
  
-  constructor(private _formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(
+    private _formBuilder: FormBuilder, 
+    private http: HttpClient,
+    private router: Router) { }
+
+  ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ''
+    });
+    this.thirdFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required]
+    });
+    this.fourthFormGroup = this._formBuilder.group({
+      fourthCtrl: ['', Validators.required]
+    });
+
+  }
 
   onAddJobapp() {
 
@@ -169,28 +192,18 @@ export class JobappFormCreateComponent implements OnInit {
       veteran: this.enteredVeteran,
       disability: this.enteredDiability
     };
+
       this.jobappCreated.emit(jobapp);
-      this.http /* */
-      .post<{ message: string }>("http://localhost:3000/api/posts", jobapp)
-      .subscribe(responseData => {
-      console.log(responseData.message); /* */
+  //     this.http /* */
+  //     .post<{ message: string }>("http://localhost:3000/api/posts", jobapp)
+  //     .subscribe(responseData => {
+  //     console.log(responseData.message); /* */
+  // }
+    console.log("test1 " + jobapp);
+    this.http
+      .post("http://localhost:3000/apply", jobapp)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
   }
- 
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ''
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
-    this.fourthFormGroup = this._formBuilder.group({
-      fourthCtrl: ['', Validators.required]
-    });
-
-  }
-
 }
-
