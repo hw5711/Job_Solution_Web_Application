@@ -4,16 +4,15 @@
     <span><h1>Job Solutions</h1></span>
     <span class="example-spacer"></span>
   <div>
-
       <a mat-button routerLink="/jobspage"> Jobs </a>
       <a mat-button [routerLink]=""> Employers </a>
       <button mat-button [matMenuTriggerFor]="menu">My Profile</button>
+
       <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="/cand-profile">Profile</button>
         <button mat-menu-item routerLink="/applications">Applications</button>
         <button mat-menu-item routerLink="/myfavjob">MyFav Jobs</button>
       </mat-menu>
-
 
     </div>
   </mat-toolbar-row>
@@ -22,7 +21,7 @@
     <span><h2>Job Search</h2></span>
   </mat-toolbar-row>
 
-  <mat-toolbar-row style="padding: 0 5px;">
+  <!--<mat-toolbar-row style="padding: 0 5px;">
     <button mat-icon-button>
     <mat-icon>menu</mat-icon>
      </button>
@@ -34,7 +33,7 @@
   <button mat-icon-button  (click)="openSearch()">
       <mat-icon>search</mat-icon>
   </button>
-</mat-toolbar-row>
+</mat-toolbar-row> 
 
 <mat-toolbar-row style="padding: 0 5px;">
   <mat-expansion-panel>
@@ -83,11 +82,60 @@
 
   </mat-expansion-panel>
 
-</mat-toolbar-row>
+</mat-toolbar-row> -->
 
 </mat-toolbar>
 
 </div>
+
+<form (submit)="searchBook(searchForm)" #searchForm="ngForm">
+    <div class="example-container">
+        <table class="example-full-width" cellspacing="0">
+          <tr >
+            <td>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Job Title</mat-label>
+                    <input matInput type="text" placeholder="Job Title/Keyword" name="keyword" ngModel>
+                </mat-form-field>
+                </td>
+    <td>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Job Type</mat-label>
+            <mat-select [(ngModel)] = "enteredEducationlevel">
+              <mat-option *ngFor="let jobtype of jobtypes" [value]="jobtype.value">
+                {{jobtype.viewValue}}
+              </mat-option>
+            </mat-select>
+            </mat-form-field>
+    </td>
+    <td>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Location</mat-label>
+            <mat-select [(ngModel)] = "enteredEducationlevel">
+              <mat-option *ngFor="let location of locations" [value]="location.value">
+                {{location.viewValue}}
+              </mat-option>
+            </mat-select>
+            </mat-form-field>
+    </td>
+    <td>
+    
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Industry</mat-label>
+            <mat-select [(ngModel)] = "enteredEducationlevel">
+              <mat-option *ngFor="let industry of industries" [value]="industry.value">
+                {{industry.viewValue}}
+              </mat-option>
+            </mat-select>
+            </mat-form-field>
+    </td>
+    <td>
+        <button mat-raised-button color="primary" type="submit">Search</button>
+    </td>
+    </tr>
+    </table>
+    </div>
+</form>
 
 <div class="album py-5 bg-light">
   <div class="container">
