@@ -21,6 +21,7 @@ export class JobspageComponent implements OnInit {
   location = new FormControl();
 
   jobtypeList: string[] = ['Internship', 'Co-op', 'Full Time', 'Part Time'];
+  
   locationList: string[] = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
   'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois',
   'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts',
