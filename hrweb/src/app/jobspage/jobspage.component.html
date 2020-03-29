@@ -1,4 +1,5 @@
 <div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
+
  <mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
   <mat-toolbar-row >
     <span><h1>Job Solutions</h1></span>
@@ -21,69 +22,6 @@
     <span><h2>Job Search</h2></span>
   </mat-toolbar-row>
 
-  <!--<mat-toolbar-row style="padding: 0 5px;">
-    <button mat-icon-button>
-    <mat-icon>menu</mat-icon>
-     </button>
-  <div style="padding:8px 0 0 10px; flex:3;">
-   <input class="search-control" type="text" size="50" placeholder="Job Title, Employer, Keyword"
-    [(ngModel)]="searchText" #searchbar>
-  </div>
-
-  <button mat-icon-button  (click)="openSearch()">
-      <mat-icon>search</mat-icon>
-  </button>
-</mat-toolbar-row> 
-
-<mat-toolbar-row style="padding: 0 5px;">
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Filters
-      </mat-panel-title>
-
-    </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <mat-label>Job Type</mat-label>
-      <mat-select [formControl]="jobtype" multiple>
-      <mat-select-trigger>
-      {{jobtype.value ? jobtype.value[0] : ''}}
-      <span *ngIf="jobtype.value?.length > 1" class="example-additional-selection">
-        (+{{jobtype.value.length - 1}} {{jobtype.value?.length === 2 ? 'other' : 'others'}})
-      </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let jobtype of jobtypeList" [value]="jobtype">{{jobtype}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Location</mat-label>
-      <mat-select [formControl]="location" multiple>
-      <mat-select-trigger>
-      {{location.value ? location.value[0] : ''}}
-      <span *ngIf="location.value?.length > 1" class="example-additional-selection">
-        (+{{location.value.length - 1}} {{location.value?.length === 2 ? 'other' : 'others'}})
-      </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let location of locationList" [value]="location">{{location}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Industry</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let industry of industries" [value]="industry.value">
-          {{industry.viewValue}}
-        </mat-option>
-      </mat-select>
-      </mat-form-field>
-
-
-  </mat-expansion-panel>
-
-</mat-toolbar-row> -->
-
 </mat-toolbar>
 
 </div>
@@ -101,7 +39,7 @@
     <td>
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Job Type</mat-label>
-            <mat-select [(ngModel)] = "enteredEducationlevel">
+            <mat-select>
               <mat-option *ngFor="let jobtype of jobtypes" [value]="jobtype.value">
                 {{jobtype.viewValue}}
               </mat-option>
@@ -111,7 +49,7 @@
     <td>
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Location</mat-label>
-            <mat-select [(ngModel)] = "enteredEducationlevel">
+            <mat-select >
               <mat-option *ngFor="let location of locations" [value]="location.value">
                 {{location.viewValue}}
               </mat-option>
@@ -122,7 +60,7 @@
     
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Industry</mat-label>
-            <mat-select [(ngModel)] = "enteredEducationlevel">
+            <mat-select >
               <mat-option *ngFor="let industry of industries" [value]="industry.value">
                 {{industry.viewValue}}
               </mat-option>

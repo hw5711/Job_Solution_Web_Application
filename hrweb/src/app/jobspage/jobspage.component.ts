@@ -25,11 +25,7 @@ interface industry {
   styleUrls: ['./jobspage.component.css']
 })
 export class JobspageComponent implements OnInit {
-
-  panelOpenState = false;
-  jobtype = new FormControl();
-  location = new FormControl();
-
+  
   jobtypes: josbtype[] = [
     {value: 'Internship-0', viewValue: 'Internship'},
     {value: 'Co-op-1', viewValue: 'Co-op'},
