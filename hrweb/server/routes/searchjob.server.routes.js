@@ -93,7 +93,7 @@ app.post("", function (req, res, next) {
             res.json(post);
         });
     } */
-
+    console.log("server: ", req.body);
     searchjob.find({ 
         jobTitle: req.body.jobTitle, 
         jobType: req.body.jobType,

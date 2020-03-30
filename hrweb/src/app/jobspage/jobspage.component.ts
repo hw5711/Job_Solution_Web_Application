@@ -127,6 +127,7 @@ export class JobspageComponent implements OnInit {
       location: form.value.location, 
       industryType: form.value.industryType
     };
+    // console.log("front end :" , req);
     this.http
       .post("http://localhost:3000/searchjob", req)
       .subscribe(postData => {
