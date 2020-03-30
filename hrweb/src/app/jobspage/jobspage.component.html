@@ -26,7 +26,7 @@
 
 </div>
 
-<form (submit)="searchBook(searchForm)" #searchForm="ngForm">
+<form (submit)="searchJob(searchForm)" #searchForm="ngForm">
     <div class="example-container">
         <table class="example-full-width" cellspacing="0">
           <tr >
@@ -75,6 +75,39 @@
     </div>
 </form>
 
+<br>
+
+<h1 style="font-size: 15px">Search Result:</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><span style="margin-left: 20px"></span>Job Title</th>
+                    <th><span style="margin-left: 20px"></span>Job type</th>
+                    <th><span style="margin-left: 20px"></span>location</th>
+                    <th><span style="margin-left: 20px"></span>Industry type</th>
+                    <th><span style="margin-left: 20px"></span>Company</th>
+                    <th><span style="margin-left: 20px"></span>Job description</th>
+                </tr>
+            </thead>
+            <tbody style="margin-left: 20px">
+                <tr *ngFor="let j of job">
+                    <td>{{ p.firstname }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.jobTitle }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.jobType }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.location }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.industryType }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.company }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.jobDescription }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br>
+
+
+<p>Onec the data is retrived properly, try to populate into the below HTML </p>
+<br>
 <div class="album py-5 bg-light">
   <div class="container">
 
