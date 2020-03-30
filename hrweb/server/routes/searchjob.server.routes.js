@@ -5,6 +5,7 @@ const searchjob = require("../models/searchjob");
 const app = express.Router();
 
 app.post("", function (req, res, next) {
+   /*
     //if 1 of conditon meet
     if (req.body.jobTitle != '' && req.body.jobType == '' && req.body.location == '' && req.body.industryType == '') {
         searchjob.find({ jobTitle: req.body.jobTitle }, function (err, post) {
@@ -91,10 +92,17 @@ app.post("", function (req, res, next) {
             if (err) return next(err);
             res.json(post);
         });
-    }
+    } */
 
-
-
+    searchjob.find({ 
+        jobTitle: req.body.jobTitle, 
+        jobType: req.body.jobType,
+        location: req.body.location,
+        industryType: req.body.industryType
+    }, function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
 
 });
 

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
-import { LoginService } from "../login/login.service";
 
 interface josbtype {
   value: string;
@@ -105,17 +104,15 @@ export class JobspageComponent implements OnInit {
     {value: 'Others-15', viewValue: 'Others'}
   ];
 
-  found = false;
+  //found = false;
   jobTitle:string;
   jobType:string;
   location:string;
   industryType:string;
-
   job: any;
 
   constructor(
     private http: HttpClient,
-    private loginService: LoginService,
     public route: ActivatedRoute
   ) { }
 
@@ -128,7 +125,7 @@ export class JobspageComponent implements OnInit {
       jobTitle: form.value.jobTitle, 
       jobType: form.value.jobType, 
       location: form.value.location, 
-      industryType: form.value.industryType 
+      industryType: form.value.industryType
     };
     this.http
       .post("http://localhost:3000/searchjob", req)
