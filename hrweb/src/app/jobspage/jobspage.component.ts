@@ -104,6 +104,13 @@ export class JobspageComponent implements OnInit {
     {value: 'Others-15', viewValue: 'Others'}
   ];
 
+  enteredjobTitle = "";
+  enteredjobType = "";
+  enteredlocation = "";
+  enteredindustryType = "";
+  enteredcompany = "";
+  enteredjobDescription = "";
+
   //found = false;
   jobTitle:string;
   jobType:string;
@@ -121,11 +128,12 @@ export class JobspageComponent implements OnInit {
   }
 
   searchJob(form: NgForm) {
+    console.log(this.enteredjobTitle)
     let req = { 
-      jobTitle: form.value.jobTitle, 
-      jobType: form.value.jobType, 
-      location: form.value.location, 
-      industryType: form.value.industryType
+      jobTitle: this.enteredjobTitle, 
+      jobType: this.enteredjobType, 
+      location: this.enteredlocation, 
+      industryType: this.enteredindustryType
     };
     this.http
       .post("http://localhost:3000/searchjob", req)
@@ -139,12 +147,12 @@ export class JobspageComponent implements OnInit {
 
   createPeople(form: NgForm){
     let req = { 
-      jobTitle: form.value.jobTitle, 
-      jobType: form.value.jobType, 
-      location: form.value.location, 
-      industryType: form.value.industryType,
-      company: form.value.company, 
-      jobDescription: form.value.jobDescription 
+      jobTitle: this.enteredjobTitle, 
+      jobType: this.enteredjobType, 
+      location: this.enteredlocation, 
+      industryType: this.enteredindustryType,
+      company: this.enteredcompany, 
+      jobDescription: this.enteredjobDescription
     };
     this.http
       .post("http://localhost:3000/searchjob/create", req)
