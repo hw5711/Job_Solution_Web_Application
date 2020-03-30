@@ -128,7 +128,7 @@ export class JobspageComponent implements OnInit {
   }
 
   searchJob(form: NgForm) {
-    console.log(this.enteredjobTitle)
+    //console.log(this.enteredjobTitle)
     let req = { 
       jobTitle: this.enteredjobTitle, 
       jobType: this.enteredjobType, 
