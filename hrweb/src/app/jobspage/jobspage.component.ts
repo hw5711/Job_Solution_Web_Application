@@ -135,7 +135,7 @@ export class JobspageComponent implements OnInit {
       location: this.enteredlocation, 
       industryType: this.enteredindustryType
     };
-    console.log("front end :" , req);
+    //console.log("front end :" , req);
     this.http
       .post("http://localhost:3000/searchjob", req)
       .subscribe(postData => {

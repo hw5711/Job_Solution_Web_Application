@@ -5,7 +5,7 @@ const searchjob = require("../models/searchjob");
 const app = express.Router();
 
 app.post("", function (req, res, next) {
-   /*
+   
     //if 1 of conditon meet
     if (req.body.jobTitle != '' && req.body.jobType == '' && req.body.location == '' && req.body.industryType == '') {
         searchjob.find({ jobTitle: req.body.jobTitle }, function (err, post) {
@@ -92,17 +92,43 @@ app.post("", function (req, res, next) {
             if (err) return next(err);
             res.json(post);
         });
-    } */
-    console.log("server: ", req.body);
-    searchjob.find({ 
-        jobTitle: req.body.jobTitle, 
-        jobType: req.body.jobType,
-        location: req.body.location,
-        industryType: req.body.industryType
-    }, function (err, post) {
-        if (err) return next(err);
-        return res.json(post);
-    });
+    } 
+
+    // reference for partial search
+    /*module.exports = exports = function addPartialFullSearch(schema, options) {
+  schema.statics = {
+    ...schema.statics,
+    makePartialSearchQueries: function (q) {
+      if (!q) return {};
+      const $or = Object.entries(this.schema.paths).reduce((queries, [path, val]) => {
+        val.instance == "String" &&
+          queries.push({
+            [path]: new RegExp(q, "gi")
+          });
+        return queries;
+      }, []);
+      return { $or }
+    },
+    searchPartial: function (q, opts) {
+      return this.find(this.makePartialSearchQueries(q), opts);
+    },
+
+    searchFull: function (q, opts) {
+      return this.find({
+        $text: {
+          $search: q
+        }
+      }, opts);
+    },
+
+    search: function (q, opts) {
+      return this.searchFull(q, opts).then(data => {
+        return data.length ? data : this.searchPartial(q, opts);
+      });
+    }
+  }
+}*/
+    
 
 });
 
