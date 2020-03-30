@@ -102,45 +102,6 @@
             </tbody>
         </table>
 
-        <br>
-
-<div>
-        <hr>
-
-<h1 style="font-size: 20px; margin-top:15em;">this area is for create database</h1>
-
-<form (submit)="createPeople(createForm)" #createForm="ngForm">
-    <mat-form-field>
-        <a>Job Title:</a>
-        <input matInput type="text" name="jobTitle" ngModel></mat-form-field>
-    <span style="margin-left: 20px"></span>
-    <mat-form-field>
-        <a>Job Type:</a>
-        <input matInput type="text" name="jobType" ngModel></mat-form-field>
-    <span style="margin-left: 20px"></span>
-    <mat-form-field>
-        <a>Location:</a>
-        <input matInput type="text" name="location" ngModel></mat-form-field>
-    <span style="margin-left: 20px"></span>
-    <mat-form-field>
-        <a>Industry Type:</a>
-        <input matInput type="text" name="industryType" ngModel></mat-form-field>
-    <span style="margin-left: 20px"></span>
-    <mat-form-field>
-        <a>Company:</a>
-        <input matInput type="text" name="company" ngModel></mat-form-field>
-    <span style="margin-left: 20px"></span>
-    <mat-form-field>
-        <a>Job Description:</a>
-        <input matInput type="text" name="jobDescription" ngModel></mat-form-field>
-    <span style="margin-left: 20px"></span>
-
-    <button mat-raised-button color="accent" type="submit">Save</button>
-    <br>
-</form>
-</div>
-
-
 <p>Onec the data is retrived properly, try to populate into the below HTML </p>
 <br>
 <div class="album py-5 bg-light">
@@ -157,7 +118,7 @@
                       <div class="d-flex justify-content-between align-items-center">
                           <div class="btn-group">
                               <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                              <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/jobappform">Apply</button>
                           </div>
                           <small class="text-muted">9 mins</small>
                       </div>
@@ -359,3 +320,40 @@
   </div>
 </div>
 <!-- ////// -->
+
+<div>
+    <hr>
+
+<h1 style="font-size: 20px; margin-top:15em;">this area is for create database</h1>
+
+<form (submit)="createPeople(createForm)" #createForm="ngForm">
+<mat-form-field>
+    <a>Job Title:</a>
+    <input matInput type="text" name="jobTitle" ngModel></mat-form-field>
+<span style="margin-left: 20px"></span>
+<mat-form-field>
+    <a>Job Type:</a>
+    <input matInput type="text" name="jobType" ngModel></mat-form-field>
+<span style="margin-left: 20px"></span>
+<mat-form-field>
+    <a>Location:</a>
+    <input matInput type="text" name="location" ngModel></mat-form-field>
+<span style="margin-left: 20px"></span>
+<mat-form-field>
+    <a>Industry Type:</a>
+    <input matInput type="text" name="industryType" ngModel></mat-form-field>
+<span style="margin-left: 20px"></span>
+<mat-form-field>
+    <a>Company:</a>
+    <input matInput type="text" name="company" ngModel></mat-form-field>
+<span style="margin-left: 20px"></span>
+<mat-form-field>
+    <a>Job Description:</a>
+    <input matInput type="text" name="jobDescription" ngModel></mat-form-field>
+<span style="margin-left: 20px"></span>
+
+<button mat-raised-button color="accent" type="submit">Save</button>
+<br>
+</form>
+</div>
+

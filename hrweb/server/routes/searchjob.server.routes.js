@@ -94,6 +94,7 @@ app.post("", function (req, res, next) {
         });
     } 
 
+    // find how to perform keyword search like - uppper case/ lower case/ partial word
     // reference for partial search
     /*module.exports = exports = function addPartialFullSearch(schema, options) {
   schema.statics = {
