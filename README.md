@@ -61,6 +61,7 @@
 
 19. ǹpm install debug
 
-
+20. npm install --save-dev jest
+   
 
 
