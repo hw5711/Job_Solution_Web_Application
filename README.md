@@ -66,3 +66,5 @@
 21.npm i puppeteer jest
 
 22.npm install -D jest babel-jest babel-core babel-preset-env regenerator-runtime
+
+23.npm install -D jest jest-preset-angular @types/jest
