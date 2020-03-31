@@ -11,7 +11,6 @@ describe(
 
         it('should show home page without error', async () => {
             const title = await page.title();
-            console.log("for testing: " + title);
             expect(title).toBe('Job Home');
         });
 

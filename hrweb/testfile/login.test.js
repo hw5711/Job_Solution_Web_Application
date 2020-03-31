@@ -12,7 +12,6 @@ describe(
 
         it('should show login page without error', async () => {
             const content = await page.$eval('.pagetitle', el => el.textContent);
-            console.log("for testing login: " + content);
             expect(content).toContain('sign in');
         });
 
