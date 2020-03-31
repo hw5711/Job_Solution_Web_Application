@@ -63,5 +63,5 @@
 
 20. npm install --save-dev jest
    
-21.npm i puppeteer
+21.npm i puppeteer jest
 
