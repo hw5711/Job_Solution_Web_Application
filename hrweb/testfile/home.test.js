@@ -1,4 +1,4 @@
-const timeout = 5000;
+const timeout = 50000;
 
 describe(
     '/ (Home Page)',
@@ -9,12 +9,12 @@ describe(
             await page.goto('http://localhost:4200');
         }, timeout);
 
-        it('should load without error', async () => {
-            // const text = await page.evaluate(() => document.body.textContent);
+        it('should show home page without error', async () => {
             const title = await page.title();
             console.log("for testing: " + title);
             expect(title).toBe('Job Home');
         });
+
     },
     timeout,
 );

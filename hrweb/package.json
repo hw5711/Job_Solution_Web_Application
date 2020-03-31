@@ -90,7 +90,7 @@
   "jest": {
     "preset": "jest-preset-angular",
     "setupFiles": [
-      "<rootDir>/testfile/testSetup.js"
+      "<rootDir>/testfile/test.js"
     ],
     "testMatch": [
       "**/__tests__/**/*.test.js"
