@@ -1,7 +1,7 @@
 
 const puppeteer = require('puppeteer');
 
-(async () => {
+test('test login function', async () => {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     //const page2 = await browser.newPage();
@@ -9,7 +9,6 @@ const puppeteer = require('puppeteer');
 
     await page.waitFor(1000);
     await page.click('a[name="login"]');
-    await page.screenshot({ path: 'login.png' });
     await page.waitFor(1000);
     await page.type('input[name=email]', 'hrtest@gmail.com');
     await page.type('input[name=password]', '1');
@@ -23,6 +22,10 @@ const puppeteer = require('puppeteer');
     await page.waitFor(1000);
     await page.click('button[name="login"]');
     await page.waitFor(2000);
-    await page.screenshot({ path: 'mainPage.png' });
-    await browser.close();
+    console.log("this is the title of the page : " + title );
+        expect(title).toBe(
+            "HR page"
+        );
+    // await page.screenshot({ path: 'mainPage.png' });
+    // await browser.close();
 })();
