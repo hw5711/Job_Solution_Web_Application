@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build",
-    "test": "ng test",
+    "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -36,6 +36,7 @@
     "hexo-cli": "^3.1.0",
     "http-status-codes": "^1.4.0",
     "install": "^0.13.0",
+    "jest": "^25.2.4",
     "jquery": "^3.4.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.5",
