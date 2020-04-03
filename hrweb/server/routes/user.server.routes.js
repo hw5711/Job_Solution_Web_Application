@@ -2,6 +2,9 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require('crypto');
+const hrProfile = require("../models/hr-profile");
+const canProfile = require("../models/cand-profile");
+
 
 require('dotenv').config();
 const nodemailer = require('nodemailer');
@@ -43,7 +46,62 @@ router.post("/register", (req, res, next) => {
                         error: err
                     });
                 });
+
+            //if it's a hr regited 
+            if (req.body.role == "HR"){
+
+                const profile = new hrProfile({
+                    hr_id: req.body.email,
+                    firstName: "",
+                    lastName: "",
+                    phone: "",
+                    title: "",
+                    company: "",
+                    startDate: "",
+                    note: "", 
+                    contacts: ""
+                });
+
+                profile.save()
+                    .then(result => {
+                        console.log(" hr account created with new user" , profile.hr_id);
+                    })
+                    .catch(err => {
+                        console.log("hr account created faild");
+                    });
+            }else{
+
+                const canprofile = new canProfile({
+                    can_id: req.body.email,
+                    fname: "",
+                    lname: "",
+                    phone: "",
+                    work_experience:[{
+                        company: "",
+                        title: "",
+                        start_date: "",
+                        end_date: "",
+                        description: "",
+                    }],
+                    educxation: [{
+                        school: "",
+                        dgree: "",
+                        major: "",
+                        start_year: "",
+                        end_year: ""
+                    }]
+                });
+                
+                canprofile.save()
+                    .then(result => {
+                        console.log(" hr account created with new user");
+                    })
+                    .catch(err => {
+                        console.log("hr account created faild");
+                    });
             }
+            
+        }
     });
 });
 

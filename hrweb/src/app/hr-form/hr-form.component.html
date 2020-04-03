@@ -11,22 +11,14 @@
     </ul>
     
     <div style="align-content:end;">
-      <button type="button" class="btn btn-primary" style="margin-right:10px">Edit Profile</button>
-      <button type="button" class="btn" style="background-color:#f7ae00">Sign Out</button>
+      <button type="button" class="btn btn-primary" style="margin-right:10px"routerLink="/hr-form">Edit Profile</button>
+      <button type="button" class="btn" style="background-color:#f7ae00" routerLink="/">Sign Out</button>
     </div>
 
   </div>
 </nav>
 
-<!-- NAVBAR ENDS HERE -->
-
-<!-- <mat-horizontal-stepper linear #stepper style="width:70%; align-items:center; display:inline"> -->
-  <!-- put "required" in input-->
-  <!-- <mat-step [stepControl]="firstFormGroup"> -->
-    <!-- <form [formGroup]="firstFormGroup" > -->
-        <div style="width: 50%">
-    <form (submit)="update(hrForm)" #hrForm="ngForm">
-      <!-- <ng-template >Personal Information</ng-template> -->
+  <div style="width: 50%">
     
       <mat-card style="margin-top: 2em">
         <mat-label>Personal Information</mat-label>
@@ -35,109 +27,62 @@
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>First name</mat-label>
-                <input matInput name="firstname">
+                <input matInput [(ngModel)] = "firstName" [ngModelOptions]="{standalone: true}" >
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>Last Name</mat-label>
-                <input matInput name="lastname">
+                <input matInput  [(ngModel)] = "lastName" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
             </td>
           </tr>
-        </table>
+         </table>
 
         <mat-form-field class="example-full-width">
           <mat-label>Telephone</mat-label>
           <span matPrefix>+1 &nbsp;</span>
-          <input type="tel" matInput placeholder="555-555-1234" name="phone">
+          <input type="tel" matInput placeholder="555-555-1234" [(ngModel)] = "phone" [ngModelOptions]= "{standalone: true}" >
         </mat-form-field>
-
-        <!-- <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="+1" name="phone">
-        </mat-form-field> -->
 
         <mat-form-field class="example-full-width">
           <mat-label>Title at Work</mat-label>
-          <input matInput placeholder="Software Engineer" name="title">
+          <input matInput placeholder="Software Engineer" [(ngModel)] = "title" [ngModelOptions]="{standalone: true}" >
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Company</mat-label>
-          <input matInput placeholder="Apple"  name="company">
+          <input matInput placeholder="Apple" [(ngModel)] = "company" [ngModelOptions]="{standalone: true}" >
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Since</mat-label>
-          <input matInput placeholder="May 2016 " type="date" name="startDate">
+          <input matInput placeholder="May 2016 " [(ngModel)]="startDate">
         </mat-form-field>
       </mat-card>
 
-      <!-- <div>
-        <button mat-raised-button color="primary" matStepperNext>Next</button>
-      </div> -->
-    <!-- </form> -->
-  <!-- </mat-step> -->
-
-  <!-- <mat-step [stepControl]="secondFormGroup" errorMessage="Missing required fields."> -->
-    
-    <!-- <form [formGroup]="secondFormGroup"> -->
-      <!-- <ng-template >Notes</ng-template> -->
-    
       <mat-card style="margin-top: 2em">
         <mat-label>Note</mat-label>
         <p>
           <mat-form-field class="example-full-width" >
             <mat-label>Put your notes here:</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput [(ngModel)] = "note"></textarea>
           </mat-form-field>
         </p>
       </mat-card>
-
-      <!-- <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-raised-button color="primary" matStepperNext>Next</button>
-      </div> -->
-    <!-- </form> -->
-  <!-- </mat-step> -->
-
-
-
-  <!-- <mat-step [stepControl]="thirdFormGroup" errorMessage="Missing required fields."> -->
-    <!-- <form [formGroup]="thirdFormGroup"> -->
-     
 
       <mat-card style="margin-top: 2em">
         <mat-label>Contacts</mat-label>
         <p>
           <mat-form-field class="example-full-width">
             <mat-label>Add you contacts here:</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput [(ngModel)] = "contacts" [ngModelOptions]="{standalone: true}"> </textarea>
           </mat-form-field>
         </p>
-      </mat-card>
+    </mat-card>
 
-      <!-- <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div> -->
-
-    </form>
-    </div>
-  <!-- </mat-step> -->
+  <button mat-raised-button color="primary" click = "submit()"> Save</button>
+  </div>
 
 
 
-
-  <!-- <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step> -->
-
-
-<!-- </mat-horizontal-stepper> -->

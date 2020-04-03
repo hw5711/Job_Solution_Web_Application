@@ -43,31 +43,32 @@ app.post("/check_candidate", function (req, res, next) {
     });
 });
 
+//get defalut info
+app.get("/:id", (req, res, next) => {
+    // console.log(" server get id # is:", req.params.hr_id);
+    hrProfile.findOne({ creator: req.params.hr_id })
+        .then(account => {
+            if (account) {
+                res.status(200).json(account);
+            } else {
+                res.status(404).json({ message: "Account not found!" });
+            }
+    });
+});
 
 //hr update profile
-app.put("/update", function (req, res, next) {
-    // const hrprofile = new hrprofile({
-    //     //_id: req.body._id,
-    //     hr_id: req.body.hr_id,
-    //     join_date: req.body.join_date,
-    //     fnamd: req.body.fname,
-    //     lname: req.body.lname,
-    //     phone: req.body.phone,
-    //     title_at_work: req.body.title_at_work,
-    //     company: req.body.company,
-    //     start_work_date: req.body.start_work_date,
-    // });
-
+app.put("/update/:id", function (req, res, next) {
     hrProfile.updateOne(
         { hr_id: req.body.hr_id },
         {
-            join_date: req.body.join_date,
-            fnamd: req.body.fname,
-            lname: req.body.lname,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             phone: req.body.phone,
-            title_at_work: req.body.title_at_work,
+            title: req.body.title,
             company: req.body.company,
-            start_work_date: req.body.start_work_date,
+            startDate: req.body.startDate,
+            note: req.body.note,
+            contacts: req.body.contacts,
         },
         function (err, result) {
             if (result.n > 0) {
@@ -76,8 +77,6 @@ app.put("/update", function (req, res, next) {
                 res.status(401).json({ message: "Not authorized!" });
             }
         });
-
 });
-
 
 module.exports = app;
