@@ -9,7 +9,6 @@ import { LoginService } from "../login/login.service";
   styleUrls: ['./hr-profile.component.css']
 })
 export class HrProfileComponent implements OnInit {
-
   hr_id = "";
   firstName = "";
   lastName = "";
@@ -28,11 +27,12 @@ export class HrProfileComponent implements OnInit {
 
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
+    console.log(this.hr_id);
+    this.getHrInfo();
   }
   
+  //get default account default
   getHrInfo(){
-    //get default account default
-      console.log("client side:", this.hr_id);
       this.http
         .get<{ message: string; account: Account }>(
           "http://localhost:3000/hr-profile/" + this.hr_id)

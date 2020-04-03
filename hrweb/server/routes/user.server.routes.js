@@ -29,6 +29,7 @@ router.post("/register", (req, res, next) => {
         const userEmailCheck = User.findOne({
             email: req.body.email
         });
+        
         if(!userEmailCheck){
             return res.status(409).json({message: "Email already exist"});
         }
@@ -46,11 +47,12 @@ router.post("/register", (req, res, next) => {
                         error: err
                     });
                 });
-
+            
             //if it's a hr regited 
             if (req.body.role == "HR"){
 
                 const profile = new hrProfile({
+                    user_id: userEmailCheck,
                     hr_id: req.body.email,
                     firstName: "",
                     lastName: "",
@@ -61,7 +63,7 @@ router.post("/register", (req, res, next) => {
                     note: "", 
                     contacts: ""
                 });
-
+                console.log("user id", userEmailCheck);
                 profile.save()
                     .then(result => {
                         console.log(" hr account created with new user" , profile.hr_id);
@@ -72,6 +74,7 @@ router.post("/register", (req, res, next) => {
             }else{
 
                 const canprofile = new canProfile({
+                    user_id: userEmailCheck,
                     can_id: req.body.email,
                     fname: "",
                     lname: "",

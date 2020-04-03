@@ -26,8 +26,6 @@ export class HrFormComponent implements OnInit {
   contacts = "";
 
   isLinear = false;
-  // secondFormGroup: FormGroup;
-  // thirdFormGroup: FormGroup;
 
   constructor(
     private http: HttpClient,
@@ -38,17 +36,28 @@ export class HrFormComponent implements OnInit {
 
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
-    // this.firstFormGroup = this._formBuilder.group({
-    //   firstCtrl: ['', Validators.required]
-    // });
-
+    this.getHrInfo();
   }
-  // update(form: NgForm){
-  //   console.log(form.value.name);
-  // }
-
+  //get default info
+  getHrInfo() {
+    // console.log("client side:", this.hr_id);
+    this.http
+      .get<{ message: string; account: Account }>(
+        "http://localhost:3000/hr-profile/" + this.hr_id)
+      .subscribe(AccountData => {
+        this.firstName = AccountData["firstName"];
+        this.lastName = AccountData["lastName"];
+        this.phone = AccountData["phone"];
+        this.title = AccountData["title"];
+        this.company = AccountData["company"];
+        this.startDate = AccountData["startDate"];
+        this.note = AccountData["note"];
+        this.contacts = AccountData["contacts"];
+      })
+  }
   //save update 
-    submit() {
+    SaveUpdate(){
+      console.log("save!");
       let req = {
         hr_id: this.hr_id,
         firstName: this.firstName,
@@ -60,14 +69,14 @@ export class HrFormComponent implements OnInit {
         note: this.note,
         contacts: this.contacts
       };
-
+      console.log(req);
       this.http
         .put("http://localhost:3000/hr-profile/update" + this.hr_id, req)
         .subscribe(response => {
           console.log("res is :", response);
         });
 
-      this.router.navigate(["hr-profile"]);
+      this.router.navigate(["/hr-profile"]);
     }
 
 
