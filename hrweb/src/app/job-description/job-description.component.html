@@ -1,0 +1,35 @@
+<div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
+
+    <mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
+     <mat-toolbar-row >
+       <span><h1>Job Solutions</h1></span>
+       <span class="example-spacer"></span>
+     <div>
+         <a mat-button routerLink="/jobspage"> Jobs </a>
+         <a mat-button [routerLink]=""> Employers </a>
+         <button mat-button [matMenuTriggerFor]="menu">My Profile</button>
+   
+         <mat-menu #menu="matMenu">
+         <button mat-menu-item routerLink="/cand-profile">Profile</button>
+           <button mat-menu-item routerLink="/applications">Applications</button>
+           <button mat-menu-item routerLink="/myfavjob">MyFav Jobs</button>
+         </mat-menu>
+   
+       </div>
+     </mat-toolbar-row>
+   
+     <mat-toolbar-row style="padding: 0 5px;">
+       <span><h2>Job Description</h2></span>
+     </mat-toolbar-row>
+   
+   </mat-toolbar>
+   
+   </div>
+
+   <form (submit)="searchJob(searchForm)" #searchForm="ngForm">
+    <div class="example-container">
+
+        
+        
+    </div>
+</form>

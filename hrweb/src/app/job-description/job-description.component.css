@@ -1,0 +1,10 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-container {
+    width: auto;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+  }
