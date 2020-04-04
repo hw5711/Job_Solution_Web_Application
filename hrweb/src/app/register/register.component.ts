@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
           .subscribe(response => {
               this.meg = response["message"];
               console.log("show detail of response :", this.meg);
-            this.router.navigate(["login"]);
+            this.router.navigate(["/login"]);
           },
           error=>{
             this.meg = error.message;

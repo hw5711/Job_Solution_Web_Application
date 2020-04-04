@@ -27,7 +27,7 @@ export class HrProfileComponent implements OnInit {
 
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
-    console.log(this.hr_id);
+    // console.log(this.hr_id);
     this.getHrInfo();
   }
   

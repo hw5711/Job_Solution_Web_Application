@@ -46,7 +46,7 @@ app.post("/check_candidate", function (req, res, next) {
 //get defalut info
 app.get("/:id", (req, res, next) => {
     // console.log(" server get id # is:", req.params.hr_id);
-    hrProfile.findOne({ creator: req.params.hr_id })
+    hrProfile.findOne({ hr_id: req.params.hr_id })
         .then(account => {
             if (account) {
                 res.status(200).json(account);
@@ -57,9 +57,9 @@ app.get("/:id", (req, res, next) => {
 });
 
 //hr update profile
-app.put("/update/:id", function (req, res, next) {
+app.post("/update/", function (req, res, next) {
     hrProfile.updateOne(
-        { hr_id: req.body.hr_id },
+        { hr_id : req.body.hr_id },
         {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -71,10 +71,10 @@ app.put("/update/:id", function (req, res, next) {
             contacts: req.body.contacts,
         },
         function (err, result) {
-            if (result.n > 0) {
-                res.status(200).json({ message: "Update successful!" });
-            } else {
+            if (err) {
                 res.status(401).json({ message: "Not authorized!" });
+            } else {
+                res.status(200).json({ message: "Update successful!" });
             }
         });
 });

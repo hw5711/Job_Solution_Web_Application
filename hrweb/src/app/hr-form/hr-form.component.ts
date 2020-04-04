@@ -71,7 +71,7 @@ export class HrFormComponent implements OnInit {
       };
       console.log(req);
       this.http
-        .put("http://localhost:3000/hr-profile/update" + this.hr_id, req)
+        .post("http://localhost:3000/hr-profile/update/", req)
         .subscribe(response => {
           console.log("res is :", response);
         });

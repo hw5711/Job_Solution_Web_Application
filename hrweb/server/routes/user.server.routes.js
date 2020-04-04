@@ -14,11 +14,12 @@ const passwordResetToken = require("../models/resettoken");
 //when create an account, post a new account with userID
 // const Account = require("../models/account");
 
+const userid = "";
+
 const router = express.Router();
 
 router.post("/register", (req, res, next) => {
     console.log("register info: ",req.body.email, req.body.password, req.body.role);
-
     bcrypt.hash(req.body.password, 10).then(hash => {
         const user = new User({
             email: req.body.email,
@@ -29,13 +30,15 @@ router.post("/register", (req, res, next) => {
         const userEmailCheck = User.findOne({
             email: req.body.email
         });
-        
+       
+
         if(!userEmailCheck){
             return res.status(409).json({message: "Email already exist"});
         }
         else{
             user.save()
                 .then(result => {
+                    this.userid = req._id;
                     res.status(201).json({
                         message: "User created!",
                         result: result,
@@ -47,13 +50,11 @@ router.post("/register", (req, res, next) => {
                         error: err
                     });
                 });
-            
             //if it's a hr regited 
+            console.log("this.userid is:", this.userid);
             if (req.body.role == "HR"){
-
                 const profile = new hrProfile({
-                    user_id: userEmailCheck,
-                    hr_id: req.body.email,
+                    hr_id: this.userid,
                     firstName: "",
                     lastName: "",
                     phone: "",
@@ -63,7 +64,6 @@ router.post("/register", (req, res, next) => {
                     note: "", 
                     contacts: ""
                 });
-                console.log("user id", userEmailCheck);
                 profile.save()
                     .then(result => {
                         console.log(" hr account created with new user" , profile.hr_id);
@@ -72,10 +72,8 @@ router.post("/register", (req, res, next) => {
                         console.log("hr account created faild");
                     });
             }else{
-
                 const canprofile = new canProfile({
-                    user_id: userEmailCheck,
-                    can_id: req.body.email,
+                    can_id: this.userid,
                     fname: "",
                     lname: "",
                     phone: "",
@@ -94,7 +92,6 @@ router.post("/register", (req, res, next) => {
                         end_year: ""
                     }]
                 });
-                
                 canprofile.save()
                     .then(result => {
                         console.log(" hr account created with new user");
@@ -103,7 +100,6 @@ router.post("/register", (req, res, next) => {
                         console.log("hr account created faild");
                     });
             }
-            
         }
     });
 });
