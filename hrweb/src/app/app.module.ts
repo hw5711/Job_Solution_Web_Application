@@ -21,6 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -41,7 +42,7 @@ import { JobappFormCreateComponent } from './jobapp-form/jobapp-form-create/joba
 import { JobappFormReviewComponent } from './jobapp-form/jobapp-form-review/jobapp-form-review.component';
 import { ViewPostingComponent } from './view-posting/view-posting.component';
 import { ViewApplicantsComponent } from './view-applicants/view-applicants.component';
-import { JobDescriptionComponent } from './job-description/job-description.component';
+import { JobspagePopupComponent } from './jobspage/jobspage-popup/jobspage-popup.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { JobDescriptionComponent } from './job-description/job-description.compo
     JobappFormReviewComponent,
     ViewPostingComponent,
     ViewApplicantsComponent,
-    JobDescriptionComponent,
+    JobspagePopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +96,7 @@ import { JobDescriptionComponent } from './job-description/job-description.compo
   providers: [
     MatDatepickerModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [JobspagePopupComponent]
 })
 export class AppModule { }

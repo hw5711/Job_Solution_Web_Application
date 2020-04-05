@@ -99,9 +99,11 @@
                     <td><span style="margin-left: 20px"></span>{{ j.industryType }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.company }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.jobDescription }}</td>
+                    <div class="dialog">
                     <td><span style="margin-left: 20px"></span>
-                        <button mat-raised-button color="primary" routerLink="/jobDescription">View</button>
+                        <button mat-raised-button color="primary" (click)= "openDialog()">View</button>
                     </td>
+                </div> 
                 </tr>
             </tbody>
         </table>

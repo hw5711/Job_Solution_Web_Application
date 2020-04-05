@@ -20,7 +20,6 @@ import { JobappFormReviewComponent } from './jobapp-form/jobapp-form-review/joba
 import { PostJobComponent } from './post-job/post-job.component';
 import { ViewPostingComponent } from './view-posting/view-posting.component';
 import { ViewApplicantsComponent } from './view-applicants/view-applicants.component';
-import { JobDescriptionComponent } from './job-description/job-description.component';
 
 
 const routes: Routes = [
@@ -42,8 +41,7 @@ const routes: Routes = [
   { path: "jobappform-review", component: JobappFormReviewComponent},
   { path: "post-job", component: PostJobComponent },
   { path: "view-posting", component: ViewPostingComponent },
-  { path: "view-applicants", component: ViewApplicantsComponent },
-  { path: "jobDescription", component: JobDescriptionComponent }
+  { path: "view-applicants", component: ViewApplicantsComponent }
 ];
 
 @NgModule({

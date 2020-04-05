@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
+
+import { JobspagePopupComponent } from './jobspage-popup/jobspage-popup.component';
 
 interface josbtype {
   value: string;
@@ -17,6 +21,13 @@ interface industry {
   value: string;
   viewValue: string;
 }
+/*
+export interface DialogData {
+  jobTitle: string;
+  jobType: string;
+  location: string;
+  industryType: string;
+} */
 
 @Component({
   selector: 'app-jobspage',
@@ -112,15 +123,16 @@ export class JobspageComponent implements OnInit {
   enteredjobDescription = "";
 
   //found = false;
-  jobTitle:string;
-  jobType:string;
-  location:string;
-  industryType:string;
+  jobTitle: string;
+  jobType: string;
+  location: string;
+  industryType: string;
   job: any;
 
   constructor(
     private http: HttpClient,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -146,6 +158,20 @@ export class JobspageComponent implements OnInit {
     console.log("need to finish this search function , mongoose query")
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(JobspagePopupComponent, {
+      width: '1000px',
+      height: '1000px',
+      data: {jobTitle: this.enteredjobTitle, jobType: this.enteredjobType, location: this.enteredlocation, industryType: this.enteredindustryType}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  } 
+
+  //need to be removed later -- just for data entry //
+
   createPeople(form: NgForm){
     let req = { 
       jobTitle: this.enteredjobTitle, 
@@ -161,10 +187,6 @@ export class JobspageComponent implements OnInit {
         console.log("book post successed: ", response);
       });
   }
-
-
-
-
 }
 
 
