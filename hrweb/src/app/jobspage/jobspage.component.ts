@@ -5,7 +5,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 
-import { JobspagePopupComponent } from './jobspage-popup/jobspage-popup.component';
+import { DialogOverviewComponent } from './dialog-overview/dialog-overview.component';
 
 interface josbtype {
   value: string;
@@ -21,13 +21,13 @@ interface industry {
   value: string;
   viewValue: string;
 }
-/*
+//If you have data passed from dialog
 export interface DialogData {
-  jobTitle: string;
-  jobType: string;
-  location: string;
-  industryType: string;
-} */
+  jobTitle: string,
+  jobType: string,
+  location: string,
+  industryType: string
+}
 
 @Component({
   selector: 'app-jobspage',
@@ -123,11 +123,12 @@ export class JobspageComponent implements OnInit {
   enteredjobDescription = "";
 
   //found = false;
-  jobTitle: string;
-  jobType: string;
-  location: string;
-  industryType: string;
+  jobTitle: any;
+  jobType: any;
+  location: any;
+  industryType: any;
   job: any;
+  jobDescription: any;
 
   constructor(
     private http: HttpClient,
@@ -158,12 +159,11 @@ export class JobspageComponent implements OnInit {
     console.log("need to finish this search function , mongoose query")
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(JobspagePopupComponent, {
+  openDialog(j): void {
+    const dialogRef = this.dialog.open(DialogOverviewComponent, {
       width: '1000px',
       height: '1000px',
-      //data: this.job
-      data: {jobTitle: this.enteredjobTitle, jobType: this.enteredjobType, location: this.enteredlocation, industryType: this.enteredindustryType}
+      data: { jobTitle: j.jobTitle, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
     });
 
     dialogRef.afterClosed().subscribe(result => {

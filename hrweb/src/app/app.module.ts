@@ -42,6 +42,7 @@ import { JobappFormReviewComponent } from './jobapp-form/jobapp-form-review/joba
 import { ViewPostingComponent } from './view-posting/view-posting.component';
 import { ViewApplicantsComponent } from './view-applicants/view-applicants.component';
 import { JobspagePopupComponent } from './jobspage/jobspage-popup/jobspage-popup.component';
+import { DialogOverviewComponent } from './jobspage/dialog-overview/dialog-overview.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { JobspagePopupComponent } from './jobspage/jobspage-popup/jobspage-popup
     ViewPostingComponent,
     ViewApplicantsComponent,
     JobspagePopupComponent,
+    DialogOverviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +98,6 @@ import { JobspagePopupComponent } from './jobspage/jobspage-popup/jobspage-popup
     MatDatepickerModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [JobspagePopupComponent]
+  entryComponents: [DialogOverviewComponent]
 })
 export class AppModule { }
