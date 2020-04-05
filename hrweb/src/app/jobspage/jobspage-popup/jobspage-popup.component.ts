@@ -25,6 +25,10 @@ export class JobspagePopupComponent implements OnInit {
     this.dialogRef.close({event:'close'}); 
   }
 
+  addFav(){
+    //write fuction to change the icon to filled icon, then add the job id and details in candidate's fav list
+  }
+
 }
 
 

@@ -1,9 +1,13 @@
 <!-- dialog-modal-example.component.html -->
 <h2>Job Description</h2>
+
 <b>Value From Page</b>:{{fromPage}}
+
+<button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click) = "addFav()">
+  <mat-icon>favorite_border</mat-icon>
+</button>
 
 <div>
   <button mat-raised-button (click)="closeDialog()">Close</button>
 </div>
-
 
