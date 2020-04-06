@@ -5,7 +5,8 @@ export interface DialogData {
   jobTitle: string,
   jobType: string,
   location: string,
-  industryType: string
+  industryType: string,
+  company: string,
   jobDescription: string
 }
 

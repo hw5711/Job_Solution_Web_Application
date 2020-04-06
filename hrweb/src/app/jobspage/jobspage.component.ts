@@ -26,7 +26,8 @@ export interface DialogData {
   jobTitle: string,
   jobType: string,
   location: string,
-  industryType: string
+  industryType: string,
+  company: string
 }
 
 @Component({
@@ -163,7 +164,7 @@ export class JobspageComponent implements OnInit {
     const dialogRef = this.dialog.open(JobspagePopupComponent, {
       width: '1000px',
       height: '1000px',
-      data: { jobTitle: j.jobTitle, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
+      data: { jobTitle: j.jobTitle, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
     });
 
     dialogRef.afterClosed().subscribe(result => {
