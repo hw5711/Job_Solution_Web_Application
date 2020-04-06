@@ -162,8 +162,8 @@ export class JobspageComponent implements OnInit {
 
   openDialog(j): void {
     const dialogRef = this.dialog.open(JobspagePopupComponent, {
-      width: '1000px',
-      height: '1000px',
+      width: 'auto',
+      height: 'auto',
       data: { jobTitle: j.jobTitle, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
     });
 

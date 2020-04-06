@@ -3,10 +3,11 @@
 
 <div mat-dialog-content>
       <div (ngModel) = "data" >
-          <h3>{{data.jobTitle}}</h3>  
-          <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click) = "addFav()">
-            <mat-icon>favorite_border</mat-icon>
+          <h3>{{data.jobTitle}} <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click) = "addFav()">
+            <mat-icon >favorite_border</mat-icon>
           </button>
+        </h3>  
+   
           <p>{{data.company}}</p>
           <p>{{data.jobType}}</p>
           <p>{{data.location}}</p>
