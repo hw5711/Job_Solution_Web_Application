@@ -1,5 +1,13 @@
-import { Component, Inject, Optional, OnInit } from '@angular/core'; 
+import { Component, Inject, OnInit } from '@angular/core'; 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+export interface DialogData {
+  jobTitle: string,
+  jobType: string,
+  location: string,
+  industryType: string
+  jobDescription: string
+}
 
 @Component({
   selector: 'app-jobspage-popup',
@@ -8,21 +16,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class JobspagePopupComponent implements OnInit {
 
-  fromPage:string;
-  //fromDialog:string;
- 
   constructor(
     public dialogRef: MatDialogRef<JobspagePopupComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any
-    ) {
-      this.fromPage = data.jobTitle;
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     }
  
   ngOnInit() {
   }
  
-  closeDialog(){ 
-    this.dialogRef.close({event:'close'}); 
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   addFav(){

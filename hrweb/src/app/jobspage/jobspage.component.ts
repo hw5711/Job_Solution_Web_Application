@@ -5,7 +5,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 
-import { DialogOverviewComponent } from './dialog-overview/dialog-overview.component';
+import { JobspagePopupComponent } from './jobspage-popup/jobspage-popup.component';
 
 interface josbtype {
   value: string;
@@ -160,7 +160,7 @@ export class JobspageComponent implements OnInit {
   }
 
   openDialog(j): void {
-    const dialogRef = this.dialog.open(DialogOverviewComponent, {
+    const dialogRef = this.dialog.open(JobspagePopupComponent, {
       width: '1000px',
       height: '1000px',
       data: { jobTitle: j.jobTitle, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
