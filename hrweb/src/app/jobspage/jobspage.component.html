@@ -13,6 +13,7 @@
       <button mat-menu-item routerLink="/cand-profile">Profile</button>
         <button mat-menu-item routerLink="/applications">Applications</button>
         <button mat-menu-item routerLink="/myfavjob">MyFav Jobs</button>
+        <button mat-menu-item routerLink="/">Logout</button>
       </mat-menu>
 
     </div>
@@ -89,6 +90,7 @@
                     <th><span style="margin-left: 20px"></span>Company</th>
                    <!-- <th><span style="margin-left: 20px"></span>Job description</th> -->
                     <th><span style="margin-left: 20px"></span>View</th>
+                    <th><span style="margin-left: 20px"></span>Apply</th>
                 </tr>
             </thead>
             <tbody style="margin-left: 20px">
@@ -102,6 +104,9 @@
                     <!-- <div class="dialog"> -->
                     <td><span style="margin-left: 20px"></span>
                         <button mat-raised-button color="primary" (click)= "openDialog(j)">View</button>
+                    </td>
+                    <td><span style="margin-left: 20px"></span>
+                        <button mat-raised-button color="primary" routerLink="/jobappform">Apply</button>
                     </td>
                 <!-- </div>  -->
                 </tr>
