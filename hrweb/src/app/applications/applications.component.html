@@ -22,25 +22,94 @@
    <mat-toolbar-row style="padding: 0 5px;">
     <span><h2>Application Status</h2></span>
   </mat-toolbar-row>
-
-   <mat-toolbar-row style="padding: 0 5px;">
-    <button mat-icon-button>
-    <mat-icon>menu</mat-icon>
-     </button>
-  <div style="padding:8px 0 0 10px; flex:3;">
-   <input class="search-control" type="text" size="50" placeholder="Job Title, Employer, Keyword"
-    [(ngModel)]="searchText" #searchbar>
-  </div>
-
-  <button mat-icon-button  (click)="openSearch()">
-      <mat-icon>search</mat-icon>
-  </button>
-</mat-toolbar-row>
-
  </mat-toolbar>
-
  </div>
+
+ <form (submit)="searchJob(searchForm)" #searchForm="ngForm">
+    <div class="example-container">
+        <table class="example-full-width" cellspacing="0">
+          <tr >
+            <td>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Job Title</mat-label>
+                    <input matInput type="text" placeholder="Job Title/Keyword" name="keyword" [(ngModel)] = "enteredjobTitle" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                </td>
+    <td>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Job Type</mat-label>
+            <mat-select [(ngModel)] = "enteredjobType" [ngModelOptions]="{standalone: true}">
+              <mat-option *ngFor="let jobtype of jobtypes" [value]="jobtype.value">
+                {{jobtype.viewValue}}
+              </mat-option>
+            </mat-select>
+            </mat-form-field>
+    </td>
+    <td>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Location</mat-label>
+            <mat-select [(ngModel)] = "enteredlocation" [ngModelOptions]="{standalone: true}">
+              <mat-option *ngFor="let location of locations" [value]="location.value">
+                {{location.viewValue}}
+              </mat-option>
+            </mat-select>
+            </mat-form-field>
+    </td>
+    <td>
+    
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Industry</mat-label>
+            <mat-select [(ngModel)] = "enteredindustryType" [ngModelOptions]="{standalone: true}">
+              <mat-option *ngFor="let industry of industries" [value]="industry.value">
+                {{industry.viewValue}}
+              </mat-option>
+            </mat-select>
+            </mat-form-field>
+    </td>
+    <td>
+        <button mat-raised-button color="primary" type="submit">Search</button>
+    </td>
+    </tr>
+    </table>
+    </div>
+</form>
+
+<p> Need changes for the search function ------->  On search only display the fav jobs list of particular user</p>
+
  <br>
+
+ <h1 style="font-size: 15px">Search Result:</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><span style="margin-left: 20px"></span>Job Title</th>
+                    <th><span style="margin-left: 20px"></span>Job type</th>
+                    <th><span style="margin-left: 20px"></span>location</th>
+                    <th><span style="margin-left: 20px"></span>Industry type</th>
+                    <th><span style="margin-left: 20px"></span>Company</th>
+                   <!-- <th><span style="margin-left: 20px"></span>Job description</th> -->
+                    <th><span style="margin-left: 20px"></span>View</th>
+                </tr>
+            </thead>
+            <tbody style="margin-left: 20px">
+                <tr *ngFor="let j of job">
+                    <td><span style="margin-left: 20px"></span>{{ j.jobTitle }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.jobType }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.location }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.industryType }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.company }}</td>
+                   <!-- <td><span style="margin-left: 20px"></span>{{ j.jobDescription }}</td> -->
+                    <!-- <div class="dialog"> -->
+                    <td><span style="margin-left: 20px"></span>
+                        <button mat-raised-button color="primary" (click)= "openDialog(j)">View</button>
+                    </td>
+                <!-- </div>  -->
+                </tr>
+            </tbody>
+        </table>
+
+<p>Once the data is retrived properly, try to populate into the below HTML </p>
  <br>
 
 <div class="album py-5 bg-light">
@@ -120,7 +189,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                   </div>
                                   <small class="text-muted">9 mins</small>
                               </div>
@@ -145,7 +213,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                   </div>
                                   <small class="text-muted">9 mins</small>
@@ -171,7 +238,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                   </div>
                                   <small class="text-muted">9 mins</small>
@@ -196,7 +262,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                   </div>
                                   <small class="text-muted">9 mins</small>
@@ -220,7 +285,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                   </div>
                                   <small class="text-muted">9 mins</small>
@@ -244,7 +308,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                   </div>
                                   <small class="text-muted">9 mins</small>
@@ -269,7 +332,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                   </div>
                                   <small class="text-muted">9 mins</small>
@@ -293,7 +355,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                   </div>
                                   <small class="text-muted">9 mins</small>
@@ -317,7 +378,6 @@
                               <div class="d-flex justify-content-between align-items-center">
                                   <div class="btn-group">
                                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                      <button type="button" class="btn btn-sm btn-outline-secondary">Apply</button>
                                       <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
                                   </div>
                                   <small class="text-muted">9 mins</small>

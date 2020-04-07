@@ -1,0 +1,16 @@
+<div mat-dialog-content>
+    <div (ngModel) = "data" >
+        <h3>{{data.jobTitle}}</h3>  
+        <p>{{data.company}}</p>
+        <p>{{data.jobType}}</p>
+        <p>{{data.location}}</p>
+        <p>{{data.industryType}}</p>
+        <p>Job Description</p>
+        <p>{{data.jobDescription}}</p>
+    </div>
+</div>
+
+<div>
+<button mat-raised-button (click)="onNoClick()">Close</button>
+</div>
+

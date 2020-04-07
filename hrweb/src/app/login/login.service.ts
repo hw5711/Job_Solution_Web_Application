@@ -59,7 +59,7 @@ export class LoginService {
                         this.router.navigate(["/hr-profile"]);
                     }
                     else if (this.userRole == 'Candidate'){
-                        this.router.navigate(["/cand-profile"]);
+                        this.router.navigate(["/jobspage"]);
                     }
                     else{
                         this.router.navigate(["/"]);
