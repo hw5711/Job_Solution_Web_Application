@@ -43,6 +43,7 @@ import { ViewPostingComponent } from './view-posting/view-posting.component';
 import { ViewApplicantsComponent } from './view-applicants/view-applicants.component';
 import { JobspagePopupComponent } from './jobspage/jobspage-popup/jobspage-popup.component';
 import { ApplicationsPopupComponent } from './applications/applications-popup/applications-popup.component';
+import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ApplicationsPopupComponent } from './applications/applications-popup/ap
     ViewPostingComponent,
     ViewApplicantsComponent,
     JobspagePopupComponent,
-    ApplicationsPopupComponent
+    ApplicationsPopupComponent,
+    MyfavjobPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +100,6 @@ import { ApplicationsPopupComponent } from './applications/applications-popup/ap
     MatDatepickerModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [JobspagePopupComponent, ApplicationsPopupComponent],
+  entryComponents: [JobspagePopupComponent, ApplicationsPopupComponent, MyfavjobPopupComponent],
 })
 export class AppModule { }

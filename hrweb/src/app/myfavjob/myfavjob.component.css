@@ -2,11 +2,15 @@
   margin: 0 10px;
 }
 
-.example-card {
-  max-width: 300px;
-  max-height: auto;
-  margin-left: auto;
-  margin-right: auto;
+.example-container {
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: 10px;
+}
+
+.example-full-width {
+  width: 100%;
 }
 
 .example-spacer {
