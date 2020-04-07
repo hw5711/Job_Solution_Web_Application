@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
+
+import { JobspagePopupComponent } from './jobspage-popup/jobspage-popup.component';
 
 interface josbtype {
   value: string;
@@ -16,6 +20,14 @@ interface location {
 interface industry {
   value: string;
   viewValue: string;
+}
+//If you have data passed from dialog
+export interface DialogData {
+  jobTitle: string,
+  jobType: string,
+  location: string,
+  industryType: string,
+  company: string
 }
 
 @Component({
@@ -112,15 +124,17 @@ export class JobspageComponent implements OnInit {
   enteredjobDescription = "";
 
   //found = false;
-  jobTitle:string;
-  jobType:string;
-  location:string;
-  industryType:string;
+  jobTitle: any;
+  jobType: any;
+  location: any;
+  industryType: any;
   job: any;
+  jobDescription: any;
 
   constructor(
     private http: HttpClient,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -146,6 +160,20 @@ export class JobspageComponent implements OnInit {
     console.log("need to finish this search function , mongoose query")
   }
 
+  openDialog(j): void {
+    const dialogRef = this.dialog.open(JobspagePopupComponent, {
+      width: 'auto',
+      height: 'auto',
+      data: { jobTitle: j.jobTitle, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  } 
+
+  //need to be removed later -- just for data entry //
+
   createPeople(form: NgForm){
     let req = { 
       jobTitle: this.enteredjobTitle, 
@@ -161,10 +189,6 @@ export class JobspageComponent implements OnInit {
         console.log("book post successed: ", response);
       });
   }
-
-
-
-
 }
 
 

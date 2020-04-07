@@ -17,6 +17,7 @@ const userRoutes = require("./routes/user.server.routes");
 const canRoutes = require("./routes/candidate.server.routes");
 const applyRoutes = require("./routes/apply.server.routes");
 const searchjobRoutes = require("./routes/searchjob.server.routes");
+const hrRoutes = require("./routes/hr.server.routes");
 
 const app = express();
 app.use(cookieParser());
@@ -61,6 +62,7 @@ app.use("/", userRoutes);
 app.use("/cand-profile", canRoutes);
 app.use("/jobappform", applyRoutes);
 app.use("/searchjob", searchjobRoutes);
+app.use("/hr-profile", hrRoutes);
 //Use the below line when deploy
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'public/index.html'));
