@@ -16,6 +16,9 @@ export interface DialogData {
   styleUrls: ['./jobspage-popup.component.css']
 })
 export class JobspagePopupComponent implements OnInit {
+  select: boolean;
+  status = 'Enable';
+  toggle = true;
 
   constructor(
     public dialogRef: MatDialogRef<JobspagePopupComponent>,
@@ -23,6 +26,7 @@ export class JobspagePopupComponent implements OnInit {
     }
  
   ngOnInit() {
+    this.select = false;
   }
  
   onNoClick(): void {
@@ -31,7 +35,16 @@ export class JobspagePopupComponent implements OnInit {
 
   addFav(){
     //write fuction to change the icon to filled icon, then add the job id and details in candidate's fav list
+    this.select = !this.select;
+    this.enableDisableRule();
   }
+
+  enableDisableRule() {
+    this.toggle = !this.toggle;
+    this.status = this.toggle ? 'Enable' : 'Disable';
+  }
+
+
 
 }
 
