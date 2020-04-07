@@ -292,7 +292,10 @@
         </div>
     </div>
     <!-- ////// -->
-
+    <br>
+    <button (click)="enableDisableRule()" [ngClass]="{'green' : toggle, 'red': !toggle}"></button>
+    <br>
+    <br>
     <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
         {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
     </button>
@@ -329,6 +332,8 @@
             </div>
         </mat-step>
     </mat-horizontal-stepper>
+
+
 
 
 </body>
