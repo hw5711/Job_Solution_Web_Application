@@ -6,6 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 
 import { JobspagePopupComponent } from './jobspage-popup/jobspage-popup.component';
 import { LoginService } from "../login/login.service";
+import { JobService } from "./job.service";
 
 interface josbtype {
   value: string;
@@ -135,6 +136,7 @@ export class JobspageComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private loginService: LoginService,
+    private jobService: JobService,
     public route: ActivatedRoute,
     public dialog: MatDialog
   ) { }
@@ -161,6 +163,11 @@ export class JobspageComponent implements OnInit {
       });
 
     console.log("the search function will return the job_id, so you can use it in the application form submit");
+  }
+
+  applyJob(j){
+    this.jobService.setJobId(j.job_id);
+    this.jobService.setJobTitle(j.title);
   }
 
   openDialog(j): void {

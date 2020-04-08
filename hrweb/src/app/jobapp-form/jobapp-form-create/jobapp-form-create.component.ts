@@ -4,6 +4,8 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+import { LoginService } from "../../login/login.service";
+import { JobService } from "../../jobspage/job.service";
 
 interface Education {
   value: string;
@@ -48,7 +50,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }]
 })
 export class JobappFormCreateComponent implements OnInit {
-
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -132,26 +133,37 @@ export class JobappFormCreateComponent implements OnInit {
   enteredVeteran = "";
   enteredDiability: "";
   @Output() jobappCreated = new EventEmitter();
- 
+
+  can_id = "";
+  job_id = "";
+  job_title = "";
+
   constructor(
     private _formBuilder: FormBuilder, 
     private http: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    private loginService: LoginService,
+    private jobService: JobService,
+    ) { }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ''
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
-    this.fourthFormGroup = this._formBuilder.group({
-      fourthCtrl: ['', Validators.required]
-    });
-
+    this.can_id = this.loginService.getUserId();
+    // this.firstFormGroup = this._formBuilder.group({
+    //   firstCtrl: ['', Validators.required]
+    // });
+    // this.secondFormGroup = this._formBuilder.group({
+    //   secondCtrl: ''
+    // });
+    // this.thirdFormGroup = this._formBuilder.group({
+    //   thirdCtrl: ['', Validators.required]
+    // });
+    // this.fourthFormGroup = this._formBuilder.group({
+    //   fourthCtrl: ['', Validators.required]
+    // });
+    this.job_id = this.jobService.getJobId();
+    this.job_title = this.jobService.getJobTitle();
+    console.log("job id is:", this.job_id);
+    console.log("title is:", this.job_title);
   }
 
   onAddJobapp() {
@@ -209,8 +221,25 @@ export class JobappFormCreateComponent implements OnInit {
       firstname: jobapp.firstName,
     }; */
 
+    // this.http
+    //   .post("http://localhost:3000/jobappform/apply", jobapp)
+    //   .subscribe(response => {
+    //     console.log("res is :", response);
+    //   });
+
+
+  //need to send the can info link with posted job
+  var today = new Date();
+  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  let can = {
+      candidate_id: this.can_id,
+      rank: 0,
+      applyDate: date
+   };
+    const req = { job_id: this.job_id, candidate: can };
+    console.log("req is:" , req);
     this.http
-      .post("http://localhost:3000/jobappform/apply", jobapp)
+      .post("http://localhost:3000/jobappform/job", req)
       .subscribe(response => {
         console.log("res is :", response);
       });

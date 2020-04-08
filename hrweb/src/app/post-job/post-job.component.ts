@@ -187,7 +187,7 @@ export class PostJobComponent {
       startDate: this.startDate,
       expirationDate: this.expirationDate,
       jobDescription: this.description,
-      candidate: null,
+      candidate: [{}],
     };
     console.log(req);
     this.http
