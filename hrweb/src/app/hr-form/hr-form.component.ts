@@ -43,7 +43,7 @@ export class HrFormComponent implements OnInit {
     // console.log("client side:", this.hr_id);
     this.http
       .get<{ message: string; account: Account }>(
-        "http://localhost:3000/hr-profile/" + this.hr_id)
+        "http://localhost:3000/hr/" + this.hr_id)
       .subscribe(AccountData => {
         this.firstName = AccountData["firstName"];
         this.lastName = AccountData["lastName"];
@@ -57,7 +57,6 @@ export class HrFormComponent implements OnInit {
   }
   //save update 
     SaveUpdate(){
-      console.log("save!");
       let req = {
         hr_id: this.hr_id,
         firstName: this.firstName,
@@ -71,9 +70,9 @@ export class HrFormComponent implements OnInit {
       };
       console.log(req);
       this.http
-        .post("http://localhost:3000/hr-profile/update/", req)
+        .post("http://localhost:3000/hr/update/", req)
         .subscribe(response => {
-          console.log("res is :", response);
+          // console.log("res is :", response);
         });
 
       this.router.navigate(["/hr-profile"]);

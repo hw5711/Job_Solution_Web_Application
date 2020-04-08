@@ -27,7 +27,6 @@ export class HrProfileComponent implements OnInit {
 
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
-    // console.log(this.hr_id);
     this.getHrInfo();
   }
   
@@ -35,8 +34,9 @@ export class HrProfileComponent implements OnInit {
   getHrInfo(){
       this.http
         .get<{ message: string; account: Account }>(
-          "http://localhost:3000/hr-profile/" + this.hr_id)
+          "http://localhost:3000/hr/" + this.hr_id)
         .subscribe(AccountData => {
+          console.log(AccountData);
           this.firstName = AccountData["firstName"];
           this.lastName = AccountData["lastName"];
           this.phone = AccountData["phone"];

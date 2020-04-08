@@ -1,6 +1,16 @@
-<header>
-  <mat-toolbar color=primary>
-    <span>My Job Postings</span>
+<div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
+  <mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
+      <span>
+        <h1>View Posted Jobs</h1>
+      </span>
+      <span class="example-spacer"></span>
+      <div style="position: absolute; right: 0;"> 
+        <button mat-button routerLink="/post-job"> Post Job </button>
+        <button mat-button routerLink="/hr-profile">My Profile</button>
+        <button mat-button routerLink="/view-applicants">Received Applications</button>
+        <button mat-button routerLink="/"> Sign out </button>
+      </div>
   </mat-toolbar>
-</header>
+</div>
 
+<!-- NAVBAR ENDS HERE -->

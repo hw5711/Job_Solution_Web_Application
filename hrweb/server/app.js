@@ -62,7 +62,7 @@ app.use("/", userRoutes);
 app.use("/cand-profile", canRoutes);
 app.use("/jobappform", applyRoutes);
 app.use("/searchjob", searchjobRoutes);
-app.use("/hr-profile", hrRoutes);
+app.use("/hr", hrRoutes);
 //Use the below line when deploy
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'public/index.html'));
