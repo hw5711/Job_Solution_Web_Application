@@ -1,6 +1,7 @@
 <div mat-dialog-content>
       <div (ngModel) = "data" >
           <h3>{{data.jobTitle}}</h3>
+          
             <div *ngIf="!selsect">
               <button mat-mini-fab color="accent" [ngClass]="{'gray' : toggle, 'red': !toggle}" (click) = "addFav()" aria-label="Example icon-button with a heart icon">
                 <mat-icon>favorite</mat-icon>

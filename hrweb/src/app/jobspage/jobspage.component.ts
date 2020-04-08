@@ -5,6 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 
 import { JobspagePopupComponent } from './jobspage-popup/jobspage-popup.component';
+import { LoginService } from "../login/login.service";
 
 interface josbtype {
   value: string;
@@ -129,15 +130,18 @@ export class JobspageComponent implements OnInit {
   industryType: any;
   job: any;
   jobDescription: any;
+  userId: string;
 
   constructor(
     private http: HttpClient,
+    private loginService: LoginService,
     public route: ActivatedRoute,
     public dialog: MatDialog
   ) { }
 
   ngOnInit() {
-   
+    this.userId = this.loginService.getUserId()
+    console.log("user_id is: " + this.userId)
   }
 
   searchJob(form: NgForm) {
