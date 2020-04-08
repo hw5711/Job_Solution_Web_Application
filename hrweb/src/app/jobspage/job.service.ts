@@ -9,6 +9,7 @@ export class JobService {
 
 private job_id: string;
 private job_title: string;
+private job_company: string;
 
 constructor(private http: HttpClient, private router: Router) { }
 
@@ -26,6 +27,14 @@ getJobTitle(){
 
 setJobTitle(title){
     this.job_title = title;
+}
+
+getJobCompany(){
+    return this.job_company;
+}
+
+setJobCompany(company){
+    this.job_company = company;
 }
 
 }

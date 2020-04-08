@@ -137,6 +137,7 @@ export class JobappFormCreateComponent implements OnInit {
   can_id = "";
   job_id = "";
   job_title = "";
+  job_company = "";
 
   constructor(
     private _formBuilder: FormBuilder, 
@@ -148,22 +149,25 @@ export class JobappFormCreateComponent implements OnInit {
 
   ngOnInit() {
     this.can_id = this.loginService.getUserId();
-    // this.firstFormGroup = this._formBuilder.group({
-    //   firstCtrl: ['', Validators.required]
-    // });
-    // this.secondFormGroup = this._formBuilder.group({
-    //   secondCtrl: ''
-    // });
-    // this.thirdFormGroup = this._formBuilder.group({
-    //   thirdCtrl: ['', Validators.required]
-    // });
-    // this.fourthFormGroup = this._formBuilder.group({
-    //   fourthCtrl: ['', Validators.required]
-    // });
     this.job_id = this.jobService.getJobId();
     this.job_title = this.jobService.getJobTitle();
+    this.job_company = this.jobService.getJobCompany();
     console.log("job id is:", this.job_id);
     console.log("title is:", this.job_title);
+    console.log("company is:" , this.job_company);
+
+   /* this.firstFormGroup = this._formBuilder.group({
+       firstCtrl: ['', Validators.required]
+     });
+     this.secondFormGroup = this._formBuilder.group({
+       secondCtrl: ''
+     });
+     this.thirdFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required]
+     });
+     this.fourthFormGroup = this._formBuilder.group({
+       fourthCtrl: ['', Validators.required]
+    }); */
   }
 
   onAddJobapp() {

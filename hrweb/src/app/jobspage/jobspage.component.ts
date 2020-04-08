@@ -168,13 +168,14 @@ export class JobspageComponent implements OnInit {
   applyJob(j){
     this.jobService.setJobId(j.job_id);
     this.jobService.setJobTitle(j.title);
+    this.jobService.setJobCompany(j.company);
   }
 
   openDialog(j): void {
     const dialogRef = this.dialog.open(JobspagePopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.jobTitle, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
+      data: { jobTitle: j.title, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
     });
 
     dialogRef.afterClosed().subscribe(result => {
