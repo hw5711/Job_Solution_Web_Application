@@ -179,7 +179,7 @@ export class PostJobComponent {
     let req = {
       job_id: Math.random().toString(36).substr(2,9),
       hr_id: this.hr_id,
-      jobTitle: this.jobTitle,
+      title: this.jobTitle,
       jobType: this.jobType,
       company: this.companyName,
       location: this.location,

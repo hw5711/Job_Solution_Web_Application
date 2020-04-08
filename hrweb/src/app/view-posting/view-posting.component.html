@@ -14,3 +14,58 @@
 </div>
 
 <!-- NAVBAR ENDS HERE -->
+
+<body>
+  <h1 style="font-size: 1.5em; margin-bottom: 1em">Posted Jobs</h1>
+<div >
+
+  <mat-accordion >
+    <mat-expansion-panel *ngFor= "let job of searchResault">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          id : {{job.job_id}}
+        </mat-panel-title>
+        <mat-panel-description>
+          job title: {{job.title}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput type="number" min="1">
+      </mat-form-field>
+      </mat-expansion-panel>
+
+      <!-- <mat-form-field>
+        <mat-label>start date: {{job.startDate}}</mat-label>
+      </mat-form-field> -->
+
+      <!-- <mat-form-field>
+        <mat-label>start date: {{job.startDate}}</mat-label>
+        <ul *ngFor= "let can of job.candidate">
+          <li>
+            candidate id: {{can.candidate_id}}
+          </li>
+          <li>
+            candidate rank: {{can.rank}}
+          </li>
+          <li>
+            candidate apply date: {{can.applyDate}}
+          </li>
+        </ul>
+      </mat-form-field> -->
+
+      <!-- <mat-form-field>
+        <mat-label>job description: {{job.jobDescription}}</mat-label>
+      </mat-form-field>
+    </mat-expansion-panel> -->
+
+  </mat-accordion>
+</div>
+
+</body>
