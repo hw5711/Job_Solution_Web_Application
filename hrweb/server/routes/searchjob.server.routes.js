@@ -1,7 +1,8 @@
 const express = require("express");
 var mongoose = require('mongoose');
 
-const searchjob = require("../models/searchjob");
+// const searchjob = require("../models/searchjob");
+const searchjob = require("../models/job");
 const app = express.Router();
 
 app.post("", function (req, res, next) {

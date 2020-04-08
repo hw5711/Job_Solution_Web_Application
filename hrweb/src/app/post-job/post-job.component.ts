@@ -5,6 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 import { map, startWith } from 'rxjs/operators';
 import { LoginService } from "../login/login.service";
+import { Router } from "@angular/router";
 
 export interface Company {
   flag: string;
@@ -142,25 +143,31 @@ export class PostJobComponent {
 
   jobTitle: string;
   companyName: string;
-  industryType: string;
   location: string;
+  industryType: string;
+  jobType: string;
   startDate: Date;
   expirationDate: Date;
   description: string;
+
+  posted: boolean;
 
   constructor(
     private http: HttpClient,
     public route: ActivatedRoute,
     private loginService: LoginService,
-  ) {
+    private router: Router) {
+
     this.filteredCompany = this.companyCtrl.valueChanges
       .pipe(
         startWith(''),
         map(state => state ? this._filteredCompany(state) : this.company.slice())
       );
   }
+
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
+    this.posted = true;
   }
 
   private _filteredCompany(value: string): Company[] {
@@ -173,13 +180,13 @@ export class PostJobComponent {
       job_id: Math.random().toString(36).substr(2,9),
       hr_id: this.hr_id,
       jobTitle: this.jobTitle,
-      jobType: this.jobTitle,
+      jobType: this.jobType,
       company: this.companyName,
       location: this.location,
       industryType: this.industryType,
       startDate: this.startDate,
       expirationDate: this.expirationDate,
-      description: this.description,
+      jobDescription: this.description,
       candidate: null,
     };
     console.log(req);
@@ -188,7 +195,20 @@ export class PostJobComponent {
       .subscribe(response => {
         console.log("job post successed: ", response);
       });
+    this.posted = false;
 
+  }
+
+  postAnother(){
+      this.jobTitle = "";
+      this.companyName = "";
+      this.location = "";
+      this.industryType= "";
+      this.jobType = "";
+      this.startDate= null;
+      this.expirationDate= null;
+      this.description= "";
+      this.posted = true;
   }
 
 

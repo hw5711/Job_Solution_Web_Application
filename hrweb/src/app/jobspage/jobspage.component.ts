@@ -160,7 +160,7 @@ export class JobspageComponent implements OnInit {
         console.log(this.job);
       });
 
-    console.log("need to finish this search function , mongoose query")
+    console.log("the search function will return the job_id, so you can use it in the application form submit");
   }
 
   openDialog(j): void {
@@ -184,8 +184,12 @@ export class JobspageComponent implements OnInit {
       location: this.enteredlocation, 
       industryType: this.enteredindustryType,
       company: this.enteredcompany, 
-      jobDescription: this.enteredjobDescription
+      jobDescription: this.enteredjobDescription,
+      startDate: null,
+      expirationDate: null,
+      candidate: null,
     };
+    
     this.http
       .post("http://localhost:3000/searchjob/create", req)
       .subscribe(response => {

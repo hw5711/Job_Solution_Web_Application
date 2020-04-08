@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { CandidateFormComponent } from './candidate-form/candidate-form.component';
 import { CandProfileComponent } from './cand-profile/cand-profile.component';
 import { HrProfileComponent } from './hr-profile/hr-profile.component';
-import { LoginGuard } from './login/login.guard';
 import { JobspageComponent } from './jobspage/jobspage.component';
 import { HrFormComponent } from './hr-form/hr-form.component';
 import { ApplicationsComponent } from './applications/applications.component';
@@ -21,6 +20,7 @@ import { PostJobComponent } from './post-job/post-job.component';
 import { ViewPostingComponent } from './view-posting/view-posting.component';
 import { ViewApplicantsComponent } from './view-applicants/view-applicants.component';
 
+import { LoginGuard } from './login/login.guard';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -28,25 +28,26 @@ const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "retrive", component: RetriveComponent },
   { path: "valid/:token", component: ResetpasswordComponent },
-  { path: "cand-profile", component: CandProfileComponent},
-  { path: "hr-profile", component: HrProfileComponent},
-  { path: "jobspage", component: JobspageComponent },
-  { path: "cand-form", component: CandidateFormComponent },
-  { path: "hr-form", component: HrFormComponent },
-  { path: "applications", component: ApplicationsComponent},
-  { path: "myfavjob", component: MyfavjobComponent},
-  { path: "post_job", component: PostJobComponent },
-  { path: "jobappform", component: JobappFormComponent },
-  { path: "jobappform-create", component: JobappFormCreateComponent},
-  { path: "jobappform-review", component: JobappFormReviewComponent},
-  { path: "post-job", component: PostJobComponent },
-  { path: "view-posting", component: ViewPostingComponent },
-  { path: "view-applicants", component: ViewApplicantsComponent }
+  { path: "cand-profile", component: CandProfileComponent, canActivate: [LoginGuard] },
+  { path: "hr-profile", component: HrProfileComponent, canActivate: [LoginGuard] },
+  { path: "jobspage", component: JobspageComponent, canActivate: [LoginGuard]  },
+  { path: "cand-form", component: CandidateFormComponent, canActivate: [LoginGuard]  },
+  { path: "hr-form", component: HrFormComponent, canActivate: [LoginGuard]  },
+  { path: "applications", component: ApplicationsComponent, canActivate: [LoginGuard] },
+  { path: "myfavjob", component: MyfavjobComponent, canActivate: [LoginGuard] },
+  { path: "post_job", component: PostJobComponent, canActivate: [LoginGuard]  },
+  { path: "jobappform", component: JobappFormComponent, canActivate: [LoginGuard]  },
+  { path: "jobappform-create", component: JobappFormCreateComponent, canActivate: [LoginGuard] },
+  { path: "jobappform-review", component: JobappFormReviewComponent, canActivate: [LoginGuard] },
+  { path: "post-job", component: PostJobComponent, canActivate: [LoginGuard]  },
+  { path: "view-posting", component: ViewPostingComponent, canActivate: [LoginGuard]  },
+  { path: "view-applicants", component: ViewApplicantsComponent, canActivate: [LoginGuard]  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [LoginGuard]
 })
 export class AppRoutingModule { }
 

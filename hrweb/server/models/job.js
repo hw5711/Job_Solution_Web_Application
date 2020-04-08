@@ -7,7 +7,7 @@ var Job = new mongoose.Schema({
     title: String,
     startDate: Date,
     expirationDate: Date,
-    description: String,
+    jobDescription: String,
     industryType: String,
     jobType: String,
     location: String,
