@@ -39,7 +39,7 @@
         <p>Description: </p>
         <p>{{job.description}}</p>
       </div>
-      <button mat-button> Update </button>
+      <button mat-button (click)="update(job)"> Update </button>
       <button mat-button (click)="delete(job)"> Delete </button>
       </mat-expansion-panel>
 

@@ -47,6 +47,7 @@ import { ViewApplicantsComponent } from './view-applicants/view-applicants.compo
 import { JobspagePopupComponent } from './jobspage/jobspage-popup/jobspage-popup.component';
 import { ApplicationsPopupComponent } from './applications/applications-popup/applications-popup.component';
 import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup.component';
+import { EditPopupComponent } from './view-posting/edit-popup/edit-popup.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
     ViewApplicantsComponent,
     JobspagePopupComponent,
     ApplicationsPopupComponent,
-    MyfavjobPopupComponent
+    MyfavjobPopupComponent,
+    EditPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +107,6 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
     MatDatepickerModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [JobspagePopupComponent, ApplicationsPopupComponent, MyfavjobPopupComponent],
+  entryComponents: [JobspagePopupComponent, ApplicationsPopupComponent, MyfavjobPopupComponent,EditPopupComponent],
 })
 export class AppModule { }
