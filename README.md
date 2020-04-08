@@ -70,3 +70,5 @@
 23.npm install -D jest jest-preset-angular @types/jest
 
 24. npm install --save hammer.js  (updated on April 7th)
+
+25. npm install --save angular-hammer
