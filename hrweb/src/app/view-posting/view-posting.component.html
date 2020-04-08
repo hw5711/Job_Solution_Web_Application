@@ -16,31 +16,31 @@
 <!-- NAVBAR ENDS HERE -->
 
 <body>
-  <h1 style="font-size: 1.5em; margin-bottom: 1em">Posted Jobs</h1>
+  <!-- <h1 style="font-size: 1.5em; margin-bottom: 1em">Posted Jobs</h1> -->
+  <p>Total Posted Job: {{count}}</p>
 <div >
 
   <mat-accordion >
     <mat-expansion-panel *ngFor= "let job of searchResault">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          title : {{job.title}}
+          Job title : {{job.title}}
         </mat-panel-title>
-        <mat-panel-description>
+        <!-- <mat-panel-description>
           job id: {{job.job_id}}
-        </mat-panel-description>
+        </mat-panel-description> -->
       </mat-expansion-panel-header>
       <div>
+        <p>Job ID: {{job.job_id}}</p>  
         <p>Posted Date: {{job.startDate}}</p>  
         <p>Expiration Date: {{job.expirationDate}}</p>  
         <p>Job Type: {{job.jobType}}</p>  
         <p>Industry: {{job.industryType}}</p>  
-        <p>Candidate: </p>
-        <div *ngFor="let can of job.candidate">
-        <p>ID: {{can.candidate_id}}</p>
-        <p>Rank: {{can.rank}}</p>
-        <p>Apply Date: {{can.applyDate}}</p>
-        </div>
+        <p>Description: </p>
+        <p>{{job.description}}</p>
       </div>
+      <button mat-button> Update </button>
+      <button mat-button (click)="delete(job)"> Delete </button>
       </mat-expansion-panel>
 
      

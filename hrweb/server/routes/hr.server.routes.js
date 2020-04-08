@@ -24,6 +24,14 @@ app.post("/posted_job", function (req, res, next) {
     });
 });
 
+//delete a posted job
+app.post("/delete_job", function (req, res, next) {
+    job.deleteOne({ job_id: req.body.job_id }, function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
+});
+
 //hr delete or update posted jobs
 //add it later as needed
 

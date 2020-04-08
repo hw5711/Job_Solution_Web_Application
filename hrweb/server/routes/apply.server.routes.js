@@ -19,7 +19,7 @@ const app = express.Router();
 //update job candidate info
 app.post("/job", (req, res, next) => {
     // console.log("server test");
-    console.log(req.body);
+    // console.log(req.body);
     job.updateOne({job_id: req.body.job_id},
         { $push: {candidate: req.body.candidate}},
         function (err, post) {

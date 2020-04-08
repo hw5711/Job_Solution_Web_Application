@@ -1,13 +1,13 @@
 <div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
   <mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
     <span>
-      <h1>View Applications</h1>
+      <h1>View Applications Jobs</h1>
     </span>
     <span class="example-spacer"></span>
     <div style="position: absolute; right: 0;">
       <button mat-button routerLink="/view-posting"> View Posting </button>
-      <button mat-button routerLink="/hr-profile">My Profile</button>
       <button mat-button routerLink="/post-job"> Post Job </button>
+      <button mat-button routerLink="/hr-profile">My Profile</button>
       <button mat-button routerLink="/"> Sign out </button>
     </div>
   </mat-toolbar>
@@ -16,30 +16,29 @@
 <!-- NAVBAR ENDS HERE -->
 
 <body>
+  <h1 style="font-size: 1.5em; margin-bottom: 1em">View Applications</h1>
   <div>
-    <p>
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Khaled Akhter</mat-card-title>
-          <mat-card-subtitle>Junior Software Engineer</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions align=center>
-          <button mat-button>View Resume</button>
-        </mat-card-actions>
-      </mat-card>
-    </p>
 
-    <p>
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Jason Dooly</mat-card-title>
-          <mat-card-subtitle>Software Engineering Intern</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions align=center>
-          <button mat-button>View Resume</button>
-        </mat-card-actions>
-      </mat-card>
-    </p>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let job of searchResault">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Job Title : {{job.title}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <p>Posted Date: {{job.startDate}}</p>
+          <p>Expiration Date: {{job.expirationDate}}</p>
+          <p>Candidate: </p>
+          <div *ngFor="let can of job.candidate">
+            <p>ID: {{can.candidate_id}}</p>
+            <p>Rank: {{can.rank}}</p>
+            <p>Apply Date: {{can.applyDate}}</p>
+          </div>
+        </div>
+      </mat-expansion-panel>
+
+    </mat-accordion>
   </div>
-</body>
 
+</body>

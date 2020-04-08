@@ -45,6 +45,10 @@ export class PostJobComponent {
 
   company: Company[] = [
     {
+      name: 'IBM',
+      flag: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg'
+    },
+    {
       name: 'Pergo',
       flag: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Pergo_Company_Logo.jpg'
     },
@@ -187,7 +191,7 @@ export class PostJobComponent {
       startDate: this.startDate,
       expirationDate: this.expirationDate,
       jobDescription: this.description,
-      candidate: [{}],
+      candidate: [],
     };
     console.log(req);
     this.http

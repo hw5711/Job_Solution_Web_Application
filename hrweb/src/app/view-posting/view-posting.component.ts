@@ -4,24 +4,6 @@ import { LoginService } from "../login/login.service";
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
-export class JobInfo{
-    job_id: string;
-    hr_id: string;
-    company: string;
-    title: string;
-    startDate: Date;
-    expirationDate: Date;
-    jobDescription: string;
-    industryType: string;
-    jobType: string;
-    location: string;
-    candidate: [{
-      candidate_id: string,
-      rank: number,
-      applyDate: Date,
-    }]
-}
-
 @Component({
   selector: 'app-view-posting',
   templateUrl: './view-posting.component.html',
@@ -32,7 +14,8 @@ export class ViewPostingComponent {
 
   panelOpenState = false;
   hrId: string;
-
+  job_id : string;
+  count : number;
   searchResault: any;
 
   constructor(
@@ -54,9 +37,22 @@ export class ViewPostingComponent {
       .post("http://localhost:3000/hr/posted_job", req)
       .subscribe(postData => {
         this.searchResault = postData;
-        console.log(this.searchResault[0]);
-        console.log(this.searchResault.length);
+        this.count = this.searchResault.length;
+        // console.log(this.searchResault[0]);
+        console.log("total posted jobs: ",this.searchResault.length);
         });
+  }
+
+  delete(job){
+    let req ={
+      job_id: job.job_id,
+    }
+    console.log(req);
+    this.http
+      .post("http://localhost:3000/hr/delete_job", req)
+      .subscribe(response => {
+        console.log("job delete successed: ", response);
+      });
   }
   
 }
