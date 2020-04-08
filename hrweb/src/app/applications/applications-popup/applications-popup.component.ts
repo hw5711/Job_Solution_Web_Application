@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
+import { LoginService } from "../../login/login.service";
+
 export interface DialogData {
   jobTitle: string,
   jobType: string,
@@ -18,10 +20,14 @@ export interface DialogData {
 })
 export class ApplicationsPopupComponent implements OnInit {
 
-  constructor( public dialogRef: MatDialogRef<ApplicationsPopupComponent>,
+  userId: string;
+
+  constructor( public dialogRef: MatDialogRef<ApplicationsPopupComponent>,private loginService: LoginService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
+    this.userId = this.loginService.getUserId()
+    console.log("user_id is: " + this.userId)
   }
 
   onNoClick(): void {

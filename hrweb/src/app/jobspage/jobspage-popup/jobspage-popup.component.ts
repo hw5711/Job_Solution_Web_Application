@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core'; 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
+import { LoginService } from "../../login/login.service";
+
 export interface DialogData {
   jobTitle: string,
   jobType: string,
@@ -19,14 +21,17 @@ export class JobspagePopupComponent implements OnInit {
   select: boolean;
   status = 'Enable';
   toggle = true;
+  userId: string;
 
   constructor(
-    public dialogRef: MatDialogRef<JobspagePopupComponent>,
+    public dialogRef: MatDialogRef<JobspagePopupComponent>,private loginService: LoginService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     }
  
   ngOnInit() {
     this.select = false;
+    this.userId = this.loginService.getUserId()
+    console.log("user_id is: " + this.userId)
   }
  
   onNoClick(): void {
