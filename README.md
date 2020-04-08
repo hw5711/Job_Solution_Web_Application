@@ -68,3 +68,5 @@
 22.npm install -D jest babel-jest babel-core babel-preset-env regenerator-runtime
 
 23.npm install -D jest jest-preset-angular @types/jest
+
+24. npm install --save hammer.js  (updated on April 7th)
