@@ -36,6 +36,7 @@ export class HrProfileComponent implements OnInit {
         .get<{ message: string; account: Account }>(
           "http://localhost:3000/hr/" + this.hr_id)
         .subscribe(AccountData => {
+          console.log(AccountData);
           this.firstName = AccountData["firstName"];
           this.lastName = AccountData["lastName"];
           this.phone = AccountData["phone"];
