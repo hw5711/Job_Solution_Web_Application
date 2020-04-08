@@ -1,3 +1,4 @@
+import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -82,6 +85,7 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
     AppRoutingModule,
     MatStepperModule,
     MatInputModule,
+    MatAutocompleteModule,
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
@@ -94,7 +98,8 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRippleModule
+    MatRippleModule,
+    MatSlideToggleModule
   ],
   providers: [
     MatDatepickerModule

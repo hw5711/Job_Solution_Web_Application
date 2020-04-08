@@ -56,7 +56,7 @@ export class LoginService {
                     console.log("token: " ,token);
                     this.saveAuthData(token, expirationDate, this.userId);
                     if(this.userRole == 'HR'){
-                        this.router.navigate(["/hr-profile"]);
+                        this.router.navigate(["/view-posting"]);
                     }
                     else if (this.userRole == 'Candidate'){
                         this.router.navigate(["/jobspage"]);

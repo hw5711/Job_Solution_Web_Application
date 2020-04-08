@@ -1,35 +1,101 @@
-<header>
-  <mat-toolbar color=primary>
-    <span>Post Job</span>
+<div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
+  <mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
+    <span>
+      <h1>Posting Jobs</h1>
+    </span>
+    <span class="example-spacer"></span>
+    <div style="position: absolute; right: 0;">
+      <button mat-button routerLink="/view-posting"> View Posting </button>
+      <button mat-button routerLink="/hr-profile">My Profile</button>
+      <button mat-button routerLink="/view-applicants">Received Applications</button>
+      <button mat-button routerLink="/"> Sign out </button>
+    </div>
   </mat-toolbar>
-</header>
+</div>
 
-<body>
-  <div class="example-container">
-    <mat-form-field appearance="fill">
+<!-- NAVBAR ENDS HERE -->
+
+<h1 style="position: absolute; left:40%; top: 3em; font-size: 1.5em">Create a new job</h1>
+<body style="align-items:center; display:inline">
+  <div style="">
+    <mat-form-field style="width:500px; margin-top: 2em;">
       <mat-label>Job Title</mat-label>
-      <input matInput>
+      <input matInput  [(ngModel)] = "jobTitle">
     </mat-form-field>
     <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Location</mat-label>
-      <mat-select>
-        <mat-option value="Texas">Austin, TX</mat-option>
-        <mat-option value="California">Mountain View, CA</mat-option>
-        <mat-option value="NewYork">New York, NY</mat-option>
-        <mat-option value="Washington">Seattle, WA</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div style="display:inline;">
+      <div style="display:inline-block">
+      <mat-form-field style="width: 270px">
+        <input matInput placeholder="Company" aria-label="company" [matAutocomplete]="auto" [(ngModel)]="companyName">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let company of filteredCompany | async" [value]="company.name">
+            <img class="example-option-img" aria-hidden [src]="company.flag" height="25">
+            <span>{{company.name}}</span> |
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <span style="margin-left: 2em"></span>
+    <div style="display:inline-block">
+      <mat-form-field style="width: 200px">
+        <mat-label>Location</mat-label>
+        <mat-select [(ngModel)]="location" [ngModelOptions]="{standalone: true}">
+          <mat-option *ngFor="let location of locations" [value]="location.value">
+            {{location.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+    </div>
     <br>
-    <mat-form-field appearance="Description">
+        <div style="display:inline">
+
+            <mat-form-field style="display:inline-block; width: 235px">
+              <mat-label>Job Type</mat-label>
+              <mat-select [(ngModel)]="jobType" [ngModelOptions]="{standalone: true}">
+                <mat-option *ngFor="let jobtype of jobtypes" [value]="jobtype.value">
+                  {{jobtype.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+        <span style="margin-left: 2em"></span>
+         
+
+            <mat-form-field style="display:inline-block; width: 235px">
+              <mat-label>Industry</mat-label>
+              <mat-select [(ngModel)]="industryType" [ngModelOptions]="{standalone: true}">
+                <mat-option *ngFor="let industry of industries" [value]="industry.value">
+                  {{industry.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+    <br>
+    <div style="display:inline">
+      <mat-form-field style="display:inline-block; width: 235px">
+        <input matInput [matDatepicker]="picker1" placeholder="start date" [(ngModel)] = "startDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    <span style="margin-left: 2em"></span>
+    <mat-form-field style="display:inline-block; width: 235px">
+      <input matInput [matDatepicker]="picker2" placeholder="expiration date"
+         [(ngModel)] = "expirationDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <br>
+    <mat-form-field style="width:500px; background-color: whitesmoke">
       <mat-label>Job Description</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput style="width: 500px; height: 300px;" [(ngModel)] = "description"></textarea>
     </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" style="margin-top: 2em" (click)="submit()">Post Job</button>
   </div>
-  <button
-    mat-raised-button
-    color="primary"
-    type="submit">Post Job</button>
+
+ 
 </body>
 
 

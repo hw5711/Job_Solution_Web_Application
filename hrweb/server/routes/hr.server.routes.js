@@ -9,6 +9,7 @@ const app = express.Router();
 
 //hr post job
 app.post("/create_job", function (req, res, next) {
+    console.log("get job posted data: ", req.body);
     job.create(req.body, function (err, post) {
         if (err) return next(err);
         return res.json(post);
