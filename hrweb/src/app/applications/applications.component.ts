@@ -162,7 +162,7 @@ export class ApplicationsComponent implements OnInit {
     const dialogRef = this.dialog.open(ApplicationsPopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.jobTitle, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
+      data: { jobTitle: j.title, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
     });
 
     dialogRef.afterClosed().subscribe(result => {
