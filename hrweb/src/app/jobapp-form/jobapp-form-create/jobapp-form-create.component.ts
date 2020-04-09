@@ -4,6 +4,7 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+//import { isNumeric } from 'rxjs/util/isNumeric';
 import { LoginService } from "../../login/login.service";
 import { JobService } from "../../jobspage/job.service";
 
@@ -135,10 +136,13 @@ export class JobappFormCreateComponent implements OnInit {
   @Output() jobappCreated = new EventEmitter();
 
   can_id = "";
+  can_email = "";
   job_id = "";
   job_title = "";
   job_company = "";
   rank = 0;
+  gpa_check = 3;
+  
 
   constructor(
     private _formBuilder: FormBuilder, 
@@ -150,9 +154,11 @@ export class JobappFormCreateComponent implements OnInit {
 
   ngOnInit() {
     this.can_id = this.loginService.getUserId();
+    this.can_email  = this.loginService.getUserEmail();
     this.job_id = this.jobService.getJobId();
     this.job_title = this.jobService.getJobTitle();
     this.job_company = this.jobService.getJobCompany();
+    console.log("candidate email is: ", this.can_email);
     console.log("job id is:", this.job_id);
     console.log("title is:", this.job_title);
     console.log("company is:" , this.job_company);
@@ -235,10 +241,14 @@ export class JobappFormCreateComponent implements OnInit {
     {
       this.rank++;
     }
-    /*if(this.enteredCumulativegpa >= 3.0 )
+/*
+   // this.enteredCumulativegpa = +this.enteredCumulativegpa
+
+    if(this.gpa_check <= isNumeric(this.enteredCumulativegpa) )
     {
       this.rank++;
-    } */
+    } 
+    */
     if(this.enteredSkills == jobapp.skills)
     {
       this.rank++
