@@ -8,14 +8,14 @@ const canProfile = require("../models/cand-profile");
 const app = express.Router();
 
 //the req is empty
-// app.post("/apply", (req, res, next) => {
-//     console.log("server test");
-//     console.log(req.body);
-//     form.create(req.body, function (err, post) {
-//         if (err) return next(err);
-//         return res.json(post);
-//     });
-//     });
+app.post("/apply", (req, res, next) => {
+     console.log("server test");
+     console.log(req.body);
+     form.create(req.body, function (err, post) {
+         if (err) return next(err);
+         return res.json(post);
+     });
+     });
 
 //update job candidate info
 app.post("/job", (req, res, next) => {
