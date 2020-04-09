@@ -24,8 +24,11 @@ export class JobspagePopupComponent implements OnInit {
   userId: string;
 
   constructor(
-    public dialogRef: MatDialogRef<JobspagePopupComponent>,private loginService: LoginService,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    public dialogRef: MatDialogRef<JobspagePopupComponent>,
+    private loginService: LoginService,
+    @Inject(MAT_DIALOG_DATA) 
+    public data: DialogData
+    ) {
     }
  
   ngOnInit() {

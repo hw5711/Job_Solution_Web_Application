@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Job Info</h1>
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Job Title:</mat-label>
+        <input matInput [(ngModel)]="data.title">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Job Type:</mat-label>
+        <input matInput [(ngModel)]="data.jobType">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Job Location:</mat-label>
+        <input matInput [(ngModel)]="data.location">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Company :</mat-label>
+        <input matInput [(ngModel)]="data.company">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Industry Type:</mat-label>
+        <input matInput [(ngModel)]="data.industryType">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Posted Date :</mat-label>
+        <input matInput [(ngModel)]="data.startDate">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Expiration Date:</mat-label>
+        <input matInput [(ngModel)]="data.induexpirationDatestryType">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Job Description:</mat-label>
+        <input matInput [(ngModel)]="data.jobDescription" style="width: 700px">
+    </mat-form-field>
+</div>
+
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

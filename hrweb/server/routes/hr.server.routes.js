@@ -32,6 +32,30 @@ app.post("/delete_job", function (req, res, next) {
     });
 });
 
+//update a posted job
+app.post("/update_job", function (req, res, next) {
+    console.log(req.body);
+    job.updateOne(
+        { job_id: req.body.job_id },
+        {
+            company: req.body.company,
+            title: req.body.title,
+            startDate: req.body.startDate,
+            expirationDate: req.body.expirationDate,
+            jobDescription: req.body.jobDescription,
+            industryType: req.body.industryType,
+            jobType: req.body.jobType,
+            location: req.body.location
+        }, 
+        function (err, result) {
+            if (err) {
+                res.status(401).json({ message: "Not authorized!" });
+            } else {
+                res.status(200).json({ message: "Update successful!" });
+            }
+        });
+});
+
 //hr delete or update posted jobs
 //add it later as needed
 
