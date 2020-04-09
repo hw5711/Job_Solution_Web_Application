@@ -3,9 +3,11 @@ import { NgForm } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LoginService } from "../login/login.service";
-// import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
-// import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-// import {ErrorStateMatcher} from '@angular/material/core';
+import { HrprofilePopupComponent } from '../hr-form/hrprofile-popup/hrprofile-popup.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl } from '@angular/forms';
+import { formatDate } from '@angular/common';
+
 
 @Component({
   selector: 'app-hr-form',
@@ -14,6 +16,8 @@ import { LoginService } from "../login/login.service";
 })
 export class HrFormComponent implements OnInit {
 
+  date = new FormControl(new Date());
+  serializedDate = new FormControl((new Date()).toISOString());
 
   hr_id = "";
   firstName = "";
@@ -24,6 +28,7 @@ export class HrFormComponent implements OnInit {
   startDate = "";
   note = "";
   contacts = "";
+  
 
   isLinear = false;
 
@@ -32,6 +37,7 @@ export class HrFormComponent implements OnInit {
     public route: ActivatedRoute,
     private loginService: LoginService,
     private router: Router,
+    public dialog: MatDialog
     ) {}
 
   ngOnInit() {
@@ -70,14 +76,23 @@ export class HrFormComponent implements OnInit {
       };
       console.log(req);
       this.http
-        .post("http://localhost:3000/hr/update/", req)
+        .put("http://localhost:3000/hr/update/" + this.hr_id, req)
         .subscribe(response => {
           // console.log("res is :", response);
         });
-
-      this.router.navigate(["/hr-profile"]);
+      this.openDialog();
+      // this.router.navigate(["/hr-profile"]);
     }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(HrprofilePopupComponent, {
+      width: '200px',
+      height: '100px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  } 
 
 
 }

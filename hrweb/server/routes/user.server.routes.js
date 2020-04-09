@@ -66,7 +66,7 @@ router.post("/register", (req, res, next) => {
                 });
                 profile.save()
                     .then(result => {
-                        console.log(" hr account created with new user" , profile.hr_id);
+                        console.log(" hr account created with new user");
                     })
                     .catch(err => {
                         console.log("hr account created faild");

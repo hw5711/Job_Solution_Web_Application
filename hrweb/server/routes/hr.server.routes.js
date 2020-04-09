@@ -34,10 +34,11 @@ app.post("/delete_job", function (req, res, next) {
 
 //update a posted job
 app.post("/update_job", function (req, res, next) {
-    console.log(req.body);
+    // console.log(req.body);
     job.updateOne(
         { job_id: req.body.job_id },
-        {
+        {   
+            hr_id : req.body.hr_id,
             company: req.body.company,
             title: req.body.title,
             startDate: req.body.startDate,
@@ -45,7 +46,8 @@ app.post("/update_job", function (req, res, next) {
             jobDescription: req.body.jobDescription,
             industryType: req.body.industryType,
             jobType: req.body.jobType,
-            location: req.body.location
+            location: req.body.location,
+            candidate: req.body.candidate
         }, 
         function (err, result) {
             if (err) {
@@ -90,9 +92,10 @@ app.get("/:id", (req, res, next) => {
 });
 
 //hr update profile
-app.post("/update/", function (req, res, next) {
+app.put("/update/:id", function (req, res, next) {
+    // console.log("update hr profile: ", req.body);
     hrProfile.updateOne(
-        { hr_id : req.body.hr_id },
+        { creator: req.body.creator },
         {
             firstName: req.body.firstName,
             lastName: req.body.lastName,

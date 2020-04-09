@@ -75,7 +75,7 @@ export class ViewPostingComponent implements OnInit{
     let req ={
       job_id: job.job_id,
     }
-    console.log(req);
+    // console.log(req);
     this.http
       .post("http://localhost:3000/hr/delete_job", req)
       .subscribe(response => {
@@ -112,6 +112,7 @@ export class ViewPostingComponent implements OnInit{
 
   updateJob(){
     let req = {
+      hr_id : this.hrId,
       job_id: this.job_id,
       title: this.title,
       jobType: this.jobType,
@@ -121,6 +122,7 @@ export class ViewPostingComponent implements OnInit{
       startDate: this.startDate,
       expirationDate: this.expirationDate,
       jobDescription: this.jobDescription,
+      candidate: this.searchResault.candidate,
     };
 
     this.http

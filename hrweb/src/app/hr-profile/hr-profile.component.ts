@@ -18,6 +18,7 @@ export class HrProfileComponent implements OnInit {
   startDate = Date;
   note = "";
   contacts = "";
+  showDate: Date;
 
   constructor(
     private http: HttpClient,
@@ -32,6 +33,7 @@ export class HrProfileComponent implements OnInit {
   
   //get default account default
   getHrInfo(){
+
       this.http
         .get<{ message: string; account: Account }>(
           "http://localhost:3000/hr/" + this.hr_id)
@@ -46,6 +48,14 @@ export class HrProfileComponent implements OnInit {
           this.note = AccountData["note"];
           this.contacts = AccountData["contacts"];
         })
+        // console.log("date1: " , this.startDate);
+        
+        // var year, month;
+        // for(var i=0; i<this.startDate.length; i++){
+        //   console.log("date at", i , " value is: " , this.startDate[i]);
+        // }
+        // this.showDate = new Date();
+
   }
 
 }

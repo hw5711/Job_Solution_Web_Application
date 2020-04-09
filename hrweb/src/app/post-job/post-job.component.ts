@@ -35,8 +35,8 @@ export interface industry {
 })
 
 export class PostJobComponent {
+  
   hr_id = "";
-
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
 

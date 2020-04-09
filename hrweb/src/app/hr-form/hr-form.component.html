@@ -6,20 +6,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li style="margin-right: 20px; margin-left: 30px;">
-        <button type="button" class="btn btn-primary" routerLink="/hr-profile">Home</button>
+        <button type="button" class="btn btn-primary" routerLink="view-posting">Home</button>
       </li>
     </ul>
     
     <div style="align-content:end;">
-      <button type="button" class="btn btn-primary" style="margin-right:10px"routerLink="/hr-form">Edit Profile</button>
+      <button type="button" class="btn btn-primary" style="margin-right:10px"routerLink="/hr-profile">Profile</button>
       <button type="button" class="btn" style="background-color:#f7ae00" routerLink="/">Sign Out</button>
     </div>
 
   </div>
 </nav>
 
-  <div style="width: 50%">
-    
+<body>
       <mat-card style="margin-top: 2em">
         <mat-label>Personal Information</mat-label>
         <table class="example-full-width" cellspacing="2">
@@ -55,13 +54,18 @@
           <input matInput placeholder="Apple" [(ngModel)] = "company" [ngModelOptions]="{standalone: true}" >
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <!-- <mat-form-field class="example-full-width">
           <mat-label>Since</mat-label>
           <input matInput placeholder="May 2016 " [(ngModel)]="startDate">
+        </mat-form-field> -->
+        <mat-form-field>
+          <mat-label>Start At:</mat-label>
+          <input matInput [matDatepicker]="picker1" [(ngModel)]="startDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
-      </mat-card>
 
-      <mat-card style="margin-top: 2em">
+      <mat-card style="margin-top: 2em; height: 300px">
         <mat-label>Note</mat-label>
         <p>
           <mat-form-field class="example-full-width" >
@@ -71,7 +75,7 @@
         </p>
       </mat-card>
 
-      <mat-card style="margin-top: 2em">
+      <mat-card style="margin-top: 2em; height: 150px;">
         <mat-label>Contacts</mat-label>
         <p>
           <mat-form-field class="example-full-width">
@@ -81,9 +85,9 @@
         </p>
     </mat-card>
 
-  <button mat-raised-button color="primary" (click) = "SaveUpdate()"> Save</button>
+  <button mat-raised-button color="primary" style="margin-top: 2em" (click) = "SaveUpdate()"> Save</button>
   
-</div>
+<!-- </body> -->
 
 
 
