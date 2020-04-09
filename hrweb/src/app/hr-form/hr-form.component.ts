@@ -47,9 +47,12 @@ export class HrFormComponent implements OnInit {
   //get default info
   getHrInfo() {
     // console.log("client side:", this.hr_id);
+    let req ={
+      hr_num : this.hr_id,
+    }
     this.http
-      .get<{ message: string; account: Account }>(
-        "http://localhost:3000/hr/" + this.hr_id)
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/hr/get-profile" , req)
       .subscribe(AccountData => {
         this.firstName = AccountData["firstName"];
         this.lastName = AccountData["lastName"];

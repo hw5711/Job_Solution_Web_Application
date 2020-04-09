@@ -32,30 +32,24 @@ export class HrProfileComponent implements OnInit {
   }
   
   //get default account default
-  getHrInfo(){
-      console.log("hr id is:" , this.hr_id);
-      this.http
-        .get<{ message: string; account: Account }>(
-          "http://localhost:3000/hr/" + this.hr_id)
-        .subscribe(AccountData => {
-          console.log("HR info" , AccountData);
-          this.firstName = AccountData["firstName"];
-          this.lastName = AccountData["lastName"];
-          this.phone = AccountData["phone"];
-          this.title = AccountData["title"];
-          this.company = AccountData["company"];
-          this.startDate = AccountData["startDate"];
-          this.note = AccountData["note"];
-          this.contacts = AccountData["contacts"];
-        })
-        // console.log("date1: " , this.startDate);
-        
-        // var year, month;
-        // for(var i=0; i<this.startDate.length; i++){
-        //   console.log("date at", i , " value is: " , this.startDate[i]);
-        // }
-        // this.showDate = new Date();
-
+  getHrInfo() {
+    // console.log("client side:", this.hr_id);
+    let req = {
+      hr_num: this.hr_id,
+    }
+    this.http
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/hr/get-profile", req)
+      .subscribe(AccountData => {
+        this.firstName = AccountData["firstName"];
+        this.lastName = AccountData["lastName"];
+        this.phone = AccountData["phone"];
+        this.title = AccountData["title"];
+        this.company = AccountData["company"];
+        this.startDate = AccountData["startDate"];
+        this.note = AccountData["note"];
+        this.contacts = AccountData["contacts"];
+      })
   }
 
 }

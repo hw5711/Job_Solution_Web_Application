@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var HrPro = new mongoose.Schema({
-    hr_id: String,
+    hr_num: String,
     firstName: String,
     lastName: String,
-    phone: Number,
+    phone: String,
     title: String,
     company: String,
     startDate: Date,
