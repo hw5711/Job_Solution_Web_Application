@@ -284,6 +284,34 @@ export class JobappFormCreateComponent implements OnInit {
 
     console.log("test1 " + jobapp.firstName);
 
+   /* let formreq {
+      candidate_id: this.can_id,
+      job_title: this.job_title,
+      job_company: this.job_company,
+      firstName: this.enteredFirstName,
+      lastName: this.enteredLastName,
+      telephone: this.enteredTelephone,
+      email: this.enteredEmail,
+      address: this.enteredAddress,
+      address2: this.enteredAddress2,
+      city: this.enteredCity,
+      state: this.enteredState,
+      zipcode: this.enteredZipcode,
+      job: this.enteredJob,
+      company: this.enteredCompany,
+      location: this.enteredLocation,
+      fromDate: this.enteredFromDate,
+      toDate: this.enteredToDate,
+      role: this.enteredRole,
+
+    }
+    console.log(formreq);
+     this.http
+       .post("http://localhost:3000/jobappform/apply", formreq)
+       .subscribe(response => {
+         console.log("res is :", response);
+       }); */
+
     let reqs = {
       candidate_id: this.can_id,
       job_title: this.job_title,
