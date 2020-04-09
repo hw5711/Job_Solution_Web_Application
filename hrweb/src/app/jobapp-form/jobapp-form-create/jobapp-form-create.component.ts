@@ -154,7 +154,7 @@ export class JobappFormCreateComponent implements OnInit {
 
   ngOnInit() {
     this.can_id = this.loginService.getUserId();
-    this.can_email  = this.loginService.getUserEmail();
+    this.can_email  = this.loginService.getUserEmail(); // by sharmi for getting the user email --> still not working
     this.job_id = this.jobService.getJobId();
     this.job_title = this.jobService.getJobTitle();
     this.job_company = this.jobService.getJobCompany();
@@ -178,7 +178,6 @@ export class JobappFormCreateComponent implements OnInit {
   }
 
   onAddJobapp() {
-
     alert('Congratulation!, you have submitted your application successfully. View the submitted information below');
     const jobapp = {
       firstName: this.enteredFirstName,
@@ -282,17 +281,16 @@ export class JobappFormCreateComponent implements OnInit {
       this.rank++;
     }
 
-    //console.log("test1 " + jobapp.firstName);
+    console.log("test1 " + jobapp.firstName);
 
-    /*let req = {
-      firstname: jobapp.firstName,
-    }; */
-
-    // this.http
-    //   .post("http://localhost:3000/jobappform/apply", jobapp)
-    //   .subscribe(response => {
-    //     console.log("res is :", response);
-    //   });
+    let reqs = {
+      //firstname: jobapp.firstName,
+    }; 
+     this.http
+       .post("http://localhost:3000/jobappform/apply", reqs)
+       .subscribe(response => {
+         console.log("res is :", response);
+       });
 
 
   //need to send the can info link with posted job
