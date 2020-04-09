@@ -30,7 +30,10 @@
 <div style="width: 70%; margin-left: 15%">
 
 <mat-horizontal-stepper linear #stepper style=" display:inline">
-
+  <br>
+<button (click)="uploadBotton()">Upload File</button>
+<input type="file" (change)="selectFile($event)">
+<br>
   <!-- put "required" in input-->
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">

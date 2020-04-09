@@ -16,7 +16,7 @@ import { CanFormPopupComponent } from '../candidate-form/can-form-popup/can-form
 })
 
 export class CandidateFormComponent implements OnInit {
-  
+  selectedFile: File = null;
   can_id = "";
   //group 1
   firstName = "";
@@ -124,6 +124,14 @@ export class CandidateFormComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
   } 
+
+  selectFile(event){
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  uploadBotton(){
+
+  }
 
 
 }
