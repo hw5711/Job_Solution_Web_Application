@@ -14,16 +14,6 @@ app.post("/find_job", function (req, res, next) {
 
 //candidate update profile
 app.put("/:can_id", function (req, res, next) {
-
-//     candidateprofile.updateOne(
-// app.put("/update", function (req, res, next) {
-//     const canprofile = new hrprofile({
-//         can_id: req.body.can_id,
-//         fnamd: req.body.fnamd,
-//         lname: req.body.lname,
-//         phone: req.body.phone,
-//     });
-
     candidateprofile.updateOne(
         { can_id: req.body.can_id },
         {
@@ -44,9 +34,9 @@ app.put("/:can_id", function (req, res, next) {
 });
 
 //retrive default candidate profile
-app.get("/:can_id", (req, res, next) => {
+app.post("/get-profile", (req, res, next) => {
     // console.log(" server get can_id # is:", req.params.can_id);
-    candidateprofile.findOne({ can_id: req.params.can_id })
+    candidateprofile.findOne({ can_num: req.body.can_num })
         .then(candidate => {
             if (candidate) {
                 res.status(200).json(candidate);
@@ -57,12 +47,12 @@ app.get("/:can_id", (req, res, next) => {
 });
 
 //hr update profile
-app.put("/update/:id", function (req, res, next) {
-    // console.log("update hr profile: ", req.body);
+app.post("/update", function (req, res, next) {
+    console.log("update hr profile: ", req.body);
     candidateprofile.updateOne(
-        { creator: req.body.creator },
+        { can_num: req.body.can_num },
         {
-            fnamd: req.body.firstName,
+            fname: req.body.firstName,
             lname: req.body.lastName,
             phone: req.body.phone,
         },

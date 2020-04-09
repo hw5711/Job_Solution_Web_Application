@@ -77,11 +77,11 @@ export class HrFormComponent implements OnInit {
         note: this.note,
         contacts: this.contacts
       };
-      console.log(req);
+      // console.log(req);
       this.http
-        .put("http://localhost:3000/hr/update/" + this.hr_id, req)
+        .put("http://localhost:3000/hr/update/", req)
         .subscribe(response => {
-          // console.log("res is :", response);
+          console.log("res is :", response);
         });
       this.openDialog();
       // this.router.navigate(["/hr-profile"]);

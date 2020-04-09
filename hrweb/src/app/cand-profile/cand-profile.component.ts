@@ -31,16 +31,20 @@ export class CandProfileComponent implements OnInit {
   }
 
   getCanInfo() {
-    console.log("can id: ", this.can_id);
+    let req ={
+      can_num : this.can_id,
+    }
     this.http
-      .get<{ message: string; account: Account }>(
-        "http://localhost:3000/cand-profile/" + this.can_id)
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/cand-profile/get-profile" , req)
       .subscribe(AccountData => {
-        console.log("Candidate info", AccountData);
+        // console.log("Candidate info", AccountData);
         this.firstName = AccountData["fname"];
         this.lastName = AccountData["lname"];
         this.phone = AccountData["phone"];
       })
   }
+
+  
   
 }

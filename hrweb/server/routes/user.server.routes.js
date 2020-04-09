@@ -67,7 +67,7 @@ router.post("/register", (req, res, next) => {
                             });
                     } else {
                         const canprofile = new canProfile({
-                            can_id: this.userid,
+                            can_num: this.userid,
                             fname: "",
                             lname: "",
                             phone: "",

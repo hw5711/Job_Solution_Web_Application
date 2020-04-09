@@ -80,7 +80,7 @@ app.post("/check_candidate", function (req, res, next) {
 
 //get defalut info
 app.post("/get-profile", (req, res, next) => {
-    console.log(" server get id # is:", req.body);
+    // console.log(" server get id # is:", req.body);
     hrProfile.findOne({ hr_num: req.body.hr_num })
         .then(account => {
             if (account) {
@@ -92,8 +92,8 @@ app.post("/get-profile", (req, res, next) => {
 });
 
 //hr update profile
-app.put("/update/:id", function (req, res, next) {
-    console.log("update hr profile: ", req.body);
+app.put("/update", function (req, res, next) {
+    // console.log("update hr profile: ", req.body);
     hrProfile.updateOne(
         { hr_num: req.body.hr_id },
         {
