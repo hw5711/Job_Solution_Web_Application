@@ -24,33 +24,6 @@
  
  </div>
 
-
-<!--
-
-<nav class="navbar  navbar-expand bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li style="    margin-right: 20px;
-    margin-left: 30px;
-">
-        <button type="button" class="btn btn-primary" routerLink="/cand-profile">Home</button>
-      </li>
-      <li style="margin-right:10px;">
-        <button type="button" class="btn btn-primary" routerLink="/jobspage">Job Search</button>
-      </li>
-    </ul>
-    <div style="align-content:end;">
-      <button type="button" class="btn btn-primary" style="margin-right:10px">Edit Profile</button> 
-      <button type="button" class="btn" style="background-color:#f7ae00" routerLink="/">Sign Out</button>
-    </div>
-
-  </div>
-</nav> -->
-
 <!-- NAVBAR ENDS HERE -->
 
 
@@ -262,17 +235,12 @@
   </mat-step>
 
 
-
-
-
-
-
-
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperPrevious (click)="save()">Save</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>

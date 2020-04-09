@@ -86,8 +86,8 @@ export class HrFormComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(HrprofilePopupComponent, {
-      width: '200px',
-      height: '100px',
+      width: '300px',
+      height: '200px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

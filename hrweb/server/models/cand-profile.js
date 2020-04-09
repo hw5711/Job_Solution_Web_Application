@@ -4,7 +4,7 @@ var CanPro = new mongoose.Schema({
     can_id: String,
     fnamd: String,
     lname: String,
-    phone: Number,
+    phone: String,
     work_experience:[{
         company: String,
         title: String,

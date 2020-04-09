@@ -77,20 +77,8 @@ router.post("/register", (req, res, next) => {
                     fname: "",
                     lname: "",
                     phone: "",
-                    work_experience:[{
-                        company: "",
-                        title: "",
-                        start_date: "",
-                        end_date: "",
-                        description: "",
-                    }],
-                    educxation: [{
-                        school: "",
-                        dgree: "",
-                        major: "",
-                        start_year: "",
-                        end_year: ""
-                    }]
+                    work_experience:[],
+                    educxation:[]
                 });
                 canprofile.save()
                     .then(result => {

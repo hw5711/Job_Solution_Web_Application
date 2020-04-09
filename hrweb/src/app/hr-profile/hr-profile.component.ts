@@ -33,7 +33,7 @@ export class HrProfileComponent implements OnInit {
   
   //get default account default
   getHrInfo(){
-
+      console.log("hr id is:" , this.hr_id);
       this.http
         .get<{ message: string; account: Account }>(
           "http://localhost:3000/hr/" + this.hr_id)

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatStepperModule } from '@angular/material/stepper';
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from "@angular/router";
+import { LoginService } from "../login/login.service";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,18 +11,36 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CandProfileComponent implements OnInit {
 
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  can_id = "";
+  firstName = "";
+  lastName = "";
+  phone = "";
+  note = "";
+  contacts = "";
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private http: HttpClient,
+    public route: ActivatedRoute,
+    private loginService: LoginService
+    ) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+    this.can_id = this.loginService.getUserId();
+    this.getCanInfo();
   }
+
+  getCanInfo() {
+    console.log("can id: ", this.can_id);
+    this.http
+      .get<{ message: string; account: Account }>(
+        "http://localhost:3000/cand-profile/" + this.can_id)
+      .subscribe(AccountData => {
+        console.log("Candidate info", AccountData);
+        this.firstName = AccountData["fname"];
+        this.lastName = AccountData["lname"];
+        this.phone = AccountData["phone"];
+      })
+  }
+  
 }

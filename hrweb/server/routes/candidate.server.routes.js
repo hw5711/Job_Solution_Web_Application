@@ -43,15 +43,34 @@ app.put("/:can_id", function (req, res, next) {
         });
 });
 
-//retrive candidate profile
+//retrive default candidate profile
 app.get("/:can_id", (req, res, next) => {
-    console.log(" server get can_id # is:", req.params.can_id);
+    // console.log(" server get can_id # is:", req.params.can_id);
     candidateprofile.findOne({ can_id: req.params.can_id })
         .then(candidate => {
             if (candidate) {
                 res.status(200).json(candidate);
             } else {
                 res.status(404).json({ message: "Account not found!" });
+            }
+        });
+});
+
+//hr update profile
+app.put("/update/:id", function (req, res, next) {
+    // console.log("update hr profile: ", req.body);
+    candidateprofile.updateOne(
+        { creator: req.body.creator },
+        {
+            fnamd: req.body.firstName,
+            lname: req.body.lastName,
+            phone: req.body.phone,
+        },
+        function (err, result) {
+            if (err) {
+                res.status(401).json({ message: "Not authorized!" });
+            } else {
+                res.status(200).json({ message: "Update successful!" });
             }
         });
 });
