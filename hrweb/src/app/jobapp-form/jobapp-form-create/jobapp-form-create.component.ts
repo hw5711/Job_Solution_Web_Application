@@ -271,10 +271,6 @@ export class JobappFormCreateComponent implements OnInit {
     {
       this.rank++;
     }
-   /* if(this.enteredDisability == "I have disability-1")
-    {
-      this.rank++;
-    } */
 
     //console.log("test1 " + jobapp.firstName);
 
@@ -292,6 +288,7 @@ export class JobappFormCreateComponent implements OnInit {
   //need to send the can info link with posted job
   var today = new Date();
   var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  console.log("rank is: ", this.rank);
   let can = {
       candidate_id: this.can_id,
       rank: this.rank,
