@@ -128,6 +128,7 @@ export class ApplicationsComponent implements OnInit {
   job: any;
   jobDescription: any;
   userId: string;
+  appResult: any;
 
   constructor(private http: HttpClient,
     public route: ActivatedRoute,
@@ -137,6 +138,20 @@ export class ApplicationsComponent implements OnInit {
   ngOnInit() {
     this.userId = this.loginService.getUserId()
     console.log("user_id is: " + this.userId)
+    this.searchAppliedJob();
+  }
+
+  searchAppliedJob() {
+    let req = {
+      user_id: this.userId,
+    };
+    this.http
+      .post("http://localhost:3000/jobappform/apply/applied_job", req)
+      .subscribe(postData => {
+        this.appResult = postData;
+        console.log(this.appResult[0]);
+        console.log(this.appResult.length);
+      });
   }
 
   searchJob(form: NgForm) {

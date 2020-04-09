@@ -8,27 +8,27 @@ import { Router } from "@angular/router";
 import { LoginService } from "../../login/login.service";
 import { JobService } from "../../jobspage/job.service";
 
-interface Education {
+export interface Education {
   value: string;
   viewValue: string;
 }
 
-interface Choice {
+export interface Choice {
   value: string;
   viewValue: string;
 }
 
-interface Gender {
+export interface Gender {
   value: string;
   viewValue: string;
 }
 
-interface Veteran {
+export interface Veteran {
   value: string;
   viewValue: string;
 }
 
-interface Disability {
+export interface Disability {
   value: string;
   viewValue: string;
 }
@@ -41,7 +41,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-
 @Component({
   selector: 'app-jobapp-form-create',
   templateUrl: './jobapp-form-create.component.html',
@@ -50,6 +49,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
   }]
 })
+
 export class JobappFormCreateComponent implements OnInit {
 
   firstFormGroup: FormGroup;
@@ -136,6 +136,7 @@ export class JobappFormCreateComponent implements OnInit {
   @Output() jobappCreated = new EventEmitter();
 
   can_id = "";
+  //date = new FormControl(new Date());
   can_email = "";
   job_id = "";
   job_title = "";
@@ -284,8 +285,12 @@ export class JobappFormCreateComponent implements OnInit {
     console.log("test1 " + jobapp.firstName);
 
     let reqs = {
+      candidate_id: this.can_id,
+      job_title: this.job_title,
+      job_company: this.job_company,
       //firstname: jobapp.firstName,
     }; 
+    console.log(reqs);
      this.http
        .post("http://localhost:3000/jobappform/apply", reqs)
        .subscribe(response => {
