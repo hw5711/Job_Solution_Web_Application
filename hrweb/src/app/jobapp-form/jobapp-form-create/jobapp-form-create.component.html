@@ -698,7 +698,7 @@
             <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Disability Status</mat-label>
           <!-- <mat-select formControlName="fourthCtrl" required (ngModel) = "enteredDiability">  -->
-          <mat-select  required (ngModel) = "enteredDiability" name="diability"> 
+          <mat-select  required (ngModel) = "enteredDisability" name="disability"> 
             <mat-option *ngFor="let Disability of Disabilities" [value]="Disability.value">
               {{Disability.viewValue}}
             </mat-option>

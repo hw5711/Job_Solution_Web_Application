@@ -131,13 +131,14 @@ export class JobappFormCreateComponent implements OnInit {
   enteredGender = "";
   enteredHispanic = "";
   enteredVeteran = "";
-  enteredDiability: "";
+  enteredDisability: "";
   @Output() jobappCreated = new EventEmitter();
 
   can_id = "";
   job_id = "";
   job_title = "";
   job_company = "";
+  rank = 0;
 
   constructor(
     private _formBuilder: FormBuilder, 
@@ -214,10 +215,66 @@ export class JobappFormCreateComponent implements OnInit {
       gender: this.enteredGender,
       hispanic: this.enteredHispanic,
       veteran: this.enteredVeteran,
-      disability: this.enteredDiability
+      disability: this.enteredDisability
     };
-
     this.jobappCreated.emit(jobapp);
+
+    if(this.enteredJob == jobapp.job)
+    {
+      this.rank++;
+    }
+    if(this.enteredEducationlevel ==  "Bachelors")
+    {
+      this.rank++;
+    }
+    if(this.enteredEducationlevel ==  "Doctorate")
+    {
+      this.rank++;
+    }
+    if(this.enteredEducationlevel ==  "Masters")
+    {
+      this.rank++;
+    }
+    /*if(this.enteredCumulativegpa >= 3.0 )
+    {
+      this.rank++;
+    } */
+    if(this.enteredSkills == jobapp.skills)
+    {
+      this.rank++
+    }
+    if(this.enteredAccomplishments == jobapp.accomplishments)
+    {
+      this.rank++;
+    }
+    if(this.enteredSponsership == "No-1")
+    {
+      this.rank++;
+    }
+    if(this.enteredGender == "Female-1")
+    {
+      this.rank++;
+    }
+    if(this.enteredHispanic == "Yes-0")
+    {
+      this.rank++;
+    }
+    if(this.enteredVeteran == "Recently separated veteran-1")
+    {
+      this.rank++;
+    }
+    if(this.enteredVeteran == "Disabled veteran-2")
+    {
+      this.rank++;
+    }
+    if(this.enteredVeteran == "I am not a protected veteran-3")
+    {
+      this.rank++;
+    }
+   /* if(this.enteredDisability == "I have disability-1")
+    {
+      this.rank++;
+    } */
 
     //console.log("test1 " + jobapp.firstName);
 
@@ -237,7 +294,7 @@ export class JobappFormCreateComponent implements OnInit {
   var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   let can = {
       candidate_id: this.can_id,
-      rank: 0,
+      rank: this.rank,
       applyDate: date
    };
     const req = { job_id: this.job_id, candidate: can };
