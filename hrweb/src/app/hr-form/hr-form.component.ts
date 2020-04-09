@@ -47,9 +47,12 @@ export class HrFormComponent implements OnInit {
   //get default info
   getHrInfo() {
     // console.log("client side:", this.hr_id);
+    let req ={
+      hr_num : this.hr_id,
+    }
     this.http
-      .get<{ message: string; account: Account }>(
-        "http://localhost:3000/hr/" + this.hr_id)
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/hr/get-profile" , req)
       .subscribe(AccountData => {
         this.firstName = AccountData["firstName"];
         this.lastName = AccountData["lastName"];
@@ -74,11 +77,11 @@ export class HrFormComponent implements OnInit {
         note: this.note,
         contacts: this.contacts
       };
-      console.log(req);
+      // console.log(req);
       this.http
-        .put("http://localhost:3000/hr/update/" + this.hr_id, req)
+        .put("http://localhost:3000/hr/update/", req)
         .subscribe(response => {
-          // console.log("res is :", response);
+          console.log("res is :", response);
         });
       this.openDialog();
       // this.router.navigate(["/hr-profile"]);
@@ -86,8 +89,8 @@ export class HrFormComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(HrprofilePopupComponent, {
-      width: '200px',
-      height: '100px',
+      width: '300px',
+      height: '200px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -79,9 +79,9 @@ app.post("/check_candidate", function (req, res, next) {
 });
 
 //get defalut info
-app.get("/:id", (req, res, next) => {
-    // console.log(" server get id # is:", req.params.hr_id);
-    hrProfile.findOne({ hr_id: req.params.hr_id })
+app.post("/get-profile", (req, res, next) => {
+    // console.log(" server get id # is:", req.body);
+    hrProfile.findOne({ hr_num: req.body.hr_num })
         .then(account => {
             if (account) {
                 res.status(200).json(account);
@@ -92,10 +92,10 @@ app.get("/:id", (req, res, next) => {
 });
 
 //hr update profile
-app.put("/update/:id", function (req, res, next) {
+app.put("/update", function (req, res, next) {
     // console.log("update hr profile: ", req.body);
     hrProfile.updateOne(
-        { creator: req.body.creator },
+        { hr_num: req.body.hr_id },
         {
             firstName: req.body.firstName,
             lastName: req.body.lastName,

@@ -24,69 +24,41 @@
  
  </div>
 
-
-<!--
-
-<nav class="navbar  navbar-expand bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li style="    margin-right: 20px;
-    margin-left: 30px;
-">
-        <button type="button" class="btn btn-primary" routerLink="/cand-profile">Home</button>
-      </li>
-      <li style="margin-right:10px;">
-        <button type="button" class="btn btn-primary" routerLink="/jobspage">Job Search</button>
-      </li>
-    </ul>
-    <div style="align-content:end;">
-      <button type="button" class="btn btn-primary" style="margin-right:10px">Edit Profile</button> 
-      <button type="button" class="btn" style="background-color:#f7ae00" routerLink="/">Sign Out</button>
-    </div>
-
-  </div>
-</nav> -->
-
 <!-- NAVBAR ENDS HERE -->
 
 
+<div style="width: 70%; margin-left: 15%">
 
-
-<mat-horizontal-stepper linear #stepper style="width:70%; align-items:center; display:inline">
+<mat-horizontal-stepper linear #stepper style=" display:inline">
 
   <!-- put "required" in input-->
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Personal Information</ng-template>
 
-      <mat-card style="">
+      <mat-card>
         <table class="example-full-width" cellspacing="2">
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width firstName">
                 <mat-label>First name</mat-label>
-                <input matInput>
+                <input matInput formControlName="firstName" required [ngModel]= "firstName">
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>Last Name</mat-label>
-                <input matInput>
+
+                <input matInput formControlName="lastName" required [ngModel]= "lastName">
               </mat-form-field>
             </td>
           </tr>
         </table>
 
-
-
         <mat-form-field class="example-full-width">
           <mat-label>Telephone</mat-label>
           <span matPrefix>+1 &nbsp;</span>
-          <input type="tel" matInput placeholder="555-555-1234">
+          <input type="tel" matInput placeholder="555-555-1234" formControlName="phone" required [ngModel]= "phone">
         </mat-form-field>
 
 
@@ -94,9 +66,6 @@
           <mat-label>Address</mat-label>
           <input matInput placeholder="Address" required >
         </mat-form-field>
-
-
-
 
         <mat-form-field class="example-full-width">
           <mat-label>Phone</mat-label>
@@ -108,28 +77,12 @@
           <input matInput placeholder="Software Engineer">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Company</mat-label>
-          <input matInput placeholder="Apple" formControlName="firstCtrl">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>Since</mat-label>
-          <input matInput placeholder="May 2016 " formControlName="firstCtrl" type="date">
-        </mat-form-field>
-
       </mat-card>
-      <div>
+      <div style="margin-left: 8em; margin-top: 1em">
         <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-
-
-
-
-
-
 
   <mat-step [stepControl]="secondFormGroup" errorMessage="Missing required fields.">
     <form [formGroup]="secondFormGroup">
@@ -140,13 +93,13 @@
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>Job Title</mat-label>
-                <input matInput formControlName="secondCtrl">
+                <input matInput formControlName="jobTitle">
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="example-full-width">
                 <mat-label>Company</mat-label>
-                <input matInput>
+                <input matInput formControlName="comanyExp">
               </mat-form-field>
             </td>
           </tr>
@@ -154,7 +107,7 @@
         <p>
           <mat-form-field class="example-full-width">
             <mat-label>Location</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput matInput formControlName="location"></textarea>
           </mat-form-field>
         </p>
 
@@ -183,7 +136,7 @@
         </p>
 
       </mat-card>
-      <div>
+      <div style="margin-left: 8em; margin-top: 1em">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
@@ -213,13 +166,13 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Date</mat-label>
-          <input matInput formControlName="thirdCtrl" type="date">
+          <input matInput formControlName="educationDate" type="date">
         </mat-form-field>
 
 
 
       </mat-card>
-      <div>
+      <div style="margin-left: 8em; margin-top: 1em">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
@@ -248,13 +201,13 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Date</mat-label>
-          <input matInput formControlName="forthCtrl" type="date">
+          <input matInput formControlName="date" type="date">
         </mat-form-field>
 
 
 
       </mat-card>
-      <div>
+      <div style="margin-left: 8em; margin-top: 1em">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
@@ -262,20 +215,17 @@
   </mat-step>
 
 
-
-
-
-
-
-
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
-    <div>
+    <div style="margin-left: 8em; margin-top: 1em">
       <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperPrevious (click)="SaveUpdate()">Save</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 
 
 </mat-horizontal-stepper>
+
+</div>
