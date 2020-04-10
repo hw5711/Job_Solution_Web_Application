@@ -37,8 +37,8 @@ getJobType(){
     return this.job_type;
 }
 
-setJobType(type){
-    this.job_type = type;
+setJobType(jobType){
+    this.job_type = jobType;
 }
 
 getJobCompany(){

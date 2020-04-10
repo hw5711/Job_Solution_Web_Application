@@ -169,7 +169,7 @@ export class JobspageComponent implements OnInit {
     this.jobService.setJobId(j.job_id);
     this.jobService.setJobTitle(j.title);
     this.jobService.setJobCompany(j.company);
-    this.jobService.setJobType(j.type);
+    this.jobService.setJobType(j.jobType);
     this.jobService.setJobLocation(j.location);
     this.jobService.setJobDescription(j.description);
     this.jobService.setJobIndustryType(j.industryType);
