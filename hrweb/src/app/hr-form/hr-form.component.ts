@@ -101,15 +101,18 @@ export class HrFormComponent implements OnInit {
 
   selectFile(event) {
     this.selectedFile = <File>event.target.files[0];
-    // this.selectFile = <File>
   }
 
   uploadBotton() {
     console.log("id is :", this.hr_id);
-    // let userInfo = this.hr_id;
+    const userInfo: string = this.hr_id;
+
     const fd = new FormData();
-    fd.append('userImage', this.selectedFile, this.selectedFile.name);
-    console.log(fd);
+    // const fd1 = new FormData();
+    fd.append('userImage', this.selectedFile, userInfo);
+    // fd1.append('userImage', this.selectedFile, this.selectedFile.name);
+    
+    // console.log(fd);
     this.http
       .post("http://localhost:3000/images/update-pic" ,fd)
       .subscribe(response => {

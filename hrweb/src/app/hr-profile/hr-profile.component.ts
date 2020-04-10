@@ -20,6 +20,8 @@ export class HrProfileComponent implements OnInit {
   contacts = "";
   showDate: Date;
   filePath: "";
+  url: string;
+  url1:string;
 
   constructor(
     private http: HttpClient,
@@ -63,9 +65,16 @@ export class HrProfileComponent implements OnInit {
       .post<{ message: string; account: Account }>(
         "http://localhost:3000/images/get-pic", req)
       .subscribe(AccountData => {
-        console.log(" proflile name is(id): " + AccountData["userInfo"]);
         this.filePath = AccountData["img"];
+        console.log(" proflile path is : " + this.filePath);
+        // var reader = new FileReader();
+        this.url1 = this.filePath + '.jpg';
+        this.url = 'uploads/huanwu.jpg';
+        console.log(this.url);
+        console.log(this.url1);
       })
   }
+
+  
 
 }
