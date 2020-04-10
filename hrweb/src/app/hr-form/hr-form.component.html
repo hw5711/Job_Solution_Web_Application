@@ -19,6 +19,14 @@
 </nav>
 
 <body>
+    <br>
+    <input type="file" style="display: none" (change)="selectFile($event)" #fileInput>
+    <button type="button" (click)="fileInput.click()">Pick File</button>
+    <br>
+    <button type="button" (click)="uploadBotton()">Upload File</button>
+    
+    <br>
+
       <mat-card style="margin-top: 2em">
         <mat-label>Personal Information</mat-label>
         <table class="example-full-width" cellspacing="2">
