@@ -169,6 +169,10 @@ export class JobspageComponent implements OnInit {
     this.jobService.setJobId(j.job_id);
     this.jobService.setJobTitle(j.title);
     this.jobService.setJobCompany(j.company);
+    this.jobService.setJobType(j.type);
+    this.jobService.setJobLocation(j.location);
+    this.jobService.setJobDescription(j.description);
+    this.jobService.setJobIndustryType(j.industryType);
   }
 
   openDialog(j): void {
@@ -184,26 +188,6 @@ export class JobspageComponent implements OnInit {
   } 
 
   //need to be removed later -- just for data entry //
-
-  createPeople(form: NgForm){
-    let req = { 
-      jobTitle: this.enteredjobTitle, 
-      jobType: this.enteredjobType, 
-      location: this.enteredlocation, 
-      industryType: this.enteredindustryType,
-      company: this.enteredcompany, 
-      jobDescription: this.enteredjobDescription,
-      startDate: null,
-      expirationDate: null,
-      candidate: null,
-    };
-    
-    this.http
-      .post("http://localhost:3000/searchjob/create", req)
-      .subscribe(response => {
-        console.log("book post successed: ", response);
-      });
-  }
 }
 
 

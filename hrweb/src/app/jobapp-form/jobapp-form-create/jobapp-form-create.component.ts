@@ -141,9 +141,12 @@ export class JobappFormCreateComponent implements OnInit {
   job_id = "";
   job_title = "";
   job_company = "";
+  job_type = "";
+  job_industryType= "";
+  job_description= "";
+  job_location= "";
   rank = 0;
   gpa_check = 3;
-  
 
   constructor(
     private _formBuilder: FormBuilder, 
@@ -159,10 +162,19 @@ export class JobappFormCreateComponent implements OnInit {
     this.job_id = this.jobService.getJobId();
     this.job_title = this.jobService.getJobTitle();
     this.job_company = this.jobService.getJobCompany();
+    this.job_type = this.jobService.getJobType();
+    this.job_industryType = this.jobService.getJobIndustryType();
+    this.job_description = this.jobService.getJobDescription();
+    this.job_location = this.jobService.getJobLocation();
+
     console.log("candidate email is: ", this.can_email);
     console.log("job id is:", this.job_id);
     console.log("title is:", this.job_title);
     console.log("company is:" , this.job_company);
+    console.log("job type is:", this.job_type);
+    console.log("industry is:", this.job_industryType);
+    console.log("description is:" , this.job_description);
+    console.log("location is:" , this.job_location);
 
    /* this.firstFormGroup = this._formBuilder.group({
        firstCtrl: ['', Validators.required]
@@ -317,6 +329,10 @@ export class JobappFormCreateComponent implements OnInit {
       job_id: this.job_id,
       job_title: this.job_title,
       job_company: this.job_company,
+      job_type: this.job_type,
+      job_industryType: this.job_industryType,
+      job_description: this.job_company,
+      job_location: this.job_location,
       //firstname: jobapp.firstName,
     }; 
     console.log(reqs);

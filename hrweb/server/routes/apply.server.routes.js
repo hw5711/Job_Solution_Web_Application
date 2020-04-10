@@ -38,14 +38,19 @@ app.post("/applied_job", function (req, res, next) {
         job_id: req.body.job_id,
         job_title: req.body.job_title,
         job_company: req.body.job_company,
+        job_location: req.body.job_location,
+        job_industryType: req.body.job_industryType,
+        job_type: req.body.job_type,
+        job_description: req.body.job_description,
+
     });
 
     AppHistory.save()
         .then(result => {
-            console.log(" hr account created with new user");
+            console.log(" user history created with new user");
         })
         .catch(err => {
-            console.log("hr account created faild");
+            console.log("user history created faild");
         });
 });
 

@@ -5,6 +5,10 @@ var AppHistory = new mongoose.Schema({
     job_id: String,
     job_title: String,
     job_company: String,
+    job_location: String,
+    job_industryType: String,
+    job_type: String,
+    job_description: String,
 });
 
 module.exports = mongoose.model('appHistory', AppHistory);

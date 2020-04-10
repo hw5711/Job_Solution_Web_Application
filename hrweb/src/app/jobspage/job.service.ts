@@ -10,6 +10,10 @@ export class JobService {
 private job_id: string;
 private job_title: string;
 private job_company: string;
+private job_type: string;
+private job_industryType: string;
+private job_description: string;
+private job_location: string;
 
 constructor(private http: HttpClient, private router: Router) { }
 
@@ -29,12 +33,44 @@ setJobTitle(title){
     this.job_title = title;
 }
 
+getJobType(){
+    return this.job_type;
+}
+
+setJobType(type){
+    this.job_type = type;
+}
+
 getJobCompany(){
     return this.job_company;
 }
 
 setJobCompany(company){
     this.job_company = company;
+}
+
+getJobIndustryType(){
+    return this.job_industryType;
+}
+
+setJobIndustryType(industryType){
+    this.job_industryType = industryType;
+}
+
+getJobDescription(){
+    return this.job_description;
+}
+
+setJobDescription(description){
+    this.job_description = description;
+}
+
+getJobLocation(){
+    return this.job_location;
+}
+
+setJobLocation(location){
+    this.job_location = location;
 }
 
 }
