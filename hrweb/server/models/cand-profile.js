@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var CanPro = new mongoose.Schema({
-    can_id: String,
-    fnamd: String,
+    can_num: String,
+    fname: String,
     lname: String,
-    phone: Number,
+    phone: String,
     work_experience:[{
         company: String,
         title: String,

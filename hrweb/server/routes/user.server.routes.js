@@ -38,11 +38,51 @@ router.post("/register", (req, res, next) => {
         else{
             user.save()
                 .then(result => {
-                    this.userid = req._id;
+                    console.log("result is: " ,result);
+                    this.userid = result._id;
                     res.status(201).json({
                         message: "User created!",
                         result: result,
                     });
+
+                    // console.log("this.userid is:", this.userid);
+                    if (req.body.role == "HR") {
+                        const profile = new hrProfile({
+                            hr_num: this.userid,
+                            firstName: "",
+                            lastName: "",
+                            phone: "",
+                            title: "",
+                            company: "",
+                            startDate: "",
+                            note: "",
+                            contacts: ""
+                        });
+                        profile.save()
+                            .then(result => {
+                                console.log(" hr account created with new user");
+                            })
+                            .catch(err => {
+                                console.log("hr account created faild");
+                            });
+                    } else {
+                        const canprofile = new canProfile({
+                            can_num: this.userid,
+                            fname: "",
+                            lname: "",
+                            phone: "",
+                            work_experience: [],
+                            educxation: []
+                        });
+                        canprofile.save()
+                            .then(result => {
+                                console.log(" hr account created with new user");
+                            })
+                            .catch(err => {
+                                console.log("hr account created faild");
+                            });
+                    }
+
                 })
                 .catch(err => {
                     res.status(500).json({
@@ -51,55 +91,7 @@ router.post("/register", (req, res, next) => {
                     });
                 });
             //if it's a hr regited 
-            console.log("this.userid is:", this.userid);
-            if (req.body.role == "HR"){
-                const profile = new hrProfile({
-                    hr_id: this.userid,
-                    firstName: "",
-                    lastName: "",
-                    phone: "",
-                    title: "",
-                    company: "",
-                    startDate: "",
-                    note: "", 
-                    contacts: ""
-                });
-                profile.save()
-                    .then(result => {
-                        console.log(" hr account created with new user" , profile.hr_id);
-                    })
-                    .catch(err => {
-                        console.log("hr account created faild");
-                    });
-            }else{
-                const canprofile = new canProfile({
-                    can_id: this.userid,
-                    fname: "",
-                    lname: "",
-                    phone: "",
-                    work_experience:[{
-                        company: "",
-                        title: "",
-                        start_date: "",
-                        end_date: "",
-                        description: "",
-                    }],
-                    educxation: [{
-                        school: "",
-                        dgree: "",
-                        major: "",
-                        start_year: "",
-                        end_year: ""
-                    }]
-                });
-                canprofile.save()
-                    .then(result => {
-                        console.log(" hr account created with new user");
-                    })
-                    .catch(err => {
-                        console.log("hr account created faild");
-                    });
-            }
+     
         }
     });
 });

@@ -76,7 +76,7 @@ var formSchema = new mongoose.Schema({
         // required: 'Major can\'t be empty'
     },
     cumulativegpa: {
-        type: String,
+        type: Number,
         // required: 'Cumulative GPA can\'t be empty'
     },
     skills: {

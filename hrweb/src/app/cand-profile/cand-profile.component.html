@@ -1,89 +1,58 @@
   <!-- header starts -->
 <!-- nav class="navbar navbar-expand-lg navbar-light bg-light">-->
 
-<nav class="navbar  navbar-expand bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li style="    margin-right: 20px;
-    margin-left: 30px;
-">
-        <button type="button" class="btn btn-primary">Home</button>
-      </li>
-      <li style="margin-right:10px;">
-        <button type="button" class="btn btn-primary" routerLink="/jobspage">Job Search</button>
-      </li>
-    </ul>
-    <div style="align-content:end;">
-      <button type="button" class="btn btn-primary" style="margin-right:10px" routerLink="/form">Edit Profile</button>
-      <button type="button" class="btn" style="background-color:#f7ae00" routerLink="/">Sign Out</button>
-    </div>
-
-  </div>
-</nav>
+  <mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
+   <mat-toolbar-row >
+     <span><h1>Job Solutions</h1></span>
+     <span class="example-spacer"></span>
+   <div>
+       <a mat-button routerLink="/jobspage"> Jobs </a>
+       <a mat-button routerLink="/cand-form"> Edit Profile </a>
+       <button mat-button [matMenuTriggerFor]="menu">My Profile</button>
+ 
+       <mat-menu #menu="matMenu">
+       <button mat-menu-item routerLink="/cand-profile">Profile</button>
+         <button mat-menu-item routerLink="/applications">Applications</button>
+         <button mat-menu-item routerLink="/myfavjob">MyFav Jobs</button>
+         <button mat-menu-item routerLink="/">Logout</button>
+       </mat-menu>
+     </div>
+   </mat-toolbar-row>
+ 
+   <mat-toolbar-row style="padding: 0 5px;">
+     <span><h2>Profile</h2></span>
+   </mat-toolbar-row>
+ </mat-toolbar>
+ 
+ </div>
 
 <!-- general info starts -->
-
-<div class="card-group" style="margin-left:10%; margin-right:10%; margin-top: 2%">
-  <div class="card">
-    <div class="card-body">
-      <h1 class="card-title"><b>Burak Turkal</b></h1>
-      <h3> Software Engineer at</h3>
-      <h3> Company NAME</h3>
-      <h4> from ... to ...</h4>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <img src="https://www.txstate.edu/cache68c11b2184409d9ee4fe7ef4718f6ffb/imagehandler/scaler/gato-docs.its.txstate.edu/jcr:6c66e0fd-6ede-469e-b98d-567f6f8a413a/April%2BBarnes.JPG?mode=fit&width=502" alt="Card image" class="pro_photo">
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h4> Address</h4>
-      <h4> Phone</h4>
-      <h4> Looking for:</h4>
-      <h4> NEW JOB</h4>
-    </div>
+  
+<div class="card" style="margin-top: 2%; width: 150px; ">
+  <div class="card-body">
+    <img
+      src="https://www.txstate.edu/cache68c11b2184409d9ee4fe7ef4718f6ffb/imagehandler/scaler/gato-docs.its.txstate.edu/jcr:6c66e0fd-6ede-469e-b98d-567f6f8a413a/April%2BBarnes.JPG?mode=fit&width=502"
+      alt="Card image" class="pro_photo" style="height:100px; width: 100px;">
   </div>
 </div>
 
 <div style="margin-left:10%; margin-right:10%">
-  <!-- exper. and educ. parts-->
-  <!-- technical experience starts-->
-  <div class="card border-primary mb-3" style="margin-top:50px">
-    <div class="card-body">
-      <h4 class="card-title"><b>Technical Experince</b></h4>
-      <h5>Company - 1</h5>
-      <p>Software Engineer</p>
-      <p>Sep 2020 - Dec 2020</p>
+    <p>{{firstName}}</p>
+    <div class="card border-primary mb-3" style="margin-top:20px">
+      <div class="card-body">
+        <h4 class="card-title"><b>About Me:</b>
+          <br>
+          <b>{{firstName}}</b>
+          <span style="margin-left: 5px"></span>
+          <b>{{lastName}}</b></h4>
+        <p>phone #: {{phone}}</p>
+      </div>
     </div>
-  </div>
-
-  <!-- non-techincal experience starts-->
-  <div class="card border-primary mb-3" style="margin-top:20px">
-    <div class="card-body">
-      <h4 class="card-title"><b>Non-Technical Experince</b></h4>
-      <h5>Company - 1</h5>
-      <p>Software Engineer</p>
-      <p>Sep 2020 - Dec 2020</p>
-    </div>
-  </div>
-
-  <!-- Education-->
-  <div class="card border-primary mb-3" style="margin-top:20px">
-    <div class="card-body">
-      <h4 class="card-title"><b>Education</b></h4>
-      <h5>School - 1</h5>
-      <p>Bs. in Electrical Engineering</p>
-      <p>Sep 2020 - Dec 2020</p>
-    </div>
-  </div>
 
 </div>
+
 
       <nav class="navbar bottom navbar-dark bg-dark">
         <p class="navbar-text text-center" >Best place to find the best job...</p>

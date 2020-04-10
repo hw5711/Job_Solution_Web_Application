@@ -3,9 +3,11 @@ import { NgForm } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LoginService } from "../login/login.service";
-// import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
-// import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-// import {ErrorStateMatcher} from '@angular/material/core';
+import { HrprofilePopupComponent } from '../hr-form/hrprofile-popup/hrprofile-popup.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl } from '@angular/forms';
+import { formatDate } from '@angular/common';
+
 
 @Component({
   selector: 'app-hr-form',
@@ -14,6 +16,8 @@ import { LoginService } from "../login/login.service";
 })
 export class HrFormComponent implements OnInit {
 
+  date = new FormControl(new Date());
+  serializedDate = new FormControl((new Date()).toISOString());
 
   hr_id = "";
   firstName = "";
@@ -24,14 +28,18 @@ export class HrFormComponent implements OnInit {
   startDate = "";
   note = "";
   contacts = "";
+  
 
   isLinear = false;
+
+  selectedFile: File = null;
 
   constructor(
     private http: HttpClient,
     public route: ActivatedRoute,
     private loginService: LoginService,
     private router: Router,
+    public dialog: MatDialog
     ) {}
 
   ngOnInit() {
@@ -41,9 +49,12 @@ export class HrFormComponent implements OnInit {
   //get default info
   getHrInfo() {
     // console.log("client side:", this.hr_id);
+    let req ={
+      hr_num : this.hr_id,
+    }
     this.http
-      .get<{ message: string; account: Account }>(
-        "http://localhost:3000/hr-profile/" + this.hr_id)
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/hr/get-profile" , req)
       .subscribe(AccountData => {
         this.firstName = AccountData["firstName"];
         this.lastName = AccountData["lastName"];
@@ -57,7 +68,6 @@ export class HrFormComponent implements OnInit {
   }
   //save update 
     SaveUpdate(){
-      console.log("save!");
       let req = {
         hr_id: this.hr_id,
         firstName: this.firstName,
@@ -69,16 +79,45 @@ export class HrFormComponent implements OnInit {
         note: this.note,
         contacts: this.contacts
       };
-      console.log(req);
+
       this.http
-        .post("http://localhost:3000/hr-profile/update/", req)
+        .put("http://localhost:3000/hr/update/", req)
         .subscribe(response => {
           console.log("res is :", response);
         });
-
-      this.router.navigate(["/hr-profile"]);
+      this.openDialog();
     }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(HrprofilePopupComponent, {
+      width: '300px',
+      height: '200px',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  } 
+
+
+  selectFile(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  uploadBotton() {
+    console.log("id is :", this.hr_id);
+    const userInfo: string = this.hr_id;
+
+    const fd = new FormData();
+    // const fd1 = new FormData();
+    fd.append('userImage', this.selectedFile, userInfo);
+    // fd1.append('userImage', this.selectedFile, this.selectedFile.name);
+    
+    // console.log(fd);
+    this.http
+      .post("http://localhost:3000/images/update-pic" ,fd)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
+  }
 
 }

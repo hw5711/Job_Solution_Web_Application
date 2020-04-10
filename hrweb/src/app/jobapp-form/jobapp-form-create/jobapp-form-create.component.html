@@ -6,28 +6,31 @@
      <div>
          <a mat-button routerLink="/jobspage"> Jobs </a>
          <a mat-button [routerLink]=""> Employers </a>
-         <button mat-button [matMenuTriggerFor]="menu">My Profile</button>
+         <button mat-button [matMenuTriggerFor]="menu">My Profile - {{can_email}}</button>
   
          <mat-menu #menu="matMenu">
   
            <button mat-menu-item routerLink="/cand-profile">Profile</button>
            <button mat-menu-item routerLink="/applications">Applications</button>
            <button mat-menu-item routerLink="/myfavjob">MyFav Jobs</button>
+           <button mat-menu-item routerLink="/">Logout</button>
   
          </mat-menu>
        </div>
      </mat-toolbar-row>
   
      <mat-toolbar-row style="padding: 0 5px;">
-       <span><h2>Job Application</h2></span>
+       <span><h2>Job Application : {{job_title}} - {{job_company}}</h2></span>
      </mat-toolbar-row>
    </mat-toolbar>
    <br>
    <br>
   
   <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">  
+    <!-- <mat-step [stepControl]="firstFormGroup"> -->
+    <mat-step >
+      <!-- <form [formGroup]="firstFormGroup">   -->
+      <form >  
         <ng-template matStepLabel>Personal Information</ng-template>
         <br>
         <br>
@@ -37,51 +40,59 @@
             <tr >
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>First Name</mat-label>
-          <input matInput placeholder="First name" formControlName="firstCtrl" [(ngModel)] = "enteredFirstName"> 
+          <!-- <input matInput placeholder="First name" formControlName="firstCtrl" (ngModel) = "enteredFirstName">  -->
+          <input matInput placeholder="First name" (ngModel) = "enteredFirstName" name="fName"> 
           </mat-form-field></td>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Last Name</mat-label>
-          <input matInput placeholder="Last name" formControlName="firstCtrl"  [(ngModel)] = "enteredLastName">
+          <!-- <input matInput placeholder="Last name" formControlName="firstCtrl"  (ngModel) = "enteredLastName"> -->
+          <input matInput placeholder="Last name"  (ngModel) = "enteredLastName" name="lName">
           </mat-form-field></td>
         </tr>
         <tr>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Telephone</mat-label>
-          <input matInput placeholder="Telephone" formControlName="firstCtrl" [(ngModel)] = "enteredTelephone">
+          <!-- <input matInput placeholder="Telephone" formControlName="firstCtrl" (ngModel) = "enteredTelephone"> -->
+          <input matInput placeholder="Telephone" (ngModel) = "enteredTelephone" name="telephone">
           </mat-form-field></td>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="Email" formControlName="firstCtrl" [(ngModel)] = "enteredEmail">
+          <!-- <input matInput placeholder="Email" formControlName="firstCtrl" (ngModel) = "enteredEmail"> -->
+          <input matInput placeholder="Email"  (ngModel) = "enteredEmail" name="email">
           </mat-form-field></td>
         </tr>
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Address</mat-label>
-          <input matInput placeholder="Address" formControlName="firstCtrl" [(ngModel)] = "enteredAddress">
+          <!-- <input matInput placeholder="Address" formControlName="firstCtrl" (ngModel) = "enteredAddress"> -->
+          <input matInput placeholder="Address"  (ngModel) = "enteredAddress" name="address">
           </mat-form-field>
         </tr>
   
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Address 2</mat-label>
-          <input matInput placeholder="Address 2" [(ngModel)] = "enteredAddress2" [ngModelOptions]="{standalone: true}"> 
+          <input matInput placeholder="Address 2" (ngModel) = "enteredAddress2" [ngModelOptions]="{standalone: true}"> 
           </mat-form-field>
         </tr>
   
         <tr>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>City</mat-label>
-          <input matInput placeholder="city" formControlName="firstCtrl" [(ngModel)] = "enteredCity">  
+          <!-- <input matInput placeholder="city" formControlName="firstCtrl" (ngModel) = "enteredCity">   -->
+          <input matInput placeholder="city" (ngModel) = "enteredCity" name="city">  
       
           </mat-form-field></td>
   
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>State</mat-label>
-          <input matInput placeholder="State" formControlName="firstCtrl" [(ngModel)] = "enteredState">
+          <!-- <input matInput placeholder="State" formControlName="firstCtrl" (ngModel) = "enteredState"> -->
+          <input matInput placeholder="State" (ngModel) = "enteredState" name="state">
           </mat-form-field></td>
           <td><mat-form-field class="example-full-width" appearance="outline">
           <mat-label>ZipCode</mat-label>
-          <input matInput placeholder="ZipCode" formControlName="firstCtrl" [(ngModel)] = "enteredZipcode">
+          <!-- <input matInput placeholder="ZipCode" formControlName="firstCtrl" (ngModel) = "enteredZipcode"> -->
+          <input matInput placeholder="ZipCode"  (ngModel) = "enteredZipcode" name="zipcode">
           </mat-form-field></td>
         </tr>
         </table>
@@ -93,8 +104,10 @@
       </form>
     </mat-step>
   
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
+    <!-- <mat-step [stepControl]="secondFormGroup"> -->
+    <mat-step>
+      <!-- <form [formGroup]="secondFormGroup"> -->
+      <form>
         <ng-template matStepLabel>Work Experience</ng-template>
         <br>
         <br>
@@ -105,18 +118,18 @@
           <td>
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Job Title</mat-label>
-          <input matInput placeholder="Job Title"  [(ngModel)] = "enteredJob" [ngModelOptions]="{standalone: true}"> 
+          <input matInput placeholder="Job Title"  (ngModel) = "enteredJob" [ngModelOptions]="{standalone: true}"> 
           </mat-form-field> </td>
           <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Company</mat-label>
-          <input matInput placeholder="Company"  [(ngModel)] = "enteredCompany" [ngModelOptions]="{standalone: true}"> 
+          <input matInput placeholder="Company"  (ngModel) = "enteredCompany" [ngModelOptions]="{standalone: true}"> 
           </mat-form-field></td>
           </tr>
           <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Location</mat-label>
-          <input matInput placeholder="Location" [(ngModel)] = "enteredLocation" [ngModelOptions]="{standalone: true}"> 
+          <input matInput placeholder="Location" (ngModel) = "enteredLocation" [ngModelOptions]="{standalone: true}"> 
           </mat-form-field>
         </tr>
   
@@ -124,7 +137,7 @@
             <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>From Date</mat-label>
-          <input matInput [matDatepicker]="picker1" [(ngModel)] = "enteredFromDate" [ngModelOptions]="{standalone: true}"> 
+          <input matInput [matDatepicker]="picker1" (ngModel)= "enteredFromDate" [ngModelOptions]="{standalone: true}"> 
           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field></td>
@@ -134,7 +147,7 @@
           <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>To Date</mat-label>
-          <input matInput [matDatepicker]="picker2" [(ngModel)] = "enteredToDate" [ngModelOptions]="{standalone: true}"> 
+          <input matInput [matDatepicker]="picker2" (ngModel) = "enteredToDate" [ngModelOptions]="{standalone: true}"> 
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
           <mat-datepicker #picker2></mat-datepicker>
           </mat-form-field></td>
@@ -142,7 +155,7 @@
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Role Description</mat-label>
-          <textarea matInput placeholder="Role Description" [(ngModel)] = "enteredRole" [ngModelOptions]="{standalone: true}" > </textarea>
+          <textarea matInput placeholder="Role Description" (ngModel) = "enteredRole" [ngModelOptions]="{standalone: true}" > </textarea>
           </mat-form-field>
         </tr>
         </table>
@@ -282,8 +295,10 @@
     </mat-step>
   
   
-    <mat-step [stepControl]="thirdFormGroup">
-      <form [formGroup]="thirdFormGroup">
+    <!-- <mat-step [stepControl]="thirdFormGroup"> -->
+    <mat-step>
+      <!-- <form [formGroup]="thirdFormGroup"> -->
+      <form>
         <ng-template matStepLabel>Education</ng-template>
         <br>
         <br>
@@ -292,12 +307,14 @@
             <tr>
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>School Name</mat-label>
-          <input matInput placeholder="School Name" formControlName="thirdCtrl" [(ngModel)] = "enteredSchool">
+          <!-- <input matInput placeholder="School Name" formControlName="thirdCtrl" (ngModel) = "enteredSchool"> -->
+          <input matInput placeholder="School Name" (ngModel) = "enteredSchool" name="school">
           </mat-form-field></tr>
           <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Education level</mat-label>
-          <mat-select formControlName="thirdCtrl" [(ngModel)] = "enteredEducationlevel">
+          <!-- <mat-select formControlName="thirdCtrl" (ngModel) = "enteredEducationlevel"> -->
+          <mat-select (ngModel) = "enteredEducationlevel">
             <mat-option *ngFor="let Education of Educations" [value]="Education.value">
               {{Education.viewValue}}
             </mat-option>
@@ -308,7 +325,7 @@
           <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Start Date</mat-label>
-          <input matInput [matDatepicker]="picker3" [(ngModel)] = "enteredStartDate" [ngModelOptions]="{standalone: true}"> 
+          <input matInput [matDatepicker]="picker3" (ngModel) = "enteredStartDate" [ngModelOptions]="{standalone: true}"> 
           <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
           <mat-datepicker #picker3></mat-datepicker>
           </mat-form-field>
@@ -316,7 +333,7 @@
         <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>End Date (Actual or Expected)</mat-label>
-          <input matInput [matDatepicker]="picker4" [(ngModel)] = "enteredEndDate" [ngModelOptions]="{standalone: true}"> 
+          <input matInput [matDatepicker]="picker4" (ngModel) = "enteredEndDate" [ngModelOptions]="{standalone: true}"> 
           <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
           <mat-datepicker #picker4></mat-datepicker>
           </mat-form-field>
@@ -326,26 +343,28 @@
           <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Major</mat-label>
-          <input matInput placeholder="Major" formControlName="thirdCtrl" [(ngModel)] = "enteredMajor">
+          <!-- <input matInput placeholder="Major" formControlName="thirdCtrl" (ngModel) = "enteredMajor"> -->
+          <input matInput placeholder="Major" (ngModel) = "enteredMajor" name="majoy">
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Cumulative GPA</mat-label>
-          <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" [(ngModel)] = "enteredCumulativegpa">
+          <!-- <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" (ngModel) = "enteredCumulativegpa"> -->
+          <input matInput placeholder="Cumulative GPA"  (ngModel) = "enteredCumulativegpa" name="gpa">
           </mat-form-field>
         </td>
         </tr>
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Skills</mat-label>
-          <textarea matInput placeholder="Skills" [(ngModel)] = "enteredSkills" [ngModelOptions]="{standalone: true}"></textarea> 
+          <textarea matInput placeholder="Skills" (ngModel) = "enteredSkills" [ngModelOptions]="{standalone: true}"></textarea> 
           </mat-form-field>
         </tr>
         <tr>
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Accomplishments</mat-label>
-          <textarea matInput placeholder="Accomplishments" [(ngModel)] = "enteredAccomplishments" [ngModelOptions]="{standalone: true}"></textarea>
+          <textarea matInput placeholder="Accomplishments" (ngModel) = "enteredAccomplishments" [ngModelOptions]="{standalone: true}"></textarea>
           </mat-form-field>
         </tr>
         </table>
@@ -365,12 +384,14 @@
               <tr>
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>School Name</mat-label>
-            <input matInput placeholder="School Name" formControlName="thirdCtrl" required>
+            <!-- <input matInput placeholder="School Name" formControlName="thirdCtrl" required> -->
+            <input matInput placeholder="School Name"  required>
             </mat-form-field></tr>
             <tr>
             <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Education level</mat-label>
-            <mat-select formControlName="thirdCtrl" required>
+            <!-- <mat-select formControlName="thirdCtrl" required> -->
+            <mat-select required>
               <mat-option *ngFor="let Education of Educations" [value]="Education.value">
                 {{Education.viewValue}}
               </mat-option>
@@ -399,13 +420,15 @@
             <td>
             <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Major</mat-label>
-            <input matInput placeholder="Major" formControlName="thirdCtrl" required>
+            <!-- <input matInput placeholder="Major" formControlName="thirdCtrl" required> -->
+            <input matInput placeholder="Major"  required>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Cumulative GPA</mat-label>
-            <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" required>
+            <!-- <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" required> -->
+            <input matInput placeholder="Cumulative GPA" required>
             </mat-form-field>
           </td>
           </tr>
@@ -434,12 +457,14 @@
               <tr>
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>School Name</mat-label>
-            <input matInput placeholder="School Name" formControlName="thirdCtrl" required>
+            <!-- <input matInput placeholder="School Name" formControlName="thirdCtrl" required> -->
+            <input matInput placeholder="School Name"  required>
             </mat-form-field></tr>
             <tr>
             <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Education level</mat-label>
-            <mat-select formControlName="thirdCtrl" required>
+            <!-- <mat-select formControlName="thirdCtrl" required> -->
+            <mat-select required>
               <mat-option *ngFor="let Education of Educations" [value]="Education.value">
                 {{Education.viewValue}}
               </mat-option>
@@ -468,13 +493,15 @@
             <td>
             <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Major</mat-label>
-            <input matInput placeholder="Major" formControlName="thirdCtrl" required>
+            <!-- <input matInput placeholder="Major" formControlName="thirdCtrl" required> -->
+            <input matInput placeholder="Major"  required>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Cumulative GPA</mat-label>
-            <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" required>
+            <!-- <input matInput placeholder="Cumulative GPA" formControlName="thirdCtrl" required> -->
+            <input matInput placeholder="Cumulative GPA"  required>
             </mat-form-field>
           </td>
           </tr>
@@ -513,16 +540,19 @@
       </form>
     </mat-step>
   
-    <mat-step [stepControl]="fourthFormGroup">
-      <form [formGroup]="fourthFormGroup">
+    <!-- <mat-step [stepControl]="fourthFormGroup"> -->
+    <mat-step>
+      <!-- <form [formGroup]="fourthFormGroup"> -->
+      <form>
         <ng-template matStepLabel>Application Questions</ng-template>
         <br>
         <br>
         <div style = "height: 2000px" class="example-container">
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Do you now, or will you at any point in the future, require visa sponsorship in order to work in the U.S.? </mat-label>
-          <!-- <input matInput placeholder="Yes/No" formControlName="fourthCtrl" [(ngModel)] = "enteredSponserdhip"> -->
-          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredSponsership">
+          <!-- <input matInput placeholder="Yes/No" formControlName="fourthCtrl" (ngModel) = "enteredSponserdhip"> -->
+          <!-- <mat-select formControlName="fourthCtrl" required (ngModel) = "enteredSponsership"> -->
+          <mat-select required (ngModel) = "enteredSponsership" name="sponsorship">
             <mat-option *ngFor="let choice of choices" [value]="choice.value">
               {{choice.viewValue}}
             </mat-option>
@@ -549,8 +579,9 @@
   
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>I have carefully read the above Information Acknowledgement and I understand and agree to all of the statements.</mat-label>
-          <!--<input matInput placeholder="Yes/No" formControlName="fourthCtrl" required [(ngModel)] = "enteredAcknowledgment"> -->
-          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredAcknowledgment">
+          <!--<input matInput placeholder="Yes/No" formControlName="fourthCtrl" required (ngModel) = "enteredAcknowledgment"> -->
+          <!-- <mat-select formControlName="fourthCtrl" required (ngModel) = "enteredAcknowledgment"> -->
+          <mat-select  required (ngModel) = "enteredAcknowledgment" name="acknowledgement">
             <mat-option *ngFor="let choice of choices" [value]="choice.value">
               {{choice.viewValue}}
             </mat-option>
@@ -572,7 +603,8 @@
   
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Gender</mat-label>
-          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredGender">
+          <!-- <mat-select formControlName="fourthCtrl" required (ngModel) = "enteredGender"> -->
+          <mat-select required (ngModel) = "enteredGender" name="gender">
             <mat-option *ngFor="let gender of genders" [value]="gender.value">
               {{gender.viewValue}}
             </mat-option>
@@ -582,8 +614,9 @@
   
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Are you Hispanic/Latino?   </mat-label>
-          <!--<input matInput placeholder="Yes/No" formControlName="fourthCtrl" required [(ngModel)] = "enteredHispanic"> -->
-          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredHispanic">
+          <!--<input matInput placeholder="Yes/No" formControlName="fourthCtrl" required (ngModel) = "enteredHispanic"> -->
+          <!-- <mat-select formControlName="fourthCtrl" required (ngModel) = "enteredHispanic"> -->
+          <mat-select required (ngModel) = "enteredHispanic" name="hispanic">
             <mat-option *ngFor="let choice of choices" [value]="choice.value">
               {{choice.viewValue}}
             </mat-option>
@@ -615,7 +648,8 @@
   
           <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Veteran Status</mat-label>
-          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredVeteran">
+          <!-- <mat-select formControlName="fourthCtrl" required (ngModel) = "enteredVeteran"> -->
+          <mat-select  required (ngModel) = "enteredVeteran" name="veteran">
             <mat-option *ngFor="let veteran of veterans" [value]="veteran.value" >
               {{veteran.viewValue}}
             </mat-option>
@@ -663,7 +697,8 @@
   
             <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Disability Status</mat-label>
-          <mat-select formControlName="fourthCtrl" required [(ngModel)] = "enteredDiability"> 
+          <!-- <mat-select formControlName="fourthCtrl" required (ngModel) = "enteredDiability">  -->
+          <mat-select  required (ngModel) = "enteredDisability" name="disability"> 
             <mat-option *ngFor="let Disability of Disabilities" [value]="Disability.value">
               {{Disability.viewValue}}
             </mat-option>

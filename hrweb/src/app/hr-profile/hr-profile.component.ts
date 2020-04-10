@@ -15,9 +15,12 @@ export class HrProfileComponent implements OnInit {
   phone = "";
   title = "";
   company = "";
-  startDate = Date;
+  startDate = "";
   note = "";
   contacts = "";
+  showDate: Date;
+  filePath: "";
+  url: string;
 
   constructor(
     private http: HttpClient,
@@ -27,25 +30,49 @@ export class HrProfileComponent implements OnInit {
 
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
-    // console.log(this.hr_id);
     this.getHrInfo();
+    this.getImage();
   }
   
   //get default account default
-  getHrInfo(){
-      this.http
-        .get<{ message: string; account: Account }>(
-          "http://localhost:3000/hr-profile/" + this.hr_id)
-        .subscribe(AccountData => {
-          this.firstName = AccountData["firstName"];
-          this.lastName = AccountData["lastName"];
-          this.phone = AccountData["phone"];
-          this.title = AccountData["title"];
-          this.company = AccountData["company"];
-          this.startDate = AccountData["startDate"];
-          this.note = AccountData["note"];
-          this.contacts = AccountData["contacts"];
-        })
+  getHrInfo() {
+    // console.log("client side:", this.hr_id);
+    let req = {
+      hr_num: this.hr_id,
+    }
+    this.http
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/hr/get-profile", req)
+      .subscribe(AccountData => {
+        this.firstName = AccountData["firstName"];
+        this.lastName = AccountData["lastName"];
+        this.phone = AccountData["phone"];
+        this.title = AccountData["title"];
+        this.company = AccountData["company"];
+        this.startDate = AccountData["startDate"];
+        this.note = AccountData["note"];
+        this.contacts = AccountData["contacts"];
+      })
   }
+
+  getImage(){
+    console.log("get image");
+    let req = {
+      userInfo: this.hr_id,
+    }
+    this.http
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/images/get-pic", req)
+      .subscribe(AccountData => {
+        this.filePath = AccountData["img"];
+        console.log(" proflile path is : " + this.filePath);
+        // var path = '../../../';
+        // var reader = new FileReader();
+        // this.url = path + this.filePath;
+        // console.log(this.url);
+      })
+  }
+
+  
 
 }

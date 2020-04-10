@@ -1,14 +1,17 @@
 const express = require("express");
 var mongoose = require('mongoose');
 
+
 const job = require("../models/job");
 const hrProfile = require("../models/hr-profile");
 const canProfile = require("../models/cand-profile");
+
 
 const app = express.Router();
 
 //hr post job
 app.post("/create_job", function (req, res, next) {
+    // console.log("get job posted data: ", req.body);
     job.create(req.body, function (err, post) {
         if (err) return next(err);
         return res.json(post);
@@ -21,6 +24,40 @@ app.post("/posted_job", function (req, res, next) {
         if (err) return next(err);
         return res.json(post);
     });
+});
+
+//delete a posted job
+app.post("/delete_job", function (req, res, next) {
+    job.deleteOne({ job_id: req.body.job_id }, function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
+});
+
+//update a posted job
+app.post("/update_job", function (req, res, next) {
+    // console.log(req.body);
+    job.updateOne(
+        { job_id: req.body.job_id },
+        {   
+            hr_id : req.body.hr_id,
+            company: req.body.company,
+            title: req.body.title,
+            startDate: req.body.startDate,
+            expirationDate: req.body.expirationDate,
+            jobDescription: req.body.jobDescription,
+            industryType: req.body.industryType,
+            jobType: req.body.jobType,
+            location: req.body.location,
+            candidate: req.body.candidate
+        }, 
+        function (err, result) {
+            if (err) {
+                res.status(401).json({ message: "Not authorized!" });
+            } else {
+                res.status(200).json({ message: "Update successful!" });
+            }
+        });
 });
 
 //hr delete or update posted jobs
@@ -44,9 +81,9 @@ app.post("/check_candidate", function (req, res, next) {
 });
 
 //get defalut info
-app.get("/:id", (req, res, next) => {
-    // console.log(" server get id # is:", req.params.hr_id);
-    hrProfile.findOne({ hr_id: req.params.hr_id })
+app.post("/get-profile", (req, res, next) => {
+    // console.log(" server get id # is:", req.body);
+    hrProfile.findOne({ hr_num: req.body.hr_num })
         .then(account => {
             if (account) {
                 res.status(200).json(account);
@@ -57,9 +94,10 @@ app.get("/:id", (req, res, next) => {
 });
 
 //hr update profile
-app.post("/update/", function (req, res, next) {
+app.put("/update", function (req, res, next) {
+    // console.log("update hr profile: ", req.body);
     hrProfile.updateOne(
-        { hr_id : req.body.hr_id },
+        { hr_num: req.body.hr_id },
         {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -78,5 +116,6 @@ app.post("/update/", function (req, res, next) {
             }
         });
 });
+
 
 module.exports = app;

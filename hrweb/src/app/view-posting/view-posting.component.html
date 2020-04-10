@@ -1,6 +1,71 @@
-<header>
-  <mat-toolbar color=primary>
-    <span>My Job Postings</span>
+<div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
+  <mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
+      <span>
+        <h1>View Posted Jobs</h1>
+      </span>
+      <span class="example-spacer"></span>
+      <div style="position: absolute; right: 0;"> 
+        <button mat-button routerLink="/post-job"> Post Job </button>
+        <button mat-button routerLink="/hr-profile">My Profile</button>
+        <button mat-button routerLink="/view-applicants">Received Applications</button>
+        <button mat-button routerLink="/"> Sign out </button>
+      </div>
   </mat-toolbar>
-</header>
+</div>
 
+<!-- NAVBAR ENDS HERE -->
+
+<body>
+  <!-- <h1 style="font-size: 1.5em; margin-bottom: 1em">Posted Jobs</h1> -->
+  <p>Total Posted Job: {{count}}</p>
+<div >
+
+  <mat-accordion >
+    <mat-expansion-panel *ngFor= "let job of searchResault">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Job title : {{job.title}}
+        </mat-panel-title>
+        <!-- <mat-panel-description>
+          job id: {{job.job_id}}
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+      <div>
+        <p>Job ID: {{job.job_id}}</p>  
+        <p>Posted Date: {{job.startDate}}</p>  
+        <p>Expiration Date: {{job.expirationDate}}</p>  
+        <p>Job Type: {{job.jobType}}</p>  
+        <p>Industry: {{job.industryType}}</p>  
+        <p>Description: </p>
+        <p>{{job.description}}</p>
+      </div>
+      <button mat-button (click)="update(job)"> Update </button>
+      <button mat-button (click)="delete(job)"> Delete </button>
+      </mat-expansion-panel>
+
+     
+
+      <!-- <mat-form-field>
+        <mat-label>start date: {{job.startDate}}</mat-label>
+        <ul *ngFor= "let can of job.candidate">
+          <li>
+            candidate id: {{can.candidate_id}}
+          </li>
+          <li>
+            candidate rank: {{can.rank}}
+          </li>
+          <li>
+            candidate apply date: {{can.applyDate}}
+          </li>
+        </ul>
+      </mat-form-field> -->
+
+      <!-- <mat-form-field>
+        <mat-label>job description: {{job.jobDescription}}</mat-label>
+      </mat-form-field>
+    </mat-expansion-panel> -->
+
+  </mat-accordion>
+</div>
+
+</body>

@@ -13,19 +13,17 @@
       <button mat-menu-item routerLink="/cand-profile">Profile</button>
         <button mat-menu-item routerLink="/applications">Applications</button>
         <button mat-menu-item routerLink="/myfavjob">MyFav Jobs</button>
+        <button mat-menu-item routerLink="/">Logout</button>
       </mat-menu>
-
     </div>
   </mat-toolbar-row>
 
   <mat-toolbar-row style="padding: 0 5px;">
     <span><h2>Job Search</h2></span>
   </mat-toolbar-row>
-
 </mat-toolbar>
 
 </div>
-
 <form (submit)="searchJob(searchForm)" #searchForm="ngForm">
     <div class="example-container">
         <table class="example-full-width" cellspacing="0">
@@ -87,23 +85,25 @@
                     <th><span style="margin-left: 20px"></span>location</th>
                     <th><span style="margin-left: 20px"></span>Industry type</th>
                     <th><span style="margin-left: 20px"></span>Company</th>
-                   <!-- <th><span style="margin-left: 20px"></span>Job description</th> -->
+                    <th><span style="margin-left: 20px"></span>Expiration Date</th> 
                     <th><span style="margin-left: 20px"></span>View</th>
+                    <th><span style="margin-left: 20px"></span>Apply</th>
                 </tr>
             </thead>
             <tbody style="margin-left: 20px">
                 <tr *ngFor="let j of job">
-                    <td><span style="margin-left: 20px"></span>{{ j.jobTitle }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.title }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.jobType }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.location }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.industryType }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.company }}</td>
-                   <!-- <td><span style="margin-left: 20px"></span>{{ j.jobDescription }}</td> -->
-                    <!-- <div class="dialog"> -->
+                    <td><span style="margin-left: 20px"></span>{{ j.expirationDate }}</td> 
                     <td><span style="margin-left: 20px"></span>
                         <button mat-raised-button color="primary" (click)= "openDialog(j)">View</button>
                     </td>
-                <!-- </div>  -->
+                    <td><span style="margin-left: 20px"></span>
+                        <button mat-raised-button color="primary" routerLink="/jobappform"  (click)="applyJob(j)">Apply</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -327,39 +327,5 @@
 </div>
 <!-- ////// -->
 
-<div>
-    <hr>
 
-<h1 style="font-size: 20px; margin-top:15em;">this area is for create database</h1>
-
-<form (submit)="createPeople(createForm)" #createForm="ngForm">
-<mat-form-field>
-    <a>Job Title:</a>
-    <input matInput type="text" name="jobTitle" ngModel></mat-form-field>
-<span style="margin-left: 20px"></span>
-<mat-form-field>
-    <a>Job Type:</a>
-    <input matInput type="text" name="jobType" ngModel></mat-form-field>
-<span style="margin-left: 20px"></span>
-<mat-form-field>
-    <a>Location:</a>
-    <input matInput type="text" name="location" ngModel></mat-form-field>
-<span style="margin-left: 20px"></span>
-<mat-form-field>
-    <a>Industry Type:</a>
-    <input matInput type="text" name="industryType" ngModel></mat-form-field>
-<span style="margin-left: 20px"></span>
-<mat-form-field>
-    <a>Company:</a>
-    <input matInput type="text" name="company" ngModel></mat-form-field>
-<span style="margin-left: 20px"></span>
-<mat-form-field>
-    <a>Job Description:</a>
-    <input matInput type="text" name="jobDescription" ngModel></mat-form-field>
-<span style="margin-left: 20px"></span>
-
-<button mat-raised-button color="accent" type="submit">Save</button>
-<br>
-</form>
-</div>
 

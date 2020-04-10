@@ -1,3 +1,4 @@
+import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +45,9 @@ import { ViewApplicantsComponent } from './view-applicants/view-applicants.compo
 import { JobspagePopupComponent } from './jobspage/jobspage-popup/jobspage-popup.component';
 import { ApplicationsPopupComponent } from './applications/applications-popup/applications-popup.component';
 import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup.component';
+import { EditPopupComponent } from './view-posting/edit-popup/edit-popup.component';
+import { HrprofilePopupComponent } from './hr-form/hrprofile-popup/hrprofile-popup.component';
+import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-popup.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,10 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
     ViewApplicantsComponent,
     JobspagePopupComponent,
     ApplicationsPopupComponent,
-    MyfavjobPopupComponent
+    MyfavjobPopupComponent,
+    EditPopupComponent,
+    HrprofilePopupComponent,
+    CanFormPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +89,7 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
     AppRoutingModule,
     MatStepperModule,
     MatInputModule,
+    MatAutocompleteModule,
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
@@ -94,12 +102,17 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRippleModule
+    MatRippleModule,
   ],
   providers: [
     MatDatepickerModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [JobspagePopupComponent, ApplicationsPopupComponent, MyfavjobPopupComponent],
+  entryComponents: [JobspagePopupComponent, 
+                    ApplicationsPopupComponent, 
+                    MyfavjobPopupComponent,
+                    EditPopupComponent,
+                    HrprofilePopupComponent,
+                    CanFormPopupComponent],
 })
 export class AppModule { }

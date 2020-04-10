@@ -11,6 +11,9 @@ export class HomeComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  //to test the heart button
+  toggle = true;
+  status = 'Enable'; 
 
   constructor(private _formBuilder: FormBuilder) { }
 
@@ -22,5 +25,10 @@ export class HomeComponent implements OnInit {
       secondCtrl: ['', Validators.required]
     });
   }
+
+  enableDisableRule(job) {
+    this.toggle = !this.toggle;
+    this.status = this.toggle ? 'Enable' : 'Disable';
+}
 
 }

@@ -11,6 +11,7 @@ export class LoginService {
     private token: string;
     private tokenTimer: any;
     private userId: string;
+    private userEmail: string;
     private userRole: string;
     private authStatusListener = new Subject<boolean>();
 
@@ -56,7 +57,7 @@ export class LoginService {
                     console.log("token: " ,token);
                     this.saveAuthData(token, expirationDate, this.userId);
                     if(this.userRole == 'HR'){
-                        this.router.navigate(["/hr-profile"]);
+                        this.router.navigate(["/view-posting"]);
                     }
                     else if (this.userRole == 'Candidate'){
                         this.router.navigate(["/jobspage"]);
@@ -67,6 +68,10 @@ export class LoginService {
                 }
             });
     }
+
+    getUserEmail() {
+        return this.userEmail;
+    }     /// added by sharmi -- still under testing
 
     autoAuthUser() {
         const authInformation = this.getAuthData();

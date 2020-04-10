@@ -5,6 +5,8 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 
 import { JobspagePopupComponent } from './jobspage-popup/jobspage-popup.component';
+import { LoginService } from "../login/login.service";
+import { JobService } from "./job.service";
 
 interface josbtype {
   value: string;
@@ -129,15 +131,19 @@ export class JobspageComponent implements OnInit {
   industryType: any;
   job: any;
   jobDescription: any;
+  userId: string;
 
   constructor(
     private http: HttpClient,
+    private loginService: LoginService,
+    private jobService: JobService,
     public route: ActivatedRoute,
     public dialog: MatDialog
   ) { }
 
   ngOnInit() {
-   
+    this.userId = this.loginService.getUserId()
+    console.log("user_id is: " + this.userId)
   }
 
   searchJob(form: NgForm) {
@@ -156,14 +162,32 @@ export class JobspageComponent implements OnInit {
         console.log(this.job);
       });
 
-    console.log("need to finish this search function , mongoose query")
+    console.log("the search function will return the job_id, so you can use it in the application form submit");
+  }
+
+  applyJob(j){
+    this.jobService.setJobId(j.job_id);
+    this.jobService.setJobTitle(j.title);
+    this.jobService.setJobCompany(j.company);
+    this.jobService.setJobType(j.jobType);
+    this.jobService.setJobLocation(j.location);
+    this.jobService.setJobDescription(j.description);
+    this.jobService.setJobIndustryType(j.industryType);
+    this.jobService.setJobExpirationDate(j.expirationDate);
   }
 
   openDialog(j): void {
     const dialogRef = this.dialog.open(JobspagePopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.jobTitle, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
+      data: { jobTitle: j.title, 
+        company: j.company, 
+        jobType: j.jobType, 
+        location: j.location, 
+        industryType: j.industryType, 
+        jobDescription: j.jobDescription,
+        expirationDate: j.expirationDate
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -172,22 +196,6 @@ export class JobspageComponent implements OnInit {
   } 
 
   //need to be removed later -- just for data entry //
-
-  createPeople(form: NgForm){
-    let req = { 
-      jobTitle: this.enteredjobTitle, 
-      jobType: this.enteredjobType, 
-      location: this.enteredlocation, 
-      industryType: this.enteredindustryType,
-      company: this.enteredcompany, 
-      jobDescription: this.enteredjobDescription
-    };
-    this.http
-      .post("http://localhost:3000/searchjob/create", req)
-      .subscribe(response => {
-        console.log("book post successed: ", response);
-      });
-  }
 }
 
 

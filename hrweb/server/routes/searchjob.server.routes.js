@@ -1,7 +1,8 @@
 const express = require("express");
 var mongoose = require('mongoose');
 
-const searchjob = require("../models/searchjob");
+// const searchjob = require("../models/searchjob");
+const searchjob = require("../models/job");
 const app = express.Router();
 
 app.post("", function (req, res, next) {
@@ -132,12 +133,12 @@ app.post("", function (req, res, next) {
     
 
 });
-
+/*
 app.post("/create", function (req, res, next) {
     searchjob.create(req.body, function (err, post) {
         if (err) return next(err);
         return res.json(post);
     });
-});
+}); */
 
 module.exports = app;

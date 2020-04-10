@@ -4,28 +4,31 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+//import { isNumeric } from 'rxjs/util/isNumeric';
+import { LoginService } from "../../login/login.service";
+import { JobService } from "../../jobspage/job.service";
 
-interface Education {
+export interface Education {
   value: string;
   viewValue: string;
 }
 
-interface Choice {
+export interface Choice {
   value: string;
   viewValue: string;
 }
 
-interface Gender {
+export interface Gender {
   value: string;
   viewValue: string;
 }
 
-interface Veteran {
+export interface Veteran {
   value: string;
   viewValue: string;
 }
 
-interface Disability {
+export interface Disability {
   value: string;
   viewValue: string;
 }
@@ -38,7 +41,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-
 @Component({
   selector: 'app-jobapp-form-create',
   templateUrl: './jobapp-form-create.component.html',
@@ -47,8 +49,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
   }]
 })
-export class JobappFormCreateComponent implements OnInit {
 
+export class JobappFormCreateComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -130,32 +132,68 @@ export class JobappFormCreateComponent implements OnInit {
   enteredGender = "";
   enteredHispanic = "";
   enteredVeteran = "";
-  enteredDiability: "";
+  enteredDisability: "";
   @Output() jobappCreated = new EventEmitter();
- 
+
+  can_id = "";
+  //date = new FormControl(new Date());
+  can_email = "";
+  job_id = "";
+  job_title = "";
+  job_company = "";
+  job_type = "";
+  job_industryType= "";
+  job_description= "";
+  job_location= "";
+  job_expirationDate= "";
+  rank = 0;
+  gpa_check = 3;
+
   constructor(
     private _formBuilder: FormBuilder, 
     private http: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    private loginService: LoginService,
+    private jobService: JobService,
+    ) { }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ''
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
-    this.fourthFormGroup = this._formBuilder.group({
-      fourthCtrl: ['', Validators.required]
-    });
+    this.can_id = this.loginService.getUserId();
+    this.can_email  = this.loginService.getUserEmail(); // by sharmi for getting the user email --> still not working
+    this.job_id = this.jobService.getJobId();
+    this.job_title = this.jobService.getJobTitle();
+    this.job_company = this.jobService.getJobCompany();
+    this.job_type = this.jobService.getJobType();
+    this.job_industryType = this.jobService.getJobIndustryType();
+    this.job_description = this.jobService.getJobDescription();
+    this.job_location = this.jobService.getJobLocation();
+    this.job_expirationDate = this.jobService.getJobExpirationDate();
 
+    console.log("candidate email is: ", this.can_email);
+    console.log("job id is:", this.job_id);
+    console.log("title is:", this.job_title);
+    console.log("company is:" , this.job_company);
+    console.log("job type is:", this.job_type);
+    console.log("industry is:", this.job_industryType);
+    console.log("description is:" , this.job_description);
+    console.log("location is:" , this.job_location);
+    console.log("expirationDate is:" , this.job_expirationDate);
+
+   /* this.firstFormGroup = this._formBuilder.group({
+       firstCtrl: ['', Validators.required]
+     });
+     this.secondFormGroup = this._formBuilder.group({
+       secondCtrl: ''
+     });
+     this.thirdFormGroup = this._formBuilder.group({
+      thirdCtrl: ['', Validators.required]
+     });
+     this.fourthFormGroup = this._formBuilder.group({
+       fourthCtrl: ['', Validators.required]
+    }); */
   }
 
   onAddJobapp() {
-
     alert('Congratulation!, you have submitted your application successfully. View the submitted information below');
     const jobapp = {
       firstName: this.enteredFirstName,
@@ -198,19 +236,129 @@ export class JobappFormCreateComponent implements OnInit {
       gender: this.enteredGender,
       hispanic: this.enteredHispanic,
       veteran: this.enteredVeteran,
-      disability: this.enteredDiability
+      disability: this.enteredDisability
     };
-
     this.jobappCreated.emit(jobapp);
 
-    //console.log("test1 " + jobapp.firstName);
+    if(this.enteredJob == jobapp.job)
+    {
+      this.rank++;
+    }
+    if(this.enteredEducationlevel ==  "Bachelors")
+    {
+      this.rank++;
+    }
+    if(this.enteredEducationlevel ==  "Doctorate")
+    {
+      this.rank++;
+    }
+    if(this.enteredEducationlevel ==  "Masters")
+    {
+      this.rank++;
+    }
+/*
+   // this.enteredCumulativegpa = +this.enteredCumulativegpa
 
-    /*let req = {
-      firstname: jobapp.firstName,
-    }; */
+    if(this.gpa_check <= isNumeric(this.enteredCumulativegpa) )
+    {
+      this.rank++;
+    } 
+    */
+    if(this.enteredSkills == jobapp.skills)
+    {
+      this.rank++
+    }
+    if(this.enteredAccomplishments == jobapp.accomplishments)
+    {
+      this.rank++;
+    }
+    if(this.enteredSponsership == "No-1")
+    {
+      this.rank++;
+    }
+    if(this.enteredGender == "Female-1")
+    {
+      this.rank++;
+    }
+    if(this.enteredHispanic == "Yes-0")
+    {
+      this.rank++;
+    }
+    if(this.enteredVeteran == "Recently separated veteran-1")
+    {
+      this.rank++;
+    }
+    if(this.enteredVeteran == "Disabled veteran-2")
+    {
+      this.rank++;
+    }
+    if(this.enteredVeteran == "I am not a protected veteran-3")
+    {
+      this.rank++;
+    }
 
+    console.log("test1 " + jobapp.firstName);
+
+   /* let formreq {
+      candidate_id: this.can_id,
+      job_title: this.job_title,
+      job_company: this.job_company,
+      firstName: this.enteredFirstName,
+      lastName: this.enteredLastName,
+      telephone: this.enteredTelephone,
+      email: this.enteredEmail,
+      address: this.enteredAddress,
+      address2: this.enteredAddress2,
+      city: this.enteredCity,
+      state: this.enteredState,
+      zipcode: this.enteredZipcode,
+      job: this.enteredJob,
+      company: this.enteredCompany,
+      location: this.enteredLocation,
+      fromDate: this.enteredFromDate,
+      toDate: this.enteredToDate,
+      role: this.enteredRole,
+
+    }
+    console.log(formreq);
+     this.http
+       .post("http://localhost:3000/jobappform/apply", formreq)
+       .subscribe(response => {
+         console.log("res is :", response);
+       }); */
+
+    let reqs = {
+      candidate_id: this.can_id,
+      job_id: this.job_id,
+      job_title: this.job_title,
+      job_company: this.job_company,
+      job_type: this.job_type,
+      job_industryType: this.job_industryType,
+      job_description: this.job_company,
+      job_location: this.job_location,
+      job_expirationDate: this.job_expirationDate,
+    }; 
+    console.log(reqs);
+     this.http
+       .post("http://localhost:3000/jobappform/applied_job", reqs)
+       .subscribe(response => {
+         console.log("res is :", response);
+       });
+
+
+  //need to send the can info link with posted job
+  var today = new Date();
+  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  console.log("rank is: ", this.rank);
+  let can = {
+      candidate_id: this.can_id,
+      rank: this.rank,
+      applyDate: date
+   };
+    const req = { job_id: this.job_id, candidate: can };
+    console.log("req is:" , req);
     this.http
-      .post("http://localhost:3000/jobappform/apply", jobapp)
+      .post("http://localhost:3000/jobappform/job", req)
       .subscribe(response => {
         console.log("res is :", response);
       });
