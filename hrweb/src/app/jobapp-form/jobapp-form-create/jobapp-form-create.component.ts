@@ -314,6 +314,7 @@ export class JobappFormCreateComponent implements OnInit {
 
     let reqs = {
       candidate_id: this.can_id,
+      job_id: this.job_id,
       job_title: this.job_title,
       job_company: this.job_company,
       //firstname: jobapp.firstName,

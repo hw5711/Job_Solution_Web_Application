@@ -143,14 +143,15 @@ export class ApplicationsComponent implements OnInit {
 
   searchAppliedJob() {
     let req = {
-      user_id: this.userId,
+      candidate_id: this.userId,
     };
     this.http
       .post("http://localhost:3000/jobappform/apply/applied_job", req)
       .subscribe(postData => {
+
         this.appResult = postData;
-        console.log(this.appResult[0]);
-        console.log(this.appResult.length);
+        console.log("app history is:" ,this.appResult);
+        // console.log(this.appResult.length);
       });
   }
 

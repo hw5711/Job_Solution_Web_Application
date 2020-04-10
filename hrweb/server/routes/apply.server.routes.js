@@ -4,18 +4,20 @@ var mongoose = require('mongoose');
 const form = require("../models/form");
 const job = require("../models/job");
 const canProfile = require("../models/cand-profile");
+const appHistory = require("../models/app-history");
 
 const app = express.Router();
 
 //the req is empty
-app.post("/apply", (req, res, next) => {
+app.post("/apply/applied_job", (req, res, next) => {
      console.log("server test");
      console.log(req.body);
-     form.create(req.body, function (err, post) {
+
+    appHistory.find({candidate_id: req.body.candidate_id}, function (err, post) {
          if (err) return next(err);
          return res.json(post);
      });
-     });
+});
 
 //update job candidate info
 app.post("/job", (req, res, next) => {
@@ -31,10 +33,21 @@ app.post("/job", (req, res, next) => {
 
 
 app.post("/applied_job", function (req, res, next) {
-    form.find({ user_id: req.body.user_id}, function (err, post) {
-        if (err) return next(err);
-        return res.json(post);
+
+    const AppHistory = new appHistory({
+        candidate_id: req.body.candidate_id,
+        job_id: req.body.job_id,
+        job_title: req.body.job_title,
+        job_company: req.body.job_company,
     });
+
+    AppHistory.save()
+        .then(result => {
+            console.log(" hr account created with new user");
+        })
+        .catch(err => {
+            console.log("hr account created faild");
+        });
 });
 
 app.get("/:id", (req, res, next) => {

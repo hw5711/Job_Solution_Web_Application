@@ -130,7 +130,13 @@ export class CandidateFormComponent implements OnInit {
   }
 
   uploadBotton(){
-
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http
+      .post("http://localhost:3000/cand-profile/update-pic", fd)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
   }
 
 
