@@ -1,9 +1,11 @@
 const express = require("express");
 var mongoose = require('mongoose');
 
+
 const job = require("../models/job");
 const hrProfile = require("../models/hr-profile");
 const canProfile = require("../models/cand-profile");
+
 
 const app = express.Router();
 
@@ -114,5 +116,6 @@ app.put("/update", function (req, res, next) {
             }
         });
 });
+
 
 module.exports = app;

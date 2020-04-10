@@ -32,6 +32,8 @@ export class HrFormComponent implements OnInit {
 
   isLinear = false;
 
+  selectedFile: File = null;
+
   constructor(
     private http: HttpClient,
     public route: ActivatedRoute,
@@ -77,14 +79,13 @@ export class HrFormComponent implements OnInit {
         note: this.note,
         contacts: this.contacts
       };
-      // console.log(req);
+
       this.http
         .put("http://localhost:3000/hr/update/", req)
         .subscribe(response => {
           console.log("res is :", response);
         });
       this.openDialog();
-      // this.router.navigate(["/hr-profile"]);
     }
 
   openDialog(): void {
@@ -97,5 +98,23 @@ export class HrFormComponent implements OnInit {
     });
   } 
 
+
+  selectFile(event) {
+    this.selectedFile = <File>event.target.files[0];
+    // this.selectFile = <File>
+  }
+
+  uploadBotton() {
+    console.log("id is :", this.hr_id);
+    // let userInfo = this.hr_id;
+    const fd = new FormData();
+    fd.append('userImage', this.selectedFile, this.selectedFile.name);
+    console.log(fd);
+    this.http
+      .post("http://localhost:3000/images/update-pic" ,fd)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
+  }
 
 }

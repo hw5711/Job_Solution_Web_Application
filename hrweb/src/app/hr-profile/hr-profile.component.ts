@@ -19,6 +19,7 @@ export class HrProfileComponent implements OnInit {
   note = "";
   contacts = "";
   showDate: Date;
+  filePath: "";
 
   constructor(
     private http: HttpClient,
@@ -29,6 +30,7 @@ export class HrProfileComponent implements OnInit {
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
     this.getHrInfo();
+    this.getImage();
   }
   
   //get default account default
@@ -49,6 +51,20 @@ export class HrProfileComponent implements OnInit {
         this.startDate = AccountData["startDate"];
         this.note = AccountData["note"];
         this.contacts = AccountData["contacts"];
+      })
+  }
+
+  getImage(){
+    console.log("get image");
+    let req = {
+      userInfo: this.hr_id,
+    }
+    this.http
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/images/get-pic", req)
+      .subscribe(AccountData => {
+        console.log(" proflile name is(id): " + AccountData["userInfo"]);
+        this.filePath = AccountData["img"];
       })
   }
 
