@@ -34,23 +34,25 @@ const app = express.Router();
 
 //hr create image
 app.post("/update-pic", upload.single('userImage'), function (req, res, next) {
-    // console.log("hr id is:" + req.params.id);
-    // let num = req.param.id;
-    console.log(req.file);
-    // const image = new img({
-    //     img: req.file.path,
-    //     userInfo: num,
-    // });
+    // console.log(req.file);
+    // console.log(req.file.originalname);
+    const image = new img({
+        img: req.file.path,
+        userInfo: req.file.originalname,
+    });
 
-    // image.save(req.body, function (err, post) {
-    //     if (err) return next(err);
-    //     return res.json(post);
-    // });
+    image.save().then(result => {
+        console.log("account created with new user");
+    })
+        .catch(err => {
+            console.log("account created faild");
+        });
+                    
 });
 
 //hr get image
 app.post("/get-pic", (req, res, next) => {
-    console.log(req.body.userInfo);
+    // console.log(req.body.userInfo);
     img.findOne({ userInfo: req.body.userInfo })
         .then(account => {
             if (account) {

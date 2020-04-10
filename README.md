@@ -72,3 +72,5 @@
 24. npm install --save hammer.js  (updated on April 7th)
 
 25. npm install --save angular-hammer
+
+26. npm install --save multer
