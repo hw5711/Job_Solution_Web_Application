@@ -10,9 +10,8 @@ const app = express.Router();
 
 //the req is empty
 app.post("/apply/applied_job", (req, res, next) => {
-     console.log("server test");
-     console.log(req.body);
-
+    //  console.log("server test");
+    //  console.log(req.body);
     appHistory.find({candidate_id: req.body.candidate_id}, function (err, post) {
          if (err) return next(err);
          return res.json(post);
