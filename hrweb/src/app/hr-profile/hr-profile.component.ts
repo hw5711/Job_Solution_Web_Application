@@ -15,13 +15,12 @@ export class HrProfileComponent implements OnInit {
   phone = "";
   title = "";
   company = "";
-  startDate = Date;
+  startDate = "";
   note = "";
   contacts = "";
   showDate: Date;
   filePath: "";
   url: string;
-  url1:string;
 
   constructor(
     private http: HttpClient,
@@ -67,11 +66,10 @@ export class HrProfileComponent implements OnInit {
       .subscribe(AccountData => {
         this.filePath = AccountData["img"];
         console.log(" proflile path is : " + this.filePath);
+        // var path = '../../../';
         // var reader = new FileReader();
-        this.url1 = this.filePath + '.jpg';
-        this.url = 'uploads/huanwu.jpg';
-        console.log(this.url);
-        console.log(this.url1);
+        // this.url = path + this.filePath;
+        // console.log(this.url);
       })
   }
 
