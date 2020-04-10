@@ -27,55 +27,7 @@
 
 </div>
 
-  <form (submit)="searchJob(searchForm)" #searchForm="ngForm">
-    <div class="example-container">
-        <table class="example-full-width" cellspacing="0">
-          <tr >
-            <td>
-                <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Job Title</mat-label>
-                    <input matInput type="text" placeholder="Job Title/Keyword" name="keyword" [(ngModel)] = "enteredjobTitle" [ngModelOptions]="{standalone: true}">
-                </mat-form-field>
-                </td>
-    <td>
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Job Type</mat-label>
-            <mat-select [(ngModel)] = "enteredjobType" [ngModelOptions]="{standalone: true}">
-              <mat-option *ngFor="let jobtype of jobtypes" [value]="jobtype.value">
-                {{jobtype.viewValue}}
-              </mat-option>
-            </mat-select>
-            </mat-form-field>
-    </td>
-    <td>
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Location</mat-label>
-            <mat-select [(ngModel)] = "enteredlocation" [ngModelOptions]="{standalone: true}">
-              <mat-option *ngFor="let location of locations" [value]="location.value">
-                {{location.viewValue}}
-              </mat-option>
-            </mat-select>
-            </mat-form-field>
-    </td>
-    <td>
-    
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Industry</mat-label>
-            <mat-select [(ngModel)] = "enteredindustryType" [ngModelOptions]="{standalone: true}">
-              <mat-option *ngFor="let industry of industries" [value]="industry.value">
-                {{industry.viewValue}}
-              </mat-option>
-            </mat-select>
-            </mat-form-field>
-    </td>
-    <td>
-        <button mat-raised-button color="primary" type="submit">Search</button>
-    </td>
-    </tr>
-    </table>
-    </div>
-</form>
-
+  
  <br>
  <p> Only display the jobs which are listed as fav by this user</p>
 
