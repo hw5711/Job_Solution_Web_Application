@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
         cb(null, './uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, new Date().toISOString() + file.originalname);
+        cb(null, file.originalname + ".jpg");
     }
 });
 
@@ -42,10 +42,10 @@ app.post("/update-pic", upload.single('userImage'), function (req, res, next) {
     });
 
     image.save().then(result => {
-        console.log("account created with new user");
+        console.log("image created ");
     })
         .catch(err => {
-            console.log("account created faild");
+            console.log("image created faild");
         });
                     
 });
