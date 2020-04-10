@@ -42,6 +42,7 @@ app.post("/applied_job", function (req, res, next) {
         job_industryType: req.body.job_industryType,
         job_type: req.body.job_type,
         job_description: req.body.job_description,
+        job_expirationDate: req.body.job_expirationDate,
 
     });
 

@@ -9,6 +9,7 @@ var AppHistory = new mongoose.Schema({
     job_industryType: String,
     job_type: String,
     job_description: String,
+    job_expirationDate: String,
 });
 
 module.exports = mongoose.model('appHistory', AppHistory);

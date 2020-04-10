@@ -14,6 +14,7 @@ private job_type: string;
 private job_industryType: string;
 private job_description: string;
 private job_location: string;
+private job_expirationDate: string;
 
 constructor(private http: HttpClient, private router: Router) { }
 
@@ -23,6 +24,14 @@ getJobId(){
 
 setJobId(id) {
     this.job_id = id;
+}
+
+getJobExpirationDate(){
+    return this.job_expirationDate;
+}
+
+setJobExpirationDate(expirationDate) {
+    this.job_expirationDate = expirationDate;
 }
 
 getJobTitle(){

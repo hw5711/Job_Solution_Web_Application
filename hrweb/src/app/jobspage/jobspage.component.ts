@@ -173,13 +173,21 @@ export class JobspageComponent implements OnInit {
     this.jobService.setJobLocation(j.location);
     this.jobService.setJobDescription(j.description);
     this.jobService.setJobIndustryType(j.industryType);
+    this.jobService.setJobExpirationDate(j.expirationDate);
   }
 
   openDialog(j): void {
     const dialogRef = this.dialog.open(JobspagePopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.title, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
+      data: { jobTitle: j.title, 
+        company: j.company, 
+        jobType: j.jobType, 
+        location: j.location, 
+        industryType: j.industryType, 
+        jobDescription: j.jobDescription,
+        expirationDate: j.expirationDate
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

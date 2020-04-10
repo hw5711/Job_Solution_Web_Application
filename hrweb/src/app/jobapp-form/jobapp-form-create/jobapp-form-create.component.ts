@@ -145,6 +145,7 @@ export class JobappFormCreateComponent implements OnInit {
   job_industryType= "";
   job_description= "";
   job_location= "";
+  job_expirationDate= "";
   rank = 0;
   gpa_check = 3;
 
@@ -166,6 +167,7 @@ export class JobappFormCreateComponent implements OnInit {
     this.job_industryType = this.jobService.getJobIndustryType();
     this.job_description = this.jobService.getJobDescription();
     this.job_location = this.jobService.getJobLocation();
+    this.job_expirationDate = this.jobService.getJobExpirationDate();
 
     console.log("candidate email is: ", this.can_email);
     console.log("job id is:", this.job_id);
@@ -175,6 +177,7 @@ export class JobappFormCreateComponent implements OnInit {
     console.log("industry is:", this.job_industryType);
     console.log("description is:" , this.job_description);
     console.log("location is:" , this.job_location);
+    console.log("expirationDate is:" , this.job_expirationDate);
 
    /* this.firstFormGroup = this._formBuilder.group({
        firstCtrl: ['', Validators.required]
@@ -333,7 +336,7 @@ export class JobappFormCreateComponent implements OnInit {
       job_industryType: this.job_industryType,
       job_description: this.job_company,
       job_location: this.job_location,
-      //firstname: jobapp.firstName,
+      job_expirationDate: this.job_expirationDate,
     }; 
     console.log(reqs);
      this.http
