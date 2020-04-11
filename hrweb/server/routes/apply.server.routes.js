@@ -5,6 +5,7 @@ const form = require("../models/form");
 const job = require("../models/job");
 const canProfile = require("../models/cand-profile");
 const appHistory = require("../models/app-history");
+const jobFav = require("../models/job-fav");
 
 const app = express.Router();
 
@@ -47,6 +48,39 @@ app.post("/applied_job", function (req, res, next) {
     });
 
     AppHistory.save()
+        .then(result => {
+            console.log(" user history created with new user");
+        })
+        .catch(err => {
+            console.log("user history created faild");
+        });
+});
+
+app.post("/apply/fav_job", (req, res, next) => {
+    //  console.log("server test");
+    //  console.log(req.body);
+    jobFav.find({candidate_id: req.body.candidate_id}, function (err, post) {
+         if (err) return next(err);
+         return res.json(post);
+     });
+});
+
+app.post("/fav_job", function (req, res, next) {
+
+    const JobFav = new jobFav({
+        candidate_id: req.body.candidate_id,
+        job_id: req.body.job_id,
+        job_title: req.body.job_title,
+        job_company: req.body.job_company,
+        job_location: req.body.job_location,
+        job_industryType: req.body.job_industryType,
+        job_type: req.body.job_type,
+        job_description: req.body.job_description,
+        job_expirationDate: req.body.job_expirationDate,
+
+    });
+
+    JobFav.save()
         .then(result => {
             console.log(" user history created with new user");
         })

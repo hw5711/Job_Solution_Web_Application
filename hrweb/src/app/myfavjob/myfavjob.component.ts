@@ -27,6 +27,7 @@ export class MyfavjobComponent implements OnInit {
   job: any;
   jobDescription: any;
   userId: string;
+  favResult: any;
 
   constructor( private http: HttpClient,
     private loginService: LoginService,
@@ -36,13 +37,35 @@ export class MyfavjobComponent implements OnInit {
   ngOnInit() {
     this.userId = this.loginService.getUserId()
     console.log("user_id is: " + this.userId)
+    this.searchFavJob();
+  }
+
+  searchFavJob()
+  {
+    let req = {
+      candidate_id: this.userId,
+    };
+    this.http
+      .post("http://localhost:3000/jobappform/apply/fav_job", req)
+      .subscribe(postData => {
+
+        this.favResult = postData;
+        console.log("app history is:" ,this.favResult);
+        // console.log(this.appResult.length);
+      });
+
   }
   
   openDialog(j): void {
     const dialogRef = this.dialog.open(MyfavjobPopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.title, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription}
+      data: { jobTitle: j.title, 
+        company: j.company, 
+        jobType: j.jobType, 
+        location: j.location, 
+        industryType: j.industryType, 
+        jobDescription: j.jobDescription}
     });
 
     dialogRef.afterClosed().subscribe(result => {
