@@ -59,7 +59,7 @@ export class JobspagePopupComponent implements OnInit {
     this.job_description = this.jobService.getJobDescription();
     this.job_location = this.jobService.getJobLocation();
     this.job_expirationDate = this.jobService.getJobExpirationDate();
-
+/*
     console.log("candidate email is: ", this.can_email);
     console.log("job id is:", this.job_id);
     console.log("title is:", this.job_title);
@@ -68,7 +68,7 @@ export class JobspagePopupComponent implements OnInit {
     console.log("industry is:", this.job_industryType);
     console.log("description is:" , this.job_description);
     console.log("location is:" , this.job_location);
-    console.log("expirationDate is:" , this.job_expirationDate);
+    console.log("expirationDate is:" , this.job_expirationDate); */
     //this.userId = this.loginService.getUserId()
     //console.log("user_id is: " + this.userId)
   }
@@ -99,17 +99,6 @@ export class JobspagePopupComponent implements OnInit {
        .subscribe(response => {
          console.log("res is :", response);
        });
-  }
-
-  jobFav(j){
-    this.jobService.setJobId(j.job_id);
-    this.jobService.setJobTitle(j.title);
-    this.jobService.setJobCompany(j.company);
-    this.jobService.setJobType(j.jobType);
-    this.jobService.setJobLocation(j.location);
-    this.jobService.setJobDescription(j.description);
-    this.jobService.setJobIndustryType(j.industryType);
-    this.jobService.setJobExpirationDate(j.expirationDate);
   }
 
   enableDisableRule() {
