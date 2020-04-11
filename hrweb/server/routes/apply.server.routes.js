@@ -29,6 +29,7 @@ app.post("/job", (req, res, next) => {
         if (err) return next(err);
         return res.json(post);
     });
+
 });
 
 
@@ -56,10 +57,11 @@ app.post("/applied_job", function (req, res, next) {
         });
 });
 
+//search fav job 
 app.post("/apply/fav_job", (req, res, next) => {
     //  console.log("server test");
     //  console.log(req.body);
-    jobFav.find({candidate_id: req.body.candidate_id}, function (err, post) {
+    job.find({ job_id: req.body.job}, function (err, post) {
          if (err) return next(err);
          return res.json(post);
      });
@@ -70,23 +72,25 @@ app.post("/fav_job", function (req, res, next) {
     const JobFav = new jobFav({
         candidate_id: req.body.candidate_id,
         job_id: req.body.job_id,
-        job_title: req.body.job_title,
-        job_company: req.body.job_company,
-        job_location: req.body.job_location,
-        job_industryType: req.body.job_industryType,
-        job_type: req.body.job_type,
-        job_description: req.body.job_description,
-        job_expirationDate: req.body.job_expirationDate,
-
+        job_title: req.body.job_title
+        // job_title: req.body.job_title,
+        // job_company: req.body.job_company,
+        // job_location: req.body.job_location,
+        // job_industryType: req.body.job_industryType,
+        // job_type: req.body.job_type,
+        // job_description: req.body.job_description,
+        // job_expirationDate: req.body.job_expirationDate,
     });
 
-    JobFav.save()
-        .then(result => {
-            console.log(" user history created with new user");
-        })
-        .catch(err => {
-            console.log("user history created faild");
+        JobFav.updateOne({ can_id: req.body.can_id },
+            { $push: { job_id_array: req.body.job_id },
+               job_title: req.body.job_title },
+        function (err, post) {
+            if (err) return next(err);
+            return res.json(post);
         });
+
+
 });
 
 app.get("/:id", (req, res, next) => {

@@ -28,6 +28,7 @@ export class MyfavjobComponent implements OnInit {
   jobDescription: any;
   userId: string;
   favResult: any;
+  id_array: any;
 
   constructor( private http: HttpClient,
     private loginService: LoginService,
@@ -48,13 +49,31 @@ export class MyfavjobComponent implements OnInit {
     this.http
       .post("http://localhost:3000/jobappform/apply/fav_job", req)
       .subscribe(postData => {
-
+        this.id_array = postData;
         this.favResult = postData;
         console.log("app history is:" ,this.favResult);
         // console.log(this.appResult.length);
       });
+      
+      //view
+
 
   }
+
+  view(j){
+    
+    let req = {
+      job_id: j.job_id,
+    }
+    this.http
+      .post("http://localhost:3000/jobappform/apply/fav_job", req)
+      .subscribe(postData => {
+        this.job = postData;
+        console.log(this.job);
+      });
+  }
+
+
   
   openDialog(j): void {
     const dialogRef = this.dialog.open(MyfavjobPopupComponent, {

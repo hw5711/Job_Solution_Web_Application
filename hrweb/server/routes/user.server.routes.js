@@ -66,6 +66,7 @@ router.post("/register", (req, res, next) => {
                                 console.log("hr account created faild");
                             });
                     } else {
+
                         const canprofile = new canProfile({
                             can_num: this.userid,
                             fname: "",
@@ -81,6 +82,7 @@ router.post("/register", (req, res, next) => {
                             .catch(err => {
                                 console.log("hr account created faild");
                             });
+                            
                     }
 
                 })
