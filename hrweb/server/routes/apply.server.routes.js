@@ -59,6 +59,15 @@ app.post("/apply/fav_job", (req, res, next) => {
      });
 });
 
+//search fav job info
+app.post("/apply/fav_jobinfo", (req, res, next) => {
+    job.findOne({ job_id: req.body.job_id }, function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
+});
+
+
 //save fav job
 app.post("/fav_job", function (req, res, next) {
     jobFav.updateOne({ can: req.body.can_id },

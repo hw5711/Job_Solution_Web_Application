@@ -7,6 +7,10 @@ import { ActivatedRoute } from "@angular/router";
 import { MyfavjobPopupComponent } from './myfavjob-popup/myfavjob-popup.component';
 import { LoginService } from "../login/login.service";
 
+export interface DialogData {
+  job_title: string,
+  job_id: string,
+}
 
 @Component({
   selector: 'app-myfavjob',
@@ -75,18 +79,14 @@ export class MyfavjobComponent implements OnInit {
       });
   }
 
-
-  
   openDialog(j): void {
     const dialogRef = this.dialog.open(MyfavjobPopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.title, 
-        company: j.company, 
-        jobType: j.jobType, 
-        location: j.location, 
-        industryType: j.industryType, 
-        jobDescription: j.jobDescription}
+      data: { 
+        job_id: j.job_id, 
+        jobTitle: j.job_title, 
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

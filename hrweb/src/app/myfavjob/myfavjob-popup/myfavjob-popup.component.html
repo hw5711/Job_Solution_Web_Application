@@ -1,12 +1,20 @@
 <div mat-dialog-content>
-    <div (ngModel) = "data" >
-        <h3>{{data.jobTitle}}</h3>  
-        <p>{{data.company}}</p>
-        <p>{{data.jobType}}</p>
-        <p>{{data.location}}</p>
-        <p>{{data.industryType}}</p>
+    <div (ngModel) = "jobInfo" >
+        <h3>{{jobInfo.title}}</h3>  
+        <p>compmany</p>
+        <p>{{jobInfo.company}}</p>
+        <p>job type</p>
+        <p>{{jobInfo.jobType}}</p>
+        <p>expiration date</p>
+        <p>{{jobInfo.expirationDate}}</p>
+        <p>location</p>
+        <p>{{jobInfo.location}}</p>
+        <p>industry</p>
+        <p>{{jobInfo.industryType}}</p>
+        <p>hr info(if you want to apply, user this info) </p>
+        <p>{{jobInfo.hr_id}}</p>
         <p>Job Description</p>
-        <p>{{data.jobDescription}}</p>
+        <p>{{jobInfo.jobDescription}}</p>
     </div>
 </div>
 
