@@ -25,35 +25,35 @@
  <p> Only display the jobs which are listed as fav by this user</p>
 
  <h1 style="font-size: 15px">Search Result:</h1>
- <ul *ngFor =" let k of id_array">
+ <!-- <ul *ngFor =" let k of id_array">
      <li>{{k.job_title}}</li>
- </ul>
-<!-- 
+ </ul> -->
+
         <table class="table">
             <thead>
                 <tr>
                     <th><span style="margin-left: 20px"></span>Job Title</th>
-                    <th><span style="margin-left: 20px"></span>Job type</th>
-                    <th><span style="margin-left: 20px"></span>location</th>
+                    <th><span style="margin-left: 20px"></span>Job Id</th>
+                    <!-- <th><span style="margin-left: 20px"></span>location</th>
                     <th><span style="margin-left: 20px"></span>Industry type</th>
                     <th><span style="margin-left: 20px"></span>Company</th>
                     <th><span style="margin-left: 20px"></span>Job Expiration Date</th> 
                     <th><span style="margin-left: 20px"></span>Application Date</th>
-                    <th><span style="margin-left: 20px"></span>View</th>
+                    <th><span style="margin-left: 20px"></span>View</th> -->
                 </tr>
             </thead>
             <tbody style="margin-left: 20px">
-                <tr *ngFor="let j of favResult">
-                    <td><span style="margin-left: 20px"></span>{{ j.job_title }}</td>
-                    <td><span style="margin-left: 20px"></span>{{ j.job_type }}</td> 
-                    <td><span style="margin-left: 20px"></span>{{ j.job_location }}</td>
+                <tr *ngFor="let j of id_array">
+                    <td><span style="margin-left: 20px"></span>{{ j.job_title}}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.job_id }}</td> 
+                    <!-- <td><span style="margin-left: 20px"></span>{{ j.job_location }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.job_industryType }}</td> 
                     <td><span style="margin-left: 20px"></span>{{ j.job_company }}</td>
-                    <td><span style="margin-left: 20px"></span>{{ j.job_expirationDate }}</td>
+                    <td><span style="margin-left: 20px"></span>{{ j.job_expirationDate }}</td> -->
                     <td> <button mat-raised-button color="primary" (click)= "openDialog(j)">View</button></td>
                 </tr>
             </tbody>
-        </table> -->
+        </table>
 
 <p>Once the data is retrived properly, try to populate into the below HTML </p>
  
