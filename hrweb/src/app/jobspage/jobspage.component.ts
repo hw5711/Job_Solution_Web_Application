@@ -24,6 +24,7 @@ interface industry {
 }
 //If you have data passed from dialog
 export interface DialogData {
+  jobId: string,
   jobTitle: string,
   jobType: string,
   location: string,
@@ -166,7 +167,7 @@ export class JobspageComponent implements OnInit {
   }
 
   applyJob(j){
-    console.log("j: "+ j);
+    // console.log("j: "+ j);
     this.jobService.setJobId(j.job_id);
     this.jobService.setJobTitle(j.title);
     this.jobService.setJobCompany(j.company);
@@ -193,7 +194,9 @@ export class JobspageComponent implements OnInit {
     const dialogRef = this.dialog.open(JobspagePopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.title, 
+      data: { 
+        jobId: j.job_id,
+        jobTitle: j.title, 
         company: j.company, 
         jobType: j.jobType, 
         location: j.location, 

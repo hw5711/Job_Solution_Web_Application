@@ -7,6 +7,7 @@ import { LoginService } from "../../login/login.service";
 import { JobService } from "../job.service";
 
 export interface DialogData {
+  jobId: string,
   jobTitle: string,
   jobType: string,
   location: string,
@@ -51,26 +52,6 @@ export class JobspagePopupComponent implements OnInit {
     this.select = false;
     this.can_id = this.loginService.getUserId();
     this.can_email  = this.loginService.getUserEmail(); // by sharmi for getting the user email --> still not working
-    this.job_id = this.jobService.getJobId();
-    this.job_title = this.jobService.getJobTitle();
-    // this.job_company = this.jobService.getJobCompany();
-    // this.job_type = this.jobService.getJobType();
-    // this.job_industryType = this.jobService.getJobIndustryType();
-    // this.job_description = this.jobService.getJobDescription();
-    // this.job_location = this.jobService.getJobLocation();
-    // this.job_expirationDate = this.jobService.getJobExpirationDate();
-
-  //  console.log("candidate email is: ", this.can_email);
-    console.log("job id is:", this.job_id);
-  /*  console.log("title is:", this.job_title);
-    console.log("company is:" , this.job_company);
-    console.log("job type is:", this.job_type);
-    console.log("industry is:", this.job_industryType);
-    console.log("description is:" , this.job_description);
-    console.log("location is:" , this.job_location);
-    console.log("expirationDate is:" , this.job_expirationDate); */
-    //this.userId = this.loginService.getUserId()
-    //console.log("user_id is: " + this.userId)
   }
  
   onNoClick(): void {
@@ -82,12 +63,16 @@ export class JobspagePopupComponent implements OnInit {
     this.select = !this.select;
     this.enableDisableRule();
 
+    let arr = {
+      job_id: this.data.jobId,
+      job_title: this.data.jobTitle,
+    }
+
     let reqs = {
       can_id: this.can_id,
-      job_id: this.job_id,
-      job_title: this.jobService.getJobTitle()
+      job_id_array: arr,
     }; 
-    console.log("reqs: " + reqs);
+
      this.http
        .post("http://localhost:3000/jobappform/fav_job", reqs)
        .subscribe(response => {

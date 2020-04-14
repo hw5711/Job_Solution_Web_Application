@@ -11,8 +11,6 @@ const app = express.Router();
 
 //the req is empty
 app.post("/apply/applied_job", (req, res, next) => {
-    //  console.log("server test");
-    //  console.log(req.body);
     appHistory.find({candidate_id: req.body.candidate_id}, function (err, post) {
          if (err) return next(err);
          return res.json(post);
@@ -21,15 +19,12 @@ app.post("/apply/applied_job", (req, res, next) => {
 
 //update job candidate info
 app.post("/job", (req, res, next) => {
-    // console.log("server test");
-    // console.log(req.body);
     job.updateOne({job_id: req.body.job_id},
         { $push: {candidate: req.body.candidate}},
         function (err, post) {
         if (err) return next(err);
         return res.json(post);
     });
-
 });
 
 
@@ -45,7 +40,6 @@ app.post("/applied_job", function (req, res, next) {
         job_type: req.body.job_type,
         job_description: req.body.job_description,
         job_expirationDate: req.body.job_expirationDate,
-
     });
 
     AppHistory.save()
@@ -59,38 +53,20 @@ app.post("/applied_job", function (req, res, next) {
 
 //search fav job 
 app.post("/apply/fav_job", (req, res, next) => {
-    //  console.log("server test");
-    //  console.log(req.body);
-    job.find({ job_id: req.body.job}, function (err, post) {
+    jobFav.find({ can: req.body.can}, function (err, post) {
          if (err) return next(err);
          return res.json(post);
      });
 });
 
+//save fav job
 app.post("/fav_job", function (req, res, next) {
-
-    const JobFav = new jobFav({
-        candidate_id: req.body.candidate_id,
-        job_id: req.body.job_id,
-        job_title: req.body.job_title
-        // job_title: req.body.job_title,
-        // job_company: req.body.job_company,
-        // job_location: req.body.job_location,
-        // job_industryType: req.body.job_industryType,
-        // job_type: req.body.job_type,
-        // job_description: req.body.job_description,
-        // job_expirationDate: req.body.job_expirationDate,
-    });
-
-        JobFav.updateOne({ can_id: req.body.can_id },
-            { $push: { job_id_array: req.body.job_id },
-               job_title: req.body.job_title },
+    jobFav.updateOne({ can: req.body.can_id },
+            {$push: { job_id_array: req.body.job_id_array} },
         function (err, post) {
             if (err) return next(err);
             return res.json(post);
         });
-
-
 });
 
 app.get("/:id", (req, res, next) => {

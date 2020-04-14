@@ -29,6 +29,8 @@ export class MyfavjobComponent implements OnInit {
   userId: string;
   favResult: any;
   id_array: any;
+  searchResault: any;
+  jobTitles: [];
 
   constructor( private http: HttpClient,
     private loginService: LoginService,
@@ -37,22 +39,22 @@ export class MyfavjobComponent implements OnInit {
 
   ngOnInit() {
     this.userId = this.loginService.getUserId()
-    console.log("user_id is: " + this.userId)
+    // console.log("user_id is: " + this.userId)
     this.searchFavJob();
   }
 
   searchFavJob()
   {
     let req = {
-      candidate_id: this.userId,
+      can: this.userId,
     };
     this.http
       .post("http://localhost:3000/jobappform/apply/fav_job", req)
       .subscribe(postData => {
-        this.id_array = postData;
-        this.favResult = postData;
-        console.log("app history is:" ,this.favResult);
-        // console.log(this.appResult.length);
+        this.searchResault = postData;
+        this.id_array = this.searchResault[0].job_id_array;
+        // console.log(this.searchResault);
+        // console.log(this.id_array);
       });
       
       //view
