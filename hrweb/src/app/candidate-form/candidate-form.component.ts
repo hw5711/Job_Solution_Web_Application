@@ -58,6 +58,9 @@ export class CandidateFormComponent implements OnInit {
   enteredStartDate = "";
   enteredEndDate = "";
   enteredMajor = "";
+  enteredCertificate = "";
+  enteredCertificateFrom = "";
+  enteredExpirationDate = "";
   @Output() candidateCreated = new EventEmitter();
 
   selectedFile: File = null;
@@ -75,7 +78,7 @@ firstName = "";
   //group 3
   educationDate="";
   //group 4
-  date= ""; */
+  date= ""; 
 
   isLinear = false;
   firstFormGroup = new FormGroup({
@@ -94,7 +97,7 @@ firstName = "";
 
   forthFormGroup = new FormGroup({
     date: new FormControl('', Validators.minLength(40)),
-  });
+  }); */
 
 
   constructor(
@@ -107,7 +110,7 @@ firstName = "";
 
   ngOnInit() {
     this.can_id = this.loginService.getUserId();
-    this.getCanInfo();
+    //this.getCanInfo();
     // this.firstFormGroup = this._formBuilder.group({
     //   firstCtrl: ['', Validators.required]
     // });
@@ -121,7 +124,7 @@ firstName = "";
     //   forthCtrl: ['', Validators.required]
     // });
   }
-
+/*
   //get default 
   getCanInfo() {
     console.log("can id: ", this.can_id);
@@ -139,7 +142,7 @@ firstName = "";
     this.firstFormGroup.value.firstName = this.firstName;
     this.firstFormGroup.value.lastName = this.lastName;
     this.firstFormGroup.value.phone = this.phone;
-  }
+  } 
 
   //save update 
   SaveUpdate() {
@@ -157,6 +160,33 @@ firstName = "";
         console.log("res is :", response);
       });
     this.openDialog();
+  } */
+
+  onSaveUpdate()
+  {
+    const candidate = {
+      firstName: this.enteredFirstName,
+      lastName: this.enteredLastName,
+      telephone: this.enteredTelephone,
+      email: this.enteredEmail,
+      address: this.enteredAddress,
+      job: this.enteredJob,
+      company: this.enteredCompany,
+      location: this.enteredLocation,
+      fromDate: this.enteredFromDate,
+      toDate: this.enteredToDate,
+      role: this.enteredRole,
+      schoolname: this.enteredSchool,
+      educationlevel: this.enteredEducationlevel,
+      startdate: this.enteredStartDate,
+      enddate: this.enteredEndDate,
+      major: this.enteredMajor,
+      certificate: this.enteredCertificate,
+      certificatefrom: this.enteredCertificateFrom,
+      expirationDate: this.enteredExpirationDate
+    };
+    this.candidateCreated.emit(candidate);
+
   }
 
   openDialog(): void {
