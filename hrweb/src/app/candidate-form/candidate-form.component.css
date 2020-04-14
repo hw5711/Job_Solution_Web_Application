@@ -6,6 +6,10 @@
   flex: 1 1 auto;
 }
 
+.example-button button{
+  margin-top: 50px;
+  left:50%;
+}
 
 
 .mat-stepper-horizontal {

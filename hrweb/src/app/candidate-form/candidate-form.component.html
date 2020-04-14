@@ -35,184 +35,292 @@
 <input type="file" (change)="selectFile($event)">
 <br>
   <!-- put "required" in input-->
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+  <!-- <mat-step [stepControl]="firstFormGroup"> -->
+  <mat-step >
+      <!-- <form [formGroup]="firstFormGroup">   -->
+    <form >  
       <ng-template matStepLabel>Personal Information</ng-template>
 
       <mat-card>
         <table class="example-full-width" cellspacing="2">
           <tr>
             <td>
-              <mat-form-field class="example-full-width firstName">
+              <mat-form-field class="example-full-width firstName" appearance="outline">
                 <mat-label>First name</mat-label>
-                <input matInput formControlName="firstName" required [ngModel]= "firstName">
+                <!-- <input matInput formControlName="firstName" required [ngModel]= "firstName"> -->
+                <input matInput placeholder="First name" (ngModel) = "enteredFirstName" name="fName"> 
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Last Name</mat-label>
-
-                <input matInput formControlName="lastName" required [ngModel]= "lastName">
+<!--
+                <input matInput formControlName="lastName" required [ngModel]= "lastName"> -->
+                <input matInput placeholder="Last name"  (ngModel) = "enteredLastName" name="lName">
               </mat-form-field>
             </td>
           </tr>
         </table>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Telephone</mat-label>
           <span matPrefix>+1 &nbsp;</span>
-          <input type="tel" matInput placeholder="555-555-1234" formControlName="phone" required [ngModel]= "phone">
+      <!--    <input type="tel" matInput placeholder="555-555-1234" formControlName="phone" required [ngModel]= "phone"> -->
+          <input type="tel" matInput placeholder="555-555-1234" (ngModel) = "enteredTelephone" name="telephone">
         </mat-form-field>
 
-
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email"  (ngModel) = "enteredEmail" name="email">
+        </mat-form-field>
+<!--  
+        <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Address</mat-label>
           <input matInput placeholder="Address" required >
+          <input matInput placeholder="Address"  (ngModel) = "enteredAddress" name="address">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Phone</mat-label>
-          <input matInput placeholder="+1">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
+     <mat-form-field class="example-full-width">
           <mat-label>Title at Work</mat-label>
           <input matInput placeholder="Software Engineer">
-        </mat-form-field>
+        </mat-form-field>  -->
 
       </mat-card>
-      <div style="margin-left: 8em; margin-top: 1em">
+      <!--<div style="margin-left: 8em; margin-top: 1em">
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>-->
+      <br>
+      <div class = "example-button">
         <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
 
-  <mat-step [stepControl]="secondFormGroup" errorMessage="Missing required fields.">
-    <form [formGroup]="secondFormGroup">
+ <!-- <mat-step [stepControl]="secondFormGroup" errorMessage="Missing required fields."> -->
+    <mat-step>
+      <!-- <form [formGroup]="secondFormGroup"> -->
+      <form>
       <ng-template matStepLabel>Work Experience</ng-template>
       <mat-card>
         <table class="example-full-width" cellspacing="2">
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Job Title</mat-label>
-                <input matInput formControlName="jobTitle">
+                <!--<input matInput formControlName="jobTitle">-->
+                <input matInput placeholder="Job Title"  (ngModel) = "enteredJob" [ngModelOptions]="{standalone: true}"> 
               </mat-form-field>
             </td>
             <td>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Company</mat-label>
-                <input matInput formControlName="comanyExp">
+               <!-- <input matInput formControlName="comanyExp">-->
+                  <input matInput placeholder="Company"  (ngModel) = "enteredCompany" [ngModelOptions]="{standalone: true}"> 
               </mat-form-field>
             </td>
           </tr>
         </table>
         <p>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Location</mat-label>
-            <textarea matInput matInput formControlName="location"></textarea>
+           <!-- <textarea matInput matInput formControlName="location"></textarea> -->
+            <input matInput placeholder="Location" (ngModel) = "enteredLocation" [ngModelOptions]="{standalone: true}"> 
           </mat-form-field>
         </p>
 
         <table class="example-full-width" cellspacing="2">
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>From Date</mat-label>
-                <input matInput type="date">
+                <!--<input matInput type="date">-->
+                <input matInput [matDatepicker]="picker1" (ngModel)= "enteredFromDate" [ngModelOptions]="{standalone: true}"> 
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
               </mat-form-field>
             </td>
+
             <td>
-              <mat-form-field class="example-full-width">
+              <mat-checkbox >Currently, I work here</mat-checkbox>
+            </td>
+
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>To Date</mat-label>
-                <input matInput type="date">
+                <!--<input matInput type="date">-->
+                <input matInput [matDatepicker]="picker2" (ngModel) = "enteredToDate" [ngModelOptions]="{standalone: true}"> 
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
               </mat-form-field>
             </td>
           </tr>
         </table>
 
         <p>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Role Description</mat-label>
-            <textarea matInput></textarea>
+            <!--<textarea matInput></textarea>-->
+            <textarea matInput placeholder="Role Description" (ngModel) = "enteredRole" [ngModelOptions]="{standalone: true}" > </textarea>
           </mat-form-field>
         </p>
 
       </mat-card>
-      <div style="margin-left: 8em; margin-top: 1em">
-        <button mat-button matStepperPrevious>Back</button>
+ <!--<div style="margin-left: 8em; margin-top: 1em">
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
         <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>-->
+      <br>
+      <div class = "example-button">
+        <table style="margin-left:auto;margin-right:auto;">
+          <tr>
+            <td>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
+            <td>
+            <button mat-raised-button color="primary" matStepperNext>Next</button></td>
+          </tr>
+        </table>
       </div>
     </form>
   </mat-step>
 
 
 
-  <mat-step [stepControl]="thirdFormGroup" errorMessage="Missing required fields.">
-    <form [formGroup]="thirdFormGroup">
+  <!--<mat-step [stepControl]="thirdFormGroup" errorMessage="Missing required fields.">-->
+    <mat-step>
+      <!-- <form [formGroup]="thirdFormGroup"> -->
+      <form>
       <ng-template matStepLabel>Education</ng-template>
       <mat-card>
 
         <p>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>School Name</mat-label>
-            <textarea matInput></textarea>
+            <!--<textarea matInput></textarea>-->
+            <input matInput placeholder="School Name" (ngModel) = "enteredSchool" name="school">
           </mat-form-field>
         </p>
-        <p>
-          <mat-form-field class="example-full-width">
+        <table class="example-full-width" cellspacing="2">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Education level</mat-label>
+                <mat-select (ngModel) = "enteredEducationlevel">
+                  <mat-option *ngFor="let Education of Educations" [value]="Education.value">
+                    {{Education.viewValue}}
+                  </mat-option>
+                </mat-select>
+                </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Major</mat-label>
+                    <!-- <input matInput placeholder="Major" formControlName="thirdCtrl" (ngModel) = "enteredMajor"> -->
+                    <input matInput placeholder="Major" (ngModel) = "enteredMajor" name="majoy">
+                    </mat-form-field>
+                </td>
+                </tr>
+                </table>
+        <!--<p>
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>From</mat-label>
             <textarea matInput></textarea>
           </mat-form-field>
         </p>
 
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Date</mat-label>
           <input matInput formControlName="educationDate" type="date">
-        </mat-form-field>
+        </mat-form-field>-->
 
+        <table class="example-full-width" cellspacing="2">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="picker3" (ngModel) = "enteredStartDate" [ngModelOptions]="{standalone: true}"> 
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+                </mat-form-field>
+            </td>
 
+            <td>
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>End Date (Actual or Expected)</mat-label>
+                <input matInput [matDatepicker]="picker4" (ngModel) = "enteredEndDate" [ngModelOptions]="{standalone: true}"> 
+                <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                <mat-datepicker #picker4></mat-datepicker>
+                </mat-form-field>
+            </td>
+          </tr>
+        </table>
 
       </mat-card>
-      <div style="margin-left: 8em; margin-top: 1em">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+       <!--<div style="margin-left: 8em; margin-top: 1em">
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>-->
+      <br>
+      <div class = "example-button">
+        <table style="margin-left:auto;margin-right:auto;">
+          <tr>
+            <td>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
+            <td>
+            <button mat-raised-button color="primary" matStepperNext>Next</button></td>
+          </tr>
+        </table>
       </div>
     </form>
   </mat-step>
 
 
-  <mat-step [stepControl]="forthFormGroup" errorMessage="Missing required fields.">
-    <form [formGroup]="forthFormGroup">
+  <!--<mat-step [stepControl]="forthFormGroup" errorMessage="Missing required fields.">
+    <form [formGroup]="forthFormGroup">-->
+  <mat-step>     
+    <form>
       <ng-template matStepLabel>Certificates</ng-template>
       <mat-card>
 
         <p>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Certificate Name</mat-label>
-            <textarea matInput></textarea>
+            <!--<textarea matInput></textarea>-->
+            <input matInput placeholder="Certificate Name" (ngModel) = "enteredCertificate" name="certificate">
           </mat-form-field>
         </p>
         <p>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>From</mat-label>
-            <textarea matInput></textarea>
+            <!--<textarea matInput></textarea>-->
+            <input matInput placeholder="From" (ngModel) = "enteredCertificateFrom" name="from">
           </mat-form-field>
         </p>
 
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Date</mat-label>
-          <input matInput formControlName="date" type="date">
+        <mat-form-field class="example-full-width" appearance="outline"> 
+          <mat-label>Expiration Date</mat-label>
+          <!--<input matInput formControlName="date" type="date">-->
+          <input matInput [matDatepicker]="picker5" (ngModel) = "enteredExpirationDate" [ngModelOptions]="{standalone: true}"> 
+          <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+          <mat-datepicker #picker5></mat-datepicker>
         </mat-form-field>
 
-
-
       </mat-card>
-      <div style="margin-left: 8em; margin-top: 1em">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <!--<div style="margin-left: 8em; margin-top: 1em">
+        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>-->
+      <br>
+      <div class = "example-button">
+        <table style="margin-left:auto;margin-right:auto;">
+          <tr>
+            <td>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
+            <td>
+            <button mat-raised-button color="primary" matStepperNext>Next</button></td>
+          </tr>
+        </table>
       </div>
     </form>
   </mat-step>
@@ -220,11 +328,21 @@
 
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div style="margin-left: 8em; margin-top: 1em">
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperPrevious (click)="SaveUpdate()">Save</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+    <p>You are now done!</p>
+    <!--<div style="margin-left: 8em; margin-top: 1em">
+      <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+      <button mat-raised-button color="primary" (click)="SaveUpdate()">Save</button>
+    </div>-->
+    <br>
+    <div class = "example-button">
+      <table style="margin-left:auto;margin-right:auto;">
+        <tr>
+          <td>
+          <button mat-raised-button color="primary" matStepperPrevious>Back</button></td>
+          <td>
+          <button mat-raised-button color="primary" (click)="onAddJobapp()" >Submit</button></td>
+        </tr>
+      </table>
     </div>
   </mat-step>
 

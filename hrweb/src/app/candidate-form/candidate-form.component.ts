@@ -1,26 +1,70 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { HttpClient } from "@angular/common/http";
-import { ActivatedRoute } from "@angular/router";
-import { LoginService } from "../login/login.service";
+import { ActivatedRoute, Router} from "@angular/router";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { LoginService } from "../login/login.service";
 import { CanFormPopupComponent } from '../candidate-form/can-form-popup/can-form-popup.component';
 
+export interface Education {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-candidate-form',
   templateUrl: './candidate-form.component.html',
-  styleUrls: ['./candidate-form.component.css']
+  styleUrls: ['./candidate-form.component.css'],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
+  }]
 })
 
 export class CandidateFormComponent implements OnInit {
+
+  Educations: Education[] = [
+    {value: 'Some College-0', viewValue: 'Some College'},
+    {value: 'Juris Doctor-1', viewValue: 'Juris Doctor'},
+    {value: 'Professional Designation', viewValue:'Professional Designation'},
+    {value: 'Other', viewValue: 'Other'},
+    {value: 'Masters', viewValue:'Masters'},
+    {value: 'Honours Bachelors', viewValue:'Honours Bachelors'},
+    {value: 'High School Diploma', viewValue:'High School Diploma'},
+    {value: 'GED', viewValue:'GED'},
+    {value: 'Doctorate', viewValue:'Doctorate'},
+    {value: 'Diploma', viewValue:'Diploma'},
+    {value: 'Certificate', viewValue:'Certificate'},
+    {value: 'Bachelors', viewValue:'Bachelors'},
+    {value: 'Associates', viewValue:'Associates'}
+  ];
+
+
+  enteredFirstName = "";
+  enteredLastName = "";
+  enteredTelephone = "";
+  enteredEmail = "";
+  enteredAddress = "";
+  enteredJob = "";
+  enteredCompany = "";
+  enteredLocation = "";
+  enteredFromDate = "";
+  enteredToDate = "";
+  enteredRole = "";
+  enteredSchool = "";
+  enteredEducationlevel = "";
+  enteredStartDate = "";
+  enteredEndDate = "";
+  enteredMajor = "";
+  @Output() candidateCreated = new EventEmitter();
+
   selectedFile: File = null;
   can_id = "";
-  //group 1
-  firstName = "";
-  lastName = "";
+ /* //group 1
+firstName = "";
+  lastName = "  ";
   phone = "";
   company ="";
   //group 2
@@ -31,7 +75,7 @@ export class CandidateFormComponent implements OnInit {
   //group 3
   educationDate="";
   //group 4
-  date= "";
+  date= ""; */
 
   isLinear = false;
   firstFormGroup = new FormGroup({
