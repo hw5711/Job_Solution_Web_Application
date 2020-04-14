@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require('crypto');
 const hrProfile = require("../models/hr-profile");
 const canProfile = require("../models/cand-profile");
-
+const jobFav = require("../models/job-fav");
 
 require('dotenv').config();
 const nodemailer = require('nodemailer');
@@ -82,9 +82,19 @@ router.post("/register", (req, res, next) => {
                             .catch(err => {
                                 console.log("hr account created faild");
                             });
-                            
-                    }
 
+                        const JobFav = new jobFav({
+                            can: this.userid,
+                            job_id_array: []
+                        });
+
+                        JobFav.save().then(result => {
+                            // console.log(" job fav created with new user");
+                        })
+                        .catch(err => {
+                            // console.log("job fav created faild");
+                        });  
+                    }                          
                 })
                 .catch(err => {
                     res.status(500).json({

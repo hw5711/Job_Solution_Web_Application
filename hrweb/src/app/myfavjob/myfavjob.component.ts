@@ -7,6 +7,10 @@ import { ActivatedRoute } from "@angular/router";
 import { MyfavjobPopupComponent } from './myfavjob-popup/myfavjob-popup.component';
 import { LoginService } from "../login/login.service";
 
+export interface DialogData {
+  job_title: string,
+  job_id: string,
+}
 
 @Component({
   selector: 'app-myfavjob',
@@ -29,6 +33,8 @@ export class MyfavjobComponent implements OnInit {
   userId: string;
   favResult: any;
   id_array: any;
+  searchResault: any;
+  jobTitles: [];
 
   constructor( private http: HttpClient,
     private loginService: LoginService,
@@ -37,54 +43,33 @@ export class MyfavjobComponent implements OnInit {
 
   ngOnInit() {
     this.userId = this.loginService.getUserId()
-    console.log("user_id is: " + this.userId)
+    // console.log("user_id is: " + this.userId)
     this.searchFavJob();
   }
 
   searchFavJob()
   {
     let req = {
-      candidate_id: this.userId,
+      can: this.userId,
     };
     this.http
       .post("http://localhost:3000/jobappform/apply/fav_job", req)
       .subscribe(postData => {
-        this.id_array = postData;
-        this.favResult = postData;
-        console.log("app history is:" ,this.favResult);
-        // console.log(this.appResult.length);
-      });
-      
-      //view
-
-
-  }
-
-  view(j){
-    
-    let req = {
-      job_id: j.job_id,
-    }
-    this.http
-      .post("http://localhost:3000/jobappform/apply/fav_job", req)
-      .subscribe(postData => {
-        this.job = postData;
-        console.log(this.job);
+        this.searchResault = postData;
+        this.id_array = this.searchResault[0].job_id_array;
+        // console.log(this.searchResault);
+        // console.log(this.id_array);
       });
   }
 
-
-  
   openDialog(j): void {
     const dialogRef = this.dialog.open(MyfavjobPopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.title, 
-        company: j.company, 
-        jobType: j.jobType, 
-        location: j.location, 
-        industryType: j.industryType, 
-        jobDescription: j.jobDescription}
+      data: { 
+        job_id: j.job_id, 
+        jobTitle: j.job_title, 
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
