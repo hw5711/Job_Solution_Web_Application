@@ -60,23 +60,6 @@ export class MyfavjobComponent implements OnInit {
         // console.log(this.searchResault);
         // console.log(this.id_array);
       });
-      
-      //view
-
-
-  }
-
-  view(j){
-    
-    let req = {
-      job_id: j.job_id,
-    }
-    this.http
-      .post("http://localhost:3000/jobappform/apply/fav_job", req)
-      .subscribe(postData => {
-        this.job = postData;
-        console.log(this.job);
-      });
   }
 
   openDialog(j): void {
