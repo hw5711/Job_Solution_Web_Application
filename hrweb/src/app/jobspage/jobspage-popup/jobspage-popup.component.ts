@@ -52,7 +52,7 @@ export class JobspagePopupComponent implements OnInit {
     this.can_id = this.loginService.getUserId();
     this.can_email  = this.loginService.getUserEmail(); // by sharmi for getting the user email --> still not working
     this.job_id = this.jobService.getJobId();
-    // this.job_title = this.jobService.getJobTitle();
+    this.job_title = this.jobService.getJobTitle();
     // this.job_company = this.jobService.getJobCompany();
     // this.job_type = this.jobService.getJobType();
     // this.job_industryType = this.jobService.getJobIndustryType();
