@@ -209,7 +209,6 @@ export class JobspageComponent implements OnInit {
     });
   } 
 
-  //need to be removed later -- just for data entry //
 }
 
 

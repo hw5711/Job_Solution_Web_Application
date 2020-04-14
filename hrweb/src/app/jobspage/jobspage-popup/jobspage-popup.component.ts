@@ -59,10 +59,10 @@ export class JobspagePopupComponent implements OnInit {
     // this.job_description = this.jobService.getJobDescription();
     // this.job_location = this.jobService.getJobLocation();
     // this.job_expirationDate = this.jobService.getJobExpirationDate();
-/*
-    console.log("candidate email is: ", this.can_email);
+
+  //  console.log("candidate email is: ", this.can_email);
     console.log("job id is:", this.job_id);
-    console.log("title is:", this.job_title);
+  /*  console.log("title is:", this.job_title);
     console.log("company is:" , this.job_company);
     console.log("job type is:", this.job_type);
     console.log("industry is:", this.job_industryType);
