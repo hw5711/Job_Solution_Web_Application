@@ -162,7 +162,7 @@ export class CandidateFormComponent implements OnInit {
       this.openDialog();
     } */
 
-  onSaveUpdate() {
+  SaveUpdate() {
     const candidate = {
       can_num: this.can_id,
       firstName: this.enteredFirstName,
