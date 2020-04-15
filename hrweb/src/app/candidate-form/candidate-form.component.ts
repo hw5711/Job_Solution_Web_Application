@@ -138,9 +138,9 @@ firstName = "";
       .post<{ message: string; account: Account }>(
         "http://localhost:3000/cand-profile/get-profile", req)
       .subscribe(AccountData => {
-        this.firstName = AccountData["firstName"];
-        this.lastName = AccountData["lastName"];
-        this.telephone = AccountData["telephone"];
+        this.firstName = AccountData["fname"];
+        this.lastName = AccountData["lname"];
+        this.telephone = AccountData["phone"];
         this.email = AccountData["email"];
         this.job = AccountData["job"];
         this.company = AccountData["company"];
@@ -163,7 +163,7 @@ firstName = "";
   } 
 
   //save update 
-  SaveUpdate() {
+  onSaveUpdate() {
     const candidate = {
       can_num: this.can_id,
      // firstName: this.firstFormGroup.value.firstName,
@@ -173,7 +173,7 @@ firstName = "";
       lastName: this.lastName,
       telephone: this.telephone,
       email: this.email,
-      job: this.job,
+      job: this.job,  
       company: this.company,
       location: this.location,
       fromDate: this.fromDate,
