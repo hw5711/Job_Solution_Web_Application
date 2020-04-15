@@ -1,4 +1,4 @@
-  <!-- header starts -->
+<!-- header starts -->
 <!-- nav class="navbar navbar-expand-lg navbar-light bg-light">-->
 
 <div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
@@ -47,11 +47,53 @@
           <b>{{firstName}}</b>
           <span style="margin-left: 5px"></span>
           <b>{{lastName}}</b></h4>
-        <p>phone #: {{phone}}</p>
+        <p>phone #: {{telephone}}</p>
+        <p>email: {{email}}</p>
       </div>
     </div>
+    </div>
 
-</div>
+    <div style="margin-left:10%; margin-right:10%">
+      <div class="card border-primary mb-3" style="margin-top:20px">
+        <div class="card-body">
+          <h4 class="card-title"><b>Work:</b>
+            <br>
+            <b>{{job}}</b>
+            <span style="margin-left: 5px"></span>
+            <b>{{company}}</b></h4>
+          <p>{{location}}</p>
+          <p>{{role}}</p>
+        </div>
+      </div>
+      </div>
+
+      <div style="margin-left:10%; margin-right:10%">
+        <div class="card border-primary mb-3" style="margin-top:20px">
+          <div class="card-body">
+            <h4 class="card-title"><b>Education:</b>
+              <br>
+              <b>{{schoolname}}</b>
+              <span style="margin-left: 5px"></span>
+              <b>{{educationlevel}}</b></h4>
+              <p>{{startdate}} - {{enddate}}</p>
+            <p>{{major}}</p>
+          </div>
+        </div>
+      </div>
+
+        <div style="margin-left:10%; margin-right:10%">
+          <div class="card border-primary mb-3" style="margin-top:20px">
+            <div class="card-body">
+              <h4 class="card-title"><b>Certifications:</b>
+                <br>
+                <b>{{certificate}}</b>
+                <span style="margin-left: 5px"></span>
+                <b>{{certificatefrom}}</b></h4>
+              <p>{{expirationDate}}</p>
+            </div>
+          </div>
+
+        </div>
 
 
       <nav class="navbar bottom navbar-dark bg-dark">

@@ -14,9 +14,24 @@ export class CandProfileComponent implements OnInit {
   can_id = "";
   firstName = "";
   lastName = "";
-  phone = "";
-  note = "";
-  contacts = "";
+  telephone = "";
+  //note = "";
+  //contacts = "";
+  email = "";
+  job = "";
+  company = "";
+  location = "";
+  fromDate = "";
+  toDate = "";
+  role = "";
+  schoolname = "";
+  educationlevel = "";
+  startdate = "";
+  enddate = "";
+  major = "";
+  certificate = "";
+  certificatefrom = "";
+  expirationDate = "";
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -41,7 +56,22 @@ export class CandProfileComponent implements OnInit {
         // console.log("Candidate info", AccountData);
         this.firstName = AccountData["fname"];
         this.lastName = AccountData["lname"];
-        this.phone = AccountData["phone"];
+        this.telephone = AccountData["phone"];
+        this.email = AccountData["email"];
+        this.job = AccountData["job"];
+        this.company = AccountData["company"];
+        this.location = AccountData["location"];
+        this.fromDate = AccountData["fromDate"];
+        this.toDate = AccountData["toDate"];
+        this.role = AccountData["role"];
+        this.schoolname = AccountData["schoolname"];
+        this.educationlevel = AccountData["educationlevel"];
+        this.startdate = AccountData["startdate"];
+        this.enddate = AccountData["enddate"];
+        this.major = AccountData["major"];
+        this.certificate = AccountData["certificate"];
+        this.certificatefrom = AccountData["certificatefrom"];
+        this.expirationDate = AccountData["expirationDate"];
       })
   }
 
