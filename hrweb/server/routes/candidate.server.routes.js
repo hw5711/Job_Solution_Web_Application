@@ -46,15 +46,34 @@ app.post("/get-profile", (req, res, next) => {
         });
 });
 
-//hr update profile
+//candidate update profile
 app.post("/update", function (req, res, next) {
-    console.log("update hr profile: ", req.body);
+    console.log("update can profile: ", req.body);
     candidateprofile.updateOne(
         { can_num: req.body.can_num },
         {
             fname: req.body.firstName,
             lname: req.body.lastName,
-            phone: req.body.phone,
+            phone: req.body.telephone,
+            email : req.body.email,
+            address : req.body.address,
+
+            job: req.body.job,
+            company: req.body.company,
+            location: req.body.location,
+            fromDate: req.body.fromDate,
+            toDate: req.body.toDate,
+            role: req.body.role,
+
+            schoolname: req.body.schoolname,
+            educationlevel: req.body.educationlevel,
+            startdate: req.body.startdate,
+            enddate: Streq.body.enddate,
+            major: req.body.major,
+            certificate: req.body.certificate,
+            certificatefrom: req.body.certificatefrom,
+            expirationDate: req.body.expirationDate
+
         },
         function (err, result) {
             if (err) {

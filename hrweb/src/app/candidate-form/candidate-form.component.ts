@@ -165,17 +165,20 @@ firstName = "";
   onSaveUpdate()
   {
     const candidate = {
+      can_num:  this.can_id,
       firstName: this.enteredFirstName,
       lastName: this.enteredLastName,
       telephone: this.enteredTelephone,
       email: this.enteredEmail,
       address: this.enteredAddress,
+
       job: this.enteredJob,
       company: this.enteredCompany,
       location: this.enteredLocation,
       fromDate: this.enteredFromDate,
       toDate: this.enteredToDate,
       role: this.enteredRole,
+
       schoolname: this.enteredSchool,
       educationlevel: this.enteredEducationlevel,
       startdate: this.enteredStartDate,
@@ -185,7 +188,18 @@ firstName = "";
       certificatefrom: this.enteredCertificateFrom,
       expirationDate: this.enteredExpirationDate
     };
+
     this.candidateCreated.emit(candidate);
+
+    console.log("input candidate info: " + candidate);
+
+    this.http
+      .post("http://localhost:3000/cand-profile/update", candidate)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
+
+    this.openDialog();
 
   }
 
