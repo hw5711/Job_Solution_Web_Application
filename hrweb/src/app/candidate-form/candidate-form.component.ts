@@ -110,6 +110,7 @@ export class CandidateFormComponent implements OnInit {
 
   ngOnInit() {
     this.can_id = this.loginService.getUserId();
+    this.getCanInfo();
     //this.getCanInfo();
     // this.firstFormGroup = this._formBuilder.group({
     //   firstCtrl: ['', Validators.required]
@@ -224,6 +225,36 @@ export class CandidateFormComponent implements OnInit {
       .subscribe(response => {
         console.log("res is :", response);
       });
+  }
+
+  getCanInfo() {
+    let req = {
+      can_num: this.can_id,
+    }
+    this.http
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/cand-profile/get-profile", req)
+      .subscribe(AccountData => {
+        // console.log("Candidate info", AccountData);
+        this.enteredFirstName = AccountData["fname"];
+        this.enteredLastName = AccountData["lname"];
+        this.enteredTelephone = AccountData["phone"];
+        this.enteredEmail = AccountData["email"];
+        this.enteredJob = AccountData["job"];
+        this.enteredCompany = AccountData["company"];
+        this.enteredLocation = AccountData["location"];
+        this.enteredFromDate = AccountData["fromDate"];
+        this.enteredToDate = AccountData["toDate"];
+        this.enteredRole = AccountData["role"];
+        this.enteredSchool = AccountData["schoolname"];
+        this.enteredEducationlevel = AccountData["educationlevel"];
+        this.enteredStartDate = AccountData["startdate"];
+        this.enteredEndDate = AccountData["enddate"];
+        this.enteredMajor = AccountData["enteredMajor"];
+        this.enteredCertificate = AccountData["certificate"];
+        this.enteredCertificateFrom = AccountData["certificatefrom"];
+        this.enteredExpirationDate = AccountData["expirationDate"];
+      })
   }
 
 
