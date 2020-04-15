@@ -25,6 +25,9 @@ export interface Education {
 
 export class CandidateFormComponent implements OnInit {
 
+  date = new FormControl(new Date());
+  serializedDate = new FormControl((new Date()).toISOString());
+
   Educations: Education[] = [
     {value: 'Some College-0', viewValue: 'Some College'},
     {value: 'Juris Doctor-1', viewValue: 'Juris Doctor'},
@@ -41,30 +44,30 @@ export class CandidateFormComponent implements OnInit {
     {value: 'Associates', viewValue:'Associates'}
   ];
 
-
-  enteredFirstName = "";
-  enteredLastName = "";
-  enteredTelephone = "";
-  enteredEmail = "";
-  enteredAddress = "";
-  enteredJob = "";
-  enteredCompany = "";
-  enteredLocation = "";
-  enteredFromDate = "";
-  enteredToDate = "";
-  enteredRole = "";
-  enteredSchool = "";
-  enteredEducationlevel = "";
-  enteredStartDate = "";
-  enteredEndDate = "";
-  enteredMajor = "";
-  enteredCertificate = "";
-  enteredCertificateFrom = "";
-  enteredExpirationDate = "";
-  @Output() candidateCreated = new EventEmitter();
+  can_id = "";
+  firstName = "";
+  lastName = "";
+  telephone = "";
+  email = "";
+  job = "";
+  company = "";
+  location = "";
+  fromDate = "";
+  toDate = "";
+  role = "";
+  schoolname = "";
+  educationlevel = "";
+  startdate = "";
+  enddate = "";
+  major = "";
+  certificate = "";
+  certificatefrom = "";
+  expirationDate = "";
 
   selectedFile: File = null;
-  can_id = "";
+ 
+  isLinear = false;
+
  /* //group 1
 firstName = "";
   lastName = "  ";
@@ -80,7 +83,7 @@ firstName = "";
   //group 4
   date= ""; 
 
-  isLinear = false;
+  
   firstFormGroup = new FormGroup({
     firstName: new FormControl('', Validators.minLength(2)),
     lastName: new FormControl('', Validators.minLength(2)),
@@ -110,7 +113,7 @@ firstName = "";
 
   ngOnInit() {
     this.can_id = this.loginService.getUserId();
-    //this.getCanInfo();
+    this.getCanInfo();
     // this.firstFormGroup = this._formBuilder.group({
     //   firstCtrl: ['', Validators.required]
     // });
@@ -124,7 +127,7 @@ firstName = "";
     //   forthCtrl: ['', Validators.required]
     // });
   }
-/*
+
   //get default 
   getCanInfo() {
     console.log("can id: ", this.can_id);
@@ -135,22 +138,55 @@ firstName = "";
       .post<{ message: string; account: Account }>(
         "http://localhost:3000/cand-profile/get-profile", req)
       .subscribe(AccountData => {
-        this.firstName = AccountData["fname"];
-        this.lastName = AccountData["lname"];
-        this.phone = AccountData["phone"];
+        this.firstName = AccountData["firstName"];
+        this.lastName = AccountData["lastName"];
+        this.telephone = AccountData["telephone"];
+        this.email = AccountData["email"];
+        this.job = AccountData["job"];
+        this.company = AccountData["company"];
+        this.location = AccountData["location"];
+        this.fromDate = AccountData["fromDate"];
+        this.toDate = AccountData["toDate"];
+        this.role = AccountData["role"];
+        this.schoolname = AccountData["schoolname"];
+        this.educationlevel = AccountData["educationlevel"];
+        this.startdate = AccountData["startdate"];
+        this.enddate = AccountData["enddate"];
+        this.major = AccountData["major"];
+        this.certificate = AccountData["certificate"];
+        this.certificatefrom = AccountData["certificatefrom"];
+        this.expirationDate = AccountData["expirationDate"];
       })
-    this.firstFormGroup.value.firstName = this.firstName;
-    this.firstFormGroup.value.lastName = this.lastName;
-    this.firstFormGroup.value.phone = this.phone;
+  //  this.firstFormGroup.value.firstName = this.firstName;
+ //   this.firstFormGroup.value.lastName = this.lastName;
+   // this.firstFormGroup.value.phone = this.phone;
   } 
 
   //save update 
   SaveUpdate() {
     let req = {
       can_num: this.can_id,
-      firstName: this.firstFormGroup.value.firstName,
-      lastName: this.firstFormGroup.value.lastName,
-      phone: this.firstFormGroup.value.phone,
+     // firstName: this.firstFormGroup.value.firstName,
+      //lastName: this.firstFormGroup.value.lastName,
+     // phone: this.firstFormGroup.value.phone,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      telephone: this.telephone,
+      email: this.email,
+      job: this.job,
+      company: this.company,
+      location: this.location,
+      fromDate: this.fromDate,
+      toDate: this.toDate,
+      role: this.role,
+      schoolname: this.schoolname,
+      educationlevel: this.educationlevel,
+      startdate: this.startdate,
+      enddate: this.enddate,
+      major: this.major,
+      certificate: this.certificate,
+      certificatefrom: this.certificatefrom,
+      expirationDate: this.expirationDate
     };
 
     console.log("update content is: " , req);
@@ -160,34 +196,7 @@ firstName = "";
         console.log("res is :", response);
       });
     this.openDialog();
-  } */
-
-  onSaveUpdate()
-  {
-    const candidate = {
-      firstName: this.enteredFirstName,
-      lastName: this.enteredLastName,
-      telephone: this.enteredTelephone,
-      email: this.enteredEmail,
-      address: this.enteredAddress,
-      job: this.enteredJob,
-      company: this.enteredCompany,
-      location: this.enteredLocation,
-      fromDate: this.enteredFromDate,
-      toDate: this.enteredToDate,
-      role: this.enteredRole,
-      schoolname: this.enteredSchool,
-      educationlevel: this.enteredEducationlevel,
-      startdate: this.enteredStartDate,
-      enddate: this.enteredEndDate,
-      major: this.enteredMajor,
-      certificate: this.enteredCertificate,
-      certificatefrom: this.enteredCertificateFrom,
-      expirationDate: this.enteredExpirationDate
-    };
-    this.candidateCreated.emit(candidate);
-
-  }
+  } 
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CanFormPopupComponent, {
