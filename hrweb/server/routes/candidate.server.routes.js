@@ -72,7 +72,7 @@ app.post("/update", function (req, res, next) {
             schoolname: req.body.schoolname,
             educationlevel: req.body.educationlevel,
             startdate: req.body.startdate,
-            enddate: Streq.body.enddate,
+            enddate: req.body.enddate,
             major: req.body.major,
             certificate: req.body.certificate,
             certificatefrom: req.body.certificatefrom,
