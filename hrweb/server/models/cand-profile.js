@@ -2,30 +2,27 @@ var mongoose = require('mongoose');
 
 var CanPro = new mongoose.Schema({
     can_num: String,
-    firstName: String,
-    lastName: String,
-    telephone: String,
+    fname: String,
+    lname: String,
+    phone: String,
     email: String,
-    work_experience:[{
-        company: String,
-        job: String,
-        location: String,
-        fromDate: Date,
-        toDate: Date,
-        role: String,
-    }],
-    education:[{
-        schoolname: String,
-        educationlevel: String,
-        major: String,
-        startdate: Date,
-        enddate: Date,
-    }],
-    certificate:[{
-        certificate: String,
-        certificatefrom: String,
-        expirationDate: Date,
-    }]
+    address: String,
+
+    job: String,
+    company: String,
+    location: String,
+    fromDate: String,
+    toDate: String,
+    role: String,
+
+    schoolname: String,
+    educationlevel: String,
+    startdate: String,
+    enddate: String,
+    major: String,
+    certificate: String,
+    certificatefrom: String,
+    expirationDate: String
 });
 
 module.exports = mongoose.model('canProfile', CanPro);

@@ -56,24 +56,27 @@ app.post("/update", function (req, res, next) {
             //fname: req.body.firstName,
            // lname: req.body.lastName,
           //  phone: req.body.phone,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            telephone: req.body.telephone,
-            email: req.body.email,
+            fname: req.body.firstName,
+            lname: req.body.lastName,
+            phone: req.body.telephone,
+            email : req.body.email,
+            address : req.body.address,
+
             job: req.body.job,
             company: req.body.company,
             location: req.body.location,
             fromDate: req.body.fromDate,
             toDate: req.body.toDate,
             role: req.body.role,
+
             schoolname: req.body.schoolname,
             educationlevel: req.body.educationlevel,
             startdate: req.body.startdate,
-            enddate: req.body.enddate,
+            enddate: Streq.body.enddate,
             major: req.body.major,
             certificate: req.body.certificate,
             certificatefrom: req.body.certificatefrom,
-            expirationDate: req.body.expirationDate,
+            expirationDate: req.body.expirationDate
         },
         function (err, result) {
             if (err) {

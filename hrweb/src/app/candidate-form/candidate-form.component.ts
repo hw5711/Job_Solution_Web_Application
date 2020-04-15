@@ -164,7 +164,7 @@ firstName = "";
 
   //save update 
   SaveUpdate() {
-    let req = {
+    const candidate = {
       can_num: this.can_id,
      // firstName: this.firstFormGroup.value.firstName,
       //lastName: this.firstFormGroup.value.lastName,
@@ -189,13 +189,25 @@ firstName = "";
       expirationDate: this.expirationDate
     };
 
-    console.log("update content is: " , req);
+    /*console.log("update content is: " , req);
     this.http
       .post("http://localhost:3000/cand-profile/update", req)
       .subscribe(response => {
         console.log("res is :", response);
       });
+    this.openDialog(); */
+
+    console.log("input candidate info: " + candidate);
+
+    this.http
+      .post("http://localhost:3000/cand-profile/update", candidate)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
+
     this.openDialog();
+
+
   } 
 
   openDialog(): void {
