@@ -54,9 +54,9 @@ export class CandProfileComponent implements OnInit {
         "http://localhost:3000/cand-profile/get-profile" , req)
       .subscribe(AccountData => {
         // console.log("Candidate info", AccountData);
-        this.firstName = AccountData["firstName"];
-        this.lastName = AccountData["lastName"];
-        this.telephone = AccountData["telephone"];
+        this.firstName = AccountData["fname"];
+        this.lastName = AccountData["lname"];
+        this.telephone = AccountData["phone"];
         this.email = AccountData["email"];
         this.job = AccountData["job"];
         this.company = AccountData["company"];
