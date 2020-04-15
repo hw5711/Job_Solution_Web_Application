@@ -1,9 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormControl, FormGroupDirective, NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { HttpClient } from "@angular/common/http";
-import { ActivatedRoute, Router} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { LoginService } from "../login/login.service";
@@ -19,26 +19,26 @@ export interface Education {
   templateUrl: './candidate-form.component.html',
   styleUrls: ['./candidate-form.component.css'],
   providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true }
   }]
 })
 
 export class CandidateFormComponent implements OnInit {
 
   Educations: Education[] = [
-    {value: 'Some College-0', viewValue: 'Some College'},
-    {value: 'Juris Doctor-1', viewValue: 'Juris Doctor'},
-    {value: 'Professional Designation', viewValue:'Professional Designation'},
-    {value: 'Other', viewValue: 'Other'},
-    {value: 'Masters', viewValue:'Masters'},
-    {value: 'Honours Bachelors', viewValue:'Honours Bachelors'},
-    {value: 'High School Diploma', viewValue:'High School Diploma'},
-    {value: 'GED', viewValue:'GED'},
-    {value: 'Doctorate', viewValue:'Doctorate'},
-    {value: 'Diploma', viewValue:'Diploma'},
-    {value: 'Certificate', viewValue:'Certificate'},
-    {value: 'Bachelors', viewValue:'Bachelors'},
-    {value: 'Associates', viewValue:'Associates'}
+    { value: 'Some College-0', viewValue: 'Some College' },
+    { value: 'Juris Doctor-1', viewValue: 'Juris Doctor' },
+    { value: 'Professional Designation', viewValue: 'Professional Designation' },
+    { value: 'Other', viewValue: 'Other' },
+    { value: 'Masters', viewValue: 'Masters' },
+    { value: 'Honours Bachelors', viewValue: 'Honours Bachelors' },
+    { value: 'High School Diploma', viewValue: 'High School Diploma' },
+    { value: 'GED', viewValue: 'GED' },
+    { value: 'Doctorate', viewValue: 'Doctorate' },
+    { value: 'Diploma', viewValue: 'Diploma' },
+    { value: 'Certificate', viewValue: 'Certificate' },
+    { value: 'Bachelors', viewValue: 'Bachelors' },
+    { value: 'Associates', viewValue: 'Associates' }
   ];
 
 
@@ -65,39 +65,39 @@ export class CandidateFormComponent implements OnInit {
 
   selectedFile: File = null;
   can_id = "";
- /* //group 1
-firstName = "";
-  lastName = "  ";
-  phone = "";
-  company ="";
-  //group 2
-  starDate="";
-  jobTitle="";
-  comanyExp="";
-  location="";
-  //group 3
-  educationDate="";
-  //group 4
-  date= ""; 
-
-  isLinear = false;
-  firstFormGroup = new FormGroup({
-    firstName: new FormControl('', Validators.minLength(2)),
-    lastName: new FormControl('', Validators.minLength(2)),
-    phone: new FormControl('', Validators.minLength(10)),
-  });
-  secondFormGroup = new FormGroup({
-    jobTitle: new FormControl('', Validators.minLength(40)),
-    comanyExp: new FormControl('', Validators.minLength(40)),
-    location: new FormControl('', Validators.minLength(40)),
-  });
-  thirdFormGroup = new FormGroup({
-    educationDate: new FormControl('', Validators.minLength(40)),
-  });
-
-  forthFormGroup = new FormGroup({
-    date: new FormControl('', Validators.minLength(40)),
-  }); */
+  /* //group 1
+ firstName = "";
+   lastName = "  ";
+   phone = "";
+   company ="";
+   //group 2
+   starDate="";
+   jobTitle="";
+   comanyExp="";
+   location="";
+   //group 3
+   educationDate="";
+   //group 4
+   date= ""; 
+ 
+   isLinear = false;
+   firstFormGroup = new FormGroup({
+     firstName: new FormControl('', Validators.minLength(2)),
+     lastName: new FormControl('', Validators.minLength(2)),
+     phone: new FormControl('', Validators.minLength(10)),
+   });
+   secondFormGroup = new FormGroup({
+     jobTitle: new FormControl('', Validators.minLength(40)),
+     comanyExp: new FormControl('', Validators.minLength(40)),
+     location: new FormControl('', Validators.minLength(40)),
+   });
+   thirdFormGroup = new FormGroup({
+     educationDate: new FormControl('', Validators.minLength(40)),
+   });
+ 
+   forthFormGroup = new FormGroup({
+     date: new FormControl('', Validators.minLength(40)),
+   }); */
 
 
   constructor(
@@ -106,10 +106,11 @@ firstName = "";
     public route: ActivatedRoute,
     private loginService: LoginService,
     public dialog: MatDialog
-    ) {}
+  ) { }
 
   ngOnInit() {
     this.can_id = this.loginService.getUserId();
+    this.getCanInfo();
     //this.getCanInfo();
     // this.firstFormGroup = this._formBuilder.group({
     //   firstCtrl: ['', Validators.required]
@@ -124,48 +125,47 @@ firstName = "";
     //   forthCtrl: ['', Validators.required]
     // });
   }
-/*
-  //get default 
-  getCanInfo() {
-    console.log("can id: ", this.can_id);
-    let req = {
-      can_num: this.can_id,
-    }
-    this.http
-      .post<{ message: string; account: Account }>(
-        "http://localhost:3000/cand-profile/get-profile", req)
-      .subscribe(AccountData => {
-        this.firstName = AccountData["fname"];
-        this.lastName = AccountData["lname"];
-        this.phone = AccountData["phone"];
-      })
-    this.firstFormGroup.value.firstName = this.firstName;
-    this.firstFormGroup.value.lastName = this.lastName;
-    this.firstFormGroup.value.phone = this.phone;
-  } 
+  /*
+    //get default 
+    getCanInfo() {
+      console.log("can id: ", this.can_id);
+      let req = {
+        can_num: this.can_id,
+      }
+      this.http
+        .post<{ message: string; account: Account }>(
+          "http://localhost:3000/cand-profile/get-profile", req)
+        .subscribe(AccountData => {
+          this.firstName = AccountData["fname"];
+          this.lastName = AccountData["lname"];
+          this.phone = AccountData["phone"];
+        })
+      this.firstFormGroup.value.firstName = this.firstName;
+      this.firstFormGroup.value.lastName = this.lastName;
+      this.firstFormGroup.value.phone = this.phone;
+    } 
+  
+    //save update 
+    SaveUpdate() {
+      let req = {
+        can_num: this.can_id,
+        firstName: this.firstFormGroup.value.firstName,
+        lastName: this.firstFormGroup.value.lastName,
+        phone: this.firstFormGroup.value.phone,
+      };
+  
+      console.log("update content is: " , req);
+      this.http
+        .post("http://localhost:3000/cand-profile/update", req)
+        .subscribe(response => {
+          console.log("res is :", response);
+        });
+      this.openDialog();
+    } */
 
-  //save update 
   SaveUpdate() {
-    let req = {
-      can_num: this.can_id,
-      firstName: this.firstFormGroup.value.firstName,
-      lastName: this.firstFormGroup.value.lastName,
-      phone: this.firstFormGroup.value.phone,
-    };
-
-    console.log("update content is: " , req);
-    this.http
-      .post("http://localhost:3000/cand-profile/update", req)
-      .subscribe(response => {
-        console.log("res is :", response);
-      });
-    this.openDialog();
-  } */
-
-  onSaveUpdate()
-  {
     const candidate = {
-      can_num:  this.can_id,
+      can_num: this.can_id,
       firstName: this.enteredFirstName,
       lastName: this.enteredLastName,
       telephone: this.enteredTelephone,
@@ -211,13 +211,13 @@ firstName = "";
 
     dialogRef.afterClosed().subscribe(result => {
     });
-  } 
+  }
 
-  selectFile(event){
+  selectFile(event) {
     this.selectedFile = <File>event.target.files[0];
   }
 
-  uploadBotton(){
+  uploadBotton() {
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
     this.http
@@ -225,6 +225,36 @@ firstName = "";
       .subscribe(response => {
         console.log("res is :", response);
       });
+  }
+
+  getCanInfo() {
+    let req = {
+      can_num: this.can_id,
+    }
+    this.http
+      .post<{ message: string; account: Account }>(
+        "http://localhost:3000/cand-profile/get-profile", req)
+      .subscribe(AccountData => {
+        // console.log("Candidate info", AccountData);
+        this.enteredFirstName = AccountData["fname"];
+        this.enteredLastName = AccountData["lname"];
+        this.enteredTelephone = AccountData["phone"];
+        this.enteredEmail = AccountData["email"];
+        this.enteredJob = AccountData["job"];
+        this.enteredCompany = AccountData["company"];
+        this.enteredLocation = AccountData["location"];
+        this.enteredFromDate = AccountData["fromDate"];
+        this.enteredToDate = AccountData["toDate"];
+        this.enteredRole = AccountData["role"];
+        this.enteredSchool = AccountData["schoolname"];
+        this.enteredEducationlevel = AccountData["educationlevel"];
+        this.enteredStartDate = AccountData["startdate"];
+        this.enteredEndDate = AccountData["enddate"];
+        this.enteredMajor = AccountData["enteredMajor"];
+        this.enteredCertificate = AccountData["certificate"];
+        this.enteredCertificateFrom = AccountData["certificatefrom"];
+        this.enteredExpirationDate = AccountData["expirationDate"];
+      })
   }
 
 
