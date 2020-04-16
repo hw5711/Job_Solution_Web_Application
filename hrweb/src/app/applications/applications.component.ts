@@ -58,12 +58,13 @@ export class ApplicationsComponent implements OnInit {
       width: 'auto',
       height: 'auto',
       data: { jobTitle: j.title, 
-        company: j.company, 
-        jobType: j.jobType, 
-        location: j.location, 
-        industryType: j.industryType, 
-        jobDescription: j.jobDescription,
-        job_expirationDate: j.job_expirationDate,
+        job_id: j.job_id, 
+       // company: j.company, 
+       // jobType: j.jobType, 
+        //location: j.location, 
+        //industryType: j.industryType, 
+        //jobDescription: j.jobDescription,
+        //job_expirationDate: j.job_expirationDate,
       }
     });
 
