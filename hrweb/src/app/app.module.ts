@@ -21,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -105,6 +106,7 @@ import { ViewPopupComponent } from './view-applicants/view-popup/view-popup.comp
     MatDatepickerModule,
     MatNativeDateModule,
     MatRippleModule,
+    MatRadioModule
   ],
   providers: [
     MatDatepickerModule
