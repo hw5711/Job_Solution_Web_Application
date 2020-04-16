@@ -29,7 +29,8 @@ export interface DialogData {
   jobType: string,
   location: string,
   industryType: string,
-  company: string
+  company: string,
+  expirationDate: Date 
 }
 
 @Component({

@@ -34,28 +34,29 @@
                 <tr>
                     <th><span style="margin-left: 20px"></span>Job Title</th>
                     <th><span style="margin-left: 20px"></span>Job Id</th>
-                    <!-- <th><span style="margin-left: 20px"></span>location</th>
-                    <th><span style="margin-left: 20px"></span>Industry type</th>
+                    <th><span style="margin-left: 20px"></span>Job Type</th>
+                    <th><span style="margin-left: 20px"></span>location</th>
                     <th><span style="margin-left: 20px"></span>Company</th>
                     <th><span style="margin-left: 20px"></span>Job Expiration Date</th> 
-                    <th><span style="margin-left: 20px"></span>Application Date</th>
-                    <th><span style="margin-left: 20px"></span>View</th> -->
+                    <th><span style="margin-left: 20px"></span>View</th> 
+                    <th><span style="margin-left: 20px"></span>Apply</th> 
                 </tr>
             </thead>
             <tbody style="margin-left: 20px">
                 <tr *ngFor="let j of id_array">
                     <td><span style="margin-left: 20px"></span>{{ j.job_title}}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.job_id }}</td> 
-                    <!-- <td><span style="margin-left: 20px"></span>{{ j.job_location }}</td>
-                    <td><span style="margin-left: 20px"></span>{{ j.job_industryType }}</td> 
+                    <td><span style="margin-left: 20px"></span>{{ j.job_type }}</td> 
+                    <td><span style="margin-left: 20px"></span>{{ j.job_location }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.job_company }}</td>
-                    <td><span style="margin-left: 20px"></span>{{ j.job_expirationDate }}</td> -->
+                    <td><span style="margin-left: 20px"></span>{{ j.job_expirationDate }}</td>
                     <td> <button mat-raised-button color="primary" (click)= "openDialog(j)">View</button></td>
+                    <td> <button mat-raised-button color="primary" routerLink="/jobappform"  (click)="applyJob(j)">Apply</button></td>
                 </tr>
             </tbody>
         </table>
 
-<p>Once the data is retrived properly, try to populate into the below HTML </p>
+<p>Once the data is retrived properly, try to populate into the below HTML --- </p>
  
 
 

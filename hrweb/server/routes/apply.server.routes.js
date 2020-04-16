@@ -51,6 +51,14 @@ app.post("/applied_job", function (req, res, next) {
         });
 });
 
+//search applied job info 
+app.post("/apply/applied_jobinfo", (req, res, next) => {
+    job.findOne({ job_id: req.body.job_id }, function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
+});
+
 //search fav job 
 app.post("/apply/fav_job", (req, res, next) => {
     jobFav.find({ can: req.body.can}, function (err, post) {
