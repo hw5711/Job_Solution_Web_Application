@@ -327,6 +327,9 @@ export class JobappFormCreateComponent implements OnInit {
          console.log("res is :", response);
        }); */
 
+    var today = new Date(); //sharmi
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(); //sharmi
+
     let reqs = {
       candidate_id: this.can_id,
       job_id: this.job_id,
@@ -337,6 +340,7 @@ export class JobappFormCreateComponent implements OnInit {
       job_description: this.job_company,
       job_location: this.job_location,
       job_expirationDate: this.job_expirationDate,
+      applyDate: date 
     }; 
     console.log(reqs);
      this.http
@@ -347,8 +351,8 @@ export class JobappFormCreateComponent implements OnInit {
 
 
   //need to send the can info link with posted job
-  var today = new Date();
-  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+ // var today = new Date();
+ // var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   console.log("rank is: ", this.rank);
   let can = {
       candidate_id: this.can_id,
