@@ -6,12 +6,13 @@ const job = require("../models/job");
 const canProfile = require("../models/cand-profile");
 const appHistory = require("../models/app-history");
 const jobFav = require("../models/job-fav");
+const ApplicationForm = require("../models/application");
 
 const app = express.Router();
 
 //the req is empty
-app.post("/apply/applied_job", (req, res, next) => {
-    appHistory.find({candidate_id: req.body.candidate_id}, function (err, post) {
+app.post("/apply/application", (req, res, next) => {
+    ApplicationForm.find({candidate_num: req.body.candidate_num}, function (err, post) {
          if (err) return next(err);
          return res.json(post);
      });

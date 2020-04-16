@@ -297,36 +297,47 @@ export class JobappFormCreateComponent implements OnInit {
       this.rank++;
     }
 
-    console.log("test1 " + jobapp.firstName);
-
-   /* let formreq {
-      candidate_id: this.can_id,
-      job_title: this.job_title,
-      job_company: this.job_company,
-      firstName: this.enteredFirstName,
-      lastName: this.enteredLastName,
-      telephone: this.enteredTelephone,
-      email: this.enteredEmail,
-      address: this.enteredAddress,
-      address2: this.enteredAddress2,
-      city: this.enteredCity,
-      state: this.enteredState,
-      zipcode: this.enteredZipcode,
-      job: this.enteredJob,
-      company: this.enteredCompany,
-      location: this.enteredLocation,
-      fromDate: this.enteredFromDate,
-      toDate: this.enteredToDate,
-      role: this.enteredRole,
-
+    //update application that hr can view application form
+    let req1 ={
+      candidate_num: this.can_id,
+      job_num: this.job_id,
+      firstName: jobapp.firstName,
+      lastName: jobapp.lastName,
+      telephone: jobapp.telephone,
+      email: jobapp.email,
+      address: jobapp.address,
+      address2: jobapp.address2,
+      city: jobapp.city,
+      state: jobapp.state,
+      zipcode: jobapp.zipcode,
+      job: jobapp.job,
+      company: jobapp.company,
+      location: jobapp.location,
+      fromDate: jobapp.fromDate,
+      toDate: jobapp.toDate,
+      role: jobapp.role,
+      schoolname: jobapp.schoolname,
+      educationlevel: jobapp.educationlevel,
+      startdate: jobapp.startdate,
+      enddate: jobapp.enddate,
+      major: jobapp.major,
+      cumulativegpa: jobapp.cumulativegpa,
+      skills: jobapp.skills,
+      accomplishments: jobapp.accomplishments,
+      sponsership: jobapp.sponsership,
+      acknowledgment: jobapp.acknowledgment,
+      gender: jobapp.gender,
+      hispanic: jobapp.hispanic,
+      veteran: jobapp.veteran,
+      disability: jobapp.disability
     }
-    console.log(formreq);
-     this.http
-       .post("http://localhost:3000/jobappform/apply", formreq)
-       .subscribe(response => {
-         console.log("res is :", response);
-       }); */
+    this.http
+      .post("http://localhost:3000/jobappform/apply/application", req1)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
 
+      // to save as job apply history
     let reqs = {
       candidate_id: this.can_id,
       job_id: this.job_id,
@@ -346,7 +357,7 @@ export class JobappFormCreateComponent implements OnInit {
        });
 
 
-  //need to send the can info link with posted job
+  //notify the hr that new candidate info
   var today = new Date();
   var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   console.log("rank is: ", this.rank);

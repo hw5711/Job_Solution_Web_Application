@@ -1,0 +1,20 @@
+<p>view-popup works!</p>
+
+<div>
+<div>
+    <p>firstName: {{data.firstName}}</p>
+    <p>lastName: {{data.lastName}}</p>
+    <p>telephone: {{data.telephone}}</p>
+    <p>email: {{data.email}}</p>
+    <p>job: {{data.job}}</p>
+
+<mat-radio-group class="example-radio-group" [(ngModel)]="selectedChoice" (click)="select = true">
+    <mat-radio-button class="example-radio-button" *ngFor="let choice of choices" [value]="choice"
+    style="margin-left: 30px">
+    {{choice}}
+    </mat-radio-button>
+</mat-radio-group>
+
+    </div>
+
+</div>

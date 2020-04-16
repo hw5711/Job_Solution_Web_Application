@@ -48,6 +48,7 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
 import { EditPopupComponent } from './view-posting/edit-popup/edit-popup.component';
 import { HrprofilePopupComponent } from './hr-form/hrprofile-popup/hrprofile-popup.component';
 import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-popup.component';
+import { ViewPopupComponent } from './view-applicants/view-popup/view-popup.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-
     MyfavjobPopupComponent,
     EditPopupComponent,
     HrprofilePopupComponent,
-    CanFormPopupComponent
+    CanFormPopupComponent,
+    ViewPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -113,6 +115,7 @@ import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-
                     MyfavjobPopupComponent,
                     EditPopupComponent,
                     HrprofilePopupComponent,
-                    CanFormPopupComponent],
+                    CanFormPopupComponent,
+                    ViewPopupComponent],
 })
 export class AppModule { }
