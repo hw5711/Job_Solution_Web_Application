@@ -62,8 +62,12 @@ export class MyfavjobComponent implements OnInit {
         // console.log(this.searchResault);
         // console.log(this.id_array);
       });
+
+      console.log("id: " + this.id_array);
   }
 
+  
+//sharmi test
   applyJob(j){
     // console.log("j: "+ j);
     this.jobService.setJobId(j.job_id);
@@ -74,7 +78,7 @@ export class MyfavjobComponent implements OnInit {
     this.jobService.setJobDescription(j.description);
     this.jobService.setJobIndustryType(j.industryType);
     this.jobService.setJobExpirationDate(j.expirationDate);
-  } // sharmi test
+  } //sharmi
 
   openDialog(j): void {
     const dialogRef = this.dialog.open(MyfavjobPopupComponent, {

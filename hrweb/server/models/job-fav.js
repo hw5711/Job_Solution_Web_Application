@@ -5,6 +5,10 @@ var JobFav = new mongoose.Schema({
     job_id_array:[
         {   job_id: String,
             job_title: String,
+            job_type: String, 
+            job_location: String, 
+            job_company: String, 
+            job_expirationDate: Date, 
         }
     ]
 });

@@ -13,7 +13,8 @@ export interface DialogData {
   location: string,
   industryType: string,
   company: string,
-  jobDescription: string
+  jobDescription: string,
+  expirationDate: Date 
 }
 
 @Component({
@@ -66,6 +67,10 @@ export class JobspagePopupComponent implements OnInit {
     let arr = {
       job_id: this.data.jobId,
       job_title: this.data.jobTitle,
+      job_type: this.data.jobType,  
+      job_location: this.data.location, 
+      job_company: this.data.company, 
+      job_expirationDate: this.data.expirationDate, 
     }
 
     let reqs = {
