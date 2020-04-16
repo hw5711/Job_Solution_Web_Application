@@ -47,9 +47,9 @@ app.post("/get-profile", (req, res, next) => {
         });
 });
 
-//Candidate update profile
+//candidate update profile
 app.post("/update", function (req, res, next) {
-    console.log("update candidate profile: ", req.body);
+    console.log("update can profile: ", req.body);
     candidateprofile.updateOne(
         { can_num: req.body.can_num },
         {
