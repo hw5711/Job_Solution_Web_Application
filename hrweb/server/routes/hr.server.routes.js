@@ -26,6 +26,19 @@ app.post("/posted_job", function (req, res, next) {
     });
 });
 
+//candidate check applied jobs
+app.post("/posted_job/apply-history", function (req, res, next) {
+    job.find(
+        { 
+            hr_id: req.body.hr_id,
+            candidate: { $elemMatch: { candidate_id : req.body.candidate_id } }
+         }
+        , function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
+});
+
 //delete a posted job
 app.post("/delete_job", function (req, res, next) {
     job.deleteOne({ job_id: req.body.job_id }, function (err, post) {

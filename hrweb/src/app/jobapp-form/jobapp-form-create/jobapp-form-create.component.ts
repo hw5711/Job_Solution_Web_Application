@@ -349,7 +349,7 @@ export class JobappFormCreateComponent implements OnInit {
       job_location: this.job_location,
       job_expirationDate: this.job_expirationDate,
     }; 
-    console.log(reqs);
+    // console.log(reqs);
      this.http
        .post("http://localhost:3000/jobappform/applied_job", reqs)
        .subscribe(response => {

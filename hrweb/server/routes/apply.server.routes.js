@@ -99,8 +99,9 @@ app.post("/job", (req, res, next) => {
 });
 
 
-app.post("/applied_job", function (req, res, next) {
 
+//after filling out application form and save it in app history
+app.post("/applied_job", function (req, res, next) {
     const AppHistory = new appHistory({
         candidate_id: req.body.candidate_id,
         job_id: req.body.job_id,
@@ -120,6 +121,15 @@ app.post("/applied_job", function (req, res, next) {
         .catch(err => {
             console.log("user history created faild");
         });
+});
+
+
+//searh applied job history and list
+app.post("/app-job-history", (req, res, next) => {
+    appHistory.find({ candidate_id: req.body.candidate_id }, function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
 });
 
 //search fav job 
