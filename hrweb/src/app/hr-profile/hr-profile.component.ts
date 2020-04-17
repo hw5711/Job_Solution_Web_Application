@@ -31,7 +31,7 @@ export class HrProfileComponent implements OnInit {
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
     this.getHrInfo();
-    this.getImage();
+    // this.getImage();
   }
   
   //get default account default

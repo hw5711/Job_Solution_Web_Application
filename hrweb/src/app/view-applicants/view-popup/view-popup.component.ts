@@ -44,7 +44,6 @@ export interface DialogData {
 export class ViewPopupComponent implements OnInit {
 
   searchResault: any;
-
   selectedChoice: string;
   select: boolean;
   choices = [
@@ -63,21 +62,20 @@ export class ViewPopupComponent implements OnInit {
     // this.searchApplication(this.data.candidate_num);
   }
 
-  // searchApplication(passedData){
-
-  //   let req = {
-  //     candidate_num: passedData.candidate_num
-  //   };
-  //   this.http
-  //     .post("http://localhost:3000/hr/posted_job", req)
-  //     .subscribe(postData => {
-  //       this.searchResault = postData;
-  //       console.log(this.searchResault[0]);
-  //       console.log(this.searchResault.length);
-  //     });
-  // }
-
 onNoClick(): void {
+  //update status
+  let req ={
+    job_num: this.data.job_num,
+    candidate_id: this.data.candidate_num,
+    status: this.selectedChoice
+  }
+  this.http
+    .post("http://localhost:3000/jobappform/set_status", req)
+    .subscribe(postData => {
+      // console.log("after set up " , postData);
+    });
+
+  
   this.dialogRef.close();
 }
 

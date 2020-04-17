@@ -169,15 +169,15 @@ export class JobappFormCreateComponent implements OnInit {
     this.job_location = this.jobService.getJobLocation();
     this.job_expirationDate = this.jobService.getJobExpirationDate();
 
-    console.log("candidate email is: ", this.can_email);
-    console.log("job id is:", this.job_id);
-    console.log("title is:", this.job_title);
-    console.log("company is:" , this.job_company);
-    console.log("job type is:", this.job_type);
-    console.log("industry is:", this.job_industryType);
-    console.log("description is:" , this.job_description);
-    console.log("location is:" , this.job_location);
-    console.log("expirationDate is:" , this.job_expirationDate);
+    // console.log("candidate email is: ", this.can_email);
+    // console.log("job id is:", this.job_id);
+    // console.log("title is:", this.job_title);
+    // console.log("company is:" , this.job_company);
+    // console.log("job type is:", this.job_type);
+    // console.log("industry is:", this.job_industryType);
+    // console.log("description is:" , this.job_description);
+    // console.log("location is:" , this.job_location);
+    // console.log("expirationDate is:" , this.job_expirationDate);
 
    /* this.firstFormGroup = this._formBuilder.group({
        firstCtrl: ['', Validators.required]
@@ -364,7 +364,8 @@ export class JobappFormCreateComponent implements OnInit {
   let can = {
       candidate_id: this.can_id,
       rank: this.rank,
-      applyDate: date
+      applyDate: date,
+      status:"No"
    };
     const req = { job_id: this.job_id, candidate: can };
     console.log("req is:" , req);

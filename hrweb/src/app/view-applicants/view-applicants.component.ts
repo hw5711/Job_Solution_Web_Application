@@ -50,6 +50,7 @@ export class ViewApplicantsComponent {
   panelOpenState = false;
   hrId: string;
   searchResault: any;
+  applicationResult: any;
 
   constructor(
     private http: HttpClient,
@@ -59,7 +60,7 @@ export class ViewApplicantsComponent {
 
   ngOnInit() {
     this.hrId = this.loginService.getUserId()
-    console.log("hr_id is: " + this.hrId)
+    // console.log("hr_id is: " + this.hrId)
     this.searchPostedJobs();
   }
 
@@ -71,36 +72,68 @@ export class ViewApplicantsComponent {
       .post("http://localhost:3000/hr/posted_job", req)
       .subscribe(postData => {
         this.searchResault = postData;
-        console.log(this.searchResault[0]);
-        console.log(this.searchResault.length);
+        // console.log(this.searchResault[0]);
+        // console.log(this.searchResault.length);
       });
   }
 
-  viewCanAppForm(j) {
-
+  viewCanAppForm(j,jobInfo) {
+    // console.log("job num is: ", jobInfo);
   
     let req = {
-      candidate_num: j.candidate_num
+      candidate_num: j.candidate_id
     };
     this.http
-      .post("http://localhost:3000/hr/posted_job", req)
+      .post("http://localhost:3000/jobappform/application_check", req)
       .subscribe(postData => {
-        this.searchResault = postData;
-        console.log(this.searchResault[0]);
-        console.log(this.searchResault.length);
+        this.applicationResult = postData;
+        // console.log("post data: ", postData);
+        // console.log(this.searchResault.length);
+        const passData ={
+          candidate_num: postData[0].candidate_num,
+          job_num: jobInfo.job_id,
+          firstName: postData[0].firstName,
+          lastName: postData[0].lastName,
+          telephone: postData[0].telephone,
+          email: postData[0].email,
+          address: postData[0].address,
+          address2: postData[0].address2,
+          city: postData[0].city,
+          state: postData[0].state,
+          zipcode: postData[0].zipcode,
+          job: postData[0].job,
+          company: postData[0].company,
+          location: postData[0].location,
+          fromDate: postData[0].fromDate,
+          toDate: postData[0].toDate,
+          role: postData[0].role,
+          schoolname: postData[0].schoolname,
+          educationlevel: postData[0].educationlevel,
+          startdate: postData[0].startdate,
+          enddate: postData[0].enddate,
+          major: postData[0].major,
+          cumulativegpa: postData[0].cumulativegpa,
+          skills: postData[0].skills,
+          accomplishments: postData[0].accomplishments,
+          sponsership: postData[0].sponsership,
+          acknowledgment: postData[0].acknowledgment,
+          gender: postData[0].gender,
+          hispanic: postData[0].hispanic,
+          veteran: postData[0].veteran,
+          disability: postData[0].disability
+        }
+        this.openDialog(passData);
       });
-
-    this.openDialog(this.searchResault);
 
   }
 
   openDialog(j): void {
-
     const dialogRef = this.dialog.open(ViewPopupComponent, {
       width: '800px',
-      height: '800px',
+      height: '600px',
       data: { 
         candidate_num: j.candidate_num,
+        job_num: j.job_num,
         firstName: j.firstName,
         lastName: j.lastName,
         telephone: j.telephone,

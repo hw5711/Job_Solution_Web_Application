@@ -10,13 +10,83 @@ const ApplicationForm = require("../models/application");
 
 const app = express.Router();
 
-//the req is empty
+//get application form from a candidate
 app.post("/apply/application", (req, res, next) => {
-    ApplicationForm.find({candidate_num: req.body.candidate_num}, function (err, post) {
-         if (err) return next(err);
-         return res.json(post);
-     });
+    // console.log("req of appliform is : ", req.body);
+    const applicationForm = new ApplicationForm({
+        candidate_num: req.body.candidate_num,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        telephone: req.body.telephone,
+        email: req.body.email,
+        address: req.body.address,
+        address2: req.body.address2,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
+        job: req.body.job,
+        company: req.body.company,
+        location: req.body.location,
+        fromDate: req.body.fromDate,
+        toDate: req.body.toDate,
+        role: req.body.role,
+        schoolname: req.body.schoolname,
+        educationlevel: req.body.educationlevel,
+        startdate: req.body.startdate,
+        enddate: req.body.enddate,
+        major: req.body.major,
+        cumulativegpa: req.body.cumulativegpa,
+        skills: req.body.skills,
+        accomplishments: req.body.accomplishments,
+        sponsership: req.body.sponsership,
+        acknowledgment: req.body.acknowledgment,
+        gender: req.body.gender,
+        hispanic: req.body.hispanic,
+        veteran: req.body.veteran,
+        disability: req.body.disability
+    });
+
+    applicationForm.save()
+        .then(result => {
+            console.log(" user history created with new user");
+        })
+        .catch(err => {
+            console.log("user history created faild");
+        });
 });
+
+//check application form and send to hr
+app.post("/application_check", (req, res, next) => {
+    // console.log("req is :" , req.body);
+    ApplicationForm.find({ candidate_num: req.body.candidate_num }, function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
+});
+
+//update candidate application staut, yes or no
+app.post("/set_status", (req, res, next) => {
+    job.updateOne(
+        { 
+            "job_id": req.body.job_num,
+            "candidate.candidate_id": req.body.candidate_id
+        },
+        { $set: {"candidate.$[].status" : req.body.status } },
+        function (err, post) {
+            if (err) return next(err);
+            return res.json(post);
+        });
+});
+
+//update applicant staus by hr
+app.post("/application_check", (req, res, next) => {
+    ApplicationForm.find({ candidate_num: req.body.candidate_num }, function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
+});
+
+
 
 //update job candidate info
 app.post("/job", (req, res, next) => {

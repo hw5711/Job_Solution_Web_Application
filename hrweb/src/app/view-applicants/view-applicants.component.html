@@ -30,13 +30,31 @@
           <p>Posted Date: {{job.startDate}}</p>
           <p>Expiration Date: {{job.expirationDate}}</p>
           <p>Candidate: </p>
-          <div *ngFor="let can of job.candidate">
-            <p>ID: {{can.candidate_id}}</p>
-            <p>Rank: {{can.rank}}</p>
-            <p>Apply Date: {{can.applyDate}}</p>
-            <p>Apply Status: {{can.status}}</p>
-          
-            <button (cilic) = "viewCanAppForm(can)">View Candidate Application Form</button>
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th><span style="margin-left: 20px"></span>Candidate ID</th>
+                  <th><span style="margin-left: 20px"></span>Candidate Rank</th>
+                  <th><span style="margin-left: 20px"></span>Apply Date</th>
+                  <th><span style="margin-left: 20px"></span>Staus</th>
+                </tr>
+              </thead>
+              <tbody style="margin-left: 20px">
+                <tr *ngFor="let can of job.candidate">
+                  <td><span style="margin-left: 20px"></span>{{can.candidate_id}}</td>
+                  <td><span style="margin-left: 20px"></span>{{ can.rank}}</td>
+                  <td><span style="margin-left: 20px"></span>{{ can.applyDate}}</td>
+                  <td><span style="margin-left: 20px"></span>{{ can.status }}</td>
+                  <td><span style="margin-left: 20px"></span>
+                    <button mat-raised-button color="primary" (click)="viewCanAppForm(can, job)">View</button>
+                  </td>
+                  <!-- <td><span style="margin-left: 20px"></span>
+                    <button mat-raised-button color="primary" routerLink="/jobappform" (click)="applyJob(j)">Not Consider</button>
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </mat-expansion-panel>
