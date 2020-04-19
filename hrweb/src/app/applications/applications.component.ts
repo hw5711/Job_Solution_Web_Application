@@ -10,10 +10,10 @@ import { LoginService } from "../login/login.service";
 export interface DialogData {
   job_id: string,
   jobTitle: string,
+  job_company: string,
   jobType: string,
   location: string,
   industryType: string,
-  company: string,
   jobDescription: string
 }
 
@@ -57,21 +57,23 @@ export class ApplicationsComponent implements OnInit {
       .post("http://localhost:3000/jobappform/app-job-history", req)
       .subscribe(postData => {
         this.appResult = postData;
+        console.log("result is: ", this.appResult);
       });
   }
 
   openDialog(j): void {
+    console.log("j is: ",j);
     const dialogRef = this.dialog.open(ApplicationsPopupComponent, {
       width: 'auto',
       height: 'auto',
       data: { 
         job_id : j.job_id,
-        jobTitle: j.title, 
-        company: j.company, 
-        jobType: j.jobType, 
-        location: j.location, 
-        industryType: j.industryType, 
-        jobDescription: j.jobDescription,
+        jobTitle: j.job_title, 
+        job_company: j.job_company, 
+        jobType: j.job_type, 
+        location: j.job_location, 
+        industryType: j.job_industryType, 
+        jobDescription: j.job_description,
         job_expirationDate: j.job_expirationDate,
       }
     });

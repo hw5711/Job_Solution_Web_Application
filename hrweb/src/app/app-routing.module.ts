@@ -19,6 +19,7 @@ import { JobappFormReviewComponent } from './jobapp-form/jobapp-form-review/joba
 import { PostJobComponent } from './post-job/post-job.component';
 import { ViewPostingComponent } from './view-posting/view-posting.component';
 import { ViewApplicantsComponent } from './view-applicants/view-applicants.component';
+import { CompanyComponent } from './company/company.component';
 
 import { LoginGuard } from './login/login.guard';
 
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: "jobappform-review", component: JobappFormReviewComponent, canActivate: [LoginGuard] },
   { path: "post-job", component: PostJobComponent, canActivate: [LoginGuard]  },
   { path: "view-posting", component: ViewPostingComponent, canActivate: [LoginGuard]  },
-  { path: "view-applicants", component: ViewApplicantsComponent, canActivate: [LoginGuard]  }
+  { path: "view-applicants", component: ViewApplicantsComponent, canActivate: [LoginGuard]  },
+  { path: "company-info", component: CompanyComponent, canActivate: [LoginGuard]  }
 ];
 
 @NgModule({

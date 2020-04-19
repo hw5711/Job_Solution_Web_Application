@@ -7,11 +7,10 @@ import { LoginService } from "../../login/login.service";
 export interface DialogData {
   job_id: string,
   jobTitle: string,
- // job_id: string,
+  job_company: string,
   jobType: string,
   location: string,
   industryType: string,
-  company: string,
   jobDescription: string
 }
 
@@ -23,18 +22,18 @@ export interface DialogData {
 })
 export class ApplicationsPopupComponent implements OnInit {
 
+  status: string;
   userId: string;
- // appResult: any;
- jobInfo : any;
+  jobInfo : any;
 
-  title: String;
-  company: String;
-  jobType: String;
+  title: string;
+  company: string;
+  jobType: string;
   expirationDate: Date;
-  location: String;
-  industryType: String;
-  hr_id : String;
-  jobDescription: String;
+  location: string;
+  industryType: string;
+  hr_id: string;
+  jobDescription: string;
 
   constructor( 
     public dialogRef: MatDialogRef<ApplicationsPopupComponent>,
@@ -46,20 +45,10 @@ export class ApplicationsPopupComponent implements OnInit {
   ngOnInit() {
     this.userId = this.loginService.getUserId()
     console.log("user_id is: " + this.userId)
-    this.checkStatus();
+    this.checkJobInfo();
+    this.company = this.data.job_company;
+    this.title =  this.data.jobTitle;
     }
-
-  checkStatus(){
-    let req ={
-      job_id: this.data.job_id,
-      candidate_id: this.userId
-    }
-    this.http
-      .post("http://localhost:3000/hr/posted_job/apply-history", req)
-      .subscribe(postData => {
-        console.log("get status of applied job:", postData);
-      });
-  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -67,24 +56,19 @@ export class ApplicationsPopupComponent implements OnInit {
 
   //to check job info 
   checkJobInfo(){
-
     let req = {
     job_id: this.data.job_id,
+    candidate_id: this.userId
     }
   this.http
     .post("http://localhost:3000/jobappform/apply/applied_jobinfo", req)
     .subscribe(postData => {
       this.jobInfo = postData;
-      this.title = this.jobInfo.title;
-      this.company = this.jobInfo.company;
-      this.jobType = this.jobInfo.jobType;
-      this.expirationDate = this.jobInfo.expirationDate;
-      this.location = this.jobInfo.location;
-      this.industryType = this.jobInfo.industryType;
-      this.hr_id = this.jobInfo.hr_id;
-      this.jobDescription = this.jobInfo.jobDescription;
-      // console.log(this.jobInfo);
-      // console.log(this.jobInfo.jobDescription);
+      for (var i = 0; i < this.jobInfo.candidate.length; i++){
+        if (this.jobInfo.candidate[i].candidate_id == this.userId){
+          this.status = this.jobInfo.candidate[i].status;
+        }
+      }
     });
   }
 

@@ -173,6 +173,20 @@ app.get("/:id", (req, res, next) => {
     });
 });
 
+//search applied job status
+
+
+app.post("/apply/applied_jobinfo", function (req, res, next) {
+    job.findOne(
+        { 
+            "job_id": req.body.job_id,
+            "candidate.candidate_id": req.body.candidate_id
+        },
+        function (err, post) {
+            if (err) return next(err);
+            return res.json(post);
+        });
+});
 
 
 module.exports = app;

@@ -50,6 +50,7 @@ import { EditPopupComponent } from './view-posting/edit-popup/edit-popup.compone
 import { HrprofilePopupComponent } from './hr-form/hrprofile-popup/hrprofile-popup.component';
 import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-popup.component';
 import { ViewPopupComponent } from './view-applicants/view-popup/view-popup.component';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ViewPopupComponent } from './view-applicants/view-popup/view-popup.comp
     EditPopupComponent,
     HrprofilePopupComponent,
     CanFormPopupComponent,
-    ViewPopupComponent
+    ViewPopupComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,
