@@ -71,13 +71,13 @@ export class MyfavjobComponent implements OnInit {
   applyJob(j){
     // console.log("j: "+ j);
     this.jobService.setJobId(j.job_id);
-    this.jobService.setJobTitle(j.title);
-    this.jobService.setJobCompany(j.company);
-    this.jobService.setJobType(j.jobType);
-    this.jobService.setJobLocation(j.location);
-    this.jobService.setJobDescription(j.description);
-    this.jobService.setJobIndustryType(j.industryType);
-    this.jobService.setJobExpirationDate(j.expirationDate);
+    this.jobService.setJobTitle(j.job_title);
+    this.jobService.setJobCompany(j.job_company);
+    this.jobService.setJobType(j.job_type);
+    this.jobService.setJobLocation(j.job_location);
+    this.jobService.setJobDescription(j.job_description);
+    this.jobService.setJobIndustryType(j.job_industryType);
+    this.jobService.setJobExpirationDate(j.job_expirationDate);
   } //sharmi
 
   openDialog(j): void {
