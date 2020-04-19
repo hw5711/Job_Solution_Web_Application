@@ -95,4 +95,8 @@ export class MyfavjobComponent implements OnInit {
     });
   } 
 
+  delete(j){
+    console.log("delete");
+  }
+
 }
