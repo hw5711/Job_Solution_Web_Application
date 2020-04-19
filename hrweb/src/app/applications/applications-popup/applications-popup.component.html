@@ -1,4 +1,4 @@
-<div mat-dialog-content>
+<!--<div mat-dialog-content>
     <div (ngModel) = "data" >
         <h3>{{data.job_title}}</h3>  
         <p>{{data.company}}</p>
@@ -7,6 +7,24 @@
         <p>{{data.industryType}}</p>
         <p>Job Description</p>
         <p>{{data.jobDescription}}</p>
+    </div>
+</div>
+
+<div>
+<button mat-raised-button (click)="onNoClick()">Close</button>
+</div>-->
+
+<div mat-dialog-content>
+    <div >
+        <h3>{{title}}</h3>  
+        <p>{{company}}</p>
+        <p>{{jobType}}</p>
+        <p>Expiration date: {{expirationDate}}</p>
+        <p>{{location}}</p>
+        <p>{{industryType}}</p>
+        <p>Hr info (if you want to apply, user this info) -- {{hr_id}}</p>
+        <p>Job Description: </p>
+        <p>{{jobDescription}}</p>
     </div>
 </div>
 

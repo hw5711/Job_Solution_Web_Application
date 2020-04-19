@@ -6,10 +6,11 @@ import { ActivatedRoute } from "@angular/router";
 
 import { MyfavjobPopupComponent } from './myfavjob-popup/myfavjob-popup.component';
 import { LoginService } from "../login/login.service";
+import { JobService } from "../jobspage/job.service";
 
 export interface DialogData {
   job_title: string,
-  job_id: string,
+  job_id: string
 }
 
 @Component({
@@ -38,6 +39,7 @@ export class MyfavjobComponent implements OnInit {
 
   constructor( private http: HttpClient,
     private loginService: LoginService,
+    private jobService: JobService,
     public route: ActivatedRoute,
     public dialog: MatDialog) { }
 
@@ -60,7 +62,23 @@ export class MyfavjobComponent implements OnInit {
         // console.log(this.searchResault);
         // console.log(this.id_array);
       });
+
+      console.log("id: " + this.id_array);
   }
+
+  
+//sharmi test
+  applyJob(j){
+    // console.log("j: "+ j);
+    this.jobService.setJobId(j.job_id);
+    this.jobService.setJobTitle(j.title);
+    this.jobService.setJobCompany(j.company);
+    this.jobService.setJobType(j.jobType);
+    this.jobService.setJobLocation(j.location);
+    this.jobService.setJobDescription(j.description);
+    this.jobService.setJobIndustryType(j.industryType);
+    this.jobService.setJobExpirationDate(j.expirationDate);
+  } //sharmi
 
   openDialog(j): void {
     const dialogRef = this.dialog.open(MyfavjobPopupComponent, {

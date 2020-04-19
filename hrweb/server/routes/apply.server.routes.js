@@ -112,6 +112,8 @@ app.post("/applied_job", function (req, res, next) {
         job_type: req.body.job_type,
         job_description: req.body.job_description,
         job_expirationDate: req.body.job_expirationDate,
+        applyDate: req.body.applyDate 
+
     });
 
     AppHistory.save()

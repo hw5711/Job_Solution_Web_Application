@@ -348,6 +348,7 @@ export class JobappFormCreateComponent implements OnInit {
       job_description: this.job_company,
       job_location: this.job_location,
       job_expirationDate: this.job_expirationDate,
+      applyDate: date 
     }; 
     // console.log(reqs);
      this.http
