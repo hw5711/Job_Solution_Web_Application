@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: "post-job", component: PostJobComponent, canActivate: [LoginGuard]  },
   { path: "view-posting", component: ViewPostingComponent, canActivate: [LoginGuard]  },
   { path: "view-applicants", component: ViewApplicantsComponent, canActivate: [LoginGuard]  },
-  { path: "company-info", component: CompanyComponent, canActivate: [LoginGuard]  }
+  { path: "company-info", component: CompanyComponent }
 ];
 
 @NgModule({
