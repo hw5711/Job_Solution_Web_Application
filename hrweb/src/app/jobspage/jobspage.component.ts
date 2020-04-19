@@ -177,18 +177,6 @@ export class JobspageComponent implements OnInit {
     this.jobService.setJobDescription(j.description);
     this.jobService.setJobIndustryType(j.industryType);
     this.jobService.setJobExpirationDate(j.expirationDate);
-
-      // let reqs = {
-      //   candidate_id: this.userId,
-      //   job_id: this.jobService.getJobId(),
-      //   job_title: this.jobService.getJobTitle()
-      // };
-      // console.log("reqs1: " + reqs);
-      // this.http
-      //   .post("http://localhost:3000/jobappform/fav_job", reqs)
-      //   .subscribe(response => {
-      //     console.log("res is :", response);
-      //   });
   }
 
   openDialog(j): void {
