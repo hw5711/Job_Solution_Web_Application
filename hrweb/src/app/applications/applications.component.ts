@@ -7,6 +7,16 @@ import { ActivatedRoute } from "@angular/router";
 import { ApplicationsPopupComponent } from './applications-popup/applications-popup.component';
 import { LoginService } from "../login/login.service";
 
+export interface DialogData {
+  job_id: string,
+  jobTitle: string,
+  jobType: string,
+  location: string,
+  industryType: string,
+  company: string,
+  jobDescription: string
+}
+
 @Component({
   selector: 'app-applications',
   templateUrl: './applications.component.html',
@@ -44,12 +54,9 @@ export class ApplicationsComponent implements OnInit {
       candidate_id: this.userId,
     };
     this.http
-      .post("http://localhost:3000/jobappform/apply/applied_job", req)
+      .post("http://localhost:3000/jobappform/app-job-history", req)
       .subscribe(postData => {
-
         this.appResult = postData;
-        console.log("app history is:" ,this.appResult);
-        // console.log(this.appResult.length);
       });
   }
 
@@ -57,14 +64,15 @@ export class ApplicationsComponent implements OnInit {
     const dialogRef = this.dialog.open(ApplicationsPopupComponent, {
       width: 'auto',
       height: 'auto',
-      data: { jobTitle: j.title, 
-        job_id: j.job_id, 
-       // company: j.company, 
-       // jobType: j.jobType, 
-        //location: j.location, 
-        //industryType: j.industryType, 
-        //jobDescription: j.jobDescription,
-        //job_expirationDate: j.job_expirationDate,
+      data: { 
+        job_id : j.job_id,
+        jobTitle: j.title, 
+        company: j.company, 
+        jobType: j.jobType, 
+        location: j.location, 
+        industryType: j.industryType, 
+        jobDescription: j.jobDescription,
+        job_expirationDate: j.job_expirationDate,
       }
     });
 

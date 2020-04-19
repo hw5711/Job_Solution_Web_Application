@@ -1,13 +1,13 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
 
 import { LoginService } from "../../login/login.service";
 
 export interface DialogData {
-  jobTitle: string,
   job_id: string,
+  jobTitle: string,
+ // job_id: string,
   jobType: string,
   location: string,
   industryType: string,
@@ -36,15 +36,29 @@ export class ApplicationsPopupComponent implements OnInit {
   hr_id : String;
   jobDescription: String;
 
-  constructor( public dialogRef: MatDialogRef<ApplicationsPopupComponent>,
-    private loginService: LoginService,
+  constructor( 
+    public dialogRef: MatDialogRef<ApplicationsPopupComponent>,
     private http: HttpClient,
+    private loginService: LoginService,
+    //private http: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
     this.userId = this.loginService.getUserId()
     console.log("user_id is: " + this.userId)
-    this.checkJobInfo();
+    this.checkStatus();
+    }
+
+  checkStatus(){
+    let req ={
+      job_id: this.data.job_id,
+      candidate_id: this.userId
+    }
+    this.http
+      .post("http://localhost:3000/hr/posted_job/apply-history", req)
+      .subscribe(postData => {
+        console.log("get status of applied job:", postData);
+      });
   }
 
   onNoClick(): void {

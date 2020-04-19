@@ -169,15 +169,15 @@ export class JobappFormCreateComponent implements OnInit {
     this.job_location = this.jobService.getJobLocation();
     this.job_expirationDate = this.jobService.getJobExpirationDate();
 
-    console.log("candidate email is: ", this.can_email);
-    console.log("job id is:", this.job_id);
-    console.log("title is:", this.job_title);
-    console.log("company is:" , this.job_company);
-    console.log("job type is:", this.job_type);
-    console.log("industry is:", this.job_industryType);
-    console.log("description is:" , this.job_description);
-    console.log("location is:" , this.job_location);
-    console.log("expirationDate is:" , this.job_expirationDate);
+    // console.log("candidate email is: ", this.can_email);
+    // console.log("job id is:", this.job_id);
+    // console.log("title is:", this.job_title);
+    // console.log("company is:" , this.job_company);
+    // console.log("job type is:", this.job_type);
+    // console.log("industry is:", this.job_industryType);
+    // console.log("description is:" , this.job_description);
+    // console.log("location is:" , this.job_location);
+    // console.log("expirationDate is:" , this.job_expirationDate);
 
    /* this.firstFormGroup = this._formBuilder.group({
        firstCtrl: ['', Validators.required]
@@ -297,39 +297,47 @@ export class JobappFormCreateComponent implements OnInit {
       this.rank++;
     }
 
-    console.log("test1 " + jobapp.firstName);
-
-   /* let formreq {
-      candidate_id: this.can_id,
-      job_title: this.job_title,
-      job_company: this.job_company,
-      firstName: this.enteredFirstName,
-      lastName: this.enteredLastName,
-      telephone: this.enteredTelephone,
-      email: this.enteredEmail,
-      address: this.enteredAddress,
-      address2: this.enteredAddress2,
-      city: this.enteredCity,
-      state: this.enteredState,
-      zipcode: this.enteredZipcode,
-      job: this.enteredJob,
-      company: this.enteredCompany,
-      location: this.enteredLocation,
-      fromDate: this.enteredFromDate,
-      toDate: this.enteredToDate,
-      role: this.enteredRole,
-
+    //update application that hr can view application form
+    let req1 ={
+      candidate_num: this.can_id,
+      job_num: this.job_id,
+      firstName: jobapp.firstName,
+      lastName: jobapp.lastName,
+      telephone: jobapp.telephone,
+      email: jobapp.email,
+      address: jobapp.address,
+      address2: jobapp.address2,
+      city: jobapp.city,
+      state: jobapp.state,
+      zipcode: jobapp.zipcode,
+      job: jobapp.job,
+      company: jobapp.company,
+      location: jobapp.location,
+      fromDate: jobapp.fromDate,
+      toDate: jobapp.toDate,
+      role: jobapp.role,
+      schoolname: jobapp.schoolname,
+      educationlevel: jobapp.educationlevel,
+      startdate: jobapp.startdate,
+      enddate: jobapp.enddate,
+      major: jobapp.major,
+      cumulativegpa: jobapp.cumulativegpa,
+      skills: jobapp.skills,
+      accomplishments: jobapp.accomplishments,
+      sponsership: jobapp.sponsership,
+      acknowledgment: jobapp.acknowledgment,
+      gender: jobapp.gender,
+      hispanic: jobapp.hispanic,
+      veteran: jobapp.veteran,
+      disability: jobapp.disability
     }
-    console.log(formreq);
-     this.http
-       .post("http://localhost:3000/jobappform/apply", formreq)
-       .subscribe(response => {
-         console.log("res is :", response);
-       }); */
+    this.http
+      .post("http://localhost:3000/jobappform/apply/application", req1)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
 
-    var today = new Date(); //sharmi
-    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(); //sharmi
-
+      // to save as job apply history
     let reqs = {
       candidate_id: this.can_id,
       job_id: this.job_id,
@@ -342,7 +350,7 @@ export class JobappFormCreateComponent implements OnInit {
       job_expirationDate: this.job_expirationDate,
       applyDate: date 
     }; 
-    console.log(reqs);
+    // console.log(reqs);
      this.http
        .post("http://localhost:3000/jobappform/applied_job", reqs)
        .subscribe(response => {
@@ -350,14 +358,15 @@ export class JobappFormCreateComponent implements OnInit {
        });
 
 
-  //need to send the can info link with posted job
- // var today = new Date();
- // var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  //notify the hr that new candidate info
+  var today = new Date();
+  var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   console.log("rank is: ", this.rank);
   let can = {
       candidate_id: this.can_id,
       rank: this.rank,
-      applyDate: date
+      applyDate: date,
+      status:"No"
    };
     const req = { job_id: this.job_id, candidate: can };
     console.log("req is:" , req);

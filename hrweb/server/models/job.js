@@ -15,6 +15,7 @@ var Job = new mongoose.Schema({
         candidate_id : String,
         rank: Number,
         applyDate: Date,
+        status: String,
     }]
     // updated_date: { type: Date, default: Date.now },
 });

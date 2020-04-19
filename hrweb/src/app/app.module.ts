@@ -21,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,7 @@ import { MyfavjobPopupComponent } from './myfavjob/myfavjob-popup/myfavjob-popup
 import { EditPopupComponent } from './view-posting/edit-popup/edit-popup.component';
 import { HrprofilePopupComponent } from './hr-form/hrprofile-popup/hrprofile-popup.component';
 import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-popup.component';
+import { ViewPopupComponent } from './view-applicants/view-popup/view-popup.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,8 @@ import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-
     MyfavjobPopupComponent,
     EditPopupComponent,
     HrprofilePopupComponent,
-    CanFormPopupComponent
+    CanFormPopupComponent,
+    ViewPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -103,6 +106,7 @@ import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-
     MatDatepickerModule,
     MatNativeDateModule,
     MatRippleModule,
+    MatRadioModule
   ],
   providers: [
     MatDatepickerModule
@@ -113,6 +117,7 @@ import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-
                     MyfavjobPopupComponent,
                     EditPopupComponent,
                     HrprofilePopupComponent,
-                    CanFormPopupComponent],
+                    CanFormPopupComponent,
+                    ViewPopupComponent],
 })
 export class AppModule { }
