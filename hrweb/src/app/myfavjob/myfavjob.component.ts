@@ -58,12 +58,13 @@ export class MyfavjobComponent implements OnInit {
       .post("http://localhost:3000/jobappform/apply/fav_job", req)
       .subscribe(postData => {
         this.searchResault = postData;
+      
         this.id_array = this.searchResault[0].job_id_array;
         // console.log(this.searchResault);
         // console.log(this.id_array);
       });
 
-      console.log("id: " + this.id_array);
+      // console.log("id: " + this.id_array);
   }
 
   
@@ -96,7 +97,21 @@ export class MyfavjobComponent implements OnInit {
   } 
 
   delete(j){
-    console.log("delete");
+
+    let req ={
+      can: this.loginService.getUserId(),
+      job_id: j.job_id,
+    }
+
+    this.http
+      .post("http://localhost:3000/jobappform/delete_favjob", req)
+      .subscribe(postData => {
+        // this.searchResault = postData;
+        // console.log(this.id_array);
+        console.log("delete one saved job");
+      });
+
+
   }
 
 }

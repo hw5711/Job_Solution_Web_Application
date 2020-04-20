@@ -73,16 +73,32 @@ export class JobspagePopupComponent implements OnInit {
       job_expirationDate: this.data.expirationDate, 
     }
 
-    let reqs = {
-      can_id: this.can_id,
-      job_id_array: arr,
-    }; 
+    if (this.select == true) {
+      let reqs = {
+        can_id: this.can_id,
+        job_id_array: arr,
+      }; 
 
-     this.http
-       .post("http://localhost:3000/jobappform/fav_job", reqs)
-       .subscribe(response => {
-         console.log("res is :", response);
-       });
+      this.http
+        .post("http://localhost:3000/jobappform/fav_job", reqs)
+        .subscribe(response => {
+          console.log("res is :", response);
+        });
+      }
+
+   
+      if(this.select == false){
+        let req = {
+          can: this.loginService.getUserId(),
+          job_id: this.data.jobId,
+        }
+
+        this.http
+          .post("http://localhost:3000/jobappform/delete_favjob", req)
+          .subscribe(postData => {
+            // console.log("delete one saved job");
+          });
+      }
   }
 
   enableDisableRule() {

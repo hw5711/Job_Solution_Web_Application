@@ -174,8 +174,6 @@ app.get("/:id", (req, res, next) => {
 });
 
 //search applied job status
-
-
 app.post("/apply/applied_jobinfo", function (req, res, next) {
     job.findOne(
         { 
@@ -187,6 +185,21 @@ app.post("/apply/applied_jobinfo", function (req, res, next) {
             return res.json(post);
         });
 });
+
+//delete fav job
+
+app.post("/delete_favjob", function (req, res, next) {
+    jobFav.updateOne(
+        {"can": req.body.can},
+        {
+           $pull: { job_id_array: { job_id : req.body.job_id }}
+        },
+        function (err, post) {
+            if (err) return next(err);
+            return res.json(post);
+        });
+});
+
 
 
 module.exports = app;
