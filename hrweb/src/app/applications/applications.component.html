@@ -51,7 +51,8 @@
                     <td><span style="margin-left: 20px"></span>{{ j.job_industryType }}</td> 
                     <td><span style="margin-left: 20px"></span>{{ j.job_company }}</td>
                     <td><span style="margin-left: 20px"></span>{{ j.job_expirationDate }}</td>
-                 <!--   <td *ngFor="let can of job.candidate"><span style="margin-left: 20px"></span>{{can.applyDate}}</td> -->
+                    <!--<td *ngFor="let can of job.candidate"><span style="margin-left: 20px"></span>{{can.applyDate}}</td>--> 
+                    <td ><span style="margin-left: 20px"></span>{{j.applyDate}}</td>
                     <td> <button mat-raised-button color="primary" (click)= "openDialog(j)">Status</button></td>
                 </tr>
             </tbody>

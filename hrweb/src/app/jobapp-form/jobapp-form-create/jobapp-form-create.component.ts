@@ -338,6 +338,9 @@ export class JobappFormCreateComponent implements OnInit {
       });
 
       // to save as job apply history
+
+      var today_date = new Date();
+      var date = today_date.getFullYear() + '-' + (today_date.getMonth() + 1) + '-' + today_date.getDate();
     let reqs = {
       candidate_id: this.can_id,
       job_id: this.job_id,
