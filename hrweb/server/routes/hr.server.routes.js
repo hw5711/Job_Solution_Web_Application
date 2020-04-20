@@ -106,6 +106,16 @@ app.post("/get-profile", (req, res, next) => {
     });
 });
 
+// sharmi test
+//get employers details
+app.post("/employers-contact", (req, res, next) => {
+    // console.log(" server get id # is:", req.body);
+    hrProfile.find({  },function (err, post) {
+        if (err) return next(err);
+        return res.json(post);
+    });
+});
+
 //hr update profile
 app.put("/update", function (req, res, next) {
     // console.log("update hr profile: ", req.body);

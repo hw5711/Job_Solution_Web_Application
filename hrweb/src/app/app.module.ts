@@ -51,6 +51,7 @@ import { HrprofilePopupComponent } from './hr-form/hrprofile-popup/hrprofile-pop
 import { CanFormPopupComponent } from './candidate-form/can-form-popup/can-form-popup.component';
 import { ViewPopupComponent } from './view-applicants/view-popup/view-popup.component';
 import { CompanyComponent } from './company/company.component';
+import { EmployersComponent } from './employers/employers.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { CompanyComponent } from './company/company.component';
     HrprofilePopupComponent,
     CanFormPopupComponent,
     ViewPopupComponent,
-    CompanyComponent
+    CompanyComponent,
+    EmployersComponent
   ],
   imports: [
     BrowserModule,

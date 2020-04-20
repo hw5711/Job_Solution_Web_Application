@@ -1,0 +1,47 @@
+<div class="eaton mat-typography" style="overflow-x:hidden;" fxFlexFill cdkScrollable>
+
+    <mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
+     <mat-toolbar-row >
+       <span><h1>Job Solutions</h1></span>
+       <span class="example-spacer"></span>
+     <div>
+         <a mat-button routerLink="/jobspage"> Jobs </a>
+         <a mat-button routerLink="/employer-info"> Employers </a>
+         <button mat-button [matMenuTriggerFor]="menu">My Profile</button>
+   
+         <mat-menu #menu="matMenu">
+         <button mat-menu-item routerLink="/cand-profile">Profile</button>
+           <button mat-menu-item routerLink="/applications">Applications</button>
+           <button mat-menu-item routerLink="/myfavjob">MyFav Jobs</button>
+           <button mat-menu-item routerLink="/">Logout</button>
+         </mat-menu>
+       </div>
+     </mat-toolbar-row>
+   
+     <mat-toolbar-row style="padding: 0 5px;">
+       <span><h2>Employers</h2></span>
+     </mat-toolbar-row>
+   </mat-toolbar>
+ 
+   </div>
+
+
+ <h1 style="font-size: 15px">Search Result:</h1>
+ <div>
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th><span style="margin-left: 20px"></span>Company</th>
+                     <th><span style="margin-left: 20px"></span>Representative</th>
+                     <th><span style="margin-left: 20px"></span>Contact information</th>
+                 </tr>
+             </thead>
+             <tbody style="margin-left: 20px">
+                 <tr *ngFor="let j of searchResult">  
+                     <td><span style="margin-left: 20px"></span>{{ j.company }}</td>
+                     <td><span style="margin-left: 20px"></span>{{ j.firstName }} {{j.lastName}}</td> 
+                     <td><span style="margin-left: 20px"></span>{{ j.contacts }}</td>
+                 </tr>
+             </tbody>
+         </table>
+ </div>
