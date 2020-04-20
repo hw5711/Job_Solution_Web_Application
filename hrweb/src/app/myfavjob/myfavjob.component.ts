@@ -60,8 +60,8 @@ export class MyfavjobComponent implements OnInit {
         this.searchResault = postData;
       
         this.id_array = this.searchResault[0].job_id_array;
-        // console.log(this.searchResault);
-        // console.log(this.id_array);
+         console.log(this.searchResault);
+         console.log(this.id_array);
       });
 
       // console.log("id: " + this.id_array);
@@ -112,6 +112,6 @@ export class MyfavjobComponent implements OnInit {
       });
 
 
-  }
+  } 
 
 }
