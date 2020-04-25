@@ -23,7 +23,7 @@ app.post("/posted_job", function (req, res, next) {
     job.find({ hr_id: req.body.hr_id}, function (err, post) {
         if (err) return next(err);
         return res.json(post);
-    });
+    }).sort('candidate.rank');
 });
 
 //candidate check applied jobs

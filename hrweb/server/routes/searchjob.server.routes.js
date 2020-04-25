@@ -94,6 +94,14 @@ app.post("", function (req, res, next) {
             res.json(post);
         });
     } 
+    
+    //if no input then find random 10 and send it back
+    if (req.body.jobTitle == '' && req.body.jobType == '' && req.body.location == '' && req.body.industryType == '') {
+        searchjob.find({ expirationDate: {$gt: Date.now()} }, function (err, post) {
+            if (err) return next(err);
+            res.json(post);
+        }).sort('expirationDate').limit(6);
+    } 
 
     // find how to perform keyword search like - uppper case/ lower case/ partial word
     // reference for partial search

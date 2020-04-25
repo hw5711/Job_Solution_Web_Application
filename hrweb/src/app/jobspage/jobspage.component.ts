@@ -144,8 +144,9 @@ export class JobspageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userId = this.loginService.getUserId()
-    console.log("user_id is: " + this.userId)
+    this.userId = this.loginService.getUserId();
+    console.log("user_id is: " + this.userId);
+    this.searchJob(null);
   }
 
   searchJob(form: NgForm) {
@@ -156,7 +157,7 @@ export class JobspageComponent implements OnInit {
       location: this.enteredlocation, 
       industryType: this.enteredindustryType
     };
-    //console.log("front end :" , req);
+    console.log("front end :" , req);
     this.http
       .post("http://localhost:3000/searchjob", req)
       .subscribe(postData => {
