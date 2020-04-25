@@ -50,19 +50,6 @@ app.post("/update-pic", upload.single('userImage'), function (req, res, next) {
                     
 });
 
-//hr get image
-app.post("/get-pic", (req, res, next) => {
-    // console.log(req.body.userInfo);
-    img.findOne({ userInfo: req.body.userInfo })
-        .then(account => {
-            if (account) {
-                res.status(200).json(account);
-            } else {
-                res.status(404).json({ message: "Account not found!" });
-            }
-        });
-});
-
 app.post("/load-pic", (req, res, next) => {
     // console.log(req.body.userInfo);
     img.findOne({ userInfo: req.body.userInfo })
