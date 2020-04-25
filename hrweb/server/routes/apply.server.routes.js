@@ -69,9 +69,12 @@ app.post("/set_status", (req, res, next) => {
     job.updateOne(
         { 
             "job_id": req.body.job_num,
-            "candidate.candidate_id": req.body.candidate_id
         },
-        { $set: {"candidate.$[].status" : req.body.status } },
+        { $set: {"candidate.$[candidate].status" : req.body.status } },
+        {
+            multi: true,
+            arrayFilters: [{ "candidate.candidate_id": req.body.candidate_id}]
+        },
         function (err, post) {
             if (err) return next(err);
             return res.json(post);

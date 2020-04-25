@@ -69,6 +69,7 @@ onNoClick(): void {
     candidate_id: this.data.candidate_num,
     status: this.selectedChoice
   }
+  console.log("status choice: " , req);
   this.http
     .post("http://localhost:3000/jobappform/set_status", req)
     .subscribe(postData => {
