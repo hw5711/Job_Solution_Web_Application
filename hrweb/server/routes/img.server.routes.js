@@ -35,12 +35,6 @@ const app = express.Router();
 
 //hr create image
 app.post("/update-pic", upload.single('userImage'), function (req, res, next) {
-    console.log("upload : ", req.file);
-    var newItem = new img();
-    newItem.img.data = fs.readFileSync(req.file.path);
-    newItem.img.contentType = 'image / jpg';
-    newItem.userInfo = req.file.originalname;
-
     var query = { "userInfo": req.file.originalname };
     var update = {
         userInfo: req.file.originalname,
@@ -57,7 +51,6 @@ app.post("/update-pic", upload.single('userImage'), function (req, res, next) {
 });
 
 app.post("/load-pic", (req, res, next) => {
-    console.log(req.body.userInfo);
     img.findOne({ userInfo: req.body.userInfo })
         .then(img => {
             if (img) {
