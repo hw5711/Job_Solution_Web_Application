@@ -28,6 +28,13 @@ const imageRoutes = require("./routes/img.server.routes");
 const app = express();
 
 app.use(cookieParser());
+
+// app.use(multer({
+//     dest: 'uploads /',
+//     rename: function (fieldname, filename) {
+//         return filename;
+//     },
+// }));
 //app.set('view engine', 'ejs');
 //Use the below line when deploy
 // app.use(express.static(path.join(__dirname, 'public')));

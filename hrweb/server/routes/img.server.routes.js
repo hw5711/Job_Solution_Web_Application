@@ -5,9 +5,10 @@ const path = require('path');
 var multer = require('multer');
 const img = require("../models/img");
 
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './uploads/');
+        cb(null, "uploads/");
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname + ".jpg");
@@ -34,14 +35,13 @@ const app = express.Router();
 
 //hr create image
 app.post("/update-pic", upload.single('userImage'), function (req, res, next) {
-    // console.log(req.file);
-    // console.log(req.file.originalname);
-    const image = new img({
-        img: req.file.path,
-        userInfo: req.file.originalname,
-    });
+    console.log("upload : ", req.file);
+    var newItem = new img();
+    newItem.img.data = fs.readFileSync(req.file.path)
+    newItem.img.contentType = 'image / jpg';
+    newItem.userInfo = req.file.originalname;
 
-    image.save().then(result => {
+    newItem.save().then(result => {
         console.log("image created ");
     })
         .catch(err => {
@@ -62,5 +62,19 @@ app.post("/get-pic", (req, res, next) => {
             }
         });
 });
+
+app.post("/load-pic", (req, res, next) => {
+    // console.log(req.body.userInfo);
+    img.findOne({ userInfo: req.body.userInfo })
+        .then(img => {
+            if (img) {
+                res.status(200).json(img);
+            } else {
+                res.status(404).json({ message: "Account not found!" });
+            }
+        });
+});
+
+
 
 module.exports = app;

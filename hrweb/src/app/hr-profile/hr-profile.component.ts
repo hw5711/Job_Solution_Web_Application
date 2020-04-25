@@ -31,7 +31,7 @@ export class HrProfileComponent implements OnInit {
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
     this.getHrInfo();
-    // this.getImage();
+    this.loadImg();
   }
   
   //get default account default
@@ -71,6 +71,28 @@ export class HrProfileComponent implements OnInit {
         // this.url = path + this.filePath;
         // console.log(this.url);
       })
+  }
+
+  arrayBufferToBase64(buffer) {
+    var binary = '';
+    var bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => binary += String.fromCharCode(b));
+    return window.btoa(binary);
+  };
+
+  pic: any;
+
+  loadImg() {
+    let req = {
+      userInfo: this.hr_id
+    }
+    this.http
+      .post("http://localhost:3000/images/load-pic", req)
+      .subscribe(data => {
+        var base64Flag = 'data:image/jpeg;base64,';
+        var imageStr = this.arrayBufferToBase64(data["img"].data.data);
+        this.pic = base64Flag + imageStr;
+      });
   }
 
   

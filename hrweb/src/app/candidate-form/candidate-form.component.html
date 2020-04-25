@@ -25,12 +25,29 @@
  </div>
 
 <!-- NAVBAR ENDS HERE -->
+<div>
+  <img src="{{pic}}" alt="Card image" class="pro_photo" style="height:100px; width: 100px;">
+  <!-- <button (click)="loadImg()">load</button> -->
+</div>
+
+<br>
+
+<br>
+<input type="file" style="display: none" (change)="selectFile($event)" #fileInput>
+<button type="button" (click)="fileInput.click()">Pick File</button>
+<br>
+<button type="button" (click)="uploadBotton()">Upload File</button>
+
+<br>
 
 
 <div style="width: 70%; margin-left: 15%">
 
 <mat-horizontal-stepper linear #stepper style=" display:inline">
   <br>
+
+  
+
 <!--<button (click)="uploadBotton()">Upload File</button>
 <input type="file" (change)="selectFile($event)">
 <br>

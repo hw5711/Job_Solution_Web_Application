@@ -34,13 +34,26 @@
 
 
 <body>
+  
+
+<div>
+  <img src="{{pic}}" alt="Card image" class="pro_photo" style="height:100px; width: 100px;">
+  <!-- <button (click)="loadImg()">load</button> -->
+
+
+<br>
+
     <br>
     <input type="file" style="display: none" (change)="selectFile($event)" #fileInput>
     <button type="button" (click)="fileInput.click()">Pick File</button>
     <br>
     <button type="button" (click)="uploadBotton()">Upload File</button>
     
+    </div>
     <br>
+
+
+    
 
       <mat-card style="margin-top: 2em">
         <mat-label>Personal Information</mat-label>
@@ -110,7 +123,6 @@
 
   <button mat-raised-button color="primary" style="margin-top: 2em" (click) = "SaveUpdate()"> Save</button>
   
-<!-- </body> -->
 
 
 

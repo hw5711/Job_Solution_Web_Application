@@ -40,11 +40,12 @@ export class HrFormComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     public dialog: MatDialog
-    ) {}
+    ) { }
 
   ngOnInit() {
     this.hr_id = this.loginService.getUserId();
     this.getHrInfo();
+    this.loadImg();
   }
   //get default info
   getHrInfo() {
@@ -104,7 +105,7 @@ export class HrFormComponent implements OnInit {
   }
 
   uploadBotton() {
-    console.log("id is :", this.hr_id);
+    // console.log("id is :", this.hr_id);
     const userInfo: string = this.hr_id;
 
     const fd = new FormData();
@@ -117,6 +118,28 @@ export class HrFormComponent implements OnInit {
       .post("http://localhost:3000/images/update-pic" ,fd)
       .subscribe(response => {
         console.log("res is :", response);
+      });
+  }
+
+  arrayBufferToBase64(buffer) {
+    var binary = '';
+    var bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => binary += String.fromCharCode(b));
+    return window.btoa(binary);
+  };
+
+  pic: any;
+
+  loadImg(){
+    let req = {
+      userInfo: this.hr_id
+    }
+    this.http
+      .post("http://localhost:3000/images/load-pic", req)
+      .subscribe(data => {
+        var base64Flag = 'data:image/jpeg;base64,';
+        var imageStr = this.arrayBufferToBase64(data["img"].data.data);
+        this.pic = base64Flag + imageStr;
       });
   }
 

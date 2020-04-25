@@ -213,20 +213,6 @@ export class CandidateFormComponent implements OnInit {
     });
   }
 
-  selectFile(event) {
-    this.selectedFile = <File>event.target.files[0];
-  }
-
-  uploadBotton() {
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http
-      .post("http://localhost:3000/cand-profile/update-pic", fd)
-      .subscribe(response => {
-        console.log("res is :", response);
-      });
-  }
-
   getCanInfo() {
     let req = {
       can_num: this.can_id,
@@ -255,6 +241,27 @@ export class CandidateFormComponent implements OnInit {
         this.enteredCertificateFrom = AccountData["certificatefrom"];
         this.enteredExpirationDate = AccountData["expirationDate"];
       })
+  }
+
+  selectFile(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  uploadBotton() {
+    // console.log("id is :", this.hr_id);
+    const userInfo: string = this.loginService.getUserId();
+
+    const fd = new FormData();
+    // const fd1 = new FormData();
+    fd.append('userImage', this.selectedFile, userInfo);
+    // fd1.append('userImage', this.selectedFile, this.selectedFile.name);
+
+    // console.log(fd);
+    this.http
+      .post("http://localhost:3000/images/update-pic", fd)
+      .subscribe(response => {
+        console.log("res is :", response);
+      });
   }
 
 
