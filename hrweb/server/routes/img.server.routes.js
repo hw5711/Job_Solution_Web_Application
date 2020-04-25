@@ -37,21 +37,27 @@ const app = express.Router();
 app.post("/update-pic", upload.single('userImage'), function (req, res, next) {
     console.log("upload : ", req.file);
     var newItem = new img();
-    newItem.img.data = fs.readFileSync(req.file.path)
+    newItem.img.data = fs.readFileSync(req.file.path);
     newItem.img.contentType = 'image / jpg';
     newItem.userInfo = req.file.originalname;
 
-    newItem.save().then(result => {
-        console.log("image created ");
-    })
-        .catch(err => {
-            console.log("image created faild");
-        });
+    var query = { "userInfo": req.file.originalname };
+    var update = {
+        userInfo: req.file.originalname,
+        img: {
+            data: fs.readFileSync(req.file.path),
+            contentType: 'image / jpg'
+        } };
+
+    img.updateOne(query, update,function (err) {
+            if (err) return console.log(err);
+            res.json({ status: 'ok', msg: 'updata success' })
+        })
                     
 });
 
 app.post("/load-pic", (req, res, next) => {
-    // console.log(req.body.userInfo);
+    console.log(req.body.userInfo);
     img.findOne({ userInfo: req.body.userInfo })
         .then(img => {
             if (img) {

@@ -93,6 +93,7 @@ export class CandProfileComponent implements OnInit {
       .post("http://localhost:3000/images/load-pic", req)
       .subscribe(data => {
         var base64Flag = 'data:image/jpeg;base64,';
+        // var imageStr = this.arrayBufferToBase64(data["img"].data.data);
         var imageStr = this.arrayBufferToBase64(data["img"].data.data);
         this.pic = base64Flag + imageStr;
       });

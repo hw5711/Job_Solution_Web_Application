@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const hrProfile = require("../models/hr-profile");
 const canProfile = require("../models/cand-profile");
 const jobFav = require("../models/job-fav");
+const imgProfile = require("../models/img");
 
 require('dotenv').config();
 const nodemailer = require('nodemailer');
@@ -65,6 +66,19 @@ router.post("/register", (req, res, next) => {
                             .catch(err => {
                                 console.log("hr account created faild");
                             });
+
+                        const img = new imgProfile({
+                            userInfo: this.userid,
+                            img:{}
+                        });
+
+                        img.save().then(result => {
+                            // console.log(" hr profile img created with new user");
+                        })
+                        .catch(err => {
+                            // console.log("hr profile img created faild");
+                        });
+
                     } else {
 
                         const canprofile = new canProfile({
@@ -77,10 +91,10 @@ router.post("/register", (req, res, next) => {
                         });
                         canprofile.save()
                             .then(result => {
-                                console.log(" hr account created with new user");
+                                // console.log(" hr account created with new user");
                             })
                             .catch(err => {
-                                console.log("hr account created faild");
+                                // console.log("hr account created faild");
                             });
 
                         const JobFav = new jobFav({
@@ -94,6 +108,18 @@ router.post("/register", (req, res, next) => {
                         .catch(err => {
                             // console.log("job fav created faild");
                         });  
+
+                        const img = new imgProfile({
+                            userInfo: this.userid,
+                            img: {}
+                        });
+
+                        img.save().then(result => {
+                            // console.log("can profile created with new user");
+                        })
+                            .catch(err => {
+                                // console.log("can profile created faild");
+                            });
                     }                          
                 })
                 .catch(err => {
