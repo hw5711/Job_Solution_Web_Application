@@ -14,3 +14,9 @@
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
 }
+
+body{
+  width: 800px;
+  margin: 2em auto;
+  text-align: center;
+}

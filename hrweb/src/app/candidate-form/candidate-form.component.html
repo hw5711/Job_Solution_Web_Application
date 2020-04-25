@@ -25,18 +25,18 @@
  </div>
 
 <!-- NAVBAR ENDS HERE -->
-<div>
-  <img src="{{pic}}" alt="Card image" class="pro_photo" style="height:100px; width: 100px;">
-  <!-- <button (click)="loadImg()">load</button> -->
-</div>
-
-<br>
-
-<br>
-<input type="file" style="display: none" (change)="selectFile($event)" #fileInput>
-<button type="button" (click)="fileInput.click()">Pick File</button>
-<br>
-<button type="button" (click)="uploadBotton()">Upload File</button>
+<body>
+  <div>
+    <img src="{{pic}}" alt="Card image" class="pro_photo" style="height:100px; width: 100px; outline: 1px">
+    <br><br>
+    <div style="display:inline;">
+      <input type="file" style="display: none" (change)="selectFile($event)" #fileInput>
+      <button style="display:inline-block" type="button" (click)="fileInput.click()">Pick File</button>
+      <span style="margin-left: 2em"></span>
+      <button style="display:inline-block" type="button" (click)="uploadBotton()">Upload File</button>
+    </div>
+  </div>
+</body>
 
 <br>
 
