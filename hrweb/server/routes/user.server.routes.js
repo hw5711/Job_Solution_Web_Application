@@ -176,7 +176,7 @@ router.post("/retrive", (req, res, next) => {
                     user: process.env.EMAIL,
                     pass: process.env.PASSWOARD
                     // user: 'stuendtactivityweb@gmail.com',
-                    // pass: '!stu1234'
+                    // pass: '!Stu1234'
                 }
             });
             var mailOptions = {
