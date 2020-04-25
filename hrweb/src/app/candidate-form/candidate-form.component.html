@@ -31,10 +31,10 @@
 
 <mat-horizontal-stepper linear #stepper style=" display:inline">
   <br>
-<button (click)="uploadBotton()">Upload File</button>
+<!--<button (click)="uploadBotton()">Upload File</button>
 <input type="file" (change)="selectFile($event)">
 <br>
-  <!-- put "required" in input-->
+ put "required" in input-->
   <!-- <mat-step [stepControl]="firstFormGroup"> -->
   <mat-step >
       <!-- <form [formGroup]="firstFormGroup">   -->
@@ -45,12 +45,12 @@
         <table class="example-full-width" cellspacing="2">
           <tr>
             <td>
-              <mat-form-field class="example-full-width firstName" appearance="outline">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>First name</mat-label>
                 <!-- <input matInput formControlName="firstName" required [ngModel]= "firstName"> 
                 <input matInput placeholder="First name" (ngModel) = "firstName" name="fName"> 
               -->
-              <input matInput placeholder="First name" [(ngModel)] = "enteredFirstName" [ngModelOptions]="{standalone: true}"> {{enteredFirstName}}
+              <input matInput placeholder="First name" [(ngModel)] = "enteredFirstName" [ngModelOptions]="{standalone: true}"> 
             </mat-form-field>
             </td>
             <td>
@@ -59,7 +59,7 @@
 <!--
                 <input matInput formControlName="lastName" required [ngModel]= "lastName"> 
                 <input matInput placeholder="Last name"  (ngModel) = "lastName" name="lName">-->
-                <input matInput placeholder="Last name"  [(ngModel)] = "enteredLastName" [ngModelOptions]="{standalone: true}">{{enteredLastName}}
+                <input matInput placeholder="Last name"  [(ngModel)] = "enteredLastName" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
             </td>
           </tr>
@@ -71,13 +71,13 @@
       <!--    <input type="tel" matInput placeholder="555-555-1234" formControlName="phone" required [ngModel]= "phone"> 
       
           <input type="tel" matInput placeholder="555-555-1234" (ngModel) = "telephone" name="telephone">-->
-          <input type="tel" matInput placeholder="555-555-1234" [(ngModel)] = "enteredTelephone" [ngModelOptions]="{standalone: true}">{{enteredTelephone}}
+          <input type="tel" matInput placeholder="555-555-1234" [(ngModel)] = "enteredTelephone" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Email</mat-label>
           <!--<input matInput placeholder="Email"  (ngModel) = "email" name="email">-->
-          <input matInput placeholder="Email"  [(ngModel)] = "enteredEmail" [ngModelOptions]="{standalone: true}">{{enteredEmail}}
+          <input matInput placeholder="Email"  [(ngModel)] = "enteredEmail" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
 <!--  
         <mat-form-field class="example-full-width" appearance="outline">
@@ -116,7 +116,7 @@
                 <mat-label>Job Title</mat-label>
                 <!--<input matInput formControlName="jobTitle">
                 <input matInput placeholder="Job Title"  (ngModel) = "job" [ngModelOptions]="{standalone: true}"> -->
-                <input matInput placeholder="Job Title"  [(ngModel)] = "enteredJob" [ngModelOptions]="{standalone: true}"> {{enteredJob}}
+                <input matInput placeholder="Job Title"  [(ngModel)] = "enteredJob" [ngModelOptions]="{standalone: true}"> 
               </mat-form-field>
             </td>
             <td>
@@ -124,7 +124,7 @@
                 <mat-label>Company</mat-label>
                <!-- <input matInput formControlName="comanyExp">
                   <input matInput placeholder="Company"  (ngModel) = "company" [ngModelOptions]="{standalone: true}"> -->
-                  <input matInput placeholder="Company"  [(ngModel)] = "enteredCompany" [ngModelOptions]="{standalone: true}"> {{enteredCompany}}
+                  <input matInput placeholder="Company"  [(ngModel)] = "enteredCompany" [ngModelOptions]="{standalone: true}"> 
               </mat-form-field>
             </td>
           </tr>
@@ -134,7 +134,7 @@
             <mat-label>Location</mat-label>
            <!-- <textarea matInput matInput formControlName="location"></textarea> 
             <input matInput placeholder="Location" (ngModel) = "location" [ngModelOptions]="{standalone: true}"> -->
-            <input matInput placeholder="Location" [(ngModel)] = "enteredLocation" [ngModelOptions]="{standalone: true}">{{enteredLocation}}
+            <input matInput placeholder="Location" [(ngModel)] = "enteredLocation" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         </p>
 
@@ -145,7 +145,7 @@
                 <mat-label>From Date</mat-label>
                 <!--<input matInput type="date">
                 <input matInput [matDatepicker]="picker1" (ngModel)= "fromDate" [ngModelOptions]="{standalone: true}"> -->
-                <input matInput [matDatepicker]="picker1" [(ngModel)]= "enteredFromDate" [ngModelOptions]="{standalone: true}"> {{enteredFromDate}}
+                <input matInput [matDatepicker]="picker1" [(ngModel)]= "enteredFromDate" [ngModelOptions]="{standalone: true}"> 
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
               </mat-form-field>
@@ -160,7 +160,7 @@
                 <mat-label>To Date</mat-label>
                 <!--<input matInput type="date">
                 <input matInput [matDatepicker]="picker2" (ngModel) = "toDate" [ngModelOptions]="{standalone: true}">--> 
-                <input matInput [matDatepicker]="picker2" [(ngModel)] = "enteredToDate" [ngModelOptions]="{standalone: true}"> {{enteredToDate}}
+                <input matInput [matDatepicker]="picker2" [(ngModel)] = "enteredToDate" [ngModelOptions]="{standalone: true}"> 
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
               </mat-form-field>
@@ -173,7 +173,7 @@
             <mat-label>Role Description</mat-label>
             <!--<textarea matInput></textarea>
             <textarea matInput placeholder="Role Description" (ngModel) = "role" [ngModelOptions]="{standalone: true}" > </textarea>-->
-            <textarea matInput placeholder="Role Description" [(ngModel)] = "enteredRole" [ngModelOptions]="{standalone: true}" > </textarea> {{enteredRole}}
+            <textarea matInput placeholder="Role Description" [(ngModel)] = "enteredRole" [ngModelOptions]="{standalone: true}" > </textarea> 
           </mat-form-field>
         </p>
 
@@ -210,7 +210,7 @@
             <mat-label>School Name</mat-label>
             <!--<textarea matInput></textarea>
             <input matInput placeholder="School Name" (ngModel) = "schoolname" name="school">-->
-            <input matInput placeholder="School Name" [(ngModel)] = "enteredSchool" [ngModelOptions]="{standalone: true}">{{enteredSchool}}
+            <input matInput placeholder="School Name" [(ngModel)] = "enteredSchool" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         </p>
         <table class="example-full-width" cellspacing="2">
@@ -219,7 +219,7 @@
               <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Education level</mat-label>
                 <!--<mat-select (ngModel) = "educationlevel">-->
-                  <mat-select [(ngModel)] = "enteredEducationlevel" [ngModelOptions]="{standalone: true}">{{enteredEducationlevel}}
+                  <mat-select [(ngModel)] = "enteredEducationlevel" [ngModelOptions]="{standalone: true}">
                   <mat-option *ngFor="let Education of Educations" [value]="Education.value">
                     {{Education.viewValue}}
                   </mat-option>
@@ -231,7 +231,7 @@
                     <mat-label>Major</mat-label>
                     <!-- <input matInput placeholder="Major" formControlName="thirdCtrl" (ngModel) = "enteredMajor"> 
                     <input matInput placeholder="Major" (ngModel) = "major" name="majoy">-->
-                    <input matInput placeholder="Major" [(ngModel)] = "enteredMajor" [ngModelOptions]="{standalone: true}">{{enteredMajor}}
+                    <input matInput placeholder="Major" [(ngModel)] = "enteredMajor" [ngModelOptions]="{standalone: true}">
                     </mat-form-field>
                 </td>
                 </tr>
@@ -255,7 +255,7 @@
               <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Start Date</mat-label>
                 <!--<input matInput [matDatepicker]="picker3" (ngModel) = "startdate" [ngModelOptions]="{standalone: true}">-->
-                <input matInput [matDatepicker]="picker3" [(ngModel)] = "enteredStartDate" [ngModelOptions]="{standalone: true}">{{enteredStartDate}}
+                <input matInput [matDatepicker]="picker3" [(ngModel)] = "enteredStartDate" [ngModelOptions]="{standalone: true}">
                 <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
                 <mat-datepicker #picker3></mat-datepicker>
                 </mat-form-field>
@@ -265,7 +265,7 @@
               <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>End Date (Actual or Expected)</mat-label>
                 <!--<input matInput [matDatepicker]="picker4" (ngModel) = "enddate" [ngModelOptions]="{standalone: true}">-->
-                <input matInput [matDatepicker]="picker4" [(ngModel)] = "enteredEndDate" [ngModelOptions]="{standalone: true}"> {{enteredEndDate}}
+                <input matInput [matDatepicker]="picker4" [(ngModel)] = "enteredEndDate" [ngModelOptions]="{standalone: true}"> 
                 <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
                 <mat-datepicker #picker4></mat-datepicker>
                 </mat-form-field>
@@ -305,7 +305,7 @@
             <mat-label>Certificate Name</mat-label>
             <!--<textarea matInput></textarea>
             <input matInput placeholder="Certificate Name" (ngModel) = "certificate" name="certificate">-->
-            <input matInput placeholder="Certificate Name" [(ngModel)] = "enteredCertificate" name="certificate">{{enteredCertificate}}
+            <input matInput placeholder="Certificate Name" [(ngModel)] = "enteredCertificate" name="certificate">
           </mat-form-field>
         </p>
         <p>
@@ -314,7 +314,7 @@
             <!--<textarea matInput></textarea>
             <input matInput placeholder="From" (ngModel) = "certificatefrom" name="from">-->
 
-          <input matInput placeholder="From" [(ngModel)] = "enteredCertificateFrom" [ngModelOptions]="{standalone: true}">{{enteredCertificateFrom}}
+          <input matInput placeholder="From" [(ngModel)] = "enteredCertificateFrom" [ngModelOptions]="{standalone: true}">
             
           </mat-form-field>
         </p>
@@ -324,7 +324,7 @@
           <mat-label>Expiration Date</mat-label>
           <!--<input matInput formControlName="date" type="date">
           <input matInput [matDatepicker]="picker5" (ngModel) = "expirationDate" [ngModelOptions]="{standalone: true}"> -->
-          <input matInput [matDatepicker]="picker5" [(ngModel)] = "enteredExpirationDate" [ngModelOptions]="{standalone: true}"> {{enteredExpirationDate}}
+          <input matInput [matDatepicker]="picker5" [(ngModel)] = "enteredExpirationDate" [ngModelOptions]="{standalone: true}"> 
           <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
           <mat-datepicker #picker5></mat-datepicker>
         </mat-form-field>
