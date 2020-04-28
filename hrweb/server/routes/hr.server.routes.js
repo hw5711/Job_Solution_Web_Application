@@ -24,6 +24,7 @@ app.post("/posted_job", function (req, res, next) {
         if (err) return next(err);
         return res.json(post);
     }).sort('candidate.rank');
+    // })._addSpecial("$orderby", { 'candidate.rank': -1 });
 });
 
 //candidate check applied jobs
@@ -49,7 +50,6 @@ app.post("/delete_job", function (req, res, next) {
 
 //update a posted job
 app.post("/update_job", function (req, res, next) {
-    // console.log(req.body);
     job.updateOne(
         { job_id: req.body.job_id },
         {   

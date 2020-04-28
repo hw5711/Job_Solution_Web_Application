@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginService } from "../../login/login.service";
 
 export interface DialogData {
+  job_id: string,
   title: string,
   jobType: string,
   location: string,

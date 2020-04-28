@@ -7,6 +7,7 @@ import { EditPopupComponent } from './edit-popup/edit-popup.component';
 
 
 export interface DialogData {
+  job_id:string,
   title: string,
   jobType: string,
   location: string,
@@ -89,12 +90,13 @@ export class ViewPostingComponent implements OnInit{
     const dialogRef = this.dialog.open(EditPopupComponent, {
       width: '800px',
       height: '600px',
-      data: {title: j.title, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription, changed: this.changed }
+      data: {job_id: j.job_id, title: j.title, company: j.company, jobType: j.jobType, location: j.location, industryType: j.industryType, jobDescription: j.jobDescription, changed: this.changed }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){
         // console.log('The dialog was closed: ', result);
+        this.job_id = result.job_id;
         this.title = result.title;
         this.jobType =  result.jobType;
         this.location =  result.location;
@@ -124,7 +126,7 @@ export class ViewPostingComponent implements OnInit{
       jobDescription: this.jobDescription,
       candidate: this.searchResault.candidate,
     };
-
+    console.log(req);
     this.http
       .post("http://localhost:3000/hr/update_job", req)
       .subscribe(response => {
