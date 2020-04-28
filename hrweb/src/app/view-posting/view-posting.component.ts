@@ -126,7 +126,6 @@ export class ViewPostingComponent implements OnInit{
       jobDescription: this.jobDescription,
       candidate: this.searchResault.candidate,
     };
-    console.log(req);
     this.http
       .post("http://localhost:3000/hr/update_job", req)
       .subscribe(response => {
