@@ -1,5 +1,5 @@
 
-# This is a HR web project using MEAN stack.We will use puppeteer for testing. Frontend is Angular, backend is Express which is one of the Node.js packages, database is mongodb cloud.
+# This is a JOB solution web application project using MEAN stack.We will use puppeteer for testing. Frontend is Angular, backend is Express which is one of the Node.js packages, database is mongodb cloud.
 
 -> ng start //To run the project with one terminal opened
 
