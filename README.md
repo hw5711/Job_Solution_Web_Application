@@ -1,5 +1,84 @@
+# Program - Job Solution Web
+----------------------------------
+The goal of this project is to create a web app to assist with 2 roles related to job solution(HR & Candidate).This project will focus on critical aspects of full-stack web development such as user access & security, server-side and client-side development, and UI/UX considerations.
 
-This is a JOB solution web application project using MEAN stack.We will use puppeteer for testing. Frontend is Angular, backend is Express which is one of the Node.js packages, database is mongodb cloud.
+Functional Requirements
+------------------------
+1. Users must be authenticated & authorized & retrive authentication to be able to access the website.
+2. For HR role. HR are able to create and edit jobs. HR can review and make choice upon applications from candidates. HR users can edit profiles.
+3. For Candidate role. Candidates can search jobs view detials of the job. Candidate can save the target jobs with a favorite tag. Candidate can fill out an application regard specific jobs and check the response from the HR.
+
+Non-Functional Requirements
+---------------------------
+1. Front-end - Angular. For running frontend : "ng serve"
+2. Server-side - Node.js.For running backend: "nodemon server"
+3. Database - Mongodb Cloud
+ 
+Client-side - UI:
+---------------
+1. Welcome page:
+https://drive.google.com/file/d/13uXmvOarLD6jbBsL0KKA7NxUokH0jokp/view?usp=sharing
+
+2. Login page:
+https://drive.google.com/file/d/1TLtOUIQoxbnsXZRaFOCPBmH11jU0nN2C/view?usp=sharing
+
+3. register page:
+https://drive.google.com/file/d/1KRL4LmARQqXJWWsNr-SDdkk186ZXnMml/view?usp=sharing
+
+4. Reset Password page:
+click forget password, enter retrive email: https://drive.google.com/file/d/1Ff_zYj1PfDX5Upg9jgFv6W2EQIyAP9uG/view?usp=sharing
+send link to the emial: https://drive.google.com/file/d/1uJ1RrtN4rSsB9UMM3wwwxHmCKHRWYI-Q/view?usp=sharing
+reset new password:https://drive.google.com/file/d/1RjOLb8PHyDfkyKKSBK4mA2bVsGwhPs9i/view?usp=sharing
+
+HR part:
+1. post job page:
+https://drive.google.com/file/d/1mqnLvb01c57B3eJX2Zc_qbJpUf3TWM6j/view?usp=sharing
+
+2. view candidate page:
+https://drive.google.com/file/d/15Z_6xPq0cdCiX5Knnl2NTXEKTkzeV4nz/view?usp=sharing
+
+3. view and edit posted jobs:
+https://drive.google.com/file/d/1VEQXd0NhRE-Ds0-64O9bwR8sRu_7MvyU/view?usp=sharing
+
+4. edit profile page:
+https://drive.google.com/file/d/1Q6ZXKaC8pBVNiHrT8DmP6uNDad26cEB9/view?usp=sharing
+
+Candidate part:
+1. serch job page:
+https://drive.google.com/file/d/1oVnk-IUFzSm7dDkJBMJGsgwlW4YI-s2-/view?usp=sharing
+
+2. check job detail page:
+https://drive.google.com/file/d/1s6sHH5PNCzJBVarykjX2AfGMEWShdW6w/view?usp=sharing
+
+3. check fav jobs page:
+https://drive.google.com/file/d/1JWHVhjcBTPSj9eaFpvaYU2wY4rsTCig7/view?usp=sharing
+
+4. apply job page:
+https://drive.google.com/file/d/1I7hf1i5tB_6dMQJuNDEnYhkTFqNh4GUy/view?usp=sharing
+
+5. job apply history page:
+https://drive.google.com/file/d/1zj4B_FrcLcnaqW04zZFSID_jkAwboZdJ/view?usp=sharing
+
+6. check company page:
+https://drive.google.com/file/d/1QRsIOdy6st5uCvrrMvnVZTh-2w--NFf7/view?usp=sharing
+
+
+Database screenshot:
+--------------------
+https://drive.google.com/file/d/1Bn54-HKfEn922gPlO3VrkCeer69RL494/view?usp=sharing
+https://drive.google.com/file/d/1rK5fYbWn2RmiAhcmGXMY8utE1-eJF_b8/view?usp=sharing
+
+Deploy Method - Heroku:
+-----------------------
+
+Screenshot: https://drive.google.com/file/d/1G8eo47hP-UxlcgGtM7PiQwHif6tNfUtG/view?usp=sharing
+
+Unit Testing:
+-------------
+Unit testing for Angular component using Jest and puppeteer.
+
+Config Steps:
+-------------
 
 -> ng start //To run the project with one terminal opened
 
